@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aboutyou.cloud.adminapi.ProductTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-09-28T07:20:29" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.244">
+  <properties/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.064"/>
+  <testcase name="testFind" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.066"/>
+  <testcase name="testReplace" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.044"/>
+  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.059"/>
+  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

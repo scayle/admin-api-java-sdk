@@ -1,0 +1,50 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+group = 'com.aboutyou.cloud.adminapi'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+    compile 'com.google.code.gson:gson:2.8.6'
+
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.19.0'
+    testImplementation 'com.squareup.moshi:moshi:1.9.3'
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    compile 'com.squareup.okhttp3:okhttp:4.8.1'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'com.aboutyou.cloud.adminapi.',
+                   'Implementation-Title': project.name,
+                   'Implementation-Version': project.version)
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
