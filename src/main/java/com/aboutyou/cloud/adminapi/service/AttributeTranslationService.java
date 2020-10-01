@@ -13,23 +13,23 @@ public class AttributeTranslationService extends AbstractService {
         super(httpClient);
     }
 
-    public void updateOrCreate(Object attributeName, Map<String, String> model) throws ApiErrorException, ConnectionException {
+    public void updateOrCreate(String attributeName, Map<String, String> model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/attributes/%s/translations", attributeName), null, null, model);
     }
 
-    public void updateOrCreate(Object attributeName, Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void updateOrCreate(String attributeName, Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/attributes/%s/translations", attributeName), options, null, model);
     }
 
-    public ApiCollection<Map<String, String>> all(Object attributeName) throws ApiErrorException, ConnectionException {
+    public ApiCollection<Map<String, String>> all(String attributeName) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 
         return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeName), null, responseModel);
     }
 
-    public ApiCollection<Map<String, String>> all(Object attributeName, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<Map<String, String>> all(String attributeName, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 
         return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeName), options, responseModel);

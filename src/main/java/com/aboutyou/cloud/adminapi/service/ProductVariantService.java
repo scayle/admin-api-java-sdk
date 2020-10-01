@@ -13,60 +13,60 @@ public class ProductVariantService extends AbstractService {
         super(httpClient);
     }
 
-    public ProductVariant create(Object productIdentifier, ProductVariant model) throws ApiErrorException, ConnectionException {
+    public ProductVariant create(Identifier productIdentifier, ProductVariant model) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.request("post", this.resolvePath("/products/%s/variants", productIdentifier), null, responseModel, model);
     }
 
-    public ProductVariant create(Object productIdentifier, ProductVariant model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductVariant create(Identifier productIdentifier, ProductVariant model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.request("post", this.resolvePath("/products/%s/variants", productIdentifier), options, responseModel, model);
     }
 
-    public ProductVariant find(Object productIdentifier, Object variantIdentifier) throws ApiErrorException, ConnectionException {
+    public ProductVariant get(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.request("get", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), null, responseModel);
     }
 
-    public ProductVariant find(Object productIdentifier, Object variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductVariant get(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.request("get", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), options, responseModel);
     }
 
-    public ApiCollection<ProductVariant> all(Object productIdentifier) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariant> all(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.requestCollection("get", this.resolvePath("/products/%s/variants", productIdentifier), null, responseModel);
     }
 
-    public ApiCollection<ProductVariant> all(Object productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariant> all(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.requestCollection("get", this.resolvePath("/products/%s/variants", productIdentifier), options, responseModel);
     }
 
-    public ProductVariant replace(Object productIdentifier, Object variantIdentifier, ProductVariant model) throws ApiErrorException, ConnectionException {
+    public ProductVariant update(Identifier productIdentifier, Identifier variantIdentifier, ProductVariant model) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.request("put", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), null, responseModel, model);
     }
 
-    public ProductVariant replace(Object productIdentifier, Object variantIdentifier, ProductVariant model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductVariant update(Identifier productIdentifier, Identifier variantIdentifier, ProductVariant model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
 
         return this.request("put", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), options, responseModel, model);
     }
 
-    public void delete(Object productIdentifier, Object variantIdentifier) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), null, null);
     }
 
-    public void delete(Object productIdentifier, Object variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), options, null);
     }

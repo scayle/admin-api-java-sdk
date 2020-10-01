@@ -13,25 +13,25 @@ public class ProductVariantPriceService extends AbstractService {
         super(httpClient);
     }
 
-    public ProductVariantPrice create(Object productIdentifier, Object variantIdentifier, ProductVariantPrice model) throws ApiErrorException, ConnectionException {
+    public ProductVariantPrice create(Identifier productIdentifier, Identifier variantIdentifier, ProductVariantPrice model) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
         return this.request("post", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), null, responseModel, model);
     }
 
-    public ProductVariantPrice create(Object productIdentifier, Object variantIdentifier, ProductVariantPrice model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductVariantPrice create(Identifier productIdentifier, Identifier variantIdentifier, ProductVariantPrice model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
         return this.request("post", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), options, responseModel, model);
     }
 
-    public ApiCollection<ProductVariantPrice> all(Object productIdentifier, Object variantIdentifier) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantPrice> all(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
         return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), null, responseModel);
     }
 
-    public ApiCollection<ProductVariantPrice> all(Object productIdentifier, Object variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantPrice> all(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
         return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), options, responseModel);

@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductVariantPrice implements ApiObjectInterface {
     /**
-    * 
+    * Id assigned by BACKBONE Core.
     */
     @SerializedName("id")
     Integer id;
@@ -48,19 +48,19 @@ public class ProductVariantPrice implements ApiObjectInterface {
     Integer recommendedRetailPrice;
 
     /**
-    * If present, the price will be added to the specified Price Group
+    * Key of the group the price is assigned to.
     */
     @SerializedName("groupKey")
     String groupKey;
 
     /**
-    * 
+    * Key of the promotion the price is assigned to.
     */
     @SerializedName("promotionKey")
     String promotionKey;
 
     /**
-    * 
+    * Describes the price for a specific unit.
     */
     @SerializedName("unitPrice")
     ProductVariantUnitPrice unitPrice;
@@ -72,13 +72,13 @@ public class ProductVariantPrice implements ApiObjectInterface {
     Double tax;
 
     /**
-    * Controlls when the price will be activated. If not present or null, its intepretated as valid from now
+    * Controlls when the price will be activated. If not present or null, its intepretated as valid from now.
     */
     @SerializedName("validFrom")
     String validFrom;
 
     /**
-    * 
+    * Controlls when the price will be deactivated. If not present or null, the price is valid forever.
     */
     @SerializedName("validTo")
     String validTo;

@@ -20,14 +20,14 @@ public class HttpClient {
         this.apiConfiguration = apiConfiguration;
     }
 
-    public Response request(String httpMethod, String relativeUrl, Map<String, String> options, String body) throws IOException {
+    public Response request(String httpMethod, String relativeUrl, Map<String, Object> options, String body) throws IOException {
         httpMethod = httpMethod.toUpperCase();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(this.apiConfiguration.getUrl() + relativeUrl).newBuilder();
 
         if (options != null) {
             for (String key : options.keySet()) {
-                urlBuilder.addQueryParameter(key, options.get(key));
+                urlBuilder.addQueryParameter(key, String.valueOf(options.get(key)));
             }
         }
 

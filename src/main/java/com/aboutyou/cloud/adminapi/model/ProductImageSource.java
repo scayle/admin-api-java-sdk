@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class ProductImageSource implements ApiObjectInterface {
     /**
-    * Url of remote image
+    * Url of remote image.
     */
     @SerializedName("url")
     String url;
 
     /**
-    * Base64 encoded binary image data
+    * Base64 encoded binary image data.
     */
     @SerializedName("attachment")
     String attachment;

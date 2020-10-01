@@ -18,7 +18,7 @@ public class Master implements ApiObjectInterface {
     String referenceKey;
 
     /**
-    * 
+    * A list of attributes attached to the master.
     */
     @SerializedName("attributes")
     List<AttributeInterface> attributes;

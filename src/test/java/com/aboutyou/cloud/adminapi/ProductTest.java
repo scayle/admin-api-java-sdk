@@ -41,11 +41,11 @@ public class ProductTest extends BaseApiTest {
     }
 
     @Test
-    public void testFind() throws Exception {
+    public void testGet() throws Exception {
 
-    Product responseEntity = this.api.products().find("1",  null);
+    Product responseEntity = this.api.products().get(Identifier.fromId(1),  null);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/ProductFindResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductGetResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
@@ -85,17 +85,17 @@ public class ProductTest extends BaseApiTest {
     }
 
     @Test
-    public void testReplace() throws Exception {
-        String expectedRequestJson = this.loadFixture("/fixtures/ProductReplaceRequest.json");
+    public void testUpdate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUpdateRequest.json");
         Product requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Product.class);
 
         assertThatJson(expectedRequestJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Product responseEntity = this.api.products().replace("1", requestEntity,  null);
+    Product responseEntity = this.api.products().update(Identifier.fromId(1), requestEntity,  null);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/ProductReplaceResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
@@ -114,7 +114,7 @@ public class ProductTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.products().delete("1",  null);
+    this.api.products().delete(Identifier.fromId(1),  null);
 
     }
 

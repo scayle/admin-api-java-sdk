@@ -22,7 +22,7 @@ public class ProductImageTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductImage responseEntity = this.api.productImages().create("1", requestEntity,  null);
+    ProductImage responseEntity = this.api.productImages().create(Identifier.fromId(1), requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductImageCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -39,7 +39,7 @@ public class ProductImageTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<ProductImage> responseEntity = this.api.productImages().all("1",  null);
+    ApiCollection<ProductImage> responseEntity = this.api.productImages().all(Identifier.fromId(1),  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductImageAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -64,7 +64,7 @@ public class ProductImageTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductImage responseEntity = this.api.productImages().updatePosition("1", "1", requestEntity,  null);
+    ProductImage responseEntity = this.api.productImages().updatePosition(Identifier.fromId(1), Identifier.fromId(1), requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductImageUpdatePositionResponse.json");
         assertThatJson(expectedResponseJson)
@@ -81,7 +81,7 @@ public class ProductImageTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.productImages().delete("1", "1",  null);
+    this.api.productImages().delete(Identifier.fromId(1), Identifier.fromId(1),  null);
 
     }
 

@@ -22,7 +22,7 @@ public class ProductVariantTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductVariant responseEntity = this.api.productVariants().create("1", requestEntity,  null);
+    ProductVariant responseEntity = this.api.productVariants().create(Identifier.fromId(1), requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -41,11 +41,11 @@ public class ProductVariantTest extends BaseApiTest {
     }
 
     @Test
-    public void testFind() throws Exception {
+    public void testGet() throws Exception {
 
-    ProductVariant responseEntity = this.api.productVariants().find("1", "1",  null);
+    ProductVariant responseEntity = this.api.productVariants().get(Identifier.fromId(1), Identifier.fromId(1),  null);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantFindResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantGetResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
@@ -64,7 +64,7 @@ public class ProductVariantTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<ProductVariant> responseEntity = this.api.productVariants().all("1",  null);
+    ApiCollection<ProductVariant> responseEntity = this.api.productVariants().all(Identifier.fromId(1),  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -85,17 +85,17 @@ public class ProductVariantTest extends BaseApiTest {
     }
 
     @Test
-    public void testReplace() throws Exception {
-        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantReplaceRequest.json");
+    public void testUpdate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantUpdateRequest.json");
         ProductVariant requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ProductVariant.class);
 
         assertThatJson(expectedRequestJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductVariant responseEntity = this.api.productVariants().replace("1", "1", requestEntity,  null);
+    ProductVariant responseEntity = this.api.productVariants().update(Identifier.fromId(1), Identifier.fromId(1), requestEntity,  null);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantReplaceResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantUpdateResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
@@ -114,7 +114,7 @@ public class ProductVariantTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.productVariants().delete("1", "1",  null);
+    this.api.productVariants().delete(Identifier.fromId(1), Identifier.fromId(1),  null);
 
     }
 

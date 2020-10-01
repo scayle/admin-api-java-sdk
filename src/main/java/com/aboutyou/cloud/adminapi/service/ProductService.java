@@ -25,13 +25,13 @@ public class ProductService extends AbstractService {
         return this.request("post", this.resolvePath("/products"), options, responseModel, model);
     }
 
-    public Product find(Object productIdentifier) throws ApiErrorException, ConnectionException {
+    public Product get(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
         return this.request("get", this.resolvePath("/products/%s", productIdentifier), null, responseModel);
     }
 
-    public Product find(Object productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Product get(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
         return this.request("get", this.resolvePath("/products/%s", productIdentifier), options, responseModel);
@@ -49,24 +49,24 @@ public class ProductService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/products"), options, responseModel);
     }
 
-    public Product replace(Object productIdentifier, Product model) throws ApiErrorException, ConnectionException {
+    public Product update(Identifier productIdentifier, Product model) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
         return this.request("put", this.resolvePath("/products/%s", productIdentifier), null, responseModel, model);
     }
 
-    public Product replace(Object productIdentifier, Product model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Product update(Identifier productIdentifier, Product model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
         return this.request("put", this.resolvePath("/products/%s", productIdentifier), options, responseModel, model);
     }
 
-    public void delete(Object productIdentifier) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s", productIdentifier), null, null);
     }
 
-    public void delete(Object productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s", productIdentifier), options, null);
     }

@@ -13,48 +13,48 @@ public class ProductImageService extends AbstractService {
         super(httpClient);
     }
 
-    public ProductImage create(Object productIdentifier, ProductImage model) throws ApiErrorException, ConnectionException {
+    public ProductImage create(Identifier productIdentifier, ProductImage model) throws ApiErrorException, ConnectionException {
         Class<ProductImage> responseModel = (Class<ProductImage>)(Class<?>)ProductImage.class;
 
         return this.request("post", this.resolvePath("/products/%s/images", productIdentifier), null, responseModel, model);
     }
 
-    public ProductImage create(Object productIdentifier, ProductImage model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductImage create(Identifier productIdentifier, ProductImage model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductImage> responseModel = (Class<ProductImage>)(Class<?>)ProductImage.class;
 
         return this.request("post", this.resolvePath("/products/%s/images", productIdentifier), options, responseModel, model);
     }
 
-    public ApiCollection<ProductImage> all(Object productIdentifier) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductImage> all(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductImage> responseModel = (Class<ProductImage>)(Class<?>)ProductImage.class;
 
         return this.requestCollection("get", this.resolvePath("/products/%s/images", productIdentifier), null, responseModel);
     }
 
-    public ApiCollection<ProductImage> all(Object productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductImage> all(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductImage> responseModel = (Class<ProductImage>)(Class<?>)ProductImage.class;
 
         return this.requestCollection("get", this.resolvePath("/products/%s/images", productIdentifier), options, responseModel);
     }
 
-    public ProductImage updatePosition(Object productIdentifier, Object imageIdentifier, ProductImagePosition model) throws ApiErrorException, ConnectionException {
+    public ProductImage updatePosition(Identifier productIdentifier, Identifier imageIdentifier, ProductImagePosition model) throws ApiErrorException, ConnectionException {
         Class<ProductImage> responseModel = (Class<ProductImage>)(Class<?>)ProductImage.class;
 
         return this.request("patch", this.resolvePath("/products/%s/images/%s", productIdentifier, imageIdentifier), null, responseModel, model);
     }
 
-    public ProductImage updatePosition(Object productIdentifier, Object imageIdentifier, ProductImagePosition model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductImage updatePosition(Identifier productIdentifier, Identifier imageIdentifier, ProductImagePosition model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductImage> responseModel = (Class<ProductImage>)(Class<?>)ProductImage.class;
 
         return this.request("patch", this.resolvePath("/products/%s/images/%s", productIdentifier, imageIdentifier), options, responseModel, model);
     }
 
-    public void delete(Object productIdentifier, Object imageIdentifier) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier productIdentifier, Identifier imageIdentifier) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s/images/%s", productIdentifier, imageIdentifier), null, null);
     }
 
-    public void delete(Object productIdentifier, Object imageIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier productIdentifier, Identifier imageIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s/images/%s", productIdentifier, imageIdentifier), options, null);
     }

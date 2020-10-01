@@ -86,7 +86,7 @@ public abstract class AbstractService {
 
     private Response executeRequest(String httpMethod, String relativeUrl, ApiOptions options, Object body) throws Exception {
         String jsonRequestBody = null;
-        Map<String, String> requestOptions = null;
+        Map<String, Object> requestOptions = null;
 
         if (options != null) {
             requestOptions = options.getOptions();

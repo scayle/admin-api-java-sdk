@@ -12,19 +12,19 @@ import lombok.Setter;
 @Setter
 public class ProductVariantUnitPrice implements ApiObjectInterface {
     /**
-    * 
+    * The name of the unit the amount and price references to.
     */
     @SerializedName("unit")
     String unit;
 
     /**
-    * 
+    * The amount referenced by the price.
     */
     @SerializedName("amount")
     Integer amount;
 
     /**
-    * 
+    * The reference price.
     */
     @SerializedName("price")
     Integer price;

@@ -73,6 +73,8 @@ com/aboutyou/cloud/adminapi/model/ApiCollection.java
  com.aboutyou.cloud.adminapi.model.ApiCollection
 com/aboutyou/cloud/adminapi/model/SimpleAttribute.java
  com.aboutyou.cloud.adminapi.model.SimpleAttribute
+com/aboutyou/cloud/adminapi/model/Identifier.java
+ com.aboutyou.cloud.adminapi.model.Identifier
 com/aboutyou/cloud/adminapi/polymorphism/PolymorphicInterface.java
  com.aboutyou.cloud.adminapi.polymorphism.PolymorphicInterface
 com/aboutyou/cloud/adminapi/http/HttpClient.java

@@ -12,25 +12,25 @@ import lombok.Setter;
 @Setter
 public class ProductVariantStock implements ApiObjectInterface {
     /**
-    * New quantity of SKU
+    * Current quantity of SKU.
     */
     @SerializedName("quantity")
-    Double quantity;
+    Integer quantity;
 
     /**
-    * Reference key of warehouse for which the stock update is related to
+    * Reference key of warehouse for which the stock update is related to.
     */
     @SerializedName("warehouseReferenceKey")
     String warehouseReferenceKey;
 
     /**
-    * Reference key of merchant
+    * Reference key of merchant.
     */
     @SerializedName("merchantReferenceKey")
     String merchantReferenceKey;
 
     /**
-    * Date time when the stock changed
+    * Date time when the stock changed in Iso8601 Zulu format.
     */
     @SerializedName("changedAt")
     String changedAt;

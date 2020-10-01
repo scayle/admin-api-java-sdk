@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ApiOptions {
-    private final Map<String, String> options;
+    private final Map<String, Object> options;
 
-    private ApiOptions(Map<String, String> options) {
+    private ApiOptions(Map<String, Object> options) {
         this.options = options;
     }
 
-    public Map<String, String> getOptions() {
+    public Map<String, Object> getOptions() {
         return this.options;
     }
 
@@ -19,13 +19,13 @@ public class ApiOptions {
     }
 
     public static class ApiOptionsBuilder {
-        private final Map<String, String> options;
+        private final Map<String, Object> options;
 
         public ApiOptionsBuilder() {
-            this.options = new HashMap<String, String>();
+            this.options = new HashMap<String, Object>();
         }
 
-        public ApiOptionsBuilder addOption(String key, String value) {
+        public ApiOptionsBuilder addOption(String key, Object value) {
             this.options.put(key, value);
             return this;
         }
