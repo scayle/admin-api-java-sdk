@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aboutyou.cloud.adminapi.AttributeTranslationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-05T16:25:34" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.025">
+<testsuite name="com.aboutyou.cloud.adminapi.AttributeTranslationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-05T16:37:54" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.023">
   <properties/>
-  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.AttributeTranslationTest" time="0.014"/>
-  <testcase name="testUpdateOrCreate" classname="com.aboutyou.cloud.adminapi.AttributeTranslationTest" time="0.011"/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.AttributeTranslationTest" time="0.011"/>
+  <testcase name="testUpdateOrCreate" classname="com.aboutyou.cloud.adminapi.AttributeTranslationTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
