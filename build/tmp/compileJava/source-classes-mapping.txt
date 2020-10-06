@@ -8,6 +8,8 @@ com/aboutyou/cloud/adminapi/model/ProductImageSource.java
  com.aboutyou.cloud.adminapi.model.ProductImageSource
 com/aboutyou/cloud/adminapi/service/ProductImageService.java
  com.aboutyou.cloud.adminapi.service.ProductImageService
+com/aboutyou/cloud/adminapi/model/AttributeGroup.java
+ com.aboutyou.cloud.adminapi.model.AttributeGroup
 com/aboutyou/cloud/adminapi/model/Master.java
  com.aboutyou.cloud.adminapi.model.Master
 com/aboutyou/cloud/adminapi/service/ProductVariantPriceService.java

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aboutyou.cloud.adminapi.ProductVariantStockTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-05T16:37:54" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.023">
+<testsuite name="com.aboutyou.cloud.adminapi.ProductVariantStockTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-06T10:07:50" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.046">
   <properties/>
-  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductVariantStockTest" time="0.012"/>
-  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductVariantStockTest" time="0.011"/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductVariantStockTest" time="0.029"/>
+  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductVariantStockTest" time="0.016"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
