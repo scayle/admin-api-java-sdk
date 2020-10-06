@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aboutyou.cloud.adminapi.ProductImageTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-10-06T13:59:46" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.099">
+<testsuite name="com.aboutyou.cloud.adminapi.ProductImageTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-10-06T14:31:15" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.096">
   <properties/>
-  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.023"/>
-  <testcase name="testUpdatePosition" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.035"/>
-  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.031"/>
-  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.008"/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.02"/>
+  <testcase name="testUpdatePosition" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.024"/>
+  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.024"/>
+  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductImageTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

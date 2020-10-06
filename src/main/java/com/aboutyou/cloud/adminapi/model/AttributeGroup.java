@@ -50,19 +50,24 @@ Not applicable to advanced and advancedList types.
     String level;
 
     /**
-    * A structure, which describes advanced attribute values. Mandatory for advanced and advancedList types.
+    * A structure, which describes advanced attribute values.
+Mandatory for advanced and advancedList types.
+
     */
     @SerializedName("structure")
     Map<String, Object> structure;
 
     /**
     * A list of shop keys the attribute group is valid for.
+The attribute group is valid for all shops if the field is omitted.
+
     */
     @SerializedName("shopKeys")
     List<String> shopKeys;
 
     /**
     * Defines if shop specific attribute values are allowed for the given attribute group.
+
     */
     @SerializedName("isOverridablePerShop")
     Boolean isOverridablePerShop;
