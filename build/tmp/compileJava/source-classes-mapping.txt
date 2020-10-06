@@ -6,10 +6,10 @@ com/aboutyou/cloud/adminapi/model/AdvancedAttribute.java
  com.aboutyou.cloud.adminapi.model.AdvancedAttribute
 com/aboutyou/cloud/adminapi/model/ProductImageSource.java
  com.aboutyou.cloud.adminapi.model.ProductImageSource
-com/aboutyou/cloud/adminapi/model/Shop.java
- com.aboutyou.cloud.adminapi.model.Shop
 com/aboutyou/cloud/adminapi/service/ProductImageService.java
  com.aboutyou.cloud.adminapi.service.ProductImageService
+com/aboutyou/cloud/adminapi/model/AttributeGroup.java
+ com.aboutyou.cloud.adminapi.model.AttributeGroup
 com/aboutyou/cloud/adminapi/model/Master.java
  com.aboutyou.cloud.adminapi.model.Master
 com/aboutyou/cloud/adminapi/service/ProductVariantPriceService.java
@@ -20,8 +20,6 @@ com/aboutyou/cloud/adminapi/service/ProductVariantStockService.java
  com.aboutyou.cloud.adminapi.service.ProductVariantStockService
 com/aboutyou/cloud/adminapi/polymorphism/Polymorphic.java
  com.aboutyou.cloud.adminapi.polymorphism.Polymorphic
-com/aboutyou/cloud/adminapi/model/ShopProperty.java
- com.aboutyou.cloud.adminapi.model.ShopProperty
 com/aboutyou/cloud/adminapi/factory/ServiceFactory.java
  com.aboutyou.cloud.adminapi.factory.ServiceFactory
 com/aboutyou/cloud/adminapi/polymorphism/PolymorphicAdapter.java
@@ -59,8 +57,6 @@ com/aboutyou/cloud/adminapi/serializer/JsonSerializer.java
  com.aboutyou.cloud.adminapi.serializer.JsonSerializer
  com.aboutyou.cloud.adminapi.serializer.JsonSerializer$1
  com.aboutyou.cloud.adminapi.serializer.JsonSerializer$2
-com/aboutyou/cloud/adminapi/model/ShopLogoSource.java
- com.aboutyou.cloud.adminapi.model.ShopLogoSource
 com/aboutyou/cloud/adminapi/service/ProductService.java
  com.aboutyou.cloud.adminapi.service.ProductService
 com/aboutyou/cloud/adminapi/exception/ApiError.java
