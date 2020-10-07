@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aboutyou.cloud.adminapi.ProductVariantTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-10-06T14:31:14" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.859">
+<testsuite name="com.aboutyou.cloud.adminapi.ProductVariantTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-10-07T08:48:12" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.858">
   <properties/>
-  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.704"/>
-  <testcase name="testGet" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.046"/>
-  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.061"/>
-  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.012"/>
-  <testcase name="testUpdate" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.031"/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.728"/>
+  <testcase name="testGet" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.056"/>
+  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.037"/>
+  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.008"/>
+  <testcase name="testUpdate" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.025"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation

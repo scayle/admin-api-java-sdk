@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aboutyou.cloud.adminapi.ProductTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-10-06T14:31:15" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.247">
+<testsuite name="com.aboutyou.cloud.adminapi.ProductTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-10-07T08:48:13" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.221">
   <properties/>
-  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.072"/>
-  <testcase name="testGet" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.069"/>
-  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.057"/>
-  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.009"/>
-  <testcase name="testUpdate" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.037"/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.067"/>
+  <testcase name="testGet" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.066"/>
+  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.048"/>
+  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.007"/>
+  <testcase name="testUpdate" classname="com.aboutyou.cloud.adminapi.ProductTest" time="0.033"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
