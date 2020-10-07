@@ -7,7 +7,6 @@ import com.aboutyou.cloud.adminapi.service.ProductVariantService;
 import com.aboutyou.cloud.adminapi.service.ProductVariantPriceService;
 import com.aboutyou.cloud.adminapi.service.AttributeTranslationService;
 import com.aboutyou.cloud.adminapi.service.ProductVariantStockService;
-import com.aboutyou.cloud.adminapi.service.ShopService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -42,11 +41,6 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductVariantStockService productVariantStocks() {
         ProductVariantStockService service = this.getService("com.aboutyou.cloud.adminapi.service.ProductVariantStockService");
-        return service;
-    }
-
-    public ShopService shops() {
-        ShopService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopService");
         return service;
     }
 

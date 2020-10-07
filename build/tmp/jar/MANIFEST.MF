@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: com.aboutyou.cloud.adminapi.
-Implementation-Title: AdminAPI
-Implementation-Version: 0.0.1-SNAPSHOT
-
