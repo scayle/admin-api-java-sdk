@@ -1,0 +1,16 @@
+stages:
+- deploy
+
+deploy:snapshot:
+    stage: deploy
+    rules:
+        - when: manual
+    script:
+        - echo "a"
+
+deploy:release:
+    stage: deploy
+    rules:
+        - when: manual
+    script:
+        - echo "a"
