@@ -8,6 +8,7 @@ default:
     tags:
         - babo-runner
     before_script:
+        - apt-get update
         - apt-get install -y openjdk-11-jdk
         - npm install -g @stoplight/prism-cli
         - prism mock ../build/admin-api.yaml &
