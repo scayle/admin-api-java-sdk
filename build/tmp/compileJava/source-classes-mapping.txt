@@ -1,5 +1,7 @@
 com/aboutyou/cloud/adminapi/service/ProductVariantService.java
  com.aboutyou.cloud.adminapi.service.ProductVariantService
+com/aboutyou/cloud/adminapi/service/ShopService.java
+ com.aboutyou.cloud.adminapi.service.ShopService
 com/aboutyou/cloud/adminapi/model/AttributeInterface.java
  com.aboutyou.cloud.adminapi.model.AttributeInterface
 com/aboutyou/cloud/adminapi/model/AdvancedAttribute.java

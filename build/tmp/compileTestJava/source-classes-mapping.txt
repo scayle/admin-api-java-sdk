@@ -10,5 +10,7 @@ com/aboutyou/cloud/adminapi/AttributeTranslationTest.java
  com.aboutyou.cloud.adminapi.AttributeTranslationTest
 com/aboutyou/cloud/adminapi/ProductImageTest.java
  com.aboutyou.cloud.adminapi.ProductImageTest
+com/aboutyou/cloud/adminapi/ShopTest.java
+ com.aboutyou.cloud.adminapi.ShopTest
 com/aboutyou/cloud/adminapi/ProductTest.java
  com.aboutyou.cloud.adminapi.ProductTest
