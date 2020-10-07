@@ -1,16 +1,28 @@
 stages:
 - deploy
 
+default:
+    image: node:buster
+    services:
+        - docker:dind
+    tags:
+        - babo-runner
+    script:
+        - apt-get install -y openjdk-11-jdk
+        - npm install -g @stoplight/prism-cli
+        - prism mock ../build/admin-api.yaml &
+
+
 deploy:snapshot:
     stage: deploy
     rules:
         - when: manual
     script:
-        - echo "a"
+        - ORG_GRADLE_PROJECT_environment=snapshot sh ./gradlew uploadArchives
 
 deploy:release:
     stage: deploy
     rules:
         - when: manual
     script:
-        - echo "a"
+        - ORG_GRADLE_PROJECT_environment=release sh ./gradlew uploadArchives
