@@ -7,7 +7,7 @@ default:
         - docker:dind
     tags:
         - babo-runner
-    script:
+    before_script:
         - apt-get install -y openjdk-11-jdk
         - npm install -g @stoplight/prism-cli
         - prism mock ../build/admin-api.yaml &
