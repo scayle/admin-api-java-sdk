@@ -10,6 +10,7 @@ default:
     before_script:
         - apt-get update
         - apt-get install -y openjdk-11-jdk
+        - sh ./gradlew clean
 
 deploy:snapshot:
     stage: deploy
