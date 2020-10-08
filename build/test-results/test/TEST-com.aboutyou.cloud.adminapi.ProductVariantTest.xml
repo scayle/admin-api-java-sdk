@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.aboutyou.cloud.adminapi.ProductVariantTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-10-08T10:18:48" hostname="runner-yadbz4tg-project-19273999-concurrent-0" time="0.895">
+  <properties/>
+  <testcase name="testAll" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.751"/>
+  <testcase name="testGet" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.045"/>
+  <testcase name="testCreate" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.046"/>
+  <testcase name="testDelete" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.012"/>
+  <testcase name="testUpdate" classname="com.aboutyou.cloud.adminapi.ProductVariantTest" time="0.039"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>

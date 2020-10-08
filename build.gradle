@@ -1,7 +1,5 @@
 plugins {
     id 'java-library'
-    id 'maven'
-    id 'signing'
     id 'maven-publish'
 }
 
@@ -10,20 +8,8 @@ repositories {
     mavenCentral()
 }
 
-def getNexusUsername() {
-    return hasProperty("nexusUsername") ? findProperty("nexusUsername") : ""
-}
-
-def getNexusPassword() {
-    return hasProperty("nexusPassword") ? findProperty("nexusPassword") : ""
-}
-
-def isRelease() {
-  findProperty("environment") == "release"
-}
-
 group = 'com.aboutyou.cloud.adminapi'
-version = '0.1.0' + (isRelease() ? '' : '-SNAPSHOT')
+version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -43,83 +29,22 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:4.8.1'
 }
 
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives javadocJar, sourcesJar
-}
-
-signing {
-    required {
-        gradle.taskGraph.hasTask("uploadArchives")
-    }
-
-    def signingKeyId = findProperty("signingKeyId")
-    def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-    sign configurations.archives
-}
-
-uploadArchives {
-  repositories {
-    mavenDeployer {
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-      pom.groupId = project.group
-      pom.version = project.version
-
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: getNexusUsername(), password: getNexusPassword())
-      }
-
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: getNexusUsername(), password: getNexusPassword())
-      }
-
-      pom.project {
-        name 'About You Cloud AdminAPI SDK'
-        packaging 'jar'
-        description 'About You Cloud AdminAPI SDK'
-        url 'https://resources.aboutyou.cloud/en/dev/adminapi/introduction'
-
-        scm {
-          connection 'scm:git:git@gitlab.com:aboutyou/cc-babo/admin-api-java-sdk.git'
-          developerConnection 'scm:git:git@gitlab.com:aboutyou/cc-babo/admin-api-java-sdk.git'
-          url 'https://gitlab.com/aboutyou/cc-babo/admin-api-java-sdk'
-        }
-
-        licenses {
-          license {
-            name 'The MIT License'
-            url 'https://opensource.org/licenses/MIT'
-          }
-        }
-
-        developers {
-          developer {
-            id 'AboutYou'
-            name 'About You'
-            email 'support@aboutyou.com'
-          }
-        }
-      }
-    }
-  }
-}
-
 publishing {
     publications {
         maven(MavenPublication) {
             from components.java
         }
+    }
+}
+
+jar {
+    manifest {
+        attributes('Main-Class': 'com.aboutyou.cloud.adminapi.',
+                   'Implementation-Title': project.name,
+                   'Implementation-Version': project.version)
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
