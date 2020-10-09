@@ -32,4 +32,19 @@ public class ShopTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testAll() throws Exception {
+
+    ApiCollection<Shop> responseEntity = this.api.shops().all( null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopAllResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Shop entity : responseEntity.getEntities()) {
+        }
+    }
+
 }

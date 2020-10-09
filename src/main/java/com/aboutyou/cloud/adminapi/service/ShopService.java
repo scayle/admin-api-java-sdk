@@ -25,4 +25,16 @@ public class ShopService extends AbstractService {
         return this.request("post", this.resolvePath("/shops"), options, responseModel, model);
     }
 
+    public ApiCollection<Shop> all() throws ApiErrorException, ConnectionException {
+        Class<Shop> responseModel = (Class<Shop>)(Class<?>)Shop.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops"), null, responseModel);
+    }
+
+    public ApiCollection<Shop> all(ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Shop> responseModel = (Class<Shop>)(Class<?>)Shop.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops"), options, responseModel);
+    }
+
 }

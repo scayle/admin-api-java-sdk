@@ -83,4 +83,10 @@ public class Shop implements ApiObjectInterface {
     @SerializedName("properties")
     List<ShopProperty> properties;
 
+    /**
+    * 
+    */
+    @SerializedName("assortment")
+    Object assortment;
+
 }
