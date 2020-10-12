@@ -49,4 +49,16 @@ public class ShopService extends AbstractService {
         return this.request("get", this.resolvePath("/shops/%s", shopKey), options, responseModel);
     }
 
+    public Shop update(String shopKey, Shop model) throws ApiErrorException, ConnectionException {
+        Class<Shop> responseModel = (Class<Shop>)(Class<?>)Shop.class;
+
+        return this.request("put", this.resolvePath("/shops/%s", shopKey), null, responseModel, model);
+    }
+
+    public Shop update(String shopKey, Shop model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Shop> responseModel = (Class<Shop>)(Class<?>)Shop.class;
+
+        return this.request("put", this.resolvePath("/shops/%s", shopKey), options, responseModel, model);
+    }
+
 }
