@@ -87,6 +87,6 @@ public class Shop implements ApiObjectInterface {
     * 
     */
     @SerializedName("assortment")
-    Object assortment;
+    Assortment assortment;
 
 }

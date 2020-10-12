@@ -47,4 +47,17 @@ public class ShopTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testGet() throws Exception {
+
+    Shop responseEntity = this.api.shops().get("1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopGetResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }
