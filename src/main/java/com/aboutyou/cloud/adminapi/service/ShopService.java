@@ -61,4 +61,16 @@ public class ShopService extends AbstractService {
         return this.request("put", this.resolvePath("/shops/%s", shopKey), options, responseModel, model);
     }
 
+    public Assortment updateAssortment(String shopKey, Assortment model) throws ApiErrorException, ConnectionException {
+        Class<Assortment> responseModel = (Class<Assortment>)(Class<?>)Assortment.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/assortment", shopKey), null, responseModel, model);
+    }
+
+    public Assortment updateAssortment(String shopKey, Assortment model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Assortment> responseModel = (Class<Assortment>)(Class<?>)Assortment.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/assortment", shopKey), options, responseModel, model);
+    }
+
 }

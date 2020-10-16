@@ -79,4 +79,23 @@ public class ShopTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateAssortment() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopUpdateAssortmentRequest.json");
+        Assortment requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Assortment.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Assortment responseEntity = this.api.shops().updateAssortment("1", requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopUpdateAssortmentResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }
