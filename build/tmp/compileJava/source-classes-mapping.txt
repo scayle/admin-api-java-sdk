@@ -1,0 +1,93 @@
+com/aboutyou/cloud/adminapi/service/ProductVariantService.java
+ com.aboutyou.cloud.adminapi.service.ProductVariantService
+com/aboutyou/cloud/adminapi/model/AttributeInterface.java
+ com.aboutyou.cloud.adminapi.model.AttributeInterface
+com/aboutyou/cloud/adminapi/model/AdvancedAttribute.java
+ com.aboutyou.cloud.adminapi.model.AdvancedAttribute
+com/aboutyou/cloud/adminapi/model/ProductImageSource.java
+ com.aboutyou.cloud.adminapi.model.ProductImageSource
+com/aboutyou/cloud/adminapi/service/ProductImageService.java
+ com.aboutyou.cloud.adminapi.service.ProductImageService
+com/aboutyou/cloud/adminapi/model/AttributeGroup.java
+ com.aboutyou.cloud.adminapi.model.AttributeGroup
+com/aboutyou/cloud/adminapi/model/Master.java
+ com.aboutyou.cloud.adminapi.model.Master
+com/aboutyou/cloud/adminapi/service/ProductVariantPriceService.java
+ com.aboutyou.cloud.adminapi.service.ProductVariantPriceService
+com/aboutyou/cloud/adminapi/model/AdvancedAttributeList.java
+ com.aboutyou.cloud.adminapi.model.AdvancedAttributeList
+com/aboutyou/cloud/adminapi/service/ProductVariantStockService.java
+ com.aboutyou.cloud.adminapi.service.ProductVariantStockService
+com/aboutyou/cloud/adminapi/polymorphism/Polymorphic.java
+ com.aboutyou.cloud.adminapi.polymorphism.Polymorphic
+com/aboutyou/cloud/adminapi/factory/ServiceFactory.java
+ com.aboutyou.cloud.adminapi.factory.ServiceFactory
+com/aboutyou/cloud/adminapi/polymorphism/PolymorphicAdapter.java
+ com.aboutyou.cloud.adminapi.polymorphism.PolymorphicAdapter
+com/aboutyou/cloud/adminapi/model/ProductImagePosition.java
+ com.aboutyou.cloud.adminapi.model.ProductImagePosition
+com/aboutyou/cloud/adminapi/exception/ApiErrorException.java
+ com.aboutyou.cloud.adminapi.exception.ApiErrorException
+com/aboutyou/cloud/adminapi/model/Product.java
+ com.aboutyou.cloud.adminapi.model.Product
+com/aboutyou/cloud/adminapi/model/ApiConfiguration.java
+ com.aboutyou.cloud.adminapi.model.ApiConfiguration
+ com.aboutyou.cloud.adminapi.model.ApiConfiguration$ApiConfigurationBuilder
+com/aboutyou/cloud/adminapi/model/ProductVariantStock.java
+ com.aboutyou.cloud.adminapi.model.ProductVariantStock
+com/aboutyou/cloud/adminapi/model/ApiOptions.java
+ com.aboutyou.cloud.adminapi.model.ApiOptions
+ com.aboutyou.cloud.adminapi.model.ApiOptions$1
+ com.aboutyou.cloud.adminapi.model.ApiOptions$ApiOptionsBuilder
+com/aboutyou/cloud/adminapi/polymorphism/PolymorphicMapping.java
+ com.aboutyou.cloud.adminapi.polymorphism.PolymorphicMapping
+com/aboutyou/cloud/adminapi/AdminAPI.java
+ com.aboutyou.cloud.adminapi.AdminAPI
+com/aboutyou/cloud/adminapi/model/ProductVariant.java
+ com.aboutyou.cloud.adminapi.model.ProductVariant
+com/aboutyou/cloud/adminapi/model/ProductVariantPrice.java
+ com.aboutyou.cloud.adminapi.model.ProductVariantPrice
+com/aboutyou/cloud/adminapi/exception/InvalidArgumentException.java
+ com.aboutyou.cloud.adminapi.exception.InvalidArgumentException
+com/aboutyou/cloud/adminapi/model/SimpleAttributeList.java
+ com.aboutyou.cloud.adminapi.model.SimpleAttributeList
+com/aboutyou/cloud/adminapi/model/LocalizedAttributeList.java
+ com.aboutyou.cloud.adminapi.model.LocalizedAttributeList
+com/aboutyou/cloud/adminapi/serializer/JsonSerializer.java
+ com.aboutyou.cloud.adminapi.serializer.JsonSerializer
+ com.aboutyou.cloud.adminapi.serializer.JsonSerializer$1
+ com.aboutyou.cloud.adminapi.serializer.JsonSerializer$2
+com/aboutyou/cloud/adminapi/service/ProductService.java
+ com.aboutyou.cloud.adminapi.service.ProductService
+com/aboutyou/cloud/adminapi/exception/ApiError.java
+ com.aboutyou.cloud.adminapi.exception.ApiError
+com/aboutyou/cloud/adminapi/exception/ConnectionException.java
+ com.aboutyou.cloud.adminapi.exception.ConnectionException
+com/aboutyou/cloud/adminapi/service/AbstractService.java
+ com.aboutyou.cloud.adminapi.service.AbstractService
+com/aboutyou/cloud/adminapi/model/ApiObjectInterface.java
+ com.aboutyou.cloud.adminapi.model.ApiObjectInterface
+com/aboutyou/cloud/adminapi/serializer/MapNumberAdapter.java
+ com.aboutyou.cloud.adminapi.serializer.MapNumberAdapter
+com/aboutyou/cloud/adminapi/model/ProductImage.java
+ com.aboutyou.cloud.adminapi.model.ProductImage
+com/aboutyou/cloud/adminapi/model/ApiCollection.java
+ com.aboutyou.cloud.adminapi.model.ApiCollection
+com/aboutyou/cloud/adminapi/model/SimpleAttribute.java
+ com.aboutyou.cloud.adminapi.model.SimpleAttribute
+com/aboutyou/cloud/adminapi/model/Identifier.java
+ com.aboutyou.cloud.adminapi.model.Identifier
+com/aboutyou/cloud/adminapi/polymorphism/PolymorphicInterface.java
+ com.aboutyou.cloud.adminapi.polymorphism.PolymorphicInterface
+com/aboutyou/cloud/adminapi/http/HttpClient.java
+ com.aboutyou.cloud.adminapi.http.HttpClient
+com/aboutyou/cloud/adminapi/model/LocalizedAttribute.java
+ com.aboutyou.cloud.adminapi.model.LocalizedAttribute
+com/aboutyou/cloud/adminapi/AbstractApiClient.java
+ com.aboutyou.cloud.adminapi.AbstractApiClient
+com/aboutyou/cloud/adminapi/model/ErrorResponse.java
+ com.aboutyou.cloud.adminapi.model.ErrorResponse
+com/aboutyou/cloud/adminapi/model/ProductVariantUnitPrice.java
+ com.aboutyou.cloud.adminapi.model.ProductVariantUnitPrice
+com/aboutyou/cloud/adminapi/service/AttributeTranslationService.java
+ com.aboutyou.cloud.adminapi.service.AttributeTranslationService
