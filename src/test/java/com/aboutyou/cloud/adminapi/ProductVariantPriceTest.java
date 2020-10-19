@@ -47,4 +47,11 @@ public class ProductVariantPriceTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testDeleteFuturePrice() throws Exception {
+
+    this.api.productVariantPrices().deleteFuturePrice(Identifier.fromId(1), Identifier.fromId(1), 1,  null);
+
+    }
+
 }
