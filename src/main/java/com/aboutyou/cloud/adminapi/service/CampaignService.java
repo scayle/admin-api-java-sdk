@@ -25,4 +25,16 @@ public class CampaignService extends AbstractService {
         return this.request("post", this.resolvePath("/campaigns"), options, responseModel, model);
     }
 
+    public ApiCollection<Campaign> all() throws ApiErrorException, ConnectionException {
+        Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
+
+        return this.requestCollection("get", this.resolvePath("/campaigns"), null, responseModel);
+    }
+
+    public ApiCollection<Campaign> all(ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
+
+        return this.requestCollection("get", this.resolvePath("/campaigns"), options, responseModel);
+    }
+
 }

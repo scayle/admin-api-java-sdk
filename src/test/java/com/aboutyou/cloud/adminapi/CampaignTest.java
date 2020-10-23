@@ -32,4 +32,19 @@ public class CampaignTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testAll() throws Exception {
+
+    ApiCollection<Campaign> responseEntity = this.api.campaigns().all( null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CampaignAllResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Campaign entity : responseEntity.getEntities()) {
+        }
+    }
+
 }
