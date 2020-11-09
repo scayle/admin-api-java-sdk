@@ -57,7 +57,7 @@ public class Product implements ApiObjectInterface {
     * A list of attributes attached to the product.
     */
     @SerializedName("attributes")
-    List<AttributeInterface> attributes;
+    List<Attribute> attributes;
 
     /**
     * A list of product variants attached to the product.

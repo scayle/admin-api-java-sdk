@@ -21,6 +21,6 @@ public class Master implements ApiObjectInterface {
     * A list of attributes attached to the master.
     */
     @SerializedName("attributes")
-    List<AttributeInterface> attributes;
+    List<Attribute> attributes;
 
 }

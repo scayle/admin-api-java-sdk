@@ -29,10 +29,6 @@ public class ProductImageTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
 
-        HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-            attributesMapping.put("simple", SimpleAttribute.class);
-            attributesMapping.put("simpleList", SimpleAttributeList.class);
-        this.assertPropertyHasCorrectPolymorphicType(responseEntity, "attributes", "type", attributesMapping);
 
     }
 
@@ -48,10 +44,6 @@ public class ProductImageTest extends BaseApiTest {
 
 
         for (ProductImage entity : responseEntity.getEntities()) {
-            HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-                attributesMapping.put("simple", SimpleAttribute.class);
-                attributesMapping.put("simpleList", SimpleAttributeList.class);
-            this.assertPropertyHasCorrectPolymorphicType(entity, "attributes", "type", attributesMapping);
         }
     }
 
@@ -71,10 +63,6 @@ public class ProductImageTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
 
-        HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-            attributesMapping.put("simple", SimpleAttribute.class);
-            attributesMapping.put("simpleList", SimpleAttributeList.class);
-        this.assertPropertyHasCorrectPolymorphicType(responseEntity, "attributes", "type", attributesMapping);
 
     }
 

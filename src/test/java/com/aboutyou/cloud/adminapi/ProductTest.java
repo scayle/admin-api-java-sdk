@@ -29,14 +29,6 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
 
-        HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-            attributesMapping.put("simple", SimpleAttribute.class);
-            attributesMapping.put("simpleList", SimpleAttributeList.class);
-            attributesMapping.put("localizedString", LocalizedAttribute.class);
-            attributesMapping.put("localizedStringList", LocalizedAttributeList.class);
-            attributesMapping.put("advanced", AdvancedAttribute.class);
-            attributesMapping.put("advancedList", AdvancedAttributeList.class);
-        this.assertPropertyHasCorrectPolymorphicType(responseEntity, "attributes", "type", attributesMapping);
 
     }
 
@@ -50,14 +42,6 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
 
-        HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-            attributesMapping.put("simple", SimpleAttribute.class);
-            attributesMapping.put("simpleList", SimpleAttributeList.class);
-            attributesMapping.put("localizedString", LocalizedAttribute.class);
-            attributesMapping.put("localizedStringList", LocalizedAttributeList.class);
-            attributesMapping.put("advanced", AdvancedAttribute.class);
-            attributesMapping.put("advancedList", AdvancedAttributeList.class);
-        this.assertPropertyHasCorrectPolymorphicType(responseEntity, "attributes", "type", attributesMapping);
 
     }
 
@@ -73,14 +57,6 @@ public class ProductTest extends BaseApiTest {
 
 
         for (Product entity : responseEntity.getEntities()) {
-            HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-                attributesMapping.put("simple", SimpleAttribute.class);
-                attributesMapping.put("simpleList", SimpleAttributeList.class);
-                attributesMapping.put("localizedString", LocalizedAttribute.class);
-                attributesMapping.put("localizedStringList", LocalizedAttributeList.class);
-                attributesMapping.put("advanced", AdvancedAttribute.class);
-                attributesMapping.put("advancedList", AdvancedAttributeList.class);
-            this.assertPropertyHasCorrectPolymorphicType(entity, "attributes", "type", attributesMapping);
         }
     }
 
@@ -100,14 +76,6 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
 
-        HashMap<String, Class<?>> attributesMapping = new HashMap<>();
-            attributesMapping.put("simple", SimpleAttribute.class);
-            attributesMapping.put("simpleList", SimpleAttributeList.class);
-            attributesMapping.put("localizedString", LocalizedAttribute.class);
-            attributesMapping.put("localizedStringList", LocalizedAttributeList.class);
-            attributesMapping.put("advanced", AdvancedAttribute.class);
-            attributesMapping.put("advancedList", AdvancedAttributeList.class);
-        this.assertPropertyHasCorrectPolymorphicType(responseEntity, "attributes", "type", attributesMapping);
 
     }
 

@@ -57,6 +57,6 @@ public class ProductImage implements ApiObjectInterface {
     * A list of attributes attached to the image.
     */
     @SerializedName("attributes")
-    List<AttributeInterface> attributes;
+    List<Attribute> attributes;
 
 }

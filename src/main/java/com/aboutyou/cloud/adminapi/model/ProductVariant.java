@@ -27,7 +27,7 @@ public class ProductVariant implements ApiObjectInterface {
     * A list of attributes attached to the product variant.
     */
     @SerializedName("attributes")
-    List<AttributeInterface> attributes;
+    List<Attribute> attributes;
 
     /**
     * A list of prices attached to the product variant.

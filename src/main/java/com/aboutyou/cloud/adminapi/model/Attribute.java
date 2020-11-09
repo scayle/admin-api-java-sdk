@@ -11,4 +11,34 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Attribute implements ApiObjectInterface {
+    /**
+    * The attribute name.
+    */
+    @SerializedName("name")
+    String name;
+
+    /**
+    * The attribute type. In this case always simple.
+    */
+    @SerializedName("type")
+    String type;
+
+    /**
+    * The attribute value where the datatype is defined by the type property.
+    */
+    @SerializedName("value")
+    Object value;
+
+    /**
+    * Specifies if the attribute was locked via the Cloud Panel.
+    */
+    @SerializedName("isLocked")
+    Boolean isLocked;
+
+    /**
+    * Used to override the attribute value for a specific Shop.
+    */
+    @SerializedName("shopSpecific")
+    Map<String, Object> shopSpecific;
+
 }

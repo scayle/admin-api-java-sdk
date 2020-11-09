@@ -14,20 +14,6 @@ public final class Polymorphic {
 
     private void addMappings() {
         // Generated
-        this.addMapping(com.aboutyou.cloud.adminapi.model.Product.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "simple", "com.aboutyou.cloud.adminapi.model.SimpleAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.Product.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "simpleList", "com.aboutyou.cloud.adminapi.model.SimpleAttributeList");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.Product.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "localizedString", "com.aboutyou.cloud.adminapi.model.LocalizedAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.Product.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "localizedStringList", "com.aboutyou.cloud.adminapi.model.LocalizedAttributeList");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.Product.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "advanced", "com.aboutyou.cloud.adminapi.model.AdvancedAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.Product.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "advancedList", "com.aboutyou.cloud.adminapi.model.AdvancedAttributeList");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductImage.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "simple", "com.aboutyou.cloud.adminapi.model.SimpleAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductImage.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "simpleList", "com.aboutyou.cloud.adminapi.model.SimpleAttributeList");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductVariant.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "simple", "com.aboutyou.cloud.adminapi.model.SimpleAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductVariant.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "simpleList", "com.aboutyou.cloud.adminapi.model.SimpleAttributeList");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductVariant.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "localizedString", "com.aboutyou.cloud.adminapi.model.LocalizedAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductVariant.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "localizedStringList", "com.aboutyou.cloud.adminapi.model.LocalizedAttributeList");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductVariant.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "advanced", "com.aboutyou.cloud.adminapi.model.AdvancedAttribute");
-        this.addMapping(com.aboutyou.cloud.adminapi.model.ProductVariant.class, com.aboutyou.cloud.adminapi.model.AttributeInterface.class, "type", "advancedList", "com.aboutyou.cloud.adminapi.model.AdvancedAttributeList");
     }
 
     private void addMapping(Class<?> modelClass, Class<?> interfaceClass, String discriminator, String discriminatorValue, String concreteClassname) {
