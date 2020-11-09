@@ -71,4 +71,50 @@ public class ProductService extends AbstractService {
         this.request("delete", this.resolvePath("/products/%s", productIdentifier), options, null);
     }
 
+    public Attribute updateOrCreateAttribute(Identifier productIdentifier, Attribute model) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("post", this.resolvePath("/products/%s/attributes", productIdentifier), null, responseModel, model);
+    }
+
+    public Attribute updateOrCreateAttribute(Identifier productIdentifier, Attribute model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("post", this.resolvePath("/products/%s/attributes", productIdentifier), options, responseModel, model);
+    }
+
+    public void deleteAttribute(Identifier productIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), null, null);
+    }
+
+    public void deleteAttribute(Identifier productIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), options, null);
+    }
+
+    public Attribute getAttribute(Identifier productIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("get", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), null, responseModel);
+    }
+
+    public Attribute getAttribute(Identifier productIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("get", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), options, responseModel);
+    }
+
+    public ApiCollection<Attribute> allAttributes(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), null, responseModel);
+    }
+
+    public ApiCollection<Attribute> allAttributes(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), options, responseModel);
+    }
+
 }

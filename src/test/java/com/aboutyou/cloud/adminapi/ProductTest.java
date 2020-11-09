@@ -86,4 +86,58 @@ public class ProductTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateOrCreateAttribute() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUpdateOrCreateAttributeRequest.json");
+        Attribute requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Attribute.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Attribute responseEntity = this.api.products().updateOrCreateAttribute(Identifier.fromId(1), requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateOrCreateAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteAttribute() throws Exception {
+
+    this.api.products().deleteAttribute(Identifier.fromId(1), "1",  null);
+
+    }
+
+    @Test
+    public void testGetAttribute() throws Exception {
+
+    Attribute responseEntity = this.api.products().getAttribute(Identifier.fromId(1), "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductGetAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testAllAttributes() throws Exception {
+
+    ApiCollection<Attribute> responseEntity = this.api.products().allAttributes(Identifier.fromId(1),  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductAllAttributesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Attribute entity : responseEntity.getEntities()) {
+        }
+    }
+
 }
