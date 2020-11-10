@@ -9,6 +9,7 @@ import static net.javacrumbs.jsonunit.core.Option.TREATING_NULL_AS_ABSENT;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 
 @SuppressWarnings("unchecked")
 public class ProductImageTest extends BaseApiTest {

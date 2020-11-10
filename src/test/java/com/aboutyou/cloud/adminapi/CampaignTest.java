@@ -9,6 +9,7 @@ import static net.javacrumbs.jsonunit.core.Option.TREATING_NULL_AS_ABSENT;
 
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 
 @SuppressWarnings("unchecked")
 public class CampaignTest extends BaseApiTest {
@@ -84,6 +85,47 @@ public class CampaignTest extends BaseApiTest {
 
     this.api.campaigns().delete(1,  null);
 
+    }
+
+    @Test
+    public void testUpdateOrCreateVariantReductions() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CampaignUpdateOrCreateVariantReductionsRequest.json");
+        List<ProductVariantCampaignReduction> requestEntity = this.jsonSerializer.unserializeList(expectedRequestJson, ProductVariantCampaignReduction.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    this.api.campaigns().updateOrCreateVariantReductions(1, requestEntity,  null);
+
+    }
+
+    @Test
+    public void testUpdateOrCreateProductReductions() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CampaignUpdateOrCreateProductReductionsRequest.json");
+        List<ProductCampaignReduction> requestEntity = this.jsonSerializer.unserializeList(expectedRequestJson, ProductCampaignReduction.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    this.api.campaigns().updateOrCreateProductReductions(1, requestEntity,  null);
+
+    }
+
+    @Test
+    public void testAllCampaignReductions() throws Exception {
+
+    ApiCollection<ProductVariantCampaignReduction> responseEntity = this.api.campaigns().allCampaignReductions(1,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CampaignAllCampaignReductionsResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (ProductVariantCampaignReduction entity : responseEntity.getEntities()) {
+        }
     }
 
 }

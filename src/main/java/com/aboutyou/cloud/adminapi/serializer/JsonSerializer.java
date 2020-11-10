@@ -2,6 +2,7 @@ package com.aboutyou.cloud.adminapi.serializer;
 
 import java.lang.reflect.Type;
 import java.util.Map;
+import java.util.List;
 import java.lang.reflect.ParameterizedType;
 
 import com.aboutyou.cloud.adminapi.model.ApiCollection;
@@ -37,6 +38,13 @@ public <T> T unserializeApiObject(String json, Class<T> modelClass) {
         Gson gson = new Gson();
 
         return (T)(gson.fromJson(json, clazz));
+    }
+
+    public <T> List<T> unserializeList(String json, Class<T> clazz) {
+        Gson gson = new Gson();
+        Type listType = new TypeToken<List<T>>(){}.getType();
+
+        return (List<T>)(gson.fromJson(json, listType));
     }
 
     public String serializeApiObject(Object apiObject) {
