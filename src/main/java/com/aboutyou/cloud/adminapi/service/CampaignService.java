@@ -92,13 +92,13 @@ public class CampaignService extends AbstractService {
         this.request("post", this.resolvePath("/campaigns/%s/reductions/products", campaignId), options, null, model);
     }
 
-    public ApiCollection<ProductVariantCampaignReduction> allCampaignReductions(Integer campaignId) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantCampaignReduction> allReductions(Integer campaignId) throws ApiErrorException, ConnectionException {
         Class<ProductVariantCampaignReduction> responseModel = (Class<ProductVariantCampaignReduction>)(Class<?>)ProductVariantCampaignReduction.class;
 
         return this.requestCollection("get", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), null, responseModel);
     }
 
-    public ApiCollection<ProductVariantCampaignReduction> allCampaignReductions(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantCampaignReduction> allReductions(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantCampaignReduction> responseModel = (Class<ProductVariantCampaignReduction>)(Class<?>)ProductVariantCampaignReduction.class;
 
         return this.requestCollection("get", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), options, responseModel);

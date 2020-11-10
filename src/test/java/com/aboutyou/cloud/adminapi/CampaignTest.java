@@ -114,11 +114,11 @@ public class CampaignTest extends BaseApiTest {
     }
 
     @Test
-    public void testAllCampaignReductions() throws Exception {
+    public void testAllReductions() throws Exception {
 
-    ApiCollection<ProductVariantCampaignReduction> responseEntity = this.api.campaigns().allCampaignReductions(1,  null);
+    ApiCollection<ProductVariantCampaignReduction> responseEntity = this.api.campaigns().allReductions(1,  null);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/CampaignAllCampaignReductionsResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/CampaignAllReductionsResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
