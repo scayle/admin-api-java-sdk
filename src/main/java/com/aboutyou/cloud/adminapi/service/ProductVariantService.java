@@ -72,4 +72,50 @@ public class ProductVariantService extends AbstractService {
         this.request("delete", this.resolvePath("/products/%s/variants/%s", productIdentifier, variantIdentifier), options, null);
     }
 
+    public Attribute updateOrCreateAttribute(Identifier productIdentifier, Identifier variantIdentifier, Attribute model) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("post", this.resolvePath("/products/%s/variants/%s/attributes", productIdentifier, variantIdentifier), null, responseModel, model);
+    }
+
+    public Attribute updateOrCreateAttribute(Identifier productIdentifier, Identifier variantIdentifier, Attribute model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("post", this.resolvePath("/products/%s/variants/%s/attributes", productIdentifier, variantIdentifier), options, responseModel, model);
+    }
+
+    public void deleteAttribute(Identifier productIdentifier, Identifier variantIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/%s/variants/%s/attributes/%s", productIdentifier, variantIdentifier, attributeGroupName), null, null);
+    }
+
+    public void deleteAttribute(Identifier productIdentifier, Identifier variantIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/%s/variants/%s/attributes/%s", productIdentifier, variantIdentifier, attributeGroupName), options, null);
+    }
+
+    public Attribute getAttribute(Identifier productIdentifier, Identifier variantIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("get", this.resolvePath("/products/%s/variants/%s/attributes/%s", productIdentifier, variantIdentifier, attributeGroupName), null, responseModel);
+    }
+
+    public Attribute getAttribute(Identifier productIdentifier, Identifier variantIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("get", this.resolvePath("/products/%s/variants/%s/attributes/%s", productIdentifier, variantIdentifier, attributeGroupName), options, responseModel);
+    }
+
+    public ApiCollection<Attribute> allAttributes(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/attributes", productIdentifier, variantIdentifier), null, responseModel);
+    }
+
+    public ApiCollection<Attribute> allAttributes(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/attributes", productIdentifier, variantIdentifier), options, responseModel);
+    }
+
 }

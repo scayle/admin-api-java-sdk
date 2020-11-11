@@ -74,4 +74,58 @@ public class ProductImageTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateOrCreateAttribute() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductImageUpdateOrCreateAttributeRequest.json");
+        Attribute requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Attribute.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Attribute responseEntity = this.api.productImages().updateOrCreateAttribute(Identifier.fromId(1), Identifier.fromId(1), requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductImageUpdateOrCreateAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteAttribute() throws Exception {
+
+    this.api.productImages().deleteAttribute(Identifier.fromId(1), Identifier.fromId(1), "1",  null);
+
+    }
+
+    @Test
+    public void testGetAttribute() throws Exception {
+
+    Attribute responseEntity = this.api.productImages().getAttribute(Identifier.fromId(1), Identifier.fromId(1), "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductImageGetAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testAllAttributes() throws Exception {
+
+    ApiCollection<Attribute> responseEntity = this.api.productImages().allAttributes(Identifier.fromId(1), Identifier.fromId(1),  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductImageAllAttributesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Attribute entity : responseEntity.getEntities()) {
+        }
+    }
+
 }
