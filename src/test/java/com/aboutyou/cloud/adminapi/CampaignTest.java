@@ -128,4 +128,11 @@ public class CampaignTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testDeleteReductions() throws Exception {
+
+    this.api.campaigns().deleteReductions(1,  null);
+
+    }
+
 }

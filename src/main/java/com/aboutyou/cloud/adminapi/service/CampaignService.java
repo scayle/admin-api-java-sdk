@@ -104,4 +104,14 @@ public class CampaignService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), options, responseModel);
     }
 
+    public void deleteReductions(Integer campaignId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/campaigns/%s/reductions", campaignId), null, null);
+    }
+
+    public void deleteReductions(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/campaigns/%s/reductions", campaignId), options, null);
+    }
+
 }
