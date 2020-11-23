@@ -14,12 +14,6 @@ public class ShopCategoryProductCriteria implements ApiObjectInterface {
     /**
     * 
     */
-    @SerializedName("isSale")
-    Boolean isSale;
-
-    /**
-    * 
-    */
     @SerializedName("isNew")
     Boolean isNew;
 
