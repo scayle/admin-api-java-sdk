@@ -10,6 +10,7 @@ import com.aboutyou.cloud.adminapi.service.ProductVariantStockService;
 import com.aboutyou.cloud.adminapi.service.ShopService;
 import com.aboutyou.cloud.adminapi.service.AttributeGroupService;
 import com.aboutyou.cloud.adminapi.service.CampaignService;
+import com.aboutyou.cloud.adminapi.service.MasterCategoryService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -59,6 +60,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public CampaignService campaigns() {
         CampaignService service = this.getService("com.aboutyou.cloud.adminapi.service.CampaignService");
+        return service;
+    }
+
+    public MasterCategoryService masterCategories() {
+        MasterCategoryService service = this.getService("com.aboutyou.cloud.adminapi.service.MasterCategoryService");
         return service;
     }
 
