@@ -18,6 +18,12 @@ public class MasterCategoryAttribute implements ApiObjectInterface {
     String name;
 
     /**
+    * The attribute type.
+    */
+    @SerializedName("type")
+    String type;
+
+    /**
     * Whether the attribute is mandatory or not. Used in the state calculation.
     */
     @SerializedName("isMandatory")

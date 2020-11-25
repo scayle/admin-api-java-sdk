@@ -38,4 +38,16 @@ public class MasterCategoryService extends AbstractService {
         return this.request("get", this.resolvePath("/master-categories/%s", masterCategoryId), options, responseModel);
     }
 
+    public MasterCategory create(MasterCategory model) throws ApiErrorException, ConnectionException {
+        Class<MasterCategory> responseModel = (Class<MasterCategory>)(Class<?>)MasterCategory.class;
+
+        return this.request("post", this.resolvePath("/master-categories"), null, responseModel, model);
+    }
+
+    public MasterCategory create(MasterCategory model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<MasterCategory> responseModel = (Class<MasterCategory>)(Class<?>)MasterCategory.class;
+
+        return this.request("post", this.resolvePath("/master-categories"), options, responseModel, model);
+    }
+
 }
