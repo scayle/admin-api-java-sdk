@@ -50,4 +50,26 @@ public class MasterCategoryService extends AbstractService {
         return this.request("post", this.resolvePath("/master-categories"), options, responseModel, model);
     }
 
+    public MasterCategory update(Integer masterCategoryId, MasterCategory model) throws ApiErrorException, ConnectionException {
+        Class<MasterCategory> responseModel = (Class<MasterCategory>)(Class<?>)MasterCategory.class;
+
+        return this.request("put", this.resolvePath("/master-categories/%s", masterCategoryId), null, responseModel, model);
+    }
+
+    public MasterCategory update(Integer masterCategoryId, MasterCategory model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<MasterCategory> responseModel = (Class<MasterCategory>)(Class<?>)MasterCategory.class;
+
+        return this.request("put", this.resolvePath("/master-categories/%s", masterCategoryId), options, responseModel, model);
+    }
+
+    public void delete(Integer masterCategoryId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/master-categories/%s", masterCategoryId), null, null);
+    }
+
+    public void delete(Integer masterCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/master-categories/%s", masterCategoryId), options, null);
+    }
+
 }

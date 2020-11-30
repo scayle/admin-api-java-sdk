@@ -61,4 +61,30 @@ public class MasterCategoryTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/MasterCategoryUpdateRequest.json");
+        MasterCategory requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, MasterCategory.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    MasterCategory responseEntity = this.api.masterCategories().update(1, requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/MasterCategoryUpdateResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+
+    this.api.masterCategories().delete(1,  null);
+
+    }
+
 }
