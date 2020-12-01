@@ -20,8 +20,8 @@ public class ShopCategoryConfiguration implements ApiObjectInterface {
     /**
     * String representation of the URL path to the category.
     */
-    @SerializedName("url")
-    String url;
+    @SerializedName("path")
+    String path;
 
     /**
     * Declares whether the shop category is active or not.

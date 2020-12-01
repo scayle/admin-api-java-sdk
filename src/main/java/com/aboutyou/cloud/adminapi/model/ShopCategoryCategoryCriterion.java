@@ -12,15 +12,15 @@ import lombok.Setter;
 @Setter
 public class ShopCategoryCategoryCriterion implements ApiObjectInterface {
     /**
-    * List of shop category urls to include.
+    * List of shop category ids to include.
     */
     @SerializedName("include")
-    List<String> include;
+    List<Integer> include;
 
     /**
-    * List of shop category urls to exclude.
+    * List of shop category ids to exclude.
     */
     @SerializedName("exclude")
-    List<String> exclude;
+    List<Integer> exclude;
 
 }

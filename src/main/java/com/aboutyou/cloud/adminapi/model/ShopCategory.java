@@ -53,4 +53,10 @@ public class ShopCategory implements ApiObjectInterface {
     @SerializedName("configuration")
     ShopCategoryConfiguration configuration;
 
+    /**
+    * List of supported filter groups
+    */
+    @SerializedName("supportedFilterGroups")
+    List<String> supportedFilterGroups;
+
 }
