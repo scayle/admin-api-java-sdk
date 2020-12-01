@@ -45,7 +45,7 @@ public class ShopCategory implements ApiObjectInterface {
     * 
     */
     @SerializedName("products")
-    Object products;
+    ShopCategoryProducts products;
 
     /**
     * 
