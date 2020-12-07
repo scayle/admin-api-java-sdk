@@ -118,4 +118,16 @@ public class ProductService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), options, responseModel);
     }
 
+    public ProductMasterCategories updateMasterCategories(Identifier productIdentifier, ProductMasterCategories model) throws ApiErrorException, ConnectionException {
+        Class<ProductMasterCategories> responseModel = (Class<ProductMasterCategories>)(Class<?>)ProductMasterCategories.class;
+
+        return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), null, responseModel, model);
+    }
+
+    public ProductMasterCategories updateMasterCategories(Identifier productIdentifier, ProductMasterCategories model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ProductMasterCategories> responseModel = (Class<ProductMasterCategories>)(Class<?>)ProductMasterCategories.class;
+
+        return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), options, responseModel, model);
+    }
+
 }

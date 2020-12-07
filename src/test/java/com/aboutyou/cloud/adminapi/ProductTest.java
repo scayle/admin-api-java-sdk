@@ -141,4 +141,23 @@ public class ProductTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testUpdateMasterCategories() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUpdateMasterCategoriesRequest.json");
+        ProductMasterCategories requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ProductMasterCategories.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    ProductMasterCategories responseEntity = this.api.products().updateMasterCategories(Identifier.fromId(1), requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateMasterCategoriesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

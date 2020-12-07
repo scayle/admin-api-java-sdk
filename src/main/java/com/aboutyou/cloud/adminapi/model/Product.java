@@ -48,10 +48,10 @@ public class Product implements ApiObjectInterface {
     String state = "live";
 
     /**
-    * The products category path. Sorted from root to leaf.
+    * The master categories the product is attached to.
     */
     @SerializedName("categories")
-    List<List<String>> categories;
+    ProductMasterCategories categories;
 
     /**
     * A list of attributes attached to the product.
