@@ -72,4 +72,38 @@ public class ShopCategoryService extends AbstractService {
         this.request("delete", this.resolvePath("/shops/%s/categories/%s", shopKey, shopCategoryId), options, null);
     }
 
+    public ShopCategoryProperty updateOrCreateProperty(String shopKey, Integer shopCategoryId, ShopCategoryProperty model) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryProperty> responseModel = (Class<ShopCategoryProperty>)(Class<?>)ShopCategoryProperty.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/categories/%s/properties", shopKey, shopCategoryId), null, responseModel, model);
+    }
+
+    public ShopCategoryProperty updateOrCreateProperty(String shopKey, Integer shopCategoryId, ShopCategoryProperty model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryProperty> responseModel = (Class<ShopCategoryProperty>)(Class<?>)ShopCategoryProperty.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/categories/%s/properties", shopKey, shopCategoryId), options, responseModel, model);
+    }
+
+    public void deleteProperty(String shopKey, Integer shopCategoryId, String shopCategoryPropertyKey) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/properties/%s", shopKey, shopCategoryId, shopCategoryPropertyKey), null, null);
+    }
+
+    public void deleteProperty(String shopKey, Integer shopCategoryId, String shopCategoryPropertyKey, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/properties/%s", shopKey, shopCategoryId, shopCategoryPropertyKey), options, null);
+    }
+
+    public ApiCollection<ShopCategoryProperty> allProperties(String shopKey, Integer shopCategoryId) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryProperty> responseModel = (Class<ShopCategoryProperty>)(Class<?>)ShopCategoryProperty.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/categories/%s/properties", shopKey, shopCategoryId), null, responseModel);
+    }
+
+    public ApiCollection<ShopCategoryProperty> allProperties(String shopKey, Integer shopCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryProperty> responseModel = (Class<ShopCategoryProperty>)(Class<?>)ShopCategoryProperty.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/categories/%s/properties", shopKey, shopCategoryId), options, responseModel);
+    }
+
 }

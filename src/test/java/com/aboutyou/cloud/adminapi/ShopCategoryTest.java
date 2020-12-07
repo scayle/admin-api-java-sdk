@@ -87,4 +87,45 @@ public class ShopCategoryTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateOrCreateProperty() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreatePropertyRequest.json");
+        ShopCategoryProperty requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopCategoryProperty.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    ShopCategoryProperty responseEntity = this.api.shopCategories().updateOrCreateProperty("1", 1, requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreatePropertyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteProperty() throws Exception {
+
+    this.api.shopCategories().deleteProperty("1", 1, "1",  null);
+
+    }
+
+    @Test
+    public void testAllProperties() throws Exception {
+
+    ApiCollection<ShopCategoryProperty> responseEntity = this.api.shopCategories().allProperties("1", 1,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryAllPropertiesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (ShopCategoryProperty entity : responseEntity.getEntities()) {
+        }
+    }
+
 }
