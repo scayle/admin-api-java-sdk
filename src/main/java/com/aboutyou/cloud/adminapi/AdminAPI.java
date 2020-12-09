@@ -13,6 +13,7 @@ import com.aboutyou.cloud.adminapi.service.CampaignService;
 import com.aboutyou.cloud.adminapi.service.MasterCategoryService;
 import com.aboutyou.cloud.adminapi.service.ShopCategoryService;
 import com.aboutyou.cloud.adminapi.service.ShopCategoryPropertyKeyService;
+import com.aboutyou.cloud.adminapi.service.BrandService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -77,6 +78,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ShopCategoryPropertyKeyService shopCategoryPropertyKeys() {
         ShopCategoryPropertyKeyService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopCategoryPropertyKeyService");
+        return service;
+    }
+
+    public BrandService brands() {
+        BrandService service = this.getService("com.aboutyou.cloud.adminapi.service.BrandService");
         return service;
     }
 
