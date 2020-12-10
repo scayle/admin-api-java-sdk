@@ -38,4 +38,16 @@ public class BrandService extends AbstractService {
         return this.request("get", this.resolvePath("/brands/%s", brandId), options, responseModel);
     }
 
+    public Brand create(Brand model) throws ApiErrorException, ConnectionException {
+        Class<Brand> responseModel = (Class<Brand>)(Class<?>)Brand.class;
+
+        return this.request("post", this.resolvePath("/brands"), null, responseModel, model);
+    }
+
+    public Brand create(Brand model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Brand> responseModel = (Class<Brand>)(Class<?>)Brand.class;
+
+        return this.request("post", this.resolvePath("/brands"), options, responseModel, model);
+    }
+
 }

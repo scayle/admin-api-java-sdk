@@ -42,4 +42,23 @@ public class BrandTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/BrandCreateRequest.json");
+        Brand requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Brand.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Brand responseEntity = this.api.brands().create(requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/BrandCreateResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

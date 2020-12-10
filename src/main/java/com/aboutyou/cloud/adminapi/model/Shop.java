@@ -45,7 +45,7 @@ public class Shop implements ApiObjectInterface {
     * A source specifieng where to download the logo from.
     */
     @SerializedName("logoSource")
-    ShopLogoSource logoSource;
+    AssetSource logoSource;
 
     /**
     * Defines if the shop is active.

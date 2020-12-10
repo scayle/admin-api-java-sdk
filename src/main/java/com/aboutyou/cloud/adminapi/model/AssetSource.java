@@ -10,15 +10,15 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductImageSource implements ApiObjectInterface {
+public class AssetSource implements ApiObjectInterface {
     /**
-    * Url of remote image.
+    * Url of remote asset.
     */
     @SerializedName("url")
     String url;
 
     /**
-    * Base64 encoded binary image data.
+    * Base64 encoded binary asset data.
     */
     @SerializedName("attachment")
     String attachment;
