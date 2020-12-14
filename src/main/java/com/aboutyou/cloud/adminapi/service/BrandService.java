@@ -50,4 +50,26 @@ public class BrandService extends AbstractService {
         return this.request("post", this.resolvePath("/brands"), options, responseModel, model);
     }
 
+    public Brand update(Integer brandId, Brand model) throws ApiErrorException, ConnectionException {
+        Class<Brand> responseModel = (Class<Brand>)(Class<?>)Brand.class;
+
+        return this.request("put", this.resolvePath("/brands/%s", brandId), null, responseModel, model);
+    }
+
+    public Brand update(Integer brandId, Brand model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Brand> responseModel = (Class<Brand>)(Class<?>)Brand.class;
+
+        return this.request("put", this.resolvePath("/brands/%s", brandId), options, responseModel, model);
+    }
+
+    public void delete(Integer brandId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/brands/%s", brandId), null, null);
+    }
+
+    public void delete(Integer brandId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/brands/%s", brandId), options, null);
+    }
+
 }
