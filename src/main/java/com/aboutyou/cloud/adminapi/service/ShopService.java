@@ -74,4 +74,38 @@ public class ShopService extends AbstractService {
         return this.request("put", this.resolvePath("/shops/%s/assortment", shopKey), options, responseModel, model);
     }
 
+    public ShopProperty updateOrCreateProperty(String shopKey, ShopProperty model) throws ApiErrorException, ConnectionException {
+        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/properties", shopKey), null, responseModel, model);
+    }
+
+    public ShopProperty updateOrCreateProperty(String shopKey, ShopProperty model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/properties", shopKey), options, responseModel, model);
+    }
+
+    public void deleteProperty(String shopKey, String shopPropertyKey) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/properties/%s", shopKey, shopPropertyKey), null, null);
+    }
+
+    public void deleteProperty(String shopKey, String shopPropertyKey, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/properties/%s", shopKey, shopPropertyKey), options, null);
+    }
+
+    public ApiCollection<ShopProperty> allProperties(String shopKey) throws ApiErrorException, ConnectionException {
+        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/properties", shopKey), null, responseModel);
+    }
+
+    public ApiCollection<ShopProperty> allProperties(String shopKey, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/properties", shopKey), options, responseModel);
+    }
+
 }

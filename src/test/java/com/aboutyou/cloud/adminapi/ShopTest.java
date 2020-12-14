@@ -99,4 +99,45 @@ public class ShopTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateOrCreateProperty() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopUpdateOrCreatePropertyRequest.json");
+        ShopProperty requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopProperty.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    ShopProperty responseEntity = this.api.shops().updateOrCreateProperty("1", requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopUpdateOrCreatePropertyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteProperty() throws Exception {
+
+    this.api.shops().deleteProperty("1", "1",  null);
+
+    }
+
+    @Test
+    public void testAllProperties() throws Exception {
+
+    ApiCollection<ShopProperty> responseEntity = this.api.shops().allProperties("1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopAllPropertiesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (ShopProperty entity : responseEntity.getEntities()) {
+        }
+    }
+
 }
