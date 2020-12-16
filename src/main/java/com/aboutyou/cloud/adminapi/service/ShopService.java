@@ -96,6 +96,18 @@ public class ShopService extends AbstractService {
         this.request("delete", this.resolvePath("/shops/%s/properties/%s", shopKey, shopPropertyKey), options, null);
     }
 
+    public ShopProperty getProperty(String shopKey, String shopPropertyKey) throws ApiErrorException, ConnectionException {
+        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/properties/%s", shopKey, shopPropertyKey), null, responseModel);
+    }
+
+    public ShopProperty getProperty(String shopKey, String shopPropertyKey, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/properties/%s", shopKey, shopPropertyKey), options, responseModel);
+    }
+
     public ApiCollection<ShopProperty> allProperties(String shopKey) throws ApiErrorException, ConnectionException {
         Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
 

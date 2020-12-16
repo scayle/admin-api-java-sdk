@@ -114,6 +114,19 @@ public class ShopCategoryTest extends BaseApiTest {
     }
 
     @Test
+    public void testGetProperty() throws Exception {
+
+    ShopCategoryProperty responseEntity = this.api.shopCategories().getProperty("1", 1, "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetPropertyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testAllProperties() throws Exception {
 
     ApiCollection<ShopCategoryProperty> responseEntity = this.api.shopCategories().allProperties("1", 1,  null);
