@@ -48,12 +48,6 @@ public class Product implements ApiObjectInterface {
     String state = "live";
 
     /**
-    * The master categories the product is attached to.
-    */
-    @SerializedName("categories")
-    ProductMasterCategories categories;
-
-    /**
     * A list of attributes attached to the product.
     */
     @SerializedName("attributes")

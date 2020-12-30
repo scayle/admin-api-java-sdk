@@ -18,6 +18,12 @@ public class Master implements ApiObjectInterface {
     String referenceKey;
 
     /**
+    * The master categories all products of this group are attached to.
+    */
+    @SerializedName("categories")
+    ProductMasterCategories categories;
+
+    /**
     * A list of attributes attached to the master.
     */
     @SerializedName("attributes")
