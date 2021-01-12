@@ -16,6 +16,8 @@ import com.aboutyou.cloud.adminapi.service.ShopCategoryService;
 import com.aboutyou.cloud.adminapi.service.ShopCategoryPropertyKeyService;
 import com.aboutyou.cloud.adminapi.service.BrandService;
 import com.aboutyou.cloud.adminapi.service.ProductSortingService;
+import com.aboutyou.cloud.adminapi.service.ShopWarehouseService;
+import com.aboutyou.cloud.adminapi.service.PackageGroupService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -95,6 +97,16 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductSortingService productSortings() {
         ProductSortingService service = this.getService("com.aboutyou.cloud.adminapi.service.ProductSortingService");
+        return service;
+    }
+
+    public ShopWarehouseService shopWarehouses() {
+        ShopWarehouseService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopWarehouseService");
+        return service;
+    }
+
+    public PackageGroupService packageGroups() {
+        PackageGroupService service = this.getService("com.aboutyou.cloud.adminapi.service.PackageGroupService");
         return service;
     }
 
