@@ -39,6 +39,8 @@ public class HttpClient {
 
         Request request = new Request.Builder()
         .header("X-Access-Token", this.apiConfiguration.getAccessToken())
+        .header("Content-Type", "application/json")
+        .header("X-SDK", "java/1.0.0")
         .url(urlBuilder.build().toString())
         .method(httpMethod, requestBody)
         .build();
