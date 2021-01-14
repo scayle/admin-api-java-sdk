@@ -23,7 +23,7 @@ def isRelease() {
 }
 
 group = 'com.aboutyou.cloud.adminapi'
-version = '0.1.0' + (isRelease() ? '' : '-SNAPSHOT')
+version = '1.0.0' + (isRelease() ? '' : '-SNAPSHOT')
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
