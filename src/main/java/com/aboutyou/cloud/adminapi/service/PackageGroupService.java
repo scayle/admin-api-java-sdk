@@ -14,46 +14,46 @@ public class PackageGroupService extends AbstractService {
         super(httpClient);
     }
 
-    public ApiCollection<PackageGroup> all(String shopKey) throws ApiErrorException, ConnectionException {
+    public ApiCollection<PackageGroup> all(String shopKey, String countryCode) throws ApiErrorException, ConnectionException {
         Class<PackageGroup> responseModel = (Class<PackageGroup>)(Class<?>)PackageGroup.class;
 
-        return this.requestCollection("get", this.resolvePath("/shops/%s/package-groups", shopKey), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/package-groups", shopKey, countryCode), null, responseModel);
     }
 
-    public ApiCollection<PackageGroup> all(String shopKey, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<PackageGroup> all(String shopKey, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<PackageGroup> responseModel = (Class<PackageGroup>)(Class<?>)PackageGroup.class;
 
-        return this.requestCollection("get", this.resolvePath("/shops/%s/package-groups", shopKey), options, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/package-groups", shopKey, countryCode), options, responseModel);
     }
 
-    public void assignPackageGroupToWarehouses(String shopKey, Integer packageGroupId, List<PackageGroupWarehouse> model) throws ApiErrorException, ConnectionException {
+    public void assignPackageGroupToWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/shops/%s/package-groups/%s", shopKey, packageGroupId), null, null, model);
+        this.request("post", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), null, null, model);
     }
 
-    public void assignPackageGroupToWarehouses(String shopKey, Integer packageGroupId, List<PackageGroupWarehouse> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void assignPackageGroupToWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/shops/%s/package-groups/%s", shopKey, packageGroupId), options, null, model);
+        this.request("post", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), options, null, model);
     }
 
-    public void replacePackageGroupForWarehouses(String shopKey, Integer packageGroupId, List<PackageGroupWarehouse> model) throws ApiErrorException, ConnectionException {
+    public void replacePackageGroupForWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model) throws ApiErrorException, ConnectionException {
 
-        this.request("put", this.resolvePath("/shops/%s/package-groups/%s", shopKey, packageGroupId), null, null, model);
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), null, null, model);
     }
 
-    public void replacePackageGroupForWarehouses(String shopKey, Integer packageGroupId, List<PackageGroupWarehouse> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void replacePackageGroupForWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("put", this.resolvePath("/shops/%s/package-groups/%s", shopKey, packageGroupId), options, null, model);
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), options, null, model);
     }
 
-    public void delete(String shopKey, Integer packageGroupId) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, String countryCode, Integer packageGroupId) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/package-groups/%s", shopKey, packageGroupId), null, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), null, null);
     }
 
-    public void delete(String shopKey, Integer packageGroupId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, String countryCode, Integer packageGroupId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/package-groups/%s", shopKey, packageGroupId), options, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), options, null);
     }
 
 }

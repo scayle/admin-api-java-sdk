@@ -14,38 +14,38 @@ public class ShopWarehouseService extends AbstractService {
         super(httpClient);
     }
 
-    public ShopWarehouse create(String shopKey, ShopWarehouse model) throws ApiErrorException, ConnectionException {
+    public ShopWarehouse create(String shopKey, String countryCode, ShopWarehouse model) throws ApiErrorException, ConnectionException {
         Class<ShopWarehouse> responseModel = (Class<ShopWarehouse>)(Class<?>)ShopWarehouse.class;
 
-        return this.request("post", this.resolvePath("/shops/%s/warehouses", shopKey), null, responseModel, model);
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/warehouses", shopKey, countryCode), null, responseModel, model);
     }
 
-    public ShopWarehouse create(String shopKey, ShopWarehouse model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ShopWarehouse create(String shopKey, String countryCode, ShopWarehouse model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ShopWarehouse> responseModel = (Class<ShopWarehouse>)(Class<?>)ShopWarehouse.class;
 
-        return this.request("post", this.resolvePath("/shops/%s/warehouses", shopKey), options, responseModel, model);
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/warehouses", shopKey, countryCode), options, responseModel, model);
     }
 
-    public ShopWarehouse update(String shopKey, Identifier shopWarehouseIdentifier, ShopWarehouse model) throws ApiErrorException, ConnectionException {
+    public ShopWarehouse update(String shopKey, String countryCode, Identifier shopWarehouseIdentifier, ShopWarehouse model) throws ApiErrorException, ConnectionException {
         Class<ShopWarehouse> responseModel = (Class<ShopWarehouse>)(Class<?>)ShopWarehouse.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/warehouses/%s", shopKey, shopWarehouseIdentifier), null, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopWarehouseIdentifier), null, responseModel, model);
     }
 
-    public ShopWarehouse update(String shopKey, Identifier shopWarehouseIdentifier, ShopWarehouse model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ShopWarehouse update(String shopKey, String countryCode, Identifier shopWarehouseIdentifier, ShopWarehouse model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ShopWarehouse> responseModel = (Class<ShopWarehouse>)(Class<?>)ShopWarehouse.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/warehouses/%s", shopKey, shopWarehouseIdentifier), options, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopWarehouseIdentifier), options, responseModel, model);
     }
 
-    public void delete(String shopKey, Identifier shopWarehouseIdentifier) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, String countryCode, Identifier shopWarehouseIdentifier) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/warehouses/%s", shopKey, shopWarehouseIdentifier), null, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopWarehouseIdentifier), null, null);
     }
 
-    public void delete(String shopKey, Identifier shopWarehouseIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, String countryCode, Identifier shopWarehouseIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/warehouses/%s", shopKey, shopWarehouseIdentifier), options, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopWarehouseIdentifier), options, null);
     }
 
 }

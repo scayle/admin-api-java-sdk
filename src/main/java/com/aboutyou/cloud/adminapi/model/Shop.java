@@ -30,12 +30,6 @@ public class Shop implements ApiObjectInterface {
     String name;
 
     /**
-    * Url of the Shop.
-    */
-    @SerializedName("url")
-    String url;
-
-    /**
     * The Url of the logo assigned to the shop.
     */
     @SerializedName("logoUrl")
@@ -60,39 +54,21 @@ public class Shop implements ApiObjectInterface {
     Boolean deleted;
 
     /**
-    * ISO 3166 alpha 2 country code.
-    */
-    @SerializedName("countryCode")
-    String countryCode;
-
-    /**
-    * ISO-3166 country code and ISO-639 language code.
-    */
-    @SerializedName("languageCode")
-    String languageCode;
-
-    /**
     * Key of the price group the shop is assigned to.
     */
     @SerializedName("priceGroupKey")
     String priceGroupKey;
 
     /**
-    * The properties assigned to the shop.
+    * Defines shop categories tree id.
     */
-    @SerializedName("properties")
-    List<ShopProperty> properties;
+    @SerializedName("shopCategoryTreeId")
+    Integer shopCategoryTreeId;
 
     /**
-    * 
+    * The countries assigned to the shop.
     */
-    @SerializedName("assortment")
-    Assortment assortment;
-
-    /**
-    * A list of warehouses attached to the shop.
-    */
-    @SerializedName("warehouses")
-    List<ShopWarehouse> warehouses;
+    @SerializedName("countries")
+    List<ShopCountry> countries;
 
 }

@@ -14,6 +14,7 @@ import com.aboutyou.cloud.adminapi.service.CampaignService;
 import com.aboutyou.cloud.adminapi.service.MasterCategoryService;
 import com.aboutyou.cloud.adminapi.service.ShopCategoryService;
 import com.aboutyou.cloud.adminapi.service.ShopCategoryPropertyKeyService;
+import com.aboutyou.cloud.adminapi.service.ShopCountryService;
 import com.aboutyou.cloud.adminapi.service.BrandService;
 import com.aboutyou.cloud.adminapi.service.ProductSortingService;
 import com.aboutyou.cloud.adminapi.service.ShopWarehouseService;
@@ -87,6 +88,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ShopCategoryPropertyKeyService shopCategoryPropertyKeys() {
         ShopCategoryPropertyKeyService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopCategoryPropertyKeyService");
+        return service;
+    }
+
+    public ShopCountryService shopCountries() {
+        ShopCountryService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopCountryService");
         return service;
     }
 

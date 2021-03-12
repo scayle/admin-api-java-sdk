@@ -23,7 +23,7 @@ public class ShopWarehouseTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopWarehouse responseEntity = this.api.shopWarehouses().create("1", requestEntity,  null);
+    ShopWarehouse responseEntity = this.api.shopWarehouses().create("1", "1", requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopWarehouseCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -42,7 +42,7 @@ public class ShopWarehouseTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopWarehouse responseEntity = this.api.shopWarehouses().update("1", Identifier.fromId(1), requestEntity,  null);
+    ShopWarehouse responseEntity = this.api.shopWarehouses().update("1", "1", Identifier.fromId(1), requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopWarehouseUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -55,7 +55,7 @@ public class ShopWarehouseTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.shopWarehouses().delete("1", Identifier.fromId(1),  null);
+    this.api.shopWarehouses().delete("1", "1", Identifier.fromId(1),  null);
 
     }
 
