@@ -8,7 +8,6 @@ import com.aboutyou.cloud.adminapi.serializer.JsonSerializer;
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
 import com.aboutyou.cloud.adminapi.exception.ConnectionException;
 import com.aboutyou.cloud.adminapi.http.HttpClient;
-import com.aboutyou.cloud.adminapi.model.ApiObjectInterface;
 import com.aboutyou.cloud.adminapi.model.ApiCollection;
 import com.aboutyou.cloud.adminapi.model.ApiOptions;
 
@@ -24,11 +23,11 @@ public abstract class AbstractService {
         this.jsonSerializer = new JsonSerializer();
     }
 
-    protected <T extends ApiObjectInterface> T request(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass) throws ApiErrorException, ConnectionException {
+    protected <T> T request(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass) throws ApiErrorException, ConnectionException {
         return this.request(httpMethod, relativeUrl, options, modelClass, null);
     }
 
-    protected <T extends ApiObjectInterface> T request(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
+    protected <T> T request(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
         try {
             Response response = this.executeRequest(httpMethod, relativeUrl, options, body);
             String responseBodyContent = response.body().string();
