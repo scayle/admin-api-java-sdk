@@ -141,4 +141,160 @@ public class ShopCategoryTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testCreateOrUpdateCustomData() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomData("1", 1, requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomData() throws Exception {
+
+    this.api.shopCategories().deleteCustomData("1", 1,  null);
+
+    }
+
+    @Test
+    public void testGetCustomData() throws Exception {
+
+    Map<String, Object> responseEntity = this.api.shopCategories().getCustomData("1", 1,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateOrUpdateCustomDataForKey() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataForKeyRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataForKey("1", 1, "1", requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataForKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomDataForKey() throws Exception {
+
+    this.api.shopCategories().deleteCustomDataForKey("1", 1, "1",  null);
+
+    }
+
+    @Test
+    public void testGetCustomDataForKey() throws Exception {
+
+    Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataForKey("1", 1, "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataForKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateOrUpdateCustomDataForCountry() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataForCountryRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataForCountry("1", 1, "1", requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataForCountryResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomDataForCountry() throws Exception {
+
+    this.api.shopCategories().deleteCustomDataForCountry("1", 1, "1",  null);
+
+    }
+
+    @Test
+    public void testGetCustomDataForCountry() throws Exception {
+
+    Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataForCountry("1", 1, "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataForCountryResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateOrUpdateCustomDataKeyForCountry() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataKeyForCountryRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataKeyForCountry("1", 1, "1", "1", requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataKeyForCountryResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomDataKeyForCountry() throws Exception {
+
+    this.api.shopCategories().deleteCustomDataKeyForCountry("1", 1, "1", "1",  null);
+
+    }
+
+    @Test
+    public void testGetCustomDataKeyForCountry() throws Exception {
+
+    Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataKeyForCountry("1", 1, "1", "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataKeyForCountryResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

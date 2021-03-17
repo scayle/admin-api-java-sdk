@@ -118,4 +118,140 @@ public class ShopCategoryService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/shops/%s/categories/%s/properties", shopKey, shopCategoryId), options, responseModel);
     }
 
+    public Map<String, Object> createOrUpdateCustomData(String shopKey, Integer shopCategoryId, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/custom-data", shopKey, shopCategoryId), null, responseModel, model);
+    }
+
+    public Map<String, Object> createOrUpdateCustomData(String shopKey, Integer shopCategoryId, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/custom-data", shopKey, shopCategoryId), options, responseModel, model);
+    }
+
+    public void deleteCustomData(String shopKey, Integer shopCategoryId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/custom-data", shopKey, shopCategoryId), null, null);
+    }
+
+    public void deleteCustomData(String shopKey, Integer shopCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/custom-data", shopKey, shopCategoryId), options, null);
+    }
+
+    public Map<String, Object> getCustomData(String shopKey, Integer shopCategoryId) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/custom-data", shopKey, shopCategoryId), null, responseModel);
+    }
+
+    public Map<String, Object> getCustomData(String shopKey, Integer shopCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/custom-data", shopKey, shopCategoryId), options, responseModel);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataForKey(String shopKey, Integer shopCategoryId, String key, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/custom-data/%s", shopKey, shopCategoryId, key), null, responseModel, model);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataForKey(String shopKey, Integer shopCategoryId, String key, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/custom-data/%s", shopKey, shopCategoryId, key), options, responseModel, model);
+    }
+
+    public void deleteCustomDataForKey(String shopKey, Integer shopCategoryId, String key) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/custom-data/%s", shopKey, shopCategoryId, key), null, null);
+    }
+
+    public void deleteCustomDataForKey(String shopKey, Integer shopCategoryId, String key, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/custom-data/%s", shopKey, shopCategoryId, key), options, null);
+    }
+
+    public Map<String, Object> getCustomDataForKey(String shopKey, Integer shopCategoryId, String key) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/custom-data/%s", shopKey, shopCategoryId, key), null, responseModel);
+    }
+
+    public Map<String, Object> getCustomDataForKey(String shopKey, Integer shopCategoryId, String key, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/custom-data/%s", shopKey, shopCategoryId, key), options, responseModel);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataForCountry(String shopKey, Integer shopCategoryId, String countryCode, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data", shopKey, shopCategoryId, countryCode), null, responseModel, model);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataForCountry(String shopKey, Integer shopCategoryId, String countryCode, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data", shopKey, shopCategoryId, countryCode), options, responseModel, model);
+    }
+
+    public void deleteCustomDataForCountry(String shopKey, Integer shopCategoryId, String countryCode) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data", shopKey, shopCategoryId, countryCode), null, null);
+    }
+
+    public void deleteCustomDataForCountry(String shopKey, Integer shopCategoryId, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data", shopKey, shopCategoryId, countryCode), options, null);
+    }
+
+    public Map<String, Object> getCustomDataForCountry(String shopKey, Integer shopCategoryId, String countryCode) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data", shopKey, shopCategoryId, countryCode), null, responseModel);
+    }
+
+    public Map<String, Object> getCustomDataForCountry(String shopKey, Integer shopCategoryId, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data", shopKey, shopCategoryId, countryCode), options, responseModel);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataKeyForCountry(String shopKey, Integer shopCategoryId, String countryCode, String key, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), null, responseModel, model);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataKeyForCountry(String shopKey, Integer shopCategoryId, String countryCode, String key, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), options, responseModel, model);
+    }
+
+    public void deleteCustomDataKeyForCountry(String shopKey, Integer shopCategoryId, String countryCode, String key) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), null, null);
+    }
+
+    public void deleteCustomDataKeyForCountry(String shopKey, Integer shopCategoryId, String countryCode, String key, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), options, null);
+    }
+
+    public Map<String, Object> getCustomDataKeyForCountry(String shopKey, Integer shopCategoryId, String countryCode, String key) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), null, responseModel);
+    }
+
+    public Map<String, Object> getCustomDataKeyForCountry(String shopKey, Integer shopCategoryId, String countryCode, String key, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), options, responseModel);
+    }
+
 }

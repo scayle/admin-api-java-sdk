@@ -87,4 +87,82 @@ public class BrandTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreateOrUpdateCustomData() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/BrandCreateOrUpdateCustomDataRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Map<String, Object> responseEntity = this.api.brands().createOrUpdateCustomData(1, requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/BrandCreateOrUpdateCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomData() throws Exception {
+
+    this.api.brands().deleteCustomData(1,  null);
+
+    }
+
+    @Test
+    public void testGetCustomData() throws Exception {
+
+    Map<String, Object> responseEntity = this.api.brands().getCustomData(1,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/BrandGetCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateOrUpdateCustomDataForKey() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/BrandCreateOrUpdateCustomDataForKeyRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Map<String, Object> responseEntity = this.api.brands().createOrUpdateCustomDataForKey(1, "1", requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/BrandCreateOrUpdateCustomDataForKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomDataForKey() throws Exception {
+
+    this.api.brands().deleteCustomDataForKey(1, "1",  null);
+
+    }
+
+    @Test
+    public void testGetCustomDataForKey() throws Exception {
+
+    Map<String, Object> responseEntity = this.api.brands().getCustomDataForKey(1, "1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/BrandGetCustomDataForKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }
