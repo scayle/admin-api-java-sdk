@@ -14,104 +14,104 @@ public class CampaignService extends AbstractService {
         super(httpClient);
     }
 
-    public Campaign create(Campaign model) throws ApiErrorException, ConnectionException {
+    public Campaign create(String shopKey, Campaign model) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.request("post", this.resolvePath("/campaigns"), null, responseModel, model);
+        return this.request("post", this.resolvePath("/shops/%s/campaigns", shopKey), null, responseModel, model);
     }
 
-    public Campaign create(Campaign model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Campaign create(String shopKey, Campaign model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.request("post", this.resolvePath("/campaigns"), options, responseModel, model);
+        return this.request("post", this.resolvePath("/shops/%s/campaigns", shopKey), options, responseModel, model);
     }
 
-    public ApiCollection<Campaign> all() throws ApiErrorException, ConnectionException {
+    public ApiCollection<Campaign> all(String shopKey) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.requestCollection("get", this.resolvePath("/campaigns"), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/campaigns", shopKey), null, responseModel);
     }
 
-    public ApiCollection<Campaign> all(ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<Campaign> all(String shopKey, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.requestCollection("get", this.resolvePath("/campaigns"), options, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/campaigns", shopKey), options, responseModel);
     }
 
-    public Campaign get(Integer campaignId) throws ApiErrorException, ConnectionException {
+    public Campaign get(String shopKey, Integer campaignId) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.request("get", this.resolvePath("/campaigns/%s", campaignId), null, responseModel);
+        return this.request("get", this.resolvePath("/shops/%s/campaigns/%s", shopKey, campaignId), null, responseModel);
     }
 
-    public Campaign get(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Campaign get(String shopKey, Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.request("get", this.resolvePath("/campaigns/%s", campaignId), options, responseModel);
+        return this.request("get", this.resolvePath("/shops/%s/campaigns/%s", shopKey, campaignId), options, responseModel);
     }
 
-    public Campaign update(Integer campaignId, Campaign model) throws ApiErrorException, ConnectionException {
+    public Campaign update(String shopKey, Integer campaignId, Campaign model) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.request("put", this.resolvePath("/campaigns/%s", campaignId), null, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/campaigns/%s", shopKey, campaignId), null, responseModel, model);
     }
 
-    public Campaign update(Integer campaignId, Campaign model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Campaign update(String shopKey, Integer campaignId, Campaign model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Campaign> responseModel = (Class<Campaign>)(Class<?>)Campaign.class;
 
-        return this.request("put", this.resolvePath("/campaigns/%s", campaignId), options, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/campaigns/%s", shopKey, campaignId), options, responseModel, model);
     }
 
-    public void delete(Integer campaignId) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, Integer campaignId) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/campaigns/%s", campaignId), null, null);
+        this.request("delete", this.resolvePath("/shops/%s/campaigns/%s", shopKey, campaignId), null, null);
     }
 
-    public void delete(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/campaigns/%s", campaignId), options, null);
+        this.request("delete", this.resolvePath("/shops/%s/campaigns/%s", shopKey, campaignId), options, null);
     }
 
-    public void updateOrCreateVariantReductions(Integer campaignId, List<ProductVariantCampaignReduction> model) throws ApiErrorException, ConnectionException {
+    public void updateOrCreateVariantReductions(String shopKey, Integer campaignId, List<ProductVariantCampaignReduction> model) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), null, null, model);
+        this.request("post", this.resolvePath("/shops/%s/campaigns/%s/reductions/variants", shopKey, campaignId), null, null, model);
     }
 
-    public void updateOrCreateVariantReductions(Integer campaignId, List<ProductVariantCampaignReduction> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void updateOrCreateVariantReductions(String shopKey, Integer campaignId, List<ProductVariantCampaignReduction> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), options, null, model);
+        this.request("post", this.resolvePath("/shops/%s/campaigns/%s/reductions/variants", shopKey, campaignId), options, null, model);
     }
 
-    public void updateOrCreateProductReductions(Integer campaignId, List<ProductCampaignReduction> model) throws ApiErrorException, ConnectionException {
+    public void updateOrCreateProductReductions(String shopKey, Integer campaignId, List<ProductCampaignReduction> model) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/campaigns/%s/reductions/products", campaignId), null, null, model);
+        this.request("post", this.resolvePath("/shops/%s/campaigns/%s/reductions/products", shopKey, campaignId), null, null, model);
     }
 
-    public void updateOrCreateProductReductions(Integer campaignId, List<ProductCampaignReduction> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void updateOrCreateProductReductions(String shopKey, Integer campaignId, List<ProductCampaignReduction> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/campaigns/%s/reductions/products", campaignId), options, null, model);
+        this.request("post", this.resolvePath("/shops/%s/campaigns/%s/reductions/products", shopKey, campaignId), options, null, model);
     }
 
-    public ApiCollection<ProductVariantCampaignReduction> allReductions(Integer campaignId) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantCampaignReduction> allReductions(String shopKey, Integer campaignId) throws ApiErrorException, ConnectionException {
         Class<ProductVariantCampaignReduction> responseModel = (Class<ProductVariantCampaignReduction>)(Class<?>)ProductVariantCampaignReduction.class;
 
-        return this.requestCollection("get", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/campaigns/%s/reductions/variants", shopKey, campaignId), null, responseModel);
     }
 
-    public ApiCollection<ProductVariantCampaignReduction> allReductions(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantCampaignReduction> allReductions(String shopKey, Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantCampaignReduction> responseModel = (Class<ProductVariantCampaignReduction>)(Class<?>)ProductVariantCampaignReduction.class;
 
-        return this.requestCollection("get", this.resolvePath("/campaigns/%s/reductions/variants", campaignId), options, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/campaigns/%s/reductions/variants", shopKey, campaignId), options, responseModel);
     }
 
-    public void deleteReductions(Integer campaignId) throws ApiErrorException, ConnectionException {
+    public void deleteReductions(String shopKey, Integer campaignId) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/campaigns/%s/reductions", campaignId), null, null);
+        this.request("delete", this.resolvePath("/shops/%s/campaigns/%s/reductions", shopKey, campaignId), null, null);
     }
 
-    public void deleteReductions(Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void deleteReductions(String shopKey, Integer campaignId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/campaigns/%s/reductions", campaignId), options, null);
+        this.request("delete", this.resolvePath("/shops/%s/campaigns/%s/reductions", shopKey, campaignId), options, null);
     }
 
 }

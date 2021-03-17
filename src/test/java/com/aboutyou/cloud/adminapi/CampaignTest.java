@@ -23,7 +23,7 @@ public class CampaignTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Campaign responseEntity = this.api.campaigns().create(requestEntity,  null);
+    Campaign responseEntity = this.api.campaigns().create("1", requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CampaignCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +36,7 @@ public class CampaignTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<Campaign> responseEntity = this.api.campaigns().all( null);
+    ApiCollection<Campaign> responseEntity = this.api.campaigns().all("1",  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CampaignAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -51,7 +51,7 @@ public class CampaignTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    Campaign responseEntity = this.api.campaigns().get(1,  null);
+    Campaign responseEntity = this.api.campaigns().get("1", 1,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CampaignGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +70,7 @@ public class CampaignTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Campaign responseEntity = this.api.campaigns().update(1, requestEntity,  null);
+    Campaign responseEntity = this.api.campaigns().update("1", 1, requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CampaignUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +83,7 @@ public class CampaignTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.campaigns().delete(1,  null);
+    this.api.campaigns().delete("1", 1,  null);
 
     }
 
@@ -96,7 +96,7 @@ public class CampaignTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.campaigns().updateOrCreateVariantReductions(1, requestEntity,  null);
+    this.api.campaigns().updateOrCreateVariantReductions("1", 1, requestEntity,  null);
 
     }
 
@@ -109,14 +109,14 @@ public class CampaignTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.campaigns().updateOrCreateProductReductions(1, requestEntity,  null);
+    this.api.campaigns().updateOrCreateProductReductions("1", 1, requestEntity,  null);
 
     }
 
     @Test
     public void testAllReductions() throws Exception {
 
-    ApiCollection<ProductVariantCampaignReduction> responseEntity = this.api.campaigns().allReductions(1,  null);
+    ApiCollection<ProductVariantCampaignReduction> responseEntity = this.api.campaigns().allReductions("1", 1,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CampaignAllReductionsResponse.json");
         assertThatJson(expectedResponseJson)
@@ -131,7 +131,7 @@ public class CampaignTest extends BaseApiTest {
     @Test
     public void testDeleteReductions() throws Exception {
 
-    this.api.campaigns().deleteReductions(1,  null);
+    this.api.campaigns().deleteReductions("1", 1,  null);
 
     }
 

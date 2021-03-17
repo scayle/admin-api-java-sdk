@@ -30,10 +30,10 @@ public class Campaign implements ApiObjectInterface {
     String description;
 
     /**
-    * List of shop keys the campaign is assigned to.
+    * List of country codes the campaign is valid for.
     */
-    @SerializedName("shopKeys")
-    List<String> shopKeys;
+    @SerializedName("countryCodes")
+    List<String> countryCodes;
 
     /**
     * The reduction percentage applied to all variants, which don't have a specific reduction set.
