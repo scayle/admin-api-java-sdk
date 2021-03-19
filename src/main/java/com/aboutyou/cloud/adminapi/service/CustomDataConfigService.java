@@ -26,16 +26,16 @@ public class CustomDataConfigService extends AbstractService {
         return this.request("get", this.resolvePath("/custom-data-configs/%s", entity), options, responseModel);
     }
 
-    public CustomDataConfig create(CustomDataConfig model) throws ApiErrorException, ConnectionException {
+    public CustomDataConfig create(String entity, CustomDataConfig model) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
-        return this.request("post", this.resolvePath("/custom-data-configs"), null, responseModel, model);
+        return this.request("post", this.resolvePath("/custom-data-configs/%s", entity), null, responseModel, model);
     }
 
-    public CustomDataConfig create(CustomDataConfig model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public CustomDataConfig create(String entity, CustomDataConfig model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
-        return this.request("post", this.resolvePath("/custom-data-configs"), options, responseModel, model);
+        return this.request("post", this.resolvePath("/custom-data-configs/%s", entity), options, responseModel, model);
     }
 
     public CustomDataConfig update(String entity, CustomDataConfig model) throws ApiErrorException, ConnectionException {

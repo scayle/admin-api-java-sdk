@@ -36,7 +36,7 @@ public class CustomDataConfigTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomDataConfig responseEntity = this.api.customDataConfigs().create(requestEntity,  null);
+    CustomDataConfig responseEntity = this.api.customDataConfigs().create("1", requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomDataConfigCreateResponse.json");
         assertThatJson(expectedResponseJson)
