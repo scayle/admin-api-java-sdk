@@ -71,4 +71,10 @@ public class Shop implements ApiObjectInterface {
     @SerializedName("countries")
     List<ShopCountry> countries;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
 }
