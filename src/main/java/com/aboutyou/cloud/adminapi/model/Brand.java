@@ -47,4 +47,10 @@ public class Brand implements ApiObjectInterface {
     @SerializedName("attributes")
     List<Attribute> attributes;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
 }
