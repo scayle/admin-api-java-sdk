@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class ProductAssortmentConfiguration implements ApiObjectInterface {
     /**
-    * The product ids to include.
+    * The product IDs to include.
     */
     @SerializedName("include")
     List<Integer> include;
 
     /**
-    * The product ids to exclude.
+    * The product IDs to exclude.
     */
     @SerializedName("exclude")
     List<Integer> exclude;

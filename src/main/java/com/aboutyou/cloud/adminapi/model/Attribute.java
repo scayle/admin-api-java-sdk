@@ -30,13 +30,13 @@ public class Attribute implements ApiObjectInterface {
     Object value;
 
     /**
-    * Specifies if the attribute was locked via the Cloud Panel.
+    * Specifies if the attribute was locked via Commerce Suite Panel.
     */
     @SerializedName("isLocked")
     Boolean isLocked;
 
     /**
-    * Used to override the attribute value for a specific Shop.
+    * Used to override the attribute value for a specific shop.
     */
     @SerializedName("shopSpecific")
     Map<String, Object> shopSpecific;

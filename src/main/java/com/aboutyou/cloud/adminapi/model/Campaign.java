@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Campaign implements ApiObjectInterface {
     /**
-    * The id of the campaign created by Backbone Core.
+    * The ID of the campaign created by Backbone Core.
     */
     @SerializedName("id")
     Integer id;
@@ -36,7 +36,7 @@ public class Campaign implements ApiObjectInterface {
     List<String> countryCodes;
 
     /**
-    * The reduction percentage applied to all variants, which don't have a specific reduction set.
+    * The reduction percentage applied to all variants, which do not have a specific reduction set.
     */
     @SerializedName("reduction")
     Double reduction;

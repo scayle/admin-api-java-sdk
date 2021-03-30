@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Master implements ApiObjectInterface {
     /**
-    * A key that uniquely identifies a group of products (e.g. all colors of a shirt) within the tenant's ecosystem.
+    * A key that uniquely identifies a group of products (e.g., all colors of a shirt) within the tenant's ecosystem.
     */
     @SerializedName("referenceKey")
     String referenceKey;

@@ -12,25 +12,25 @@ import lombok.Setter;
 @Setter
 public class Shop implements ApiObjectInterface {
     /**
-    * The id of the shop created by Backbone Core.
+    * The ID of the shop created by Backbone Core.
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 4 chars long.
+    * A key that uniquely identifies the shop within the tenant's ecosystem. Must be **exactly two characters** long.
     */
     @SerializedName("key")
     String key;
 
     /**
-    * Full name of the Shop.
+    * Full name of the shop.
     */
     @SerializedName("name")
     String name;
 
     /**
-    * The Url of the logo assigned to the shop.
+    * The URL of the logo assigned to the shop.
     */
     @SerializedName("logoUrl")
     String logoUrl;

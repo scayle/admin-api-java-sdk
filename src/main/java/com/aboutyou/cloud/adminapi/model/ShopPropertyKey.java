@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ShopPropertyKey implements ApiObjectInterface {
     /**
-    * The id of the shop property key.
+    * The ID of the shop property key.
     */
     @SerializedName("id")
     Integer id;

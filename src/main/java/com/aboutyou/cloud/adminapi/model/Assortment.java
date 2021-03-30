@@ -12,19 +12,19 @@ import lombok.Setter;
 @Setter
 public class Assortment implements ApiObjectInterface {
     /**
-    * Configuration of Master Category includes/excludes.
+    * Configuration of master category includes/excludes.
     */
     @SerializedName("masterCategories")
     MasterCategoryAssortmentConfiguration masterCategories;
 
     /**
-    * Configuration of Product includes/excludes.
+    * Configuration of product includes/excludes.
     */
     @SerializedName("products")
     ProductAssortmentConfiguration products;
 
     /**
-    * Configuration of Attribute includes/excludes.
+    * Configuration of attribute includes/excludes.
     */
     @SerializedName("attributes")
     List<AttributeAssortmentConfiguration> attributes;

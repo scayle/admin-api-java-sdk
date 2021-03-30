@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class AttributeGroup implements ApiObjectInterface {
     /**
-    * The id of the attribute group created by Backbone Core.
+    * The ID of the attribute group created by Backbone Core.
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * A name, that uniquely identifies an attribute group.
+    * A name that uniquely identifies an attribute group.
     */
     @SerializedName("name")
     String name;
@@ -37,7 +37,7 @@ public class AttributeGroup implements ApiObjectInterface {
 
     /**
     * Defines whether an attribute value is shared beetwen the entities or every entity has its own value.
-It's not possible to share attributes of advanced and advancedList types, therefore isShared must be always false in this case.
+It is not possible to share attributes of advanced and advancedList types, therefore isShared must be always false in this case.
 
     */
     @SerializedName("isShared")
@@ -66,7 +66,7 @@ The attribute group is valid for all shops if the field is omitted.
     List<String> shopKeys;
 
     /**
-    * Defines if shop specific attribute values are allowed for the given attribute group.
+    * Defines if shop-specific attribute values are allowed for the given attribute group.
 
     */
     @SerializedName("isOverridablePerShop")

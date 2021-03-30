@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class PackageGroup implements ApiObjectInterface {
     /**
-    * The id of the package group.
+    * The ID of the package group.
     */
     @SerializedName("id")
     Integer id;

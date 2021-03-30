@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class AssetSource implements ApiObjectInterface {
     /**
-    * Url of remote asset.
+    * URL of remote asset.
     */
     @SerializedName("url")
     String url;
 
     /**
-    * Base64 encoded binary asset data.
+    * Base64-encoded binary asset data.
     */
     @SerializedName("attachment")
     String attachment;

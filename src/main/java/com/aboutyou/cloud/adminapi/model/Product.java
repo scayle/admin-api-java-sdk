@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Product implements ApiObjectInterface {
     /**
-    * The id of the product created by Backbone Core.
+    * The ID of the product created by Backbone Core.
     */
     @SerializedName("id")
     Integer id;
@@ -24,7 +24,7 @@ public class Product implements ApiObjectInterface {
     List<String> problems;
 
     /**
-    * A key that uniquely identifies the product (e.g. a shirt in a specific color) within the tenant's ecosystem.
+    * A key that uniquely identifies the product (e.g., a shirt in a specific color) within the tenant's ecosystem.
     */
     @SerializedName("referenceKey")
     String referenceKey;

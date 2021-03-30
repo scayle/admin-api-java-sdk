@@ -12,19 +12,19 @@ import lombok.Setter;
 @Setter
 public class ShopCategory implements ApiObjectInterface {
     /**
-    * The id of the shop category
+    * The ID of the shop category.
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * The id of the parent shop category
+    * The ID of the parent shop category.
     */
     @SerializedName("parentId")
     Integer parentId;
 
     /**
-    * The id of the left sibling shop category. It defines the shop category position in the category tree.
+    * The ID of the left sibling shop category. It defines the shop category position in the category tree.
     */
     @SerializedName("leftSiblingId")
     Integer leftSiblingId;
@@ -54,7 +54,7 @@ public class ShopCategory implements ApiObjectInterface {
     ShopCategoryConfiguration configuration;
 
     /**
-    * List of supported filter groups
+    * List of supported filter groups.
     */
     @SerializedName("supportedFilterGroups")
     List<String> supportedFilterGroups;

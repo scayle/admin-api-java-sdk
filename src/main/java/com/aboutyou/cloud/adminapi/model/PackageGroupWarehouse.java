@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class PackageGroupWarehouse implements ApiObjectInterface {
     /**
-    * The id of the warehouse created by Backbone Core.
+    * The ID of the warehouse created by Backbone Core.
     */
     @SerializedName("warehouseId")
     Integer warehouseId;

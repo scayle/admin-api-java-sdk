@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductVariant implements ApiObjectInterface {
     /**
-    * Id assigned by BACKBONE Core.
+    * ID assigned by BACKBONE Core.
     */
     @SerializedName("id")
     Integer id;

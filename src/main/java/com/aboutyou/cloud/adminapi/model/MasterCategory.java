@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class MasterCategory implements ApiObjectInterface {
     /**
-    * The id of the master category created by Backbone Core.
+    * The ID of the master category created by Backbone Core.
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * The id of the parent master category if exists.
+    * The ID of the parent master category if exists.
     */
     @SerializedName("parentId")
     Integer parentId;

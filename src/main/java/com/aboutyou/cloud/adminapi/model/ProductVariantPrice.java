@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductVariantPrice implements ApiObjectInterface {
     /**
-    * Id assigned by BACKBONE Core.
+    * ID assigned by BACKBONE Core.
     */
     @SerializedName("id")
     Integer id;
@@ -30,19 +30,19 @@ public class ProductVariantPrice implements ApiObjectInterface {
     String countryCode;
 
     /**
-    * Price in the smalltest subunit, e.g Cent
+    * Price in the smalltest subunit, e.g., cent
     */
     @SerializedName("price")
     Integer price;
 
     /**
-    * Old price in the smalltest subunit, e.g Cent
+    * Old price in the smalltest subunit, e.g., cent
     */
     @SerializedName("oldPrice")
     Integer oldPrice;
 
     /**
-    * Recommended retail price in the smalltest subunit, e.g Cent
+    * Recommended retail price in the smalltest subunit, e.g., cent
     */
     @SerializedName("recommendedRetailPrice")
     Integer recommendedRetailPrice;
