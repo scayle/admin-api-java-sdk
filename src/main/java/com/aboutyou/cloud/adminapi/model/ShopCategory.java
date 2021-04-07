@@ -30,16 +30,10 @@ public class ShopCategory implements ApiObjectInterface {
     Integer leftSiblingId;
 
     /**
-    * The internal name of the shop category.
+    * The localized category name.
     */
     @SerializedName("name")
-    String name;
-
-    /**
-    * When the flag is set to true on a category node, the category is a self containing tree. The parent of that node will not inherit the product assortments of the node.
-    */
-    @SerializedName("stopBubbleUp")
-    Boolean stopBubbleUp;
+    Map<String, String> name;
 
     /**
     * 
@@ -48,16 +42,28 @@ public class ShopCategory implements ApiObjectInterface {
     ShopCategoryProducts products;
 
     /**
-    * 
-    */
-    @SerializedName("configuration")
-    ShopCategoryConfiguration configuration;
-
-    /**
     * List of supported filter groups.
     */
     @SerializedName("supportedFilterGroups")
     List<String> supportedFilterGroups;
+
+    /**
+    * The properties assigned to the shop category. Can be specified on creation only.
+    */
+    @SerializedName("properties")
+    List<ShopCategoryProperty> properties;
+
+    /**
+    * Declares whether the shop category is active or not. Can be specified on creation only.
+    */
+    @SerializedName("isActive")
+    Boolean isActive;
+
+    /**
+    * Declares whether the shop category is visible in the shop or not. Can be specified on creation only.
+    */
+    @SerializedName("isVisible")
+    Boolean isVisible;
 
     /**
     * 

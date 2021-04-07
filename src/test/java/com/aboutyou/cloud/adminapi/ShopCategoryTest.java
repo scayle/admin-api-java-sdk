@@ -96,7 +96,7 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategoryProperty responseEntity = this.api.shopCategories().updateOrCreateProperty("1", 1, requestEntity,  null);
+    ShopCategoryProperty responseEntity = this.api.shopCategories().updateOrCreateProperty("1", "1", 1, requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreatePropertyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -109,14 +109,14 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDeleteProperty() throws Exception {
 
-    this.api.shopCategories().deleteProperty("1", 1, "1",  null);
+    this.api.shopCategories().deleteProperty("1", "1", 1, "1",  null);
 
     }
 
     @Test
     public void testGetProperty() throws Exception {
 
-    ShopCategoryProperty responseEntity = this.api.shopCategories().getProperty("1", 1, "1",  null);
+    ShopCategoryProperty responseEntity = this.api.shopCategories().getProperty("1", "1", 1, "1",  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetPropertyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -129,7 +129,7 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testAllProperties() throws Exception {
 
-    ApiCollection<ShopCategoryProperty> responseEntity = this.api.shopCategories().allProperties("1", 1,  null);
+    ApiCollection<ShopCategoryProperty> responseEntity = this.api.shopCategories().allProperties("1", "1", 1,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryAllPropertiesResponse.json");
         assertThatJson(expectedResponseJson)
