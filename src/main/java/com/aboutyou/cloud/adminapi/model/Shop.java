@@ -60,7 +60,7 @@ public class Shop implements ApiObjectInterface {
     String priceGroupKey;
 
     /**
-    * Defines shop categories tree id.
+    * Defines shop categories tree id. Can be set only on creation.
     */
     @SerializedName("shopCategoryTreeId")
     Integer shopCategoryTreeId;
