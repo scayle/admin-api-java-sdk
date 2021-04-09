@@ -53,4 +53,10 @@ public class Campaign implements ApiObjectInterface {
     @SerializedName("endAt")
     String endAt;
 
+    /**
+    * A unique key to identifiy the campaign
+    */
+    @SerializedName("campaignKey")
+    String campaignKey;
+
 }
