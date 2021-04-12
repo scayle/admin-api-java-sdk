@@ -297,4 +297,30 @@ public class ShopCategoryTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testGetCountry() throws Exception {
+
+    ShopCategoryCountry responseEntity = this.api.shopCategories().getCountry("1", "1", 1,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCountryResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateOrCreateCountry() throws Exception {
+
+    ShopCategoryCountry responseEntity = this.api.shopCategories().updateOrCreateCountry("1", "1", 1,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreateCountryResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

@@ -71,4 +71,10 @@ public class ShopCategory implements ApiObjectInterface {
     @SerializedName("customData")
     Object customData;
 
+    /**
+    * List of country specific configurations.
+    */
+    @SerializedName("countries")
+    List<ShopCategoryCountry> countries;
+
 }

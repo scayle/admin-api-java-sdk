@@ -254,4 +254,28 @@ public class ShopCategoryService extends AbstractService {
         return this.request("get", this.resolvePath("/shops/%s/categories/%s/countries/%s/custom-data/%s", shopKey, shopCategoryId, countryCode, key), options, responseModel);
     }
 
+    public ShopCategoryCountry getCountry(String shopKey, String countryCode, Integer shopCategoryId) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryCountry> responseModel = (Class<ShopCategoryCountry>)(Class<?>)ShopCategoryCountry.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), null, responseModel);
+    }
+
+    public ShopCategoryCountry getCountry(String shopKey, String countryCode, Integer shopCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryCountry> responseModel = (Class<ShopCategoryCountry>)(Class<?>)ShopCategoryCountry.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), options, responseModel);
+    }
+
+    public ShopCategoryCountry updateOrCreateCountry(String shopKey, String countryCode, Integer shopCategoryId) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryCountry> responseModel = (Class<ShopCategoryCountry>)(Class<?>)ShopCategoryCountry.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), null, responseModel);
+    }
+
+    public ShopCategoryCountry updateOrCreateCountry(String shopKey, String countryCode, Integer shopCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ShopCategoryCountry> responseModel = (Class<ShopCategoryCountry>)(Class<?>)ShopCategoryCountry.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), options, responseModel);
+    }
+
 }
