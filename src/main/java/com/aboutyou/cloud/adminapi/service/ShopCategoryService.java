@@ -266,16 +266,16 @@ public class ShopCategoryService extends AbstractService {
         return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), options, responseModel);
     }
 
-    public ShopCategoryCountry updateOrCreateCountry(String shopKey, String countryCode, Integer shopCategoryId) throws ApiErrorException, ConnectionException {
+    public ShopCategoryCountry updateOrCreateCountry(String shopKey, String countryCode, Integer shopCategoryId, ShopCategoryCountry model) throws ApiErrorException, ConnectionException {
         Class<ShopCategoryCountry> responseModel = (Class<ShopCategoryCountry>)(Class<?>)ShopCategoryCountry.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), null, responseModel);
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), null, responseModel, model);
     }
 
-    public ShopCategoryCountry updateOrCreateCountry(String shopKey, String countryCode, Integer shopCategoryId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ShopCategoryCountry updateOrCreateCountry(String shopKey, String countryCode, Integer shopCategoryId, ShopCategoryCountry model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ShopCategoryCountry> responseModel = (Class<ShopCategoryCountry>)(Class<?>)ShopCategoryCountry.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), options, responseModel);
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/categories/%s", shopKey, countryCode, shopCategoryId), options, responseModel, model);
     }
 
 }

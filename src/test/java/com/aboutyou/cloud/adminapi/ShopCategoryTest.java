@@ -312,8 +312,14 @@ public class ShopCategoryTest extends BaseApiTest {
 
     @Test
     public void testUpdateOrCreateCountry() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreateCountryRequest.json");
+        ShopCategoryCountry requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopCategoryCountry.class);
 
-    ShopCategoryCountry responseEntity = this.api.shopCategories().updateOrCreateCountry("1", "1", 1,  null);
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    ShopCategoryCountry responseEntity = this.api.shopCategories().updateOrCreateCountry("1", "1", 1, requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreateCountryResponse.json");
         assertThatJson(expectedResponseJson)
