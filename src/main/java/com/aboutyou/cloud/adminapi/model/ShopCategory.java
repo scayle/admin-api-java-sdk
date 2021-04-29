@@ -36,10 +36,10 @@ public class ShopCategory implements ApiObjectInterface {
     Map<String, String> name;
 
     /**
-    * 
+    * Product sets define which products to include in the shop category.
     */
-    @SerializedName("products")
-    ShopCategoryProducts products;
+    @SerializedName("productSets")
+    List<ShopCategoryProductSet> productSets;
 
     /**
     * List of supported filter groups.
