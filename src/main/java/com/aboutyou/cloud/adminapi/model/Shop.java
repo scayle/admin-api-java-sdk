@@ -66,6 +66,12 @@ public class Shop implements ApiObjectInterface {
     Integer shopCategoryTreeId;
 
     /**
+    * The id of the company the shop is assigned to.
+    */
+    @SerializedName("companyId")
+    Integer companyId;
+
+    /**
     * The countries assigned to the shop.
     */
     @SerializedName("countries")
