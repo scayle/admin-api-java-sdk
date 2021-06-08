@@ -21,6 +21,7 @@ import com.aboutyou.cloud.adminapi.service.ProductSortingService;
 import com.aboutyou.cloud.adminapi.service.ShopWarehouseService;
 import com.aboutyou.cloud.adminapi.service.PackageGroupService;
 import com.aboutyou.cloud.adminapi.service.CustomDataConfigService;
+import com.aboutyou.cloud.adminapi.service.CustomerService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -125,6 +126,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public CustomDataConfigService customDataConfigs() {
         CustomDataConfigService service = this.getService("com.aboutyou.cloud.adminapi.service.CustomDataConfigService");
+        return service;
+    }
+
+    public CustomerService customers() {
+        CustomerService service = this.getService("com.aboutyou.cloud.adminapi.service.CustomerService");
         return service;
     }
 
