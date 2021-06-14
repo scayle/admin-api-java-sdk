@@ -95,4 +95,10 @@ public class Customer implements ApiObjectInterface {
     @SerializedName("addresses")
     List<CustomerAddress> addresses;
 
+    /**
+    * 
+    */
+    @SerializedName("legacyCustomData")
+    Map<String, Object> legacyCustomData;
+
 }
