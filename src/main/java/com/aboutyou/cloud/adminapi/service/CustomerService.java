@@ -62,6 +62,16 @@ public class CustomerService extends AbstractService {
         return this.request("put", this.resolvePath("/customers/%s/reference-key", customerId), options, responseModel, model);
     }
 
+    public void anonymize(Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/customers/%s/anonymize", customerIdentifier), null, null);
+    }
+
+    public void anonymize(Identifier customerIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/customers/%s/anonymize", customerIdentifier), options, null);
+    }
+
     public CustomerStatus getStatus(Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
         Class<CustomerStatus> responseModel = (Class<CustomerStatus>)(Class<?>)CustomerStatus.class;
 

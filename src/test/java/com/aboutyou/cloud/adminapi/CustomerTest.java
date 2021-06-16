@@ -85,6 +85,13 @@ public class CustomerTest extends BaseApiTest {
     }
 
     @Test
+    public void testAnonymize() throws Exception {
+
+    this.api.customers().anonymize(Identifier.fromId(1),  null);
+
+    }
+
+    @Test
     public void testGetStatus() throws Exception {
 
     CustomerStatus responseEntity = this.api.customers().getStatus(Identifier.fromId(1),  null);
