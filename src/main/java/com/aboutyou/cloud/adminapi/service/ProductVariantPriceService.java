@@ -14,38 +14,38 @@ public class ProductVariantPriceService extends AbstractService {
         super(httpClient);
     }
 
-    public ProductVariantPrice create(Identifier productIdentifier, Identifier variantIdentifier, ProductVariantPrice model) throws ApiErrorException, ConnectionException {
+    public ProductVariantPrice create(Identifier variantIdentifier, ProductVariantPrice model) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
-        return this.request("post", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), null, responseModel, model);
+        return this.request("post", this.resolvePath("/variants/%s/prices", variantIdentifier), null, responseModel, model);
     }
 
-    public ProductVariantPrice create(Identifier productIdentifier, Identifier variantIdentifier, ProductVariantPrice model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductVariantPrice create(Identifier variantIdentifier, ProductVariantPrice model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
-        return this.request("post", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), options, responseModel, model);
+        return this.request("post", this.resolvePath("/variants/%s/prices", variantIdentifier), options, responseModel, model);
     }
 
-    public ApiCollection<ProductVariantPrice> all(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantPrice> all(Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
-        return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/variants/%s/prices", variantIdentifier), null, responseModel);
     }
 
-    public ApiCollection<ProductVariantPrice> all(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantPrice> all(Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
-        return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/prices", productIdentifier, variantIdentifier), options, responseModel);
+        return this.requestCollection("get", this.resolvePath("/variants/%s/prices", variantIdentifier), options, responseModel);
     }
 
-    public void deleteFuturePrice(Identifier productIdentifier, Identifier variantIdentifier, Integer priceId) throws ApiErrorException, ConnectionException {
+    public void deleteFuturePrice(Identifier variantIdentifier, Integer priceId) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/products/%s/variants/%s/prices/%s", productIdentifier, variantIdentifier, priceId), null, null);
+        this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceId), null, null);
     }
 
-    public void deleteFuturePrice(Identifier productIdentifier, Identifier variantIdentifier, Integer priceId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void deleteFuturePrice(Identifier variantIdentifier, Integer priceId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/products/%s/variants/%s/prices/%s", productIdentifier, variantIdentifier, priceId), options, null);
+        this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceId), options, null);
     }
 
 }

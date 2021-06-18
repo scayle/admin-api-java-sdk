@@ -23,7 +23,7 @@ public class ProductVariantStockTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductVariantStock responseEntity = this.api.productVariantStocks().create(Identifier.fromId(1), Identifier.fromId(1), requestEntity,  null);
+    ProductVariantStock responseEntity = this.api.productVariantStocks().create(Identifier.fromId(1), requestEntity,  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantStockCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +36,7 @@ public class ProductVariantStockTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<ProductVariantStock> responseEntity = this.api.productVariantStocks().all(Identifier.fromId(1), Identifier.fromId(1),  null);
+    ApiCollection<ProductVariantStock> responseEntity = this.api.productVariantStocks().all(Identifier.fromId(1),  null);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantStockAllResponse.json");
         assertThatJson(expectedResponseJson)

@@ -14,28 +14,28 @@ public class ProductVariantStockService extends AbstractService {
         super(httpClient);
     }
 
-    public ProductVariantStock create(Identifier productIdentifier, Identifier variantIdentifier, ProductVariantStock model) throws ApiErrorException, ConnectionException {
+    public ProductVariantStock create(Identifier variantIdentifier, ProductVariantStock model) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.request("post", this.resolvePath("/products/%s/variants/%s/stocks", productIdentifier, variantIdentifier), null, responseModel, model);
+        return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, responseModel, model);
     }
 
-    public ProductVariantStock create(Identifier productIdentifier, Identifier variantIdentifier, ProductVariantStock model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ProductVariantStock create(Identifier variantIdentifier, ProductVariantStock model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.request("post", this.resolvePath("/products/%s/variants/%s/stocks", productIdentifier, variantIdentifier), options, responseModel, model);
+        return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), options, responseModel, model);
     }
 
-    public ApiCollection<ProductVariantStock> all(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantStock> all(Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/stocks", productIdentifier, variantIdentifier), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, responseModel);
     }
 
-    public ApiCollection<ProductVariantStock> all(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ApiCollection<ProductVariantStock> all(Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.requestCollection("get", this.resolvePath("/products/%s/variants/%s/stocks", productIdentifier, variantIdentifier), options, responseModel);
+        return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), options, responseModel);
     }
 
 }
