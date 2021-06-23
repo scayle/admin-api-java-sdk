@@ -96,4 +96,74 @@ public class CustomerService extends AbstractService {
         return this.request("put", this.resolvePath("/customers/%s/status", customerIdentifier), options, responseModel, model);
     }
 
+    public ApiCollection<CustomerAddress> getAddresses(Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.requestCollection("get", this.resolvePath("/customers/%s/addresses", customerIdentifier), null, responseModel);
+    }
+
+    public ApiCollection<CustomerAddress> getAddresses(Identifier customerIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.requestCollection("get", this.resolvePath("/customers/%s/addresses", customerIdentifier), options, responseModel);
+    }
+
+    public CustomerAddress getAddress(Identifier customerIdentifier, Identifier addressIdentifier) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("get", this.resolvePath("/customers/%s/addresses/%s", customerIdentifier, addressIdentifier), null, responseModel);
+    }
+
+    public CustomerAddress getAddress(Identifier customerIdentifier, Identifier addressIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("get", this.resolvePath("/customers/%s/addresses/%s", customerIdentifier, addressIdentifier), options, responseModel);
+    }
+
+    public CustomerAddress createAddress(Identifier customerIdentifier, CustomerAddress model) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("post", this.resolvePath("/customers/%s/addresses", customerIdentifier), null, responseModel, model);
+    }
+
+    public CustomerAddress createAddress(Identifier customerIdentifier, CustomerAddress model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("post", this.resolvePath("/customers/%s/addresses", customerIdentifier), options, responseModel, model);
+    }
+
+    public CustomerAddress updateAddress(Identifier customerIdentifier, Identifier addressIdentifier, CustomerAddress model) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("put", this.resolvePath("/customers/%s/addresses/%s", customerIdentifier, addressIdentifier), null, responseModel, model);
+    }
+
+    public CustomerAddress updateAddress(Identifier customerIdentifier, Identifier addressIdentifier, CustomerAddress model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("put", this.resolvePath("/customers/%s/addresses/%s", customerIdentifier, addressIdentifier), options, responseModel, model);
+    }
+
+    public CustomerAddress updateAddressReferenceKey(Identifier customerIdentifier, Integer addressId, CustomerAddressReferenceKey model) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("put", this.resolvePath("/customers/%s/addresses/%s/reference-key", customerIdentifier, addressId), null, responseModel, model);
+    }
+
+    public CustomerAddress updateAddressReferenceKey(Identifier customerIdentifier, Integer addressId, CustomerAddressReferenceKey model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
+
+        return this.request("put", this.resolvePath("/customers/%s/addresses/%s/reference-key", customerIdentifier, addressId), options, responseModel, model);
+    }
+
+    public void anonymizeAddress(Identifier customerIdentifier, Identifier addressIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/customers/%s/addresses/%s/anonymize", customerIdentifier, addressIdentifier), null, null);
+    }
+
+    public void anonymizeAddress(Identifier customerIdentifier, Identifier addressIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/customers/%s/addresses/%s/anonymize", customerIdentifier, addressIdentifier), options, null);
+    }
+
 }

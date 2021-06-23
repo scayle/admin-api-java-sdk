@@ -37,6 +37,10 @@ public class HttpClient {
             requestBody = RequestBody.create(body, mediaType);
         }
 
+        if (body == null && httpMethod.equals("POST")) {
+            requestBody = RequestBody.create(null, new byte[0]);
+        }
+
         Request request = new Request.Builder()
         .header("X-Access-Token", this.apiConfiguration.getAccessToken())
         .header("Content-Type", "application/json")

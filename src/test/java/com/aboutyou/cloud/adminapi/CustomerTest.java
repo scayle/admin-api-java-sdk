@@ -123,4 +123,96 @@ public class CustomerTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testGetAddresses() throws Exception {
+
+    ApiCollection<CustomerAddress> responseEntity = this.api.customers().getAddresses(Identifier.fromId(1),  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetAddressesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (CustomerAddress entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
+    public void testGetAddress() throws Exception {
+
+    CustomerAddress responseEntity = this.api.customers().getAddress(Identifier.fromId(1), Identifier.fromId(1),  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetAddressResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateAddress() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerCreateAddressRequest.json");
+        CustomerAddress requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerAddress.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    CustomerAddress responseEntity = this.api.customers().createAddress(Identifier.fromId(1), requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerCreateAddressResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateAddress() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerUpdateAddressRequest.json");
+        CustomerAddress requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerAddress.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    CustomerAddress responseEntity = this.api.customers().updateAddress(Identifier.fromId(1), Identifier.fromId(1), requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateAddressResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateAddressReferenceKey() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerUpdateAddressReferenceKeyRequest.json");
+        CustomerAddressReferenceKey requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerAddressReferenceKey.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    CustomerAddress responseEntity = this.api.customers().updateAddressReferenceKey(Identifier.fromId(1), 1, requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateAddressReferenceKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testAnonymizeAddress() throws Exception {
+
+    this.api.customers().anonymizeAddress(Identifier.fromId(1), Identifier.fromId(1),  null);
+
+    }
+
 }
