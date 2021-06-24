@@ -166,4 +166,14 @@ public class CustomerService extends AbstractService {
         this.request("delete", this.resolvePath("/customers/%s/addresses/%s/anonymize", customerIdentifier, addressIdentifier), options, null);
     }
 
+    public void resetPassword(Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/customers/%s/send-reset-password-email", customerIdentifier), null, null);
+    }
+
+    public void resetPassword(Identifier customerIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/customers/%s/send-reset-password-email", customerIdentifier), options, null);
+    }
+
 }

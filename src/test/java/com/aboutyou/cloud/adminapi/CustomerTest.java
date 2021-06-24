@@ -215,4 +215,11 @@ public class CustomerTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testResetPassword() throws Exception {
+
+    this.api.customers().resetPassword(Identifier.fromId(1),  null);
+
+    }
+
 }

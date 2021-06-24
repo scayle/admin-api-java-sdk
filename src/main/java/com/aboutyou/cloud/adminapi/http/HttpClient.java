@@ -10,6 +10,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.Request.Builder;
 
 public class HttpClient {
     private OkHttpClient httpClient;
@@ -31,8 +32,15 @@ public class HttpClient {
             }
         }
 
+        Builder builder = new Request.Builder()
+            .header("X-Access-Token", this.apiConfiguration.getAccessToken())
+            .header("X-SDK", "java/1.0.0")
+            .url(urlBuilder.build().toString());
+
         RequestBody requestBody = null;
+
         if (body != null) {
+            builder.header("Content-Type", "application/json");
             MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
             requestBody = RequestBody.create(body, mediaType);
         }
@@ -41,13 +49,7 @@ public class HttpClient {
             requestBody = RequestBody.create(null, new byte[0]);
         }
 
-        Request request = new Request.Builder()
-        .header("X-Access-Token", this.apiConfiguration.getAccessToken())
-        .header("Content-Type", "application/json")
-        .header("X-SDK", "java/1.0.0")
-        .url(urlBuilder.build().toString())
-        .method(httpMethod, requestBody)
-        .build();
+        Request request = builder.method(httpMethod, requestBody).build();
 
         return httpClient.newCall(request).execute();
     }
