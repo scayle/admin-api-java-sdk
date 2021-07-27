@@ -37,7 +37,7 @@ public class AttributeGroup implements ApiObjectInterface {
 
     /**
     * Defines whether an attribute value is shared beetwen the entities or every entity has its own value.
-It is not possible to share attributes of advanced and advancedList types, therefore isShared must be always false in this case.
+It is not possible to share attributes of advanced type, therefore isShared must be always false in this case.
 
     */
     @SerializedName("isShared")
@@ -51,7 +51,7 @@ It is not possible to share attributes of advanced and advancedList types, there
 
     /**
     * A structure, which describes advanced attribute values.
-Mandatory for advanced and advancedList types.
+Mandatory for the advanced type.
 
     */
     @SerializedName("structure")
@@ -74,7 +74,7 @@ The attribute group is valid for all shops if the field is omitted.
 
     /**
     * If an attribute group is differentiating, then every entity must have a unique attribute value.
-This configuration is not applicable to advanced and advancedList types, neither to attribute groups marked as isShared=false.
+This configuration is not applicable to the advanced type, neither to attribute groups marked as isShared=false.
 
     */
     @SerializedName("isDifferentiating")
