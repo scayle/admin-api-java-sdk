@@ -23,6 +23,7 @@ import com.aboutyou.cloud.adminapi.service.PackageGroupService;
 import com.aboutyou.cloud.adminapi.service.CustomDataConfigService;
 import com.aboutyou.cloud.adminapi.service.CustomerService;
 import com.aboutyou.cloud.adminapi.service.OrderService;
+import com.aboutyou.cloud.adminapi.service.ShipmentService;
 import com.aboutyou.cloud.adminapi.service.WebhookEventService;
 import com.aboutyou.cloud.adminapi.service.WebhookSubscriptionService;
 
@@ -139,6 +140,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public OrderService orders() {
         OrderService service = this.getService("com.aboutyou.cloud.adminapi.service.OrderService");
+        return service;
+    }
+
+    public ShipmentService shipments() {
+        ShipmentService service = this.getService("com.aboutyou.cloud.adminapi.service.ShipmentService");
         return service;
     }
 
