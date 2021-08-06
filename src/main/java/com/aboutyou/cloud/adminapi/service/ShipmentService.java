@@ -14,16 +14,14 @@ public class ShipmentService extends AbstractService {
         super(httpClient);
     }
 
-    public Shipment create(Shipment model) throws ApiErrorException, ConnectionException {
-        Class<Shipment> responseModel = (Class<Shipment>)(Class<?>)Shipment.class;
+    public void create(Shipment model) throws ApiErrorException, ConnectionException {
 
-        return this.request("post", this.resolvePath("/fulfillment/shipments"), null, responseModel, model);
+        this.request("post", this.resolvePath("/fulfillment/shipments"), null, null, model);
     }
 
-    public Shipment create(Shipment model, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<Shipment> responseModel = (Class<Shipment>)(Class<?>)Shipment.class;
+    public void create(Shipment model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        return this.request("post", this.resolvePath("/fulfillment/shipments"), options, responseModel, model);
+        this.request("post", this.resolvePath("/fulfillment/shipments"), options, null, model);
     }
 
 }

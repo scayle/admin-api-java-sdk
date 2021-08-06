@@ -23,13 +23,7 @@ public class ShipmentTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Shipment responseEntity = this.api.shipments().create(requestEntity,  null);
-
-        String expectedResponseJson = this.loadFixture("/fixtures/ShipmentCreateResponse.json");
-        assertThatJson(expectedResponseJson)
-            .when(TREATING_NULL_AS_ABSENT)
-            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
-
+    this.api.shipments().create(requestEntity,  null);
 
     }
 
