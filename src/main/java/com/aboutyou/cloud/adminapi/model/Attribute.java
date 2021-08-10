@@ -18,7 +18,7 @@ public class Attribute implements ApiObjectInterface {
     String name;
 
     /**
-    * The attribute type. In this case always simple.
+    * The attribute type.
     */
     @SerializedName("type")
     String type;
