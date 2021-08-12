@@ -26,6 +26,7 @@ import com.aboutyou.cloud.adminapi.service.OrderService;
 import com.aboutyou.cloud.adminapi.service.ShipmentService;
 import com.aboutyou.cloud.adminapi.service.WebhookEventService;
 import com.aboutyou.cloud.adminapi.service.WebhookSubscriptionService;
+import com.aboutyou.cloud.adminapi.service.CancellationService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -155,6 +156,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public WebhookSubscriptionService webhookSubscriptions() {
         WebhookSubscriptionService service = this.getService("com.aboutyou.cloud.adminapi.service.WebhookSubscriptionService");
+        return service;
+    }
+
+    public CancellationService cancellations() {
+        CancellationService service = this.getService("com.aboutyou.cloud.adminapi.service.CancellationService");
         return service;
     }
 
