@@ -28,6 +28,7 @@ import com.aboutyou.cloud.adminapi.service.WebhookEventService;
 import com.aboutyou.cloud.adminapi.service.WebhookSubscriptionService;
 import com.aboutyou.cloud.adminapi.service.CancellationService;
 import com.aboutyou.cloud.adminapi.service.ReturnItemService;
+import com.aboutyou.cloud.adminapi.service.VoucherService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -167,6 +168,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ReturnItemService returnItems() {
         ReturnItemService service = this.getService("com.aboutyou.cloud.adminapi.service.ReturnItemService");
+        return service;
+    }
+
+    public VoucherService vouchers() {
+        VoucherService service = this.getService("com.aboutyou.cloud.adminapi.service.VoucherService");
         return service;
     }
 
