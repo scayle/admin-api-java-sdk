@@ -72,4 +72,62 @@ public class VoucherService extends AbstractService {
         this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), options, null);
     }
 
+    public ApiCollection<VoucherCriterion> getCriteria(String shopKey, String countryCode, Integer voucherId) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), null, responseModel);
+    }
+
+    public ApiCollection<VoucherCriterion> getCriteria(String shopKey, String countryCode, Integer voucherId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), options, responseModel);
+    }
+
+    public VoucherCriterion getCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, responseModel);
+    }
+
+    public VoucherCriterion getCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), options, responseModel);
+    }
+
+    public VoucherCriterion createCriterion(String shopKey, String countryCode, Integer voucherId, VoucherCriterion model) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), null, responseModel, model);
+    }
+
+    public VoucherCriterion createCriterion(String shopKey, String countryCode, Integer voucherId, VoucherCriterion model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), options, responseModel, model);
+    }
+
+    public VoucherCriterion updateCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, VoucherCriterion model) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, responseModel, model);
+    }
+
+    public VoucherCriterion updateCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, VoucherCriterion model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), options, responseModel, model);
+    }
+
+    public void deleteCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, null);
+    }
+
+    public void deleteCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), options, null);
+    }
+
 }

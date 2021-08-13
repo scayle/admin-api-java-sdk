@@ -32,11 +32,17 @@ public class Voucher implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("criteria")
+    List<VoucherCriterion> criteria;
+
+    /**
+    * 
+    */
     @SerializedName("name")
     String name;
 
     /**
-    * one of: active, inactive, pending-review, archived
+    * 
     */
     @SerializedName("status")
     String status;

@@ -18,7 +18,7 @@ public class VoucherConstraintsApplications implements ApiObjectInterface {
     Integer count;
 
     /**
-    * one of: customer, order
+    * 
     */
     @SerializedName("restriction")
     String restriction;
