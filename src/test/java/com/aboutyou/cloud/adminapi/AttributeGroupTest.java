@@ -87,4 +87,17 @@ public class AttributeGroupTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateFrontendName() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/AttributeGroupUpdateFrontendNameRequest.json");
+        Map<String, String> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    this.api.attributeGroups().updateFrontendName("1", requestEntity,  null);
+
+    }
+
 }

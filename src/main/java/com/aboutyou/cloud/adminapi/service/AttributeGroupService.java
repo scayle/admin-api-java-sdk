@@ -72,4 +72,14 @@ public class AttributeGroupService extends AbstractService {
         this.request("delete", this.resolvePath("/attribute-groups/%s", attributeGroupName), options, null);
     }
 
+    public void updateFrontendName(String attributeGroupName, Map<String, String> model) throws ApiErrorException, ConnectionException {
+
+        this.request("put", this.resolvePath("/attribute-groups/%s/frontend-name", attributeGroupName), null, null, model);
+    }
+
+    public void updateFrontendName(String attributeGroupName, Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("put", this.resolvePath("/attribute-groups/%s/frontend-name", attributeGroupName), options, null, model);
+    }
+
 }
