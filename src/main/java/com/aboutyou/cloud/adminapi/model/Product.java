@@ -42,7 +42,7 @@ public class Product implements ApiObjectInterface {
     Master master;
 
     /**
-    * The state of the product determined by the state evaluation process.
+    * The state of the product determined by the state evaluation process. The problem state should not be requested as it can only be the result of the state evaluation process. If product is in problem state, the reasons are listed in read-only 'problems' field.
     */
     @SerializedName("state")
     String state = "live";
