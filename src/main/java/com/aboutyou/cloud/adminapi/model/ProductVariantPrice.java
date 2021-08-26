@@ -72,13 +72,13 @@ public class ProductVariantPrice implements ApiObjectInterface {
     Double tax;
 
     /**
-    * Controlls when the price will be activated. If not present or null, its intepretated as valid from now.
+    * Controls when the price will be activated. If not present or null, the valid from is specified from now.
     */
     @SerializedName("validFrom")
     String validFrom;
 
     /**
-    * Controlls when the price will be deactivated. If not present or null, the price is valid forever.
+    * Controls when the price will be deactivated. If not present or null, the price is valid forever.
     */
     @SerializedName("validTo")
     String validTo;
