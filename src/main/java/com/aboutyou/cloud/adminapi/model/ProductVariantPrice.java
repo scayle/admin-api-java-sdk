@@ -18,31 +18,31 @@ public class ProductVariantPrice implements ApiObjectInterface {
     Integer id;
 
     /**
-    * ISO 4217 currency code
+    * ISO 4217 currency code.
     */
     @SerializedName("currencyCode")
     String currencyCode;
 
     /**
-    * ISO 3166 alpha 2 country code
+    * ISO 3166 alpha 2 country code.
     */
     @SerializedName("countryCode")
     String countryCode;
 
     /**
-    * Price in the smalltest subunit, e.g., cent
+    * Price in the smalltest subunit, e.g., cent.
     */
     @SerializedName("price")
     Integer price;
 
     /**
-    * Old price in the smalltest subunit, e.g., cent
+    * Old price in the smalltest subunit, e.g., cent.
     */
     @SerializedName("oldPrice")
     Integer oldPrice;
 
     /**
-    * Recommended retail price in the smalltest subunit, e.g., cent
+    * Recommended retail price in the smalltest subunit, e.g., cent.
     */
     @SerializedName("recommendedRetailPrice")
     Integer recommendedRetailPrice;
@@ -66,7 +66,7 @@ public class ProductVariantPrice implements ApiObjectInterface {
     ProductVariantUnitPrice unitPrice;
 
     /**
-    * A valid tax rate
+    * A valid tax rate.
     */
     @SerializedName("tax")
     Double tax;

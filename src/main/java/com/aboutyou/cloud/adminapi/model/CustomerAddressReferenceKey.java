@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class CustomerAddressReferenceKey implements ApiObjectInterface {
     /**
-    * External address reference set by the client to integrate a 3rd party system
+    * External address reference set by the client to integrate a third party system.
     */
     @SerializedName("referenceKey")
     String referenceKey;

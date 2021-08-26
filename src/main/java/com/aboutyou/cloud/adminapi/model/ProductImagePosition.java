@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductImagePosition implements ApiObjectInterface {
     /**
-    * Position of the image
+    * Position of the image.
     */
     @SerializedName("position")
     Integer position;

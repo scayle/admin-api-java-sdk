@@ -18,7 +18,7 @@ public class CustomerAddress implements ApiObjectInterface {
     Integer id;
 
     /**
-    * External reference set by the client to integrate 3rd party systems
+    * External reference set by the client to integrate third party systems.
     */
     @SerializedName("referenceKey")
     String referenceKey;

@@ -30,7 +30,7 @@ public class WebhookSubscription implements ApiObjectInterface {
     Integer version;
 
     /**
-    * The url that will be called whenever the hook is triggered.
+    * The URL that will be called whenever the hook is triggered.
     */
     @SerializedName("url")
     String url;

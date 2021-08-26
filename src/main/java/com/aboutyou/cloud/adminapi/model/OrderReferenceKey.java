@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class OrderReferenceKey implements ApiObjectInterface {
     /**
-    * External reference set by the client to integrate a 3rd party system
+    * External reference set by the client to integrate a third party system.
     */
     @SerializedName("referenceKey")
     String referenceKey;

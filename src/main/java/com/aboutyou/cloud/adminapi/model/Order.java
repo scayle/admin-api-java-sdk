@@ -84,13 +84,13 @@ public class Order implements ApiObjectInterface {
     List<OrderPayment> payment;
 
     /**
-    * Public reference set by the client to display to customers in account areas and transactional emails
+    * Public reference set by the client to display to customers in account areas and transactional emails.
     */
     @SerializedName("publicKey")
     String publicKey;
 
     /**
-    * External order reference set by the client to integrate a 3rd party system
+    * External order reference set by the client to integrate a third party system.
     */
     @SerializedName("referenceKey")
     String referenceKey;

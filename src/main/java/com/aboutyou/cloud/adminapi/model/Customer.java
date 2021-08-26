@@ -18,7 +18,7 @@ public class Customer implements ApiObjectInterface {
     Integer id;
 
     /**
-    * External reference set by the client to integrate a 3rd party system
+    * External reference set by the client to integrate a third party system.
     */
     @SerializedName("referenceKey")
     String referenceKey;
@@ -60,7 +60,7 @@ public class Customer implements ApiObjectInterface {
     String phone;
 
     /**
-    * Public reference set by the client to display to customers in account areas and transactional emails
+    * Public reference set by the client to display to customers in account areas and transactional emails.
     */
     @SerializedName("publicKey")
     String publicKey;
