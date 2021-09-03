@@ -35,4 +35,10 @@ public class WebhookEvent implements ApiObjectInterface {
     @SerializedName("isDeprecated")
     Boolean isDeprecated;
 
+    /**
+    * Indicates whether the event triggers a blocking or non-blocking webhook.
+    */
+    @SerializedName("isBlocking")
+    Boolean isBlocking;
+
 }
