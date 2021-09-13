@@ -24,7 +24,7 @@ public class ShopWarehouse implements ApiObjectInterface {
     String referenceKey;
 
     /**
-    * The priority of the warehouse.
+    * The priority of the warehouse. The higher the value, the higher the priority.
     */
     @SerializedName("priority")
     Integer priority;
