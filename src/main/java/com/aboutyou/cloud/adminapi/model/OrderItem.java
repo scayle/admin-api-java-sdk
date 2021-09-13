@@ -14,6 +14,12 @@ public class OrderItem implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("id")
+    Integer id;
+
+    /**
+    * 
+    */
     @SerializedName("availableQuantity")
     Integer availableQuantity;
 
