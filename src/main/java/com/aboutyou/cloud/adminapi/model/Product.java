@@ -48,13 +48,13 @@ public class Product implements ApiObjectInterface {
     String state = "live";
 
     /**
-    * A list of attributes attached to the product. Brand and color attributes are mandatory and must be provided when creating a new product.
+    * A list of attributes attached to the product.
     */
     @SerializedName("attributes")
     List<Attribute> attributes;
 
     /**
-    * A list of product variants attached to the product. Size attributes are mandatory and have to be provided when creating a new product.
+    * A list of product variants attached to the product.
     */
     @SerializedName("variants")
     List<ProductVariant> variants;
