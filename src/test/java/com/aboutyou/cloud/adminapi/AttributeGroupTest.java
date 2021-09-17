@@ -100,4 +100,19 @@ public class AttributeGroupTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testGetAttributes() throws Exception {
+
+    ApiCollection<Object> responseEntity = this.api.attributeGroups().getAttributes("1",  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupGetAttributesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Object entity : responseEntity.getEntities()) {
+        }
+    }
+
 }

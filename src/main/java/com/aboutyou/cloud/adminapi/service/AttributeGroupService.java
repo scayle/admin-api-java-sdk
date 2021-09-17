@@ -82,4 +82,16 @@ public class AttributeGroupService extends AbstractService {
         this.request("put", this.resolvePath("/attribute-groups/%s/frontend-name", attributeGroupName), options, null, model);
     }
 
+    public ApiCollection<Object> getAttributes(String attributeGroupName) throws ApiErrorException, ConnectionException {
+        Class<Object> responseModel = (Class<Object>)(Class<?>)Object.class;
+
+        return this.requestCollection("get", this.resolvePath("/attribute-groups/%s/attributes", attributeGroupName), null, responseModel);
+    }
+
+    public ApiCollection<Object> getAttributes(String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Object> responseModel = (Class<Object>)(Class<?>)Object.class;
+
+        return this.requestCollection("get", this.resolvePath("/attribute-groups/%s/attributes", attributeGroupName), options, responseModel);
+    }
+
 }
