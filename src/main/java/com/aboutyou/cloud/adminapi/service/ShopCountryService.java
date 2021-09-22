@@ -74,52 +74,6 @@ public class ShopCountryService extends AbstractService {
         return this.request("put", this.resolvePath("/shops/%s/countries/%s/assortment", shopKey, countryCode), options, responseModel, model);
     }
 
-    public ShopProperty updateOrCreateProperty(String shopKey, String countryCode, ShopProperty model) throws ApiErrorException, ConnectionException {
-        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
-
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/properties", shopKey, countryCode), null, responseModel, model);
-    }
-
-    public ShopProperty updateOrCreateProperty(String shopKey, String countryCode, ShopProperty model, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
-
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/properties", shopKey, countryCode), options, responseModel, model);
-    }
-
-    public void deleteProperty(String shopKey, String countryCode, String shopPropertyKey) throws ApiErrorException, ConnectionException {
-
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/properties/%s", shopKey, countryCode, shopPropertyKey), null, null);
-    }
-
-    public void deleteProperty(String shopKey, String countryCode, String shopPropertyKey, ApiOptions options) throws ApiErrorException, ConnectionException {
-
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/properties/%s", shopKey, countryCode, shopPropertyKey), options, null);
-    }
-
-    public ShopProperty getProperty(String shopKey, String countryCode, String shopPropertyKey) throws ApiErrorException, ConnectionException {
-        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
-
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/properties/%s", shopKey, countryCode, shopPropertyKey), null, responseModel);
-    }
-
-    public ShopProperty getProperty(String shopKey, String countryCode, String shopPropertyKey, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
-
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/properties/%s", shopKey, countryCode, shopPropertyKey), options, responseModel);
-    }
-
-    public ApiCollection<ShopProperty> allProperties(String shopKey, String countryCode) throws ApiErrorException, ConnectionException {
-        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
-
-        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/properties", shopKey, countryCode), null, responseModel);
-    }
-
-    public ApiCollection<ShopProperty> allProperties(String shopKey, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<ShopProperty> responseModel = (Class<ShopProperty>)(Class<?>)ShopProperty.class;
-
-        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/properties", shopKey, countryCode), options, responseModel);
-    }
-
     public Map<String, Object> createOrUpdateCustomData(String shopKey, String countryCode, Map<String, Object> model) throws ApiErrorException, ConnectionException {
         Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
 

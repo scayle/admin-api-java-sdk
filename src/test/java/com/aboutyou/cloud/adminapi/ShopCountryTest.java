@@ -100,60 +100,6 @@ public class ShopCountryTest extends BaseApiTest {
     }
 
     @Test
-    public void testUpdateOrCreateProperty() throws Exception {
-        String expectedRequestJson = this.loadFixture("/fixtures/ShopCountryUpdateOrCreatePropertyRequest.json");
-        ShopProperty requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopProperty.class);
-
-        assertThatJson(expectedRequestJson)
-            .when(TREATING_NULL_AS_ABSENT)
-            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
-
-    ShopProperty responseEntity = this.api.shopCountries().updateOrCreateProperty("1", "1", requestEntity,  null);
-
-        String expectedResponseJson = this.loadFixture("/fixtures/ShopCountryUpdateOrCreatePropertyResponse.json");
-        assertThatJson(expectedResponseJson)
-            .when(TREATING_NULL_AS_ABSENT)
-            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
-
-
-    }
-
-    @Test
-    public void testDeleteProperty() throws Exception {
-
-    this.api.shopCountries().deleteProperty("1", "1", "1",  null);
-
-    }
-
-    @Test
-    public void testGetProperty() throws Exception {
-
-    ShopProperty responseEntity = this.api.shopCountries().getProperty("1", "1", "1",  null);
-
-        String expectedResponseJson = this.loadFixture("/fixtures/ShopCountryGetPropertyResponse.json");
-        assertThatJson(expectedResponseJson)
-            .when(TREATING_NULL_AS_ABSENT)
-            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
-
-
-    }
-
-    @Test
-    public void testAllProperties() throws Exception {
-
-    ApiCollection<ShopProperty> responseEntity = this.api.shopCountries().allProperties("1", "1",  null);
-
-        String expectedResponseJson = this.loadFixture("/fixtures/ShopCountryAllPropertiesResponse.json");
-        assertThatJson(expectedResponseJson)
-            .when(TREATING_NULL_AS_ABSENT)
-            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
-
-
-        for (ShopProperty entity : responseEntity.getEntities()) {
-        }
-    }
-
-    @Test
     public void testCreateOrUpdateCustomData() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/ShopCountryCreateOrUpdateCustomDataRequest.json");
         Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);

@@ -8,7 +8,6 @@ import com.aboutyou.cloud.adminapi.service.ProductVariantPriceService;
 import com.aboutyou.cloud.adminapi.service.AttributeTranslationService;
 import com.aboutyou.cloud.adminapi.service.ProductVariantStockService;
 import com.aboutyou.cloud.adminapi.service.ShopService;
-import com.aboutyou.cloud.adminapi.service.ShopPropertyKeyService;
 import com.aboutyou.cloud.adminapi.service.AttributeGroupService;
 import com.aboutyou.cloud.adminapi.service.CampaignService;
 import com.aboutyou.cloud.adminapi.service.MasterCategoryService;
@@ -68,11 +67,6 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ShopService shops() {
         ShopService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopService");
-        return service;
-    }
-
-    public ShopPropertyKeyService shopPropertyKeys() {
-        ShopPropertyKeyService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopPropertyKeyService");
         return service;
     }
 

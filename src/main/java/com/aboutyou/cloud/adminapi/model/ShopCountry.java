@@ -60,12 +60,6 @@ public class ShopCountry implements ApiObjectInterface {
     String priceGroupKey;
 
     /**
-    * The properties assigned to the shop country.
-    */
-    @SerializedName("properties")
-    List<ShopProperty> properties;
-
-    /**
     * 
     */
     @SerializedName("assortment")
