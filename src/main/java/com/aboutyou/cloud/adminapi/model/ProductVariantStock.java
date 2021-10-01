@@ -24,12 +24,6 @@ public class ProductVariantStock implements ApiObjectInterface {
     String warehouseReferenceKey;
 
     /**
-    * Reference key of merchant.
-    */
-    @SerializedName("merchantReferenceKey")
-    String merchantReferenceKey;
-
-    /**
     * Date time when the stock changed in Iso8601 Zulu format.
     */
     @SerializedName("changedAt")
