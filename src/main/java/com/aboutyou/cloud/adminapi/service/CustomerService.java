@@ -135,13 +135,13 @@ public class CustomerService extends AbstractService {
     public CustomerAddress updateAddress(String shopKey, String countryCode, Identifier customerIdentifier, Identifier addressIdentifier, CustomerAddress model) throws ApiErrorException, ConnectionException {
         Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/addresses/%s", shopKey, countryCode, customerIdentifier, addressIdentifier), null, responseModel, model);
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/customers/%s/addresses/%s", shopKey, countryCode, customerIdentifier, addressIdentifier), null, responseModel, model);
     }
 
     public CustomerAddress updateAddress(String shopKey, String countryCode, Identifier customerIdentifier, Identifier addressIdentifier, CustomerAddress model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<CustomerAddress> responseModel = (Class<CustomerAddress>)(Class<?>)CustomerAddress.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/addresses/%s", shopKey, countryCode, customerIdentifier, addressIdentifier), options, responseModel, model);
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/customers/%s/addresses/%s", shopKey, countryCode, customerIdentifier, addressIdentifier), options, responseModel, model);
     }
 
     public CustomerAddress updateAddressReferenceKey(String shopKey, String countryCode, Identifier customerIdentifier, Integer addressId, CustomerAddressReferenceKey model) throws ApiErrorException, ConnectionException {

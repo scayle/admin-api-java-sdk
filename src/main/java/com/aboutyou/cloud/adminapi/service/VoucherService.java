@@ -53,13 +53,13 @@ public class VoucherService extends AbstractService {
     public Voucher update(String shopKey, String countryCode, Integer voucherId, Voucher model) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, responseModel, model);
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, responseModel, model);
     }
 
     public Voucher update(String shopKey, String countryCode, Integer voucherId, Voucher model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), options, responseModel, model);
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), options, responseModel, model);
     }
 
     public void delete(String shopKey, String countryCode, Integer voucherId) throws ApiErrorException, ConnectionException {
