@@ -48,6 +48,12 @@ public class ShopCountry implements ApiObjectInterface {
     Boolean active;
 
     /**
+    * The currency used in the shop country.
+    */
+    @SerializedName("currencyCode")
+    String currencyCode;
+
+    /**
     * Defines it the shop country is deleted.
     */
     @SerializedName("deleted")
