@@ -24,13 +24,13 @@ public class CustomDataConfigProperty implements ApiObjectInterface {
     String type;
 
     /**
-    * Whether the property is localized or not.
+    * Whether the property is localized or not. Default is `false`, supported only for config properties of type `json` and `string`. Toggling `isLocalized` from `true` to `false` is not supported. If `isLocalized` is set to `true` then `requiredLocales` rule is mandatory.
     */
     @SerializedName("isLocalized")
     Boolean isLocalized;
 
     /**
-    * Default value for the property.
+    * Default value for the property. If `required` rule is set to `true` then `defaultValue` is mandatory.
     */
     @SerializedName("defaultValue")
     Object defaultValue;
@@ -39,7 +39,7 @@ public class CustomDataConfigProperty implements ApiObjectInterface {
     * A collection of rules that applies to the corresponding property in the entity custom data.
     */
     @SerializedName("rules")
-    Map<String, Object> rules;
+    Object rules;
 
     /**
     * Whether the property is inheritable or not this would apply for entities
