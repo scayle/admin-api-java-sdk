@@ -3,6 +3,7 @@ package com.aboutyou.cloud.adminapi.service;
 import java.util.Map;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 import com.aboutyou.cloud.adminapi.serializer.JsonSerializer;
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -42,7 +43,7 @@ public abstract class AbstractService {
             } else {
                 JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
 
-                throw new ApiErrorException(errorResponse.getAsJsonObject(), statusCode);
+                throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), statusCode);
             }
         } catch (ApiErrorException apiException) {
             throw apiException;
@@ -70,7 +71,7 @@ public abstract class AbstractService {
                 } else {
                     JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
 
-                    throw new ApiErrorException(errorResponse.getAsJsonObject(), statusCode);
+                    throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), statusCode);
                 }
             } catch (ApiErrorException apiException) {
                 throw apiException;

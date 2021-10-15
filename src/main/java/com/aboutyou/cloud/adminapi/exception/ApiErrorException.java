@@ -27,6 +27,10 @@ public class ApiErrorException extends RuntimeException {
     private List<ApiError> parseErrorResponse(JsonObject errorResponse) {
         List<ApiError> errors = new ArrayList<>();
 
+        if (!errorResponse.has("errors")) {
+            return errors;
+        }
+
         for (JsonElement error : errorResponse.getAsJsonArray("errors")) {
             JsonObject errorObject = error.getAsJsonObject();
 
