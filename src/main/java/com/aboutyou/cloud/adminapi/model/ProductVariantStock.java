@@ -24,7 +24,7 @@ public class ProductVariantStock implements ApiObjectInterface {
     String warehouseReferenceKey;
 
     /**
-    * Date time when the stock changed in Iso8601 Zulu format.
+    * Date time when the stock changed in Iso8601 format.
     */
     @SerializedName("changedAt")
     String changedAt;

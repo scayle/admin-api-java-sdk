@@ -42,13 +42,13 @@ public class Campaign implements ApiObjectInterface {
     Double reduction;
 
     /**
-    * Start time of campaign in Iso8601 Zulu format.
+    * Start time of campaign in Iso8601 format.
     */
     @SerializedName("startAt")
     String startAt;
 
     /**
-    * End time of campaign in Iso8601 Zulu format.
+    * End time of campaign in Iso8601 format.
     */
     @SerializedName("endAt")
     String endAt;
