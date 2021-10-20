@@ -222,4 +222,30 @@ public class CustomerTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testAddGroups() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerAddGroupsRequest.json");
+        CustomerGroup requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerGroup.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+    Customer responseEntity = this.api.customers().addGroups("1", "1", Identifier.fromId(1), requestEntity,  null);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerAddGroupsResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteGroup() throws Exception {
+
+    this.api.customers().deleteGroup("1", "1", Identifier.fromId(1), "1",  null);
+
+    }
+
 }

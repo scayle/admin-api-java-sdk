@@ -176,4 +176,26 @@ public class CustomerService extends AbstractService {
         this.request("post", this.resolvePath("/shops/%s/countries/%s/customers/%s/send-reset-password-email", shopKey, countryCode, customerIdentifier), options, null);
     }
 
+    public Customer addGroups(String shopKey, String countryCode, Identifier customerId, CustomerGroup model) throws ApiErrorException, ConnectionException {
+        Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/customers/%s/customer-groups", shopKey, countryCode, customerId), null, responseModel, model);
+    }
+
+    public Customer addGroups(String shopKey, String countryCode, Identifier customerId, CustomerGroup model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/customers/%s/customer-groups", shopKey, countryCode, customerId), options, responseModel, model);
+    }
+
+    public void deleteGroup(String shopKey, String countryCode, Identifier customerIdentifier, String customerGroup) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/customer-groups/%s", shopKey, countryCode, customerIdentifier, customerGroup), null, null);
+    }
+
+    public void deleteGroup(String shopKey, String countryCode, Identifier customerIdentifier, String customerGroup, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/customer-groups/%s", shopKey, countryCode, customerIdentifier, customerGroup), options, null);
+    }
+
 }
