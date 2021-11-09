@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -17,37 +19,43 @@ public class OrderService extends AbstractService {
     public Order get(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
         Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), null, responseModel);
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), null, null, responseModel);
     }
 
     public Order get(String shopKey, String countryCode, Identifier orderIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), query, null, responseModel);
     }
 
     public Order updateReferenceKey(String shopKey, String countryCode, Integer orderId, OrderReferenceKey model) throws ApiErrorException, ConnectionException {
         Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/reference-key", shopKey, countryCode, orderId), null, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/reference-key", shopKey, countryCode, orderId), null, null, responseModel, model);
     }
 
     public Order updateReferenceKey(String shopKey, String countryCode, Integer orderId, OrderReferenceKey model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/reference-key", shopKey, countryCode, orderId), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/reference-key", shopKey, countryCode, orderId), query, null, responseModel, model);
     }
 
     public OrderStatus getStatus(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
         Class<OrderStatus> responseModel = (Class<OrderStatus>)(Class<?>)OrderStatus.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/status", shopKey, countryCode, orderIdentifier), null, responseModel);
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/status", shopKey, countryCode, orderIdentifier), null, null, responseModel);
     }
 
     public OrderStatus getStatus(String shopKey, String countryCode, Identifier orderIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<OrderStatus> responseModel = (Class<OrderStatus>)(Class<?>)OrderStatus.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/status", shopKey, countryCode, orderIdentifier), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/status", shopKey, countryCode, orderIdentifier), query, null, responseModel);
     }
 
 }

@@ -23,7 +23,8 @@ public class ReturnItemTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.returnItems().send(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.returnItems().send(requestEntity, options);
 
     }
 

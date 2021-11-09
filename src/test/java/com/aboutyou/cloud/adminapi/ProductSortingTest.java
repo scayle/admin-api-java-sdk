@@ -23,7 +23,8 @@ public class ProductSortingTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.productSortings().updateOrCreate(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productSortings().updateOrCreate(requestEntity, options);
 
     }
 

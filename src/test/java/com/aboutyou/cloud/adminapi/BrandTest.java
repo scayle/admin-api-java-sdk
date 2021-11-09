@@ -17,7 +17,8 @@ public class BrandTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<Brand> responseEntity = this.api.brands().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Brand> responseEntity = this.api.brands().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -32,7 +33,8 @@ public class BrandTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    Brand responseEntity = this.api.brands().get(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Brand responseEntity = this.api.brands().get(1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -51,7 +53,8 @@ public class BrandTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Brand responseEntity = this.api.brands().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Brand responseEntity = this.api.brands().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class BrandTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Brand responseEntity = this.api.brands().update(1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Brand responseEntity = this.api.brands().update(1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +87,8 @@ public class BrandTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.brands().delete(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.brands().delete(1, options);
 
     }
 
@@ -96,7 +101,8 @@ public class BrandTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Map<String, Object> responseEntity = this.api.brands().createOrUpdateCustomData(1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.brands().createOrUpdateCustomData(1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandCreateOrUpdateCustomDataResponse.json");
         assertThatJson(expectedResponseJson)
@@ -109,14 +115,16 @@ public class BrandTest extends BaseApiTest {
     @Test
     public void testDeleteCustomData() throws Exception {
 
-    this.api.brands().deleteCustomData(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.brands().deleteCustomData(1, options);
 
     }
 
     @Test
     public void testGetCustomData() throws Exception {
 
-    Map<String, Object> responseEntity = this.api.brands().getCustomData(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.brands().getCustomData(1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandGetCustomDataResponse.json");
         assertThatJson(expectedResponseJson)
@@ -135,7 +143,8 @@ public class BrandTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Map<String, Object> responseEntity = this.api.brands().createOrUpdateCustomDataForKey(1, "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.brands().createOrUpdateCustomDataForKey(1, "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandCreateOrUpdateCustomDataForKeyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -148,14 +157,16 @@ public class BrandTest extends BaseApiTest {
     @Test
     public void testDeleteCustomDataForKey() throws Exception {
 
-    this.api.brands().deleteCustomDataForKey(1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.brands().deleteCustomDataForKey(1, "acme", options);
 
     }
 
     @Test
     public void testGetCustomDataForKey() throws Exception {
 
-    Map<String, Object> responseEntity = this.api.brands().getCustomDataForKey(1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.brands().getCustomDataForKey(1, "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/BrandGetCustomDataForKeyResponse.json");
         assertThatJson(expectedResponseJson)

@@ -17,7 +17,8 @@ public class CustomDataConfigTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    CustomDataConfig responseEntity = this.api.customDataConfigs().get("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomDataConfig responseEntity = this.api.customDataConfigs().get("acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomDataConfigGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class CustomDataConfigTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomDataConfig responseEntity = this.api.customDataConfigs().create("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomDataConfig responseEntity = this.api.customDataConfigs().create("acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomDataConfigCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -55,7 +57,8 @@ public class CustomDataConfigTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomDataConfig responseEntity = this.api.customDataConfigs().update("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomDataConfig responseEntity = this.api.customDataConfigs().update("acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomDataConfigUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -68,7 +71,8 @@ public class CustomDataConfigTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.customDataConfigs().delete("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customDataConfigs().delete("acme", options);
 
     }
 

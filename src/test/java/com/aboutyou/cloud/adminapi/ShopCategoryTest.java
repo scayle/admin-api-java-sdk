@@ -23,7 +23,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategory responseEntity = this.api.shopCategories().create("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategory responseEntity = this.api.shopCategories().create("acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<ShopCategory> responseEntity = this.api.shopCategories().all("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<ShopCategory> responseEntity = this.api.shopCategories().all("acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -51,7 +53,8 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    ShopCategory responseEntity = this.api.shopCategories().get("1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategory responseEntity = this.api.shopCategories().get("acme", 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategory responseEntity = this.api.shopCategories().update("1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategory responseEntity = this.api.shopCategories().update("acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +87,8 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.shopCategories().delete("1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategories().delete("acme", 1, options);
 
     }
 
@@ -96,7 +101,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategoryProperty responseEntity = this.api.shopCategories().updateOrCreateProperty("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryProperty responseEntity = this.api.shopCategories().updateOrCreateProperty("acme", "acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreatePropertyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -109,14 +115,16 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDeleteProperty() throws Exception {
 
-    this.api.shopCategories().deleteProperty("1", "1", 1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategories().deleteProperty("acme", "acme", 1, "acme", options);
 
     }
 
     @Test
     public void testGetProperty() throws Exception {
 
-    ShopCategoryProperty responseEntity = this.api.shopCategories().getProperty("1", "1", 1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryProperty responseEntity = this.api.shopCategories().getProperty("acme", "acme", 1, "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetPropertyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -129,7 +137,8 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testAllProperties() throws Exception {
 
-    ApiCollection<ShopCategoryProperty> responseEntity = this.api.shopCategories().allProperties("1", "1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<ShopCategoryProperty> responseEntity = this.api.shopCategories().allProperties("acme", "acme", 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryAllPropertiesResponse.json");
         assertThatJson(expectedResponseJson)
@@ -150,7 +159,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomData("1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomData("acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataResponse.json");
         assertThatJson(expectedResponseJson)
@@ -163,14 +173,16 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDeleteCustomData() throws Exception {
 
-    this.api.shopCategories().deleteCustomData("1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategories().deleteCustomData("acme", 1, options);
 
     }
 
     @Test
     public void testGetCustomData() throws Exception {
 
-    Map<String, Object> responseEntity = this.api.shopCategories().getCustomData("1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().getCustomData("acme", 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataResponse.json");
         assertThatJson(expectedResponseJson)
@@ -189,7 +201,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataForKey("1", 1, "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataForKey("acme", 1, "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataForKeyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -202,14 +215,16 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDeleteCustomDataForKey() throws Exception {
 
-    this.api.shopCategories().deleteCustomDataForKey("1", 1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategories().deleteCustomDataForKey("acme", 1, "acme", options);
 
     }
 
     @Test
     public void testGetCustomDataForKey() throws Exception {
 
-    Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataForKey("1", 1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataForKey("acme", 1, "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataForKeyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -228,7 +243,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataForCountry("1", 1, "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataForCountry("acme", 1, "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataForCountryResponse.json");
         assertThatJson(expectedResponseJson)
@@ -241,14 +257,16 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDeleteCustomDataForCountry() throws Exception {
 
-    this.api.shopCategories().deleteCustomDataForCountry("1", 1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategories().deleteCustomDataForCountry("acme", 1, "acme", options);
 
     }
 
     @Test
     public void testGetCustomDataForCountry() throws Exception {
 
-    Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataForCountry("1", 1, "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataForCountry("acme", 1, "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataForCountryResponse.json");
         assertThatJson(expectedResponseJson)
@@ -267,7 +285,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataKeyForCountry("1", 1, "1", "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().createOrUpdateCustomDataKeyForCountry("acme", 1, "acme", "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryCreateOrUpdateCustomDataKeyForCountryResponse.json");
         assertThatJson(expectedResponseJson)
@@ -280,14 +299,16 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testDeleteCustomDataKeyForCountry() throws Exception {
 
-    this.api.shopCategories().deleteCustomDataKeyForCountry("1", 1, "1", "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategories().deleteCustomDataKeyForCountry("acme", 1, "acme", "acme", options);
 
     }
 
     @Test
     public void testGetCustomDataKeyForCountry() throws Exception {
 
-    Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataKeyForCountry("1", 1, "1", "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.shopCategories().getCustomDataKeyForCountry("acme", 1, "acme", "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCustomDataKeyForCountryResponse.json");
         assertThatJson(expectedResponseJson)
@@ -300,7 +321,8 @@ public class ShopCategoryTest extends BaseApiTest {
     @Test
     public void testGetCountry() throws Exception {
 
-    ShopCategoryCountry responseEntity = this.api.shopCategories().getCountry("1", "1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryCountry responseEntity = this.api.shopCategories().getCountry("acme", "acme", 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryGetCountryResponse.json");
         assertThatJson(expectedResponseJson)
@@ -319,7 +341,8 @@ public class ShopCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategoryCountry responseEntity = this.api.shopCategories().updateOrCreateCountry("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryCountry responseEntity = this.api.shopCategories().updateOrCreateCountry("acme", "acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryUpdateOrCreateCountryResponse.json");
         assertThatJson(expectedResponseJson)

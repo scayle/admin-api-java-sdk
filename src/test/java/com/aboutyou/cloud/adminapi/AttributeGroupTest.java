@@ -23,7 +23,8 @@ public class AttributeGroupTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    AttributeGroup responseEntity = this.api.attributeGroups().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        AttributeGroup responseEntity = this.api.attributeGroups().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class AttributeGroupTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    AttributeGroup responseEntity = this.api.attributeGroups().get("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        AttributeGroup responseEntity = this.api.attributeGroups().get("acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -49,7 +51,8 @@ public class AttributeGroupTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<AttributeGroup> responseEntity = this.api.attributeGroups().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<AttributeGroup> responseEntity = this.api.attributeGroups().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class AttributeGroupTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    AttributeGroup responseEntity = this.api.attributeGroups().update("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        AttributeGroup responseEntity = this.api.attributeGroups().update("acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +87,8 @@ public class AttributeGroupTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.attributeGroups().delete("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.attributeGroups().delete("acme", options);
 
     }
 
@@ -96,14 +101,16 @@ public class AttributeGroupTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.attributeGroups().updateFrontendName("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.attributeGroups().updateFrontendName("acme", requestEntity, options);
 
     }
 
     @Test
     public void testGetAttributes() throws Exception {
 
-    ApiCollection<Object> responseEntity = this.api.attributeGroups().getAttributes("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Object> responseEntity = this.api.attributeGroups().getAttributes("acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupGetAttributesResponse.json");
         assertThatJson(expectedResponseJson)

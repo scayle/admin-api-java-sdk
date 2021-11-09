@@ -17,7 +17,8 @@ public class PackageGroupTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<PackageGroup> responseEntity = this.api.packageGroups().all("1", "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<PackageGroup> responseEntity = this.api.packageGroups().all("acme", "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/PackageGroupAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -38,7 +39,8 @@ public class PackageGroupTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.packageGroups().assignPackageGroupToWarehouses("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.packageGroups().assignPackageGroupToWarehouses("acme", "acme", 1, requestEntity, options);
 
     }
 
@@ -51,14 +53,16 @@ public class PackageGroupTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.packageGroups().replacePackageGroupForWarehouses("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.packageGroups().replacePackageGroupForWarehouses("acme", "acme", 1, requestEntity, options);
 
     }
 
     @Test
     public void testDelete() throws Exception {
 
-    this.api.packageGroups().delete("1", "1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.packageGroups().delete("acme", "acme", 1, options);
 
     }
 

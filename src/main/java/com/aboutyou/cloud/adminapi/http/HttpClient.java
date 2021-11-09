@@ -21,14 +21,14 @@ public class HttpClient {
         this.apiConfiguration = apiConfiguration;
     }
 
-    public Response request(String httpMethod, String relativeUrl, Map<String, Object> options, String body) throws IOException {
+    public Response request(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, String body) throws IOException {
         httpMethod = httpMethod.toUpperCase();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(this.apiConfiguration.getUrl() + relativeUrl).newBuilder();
 
-        if (options != null) {
-            for (String key : options.keySet()) {
-                urlBuilder.addQueryParameter(key, String.valueOf(options.get(key)));
+        if (query != null) {
+            for (String key : query.keySet()) {
+                urlBuilder.addQueryParameter(key, String.valueOf(query.get(key)));
             }
         }
 
@@ -36,6 +36,16 @@ public class HttpClient {
             .header("X-Access-Token", this.apiConfiguration.getAccessToken())
             .header("X-SDK", "java/1.0.0")
             .url(urlBuilder.build().toString());
+
+        if (headers != null) {
+            for (String key : headers.keySet()) {
+                Object value = headers.get(key);
+
+                if (value != null) {
+                    builder.header(key, String.valueOf(value));
+                }
+            }
+        }
 
         RequestBody requestBody = null;
 

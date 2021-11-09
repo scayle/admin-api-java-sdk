@@ -17,7 +17,8 @@ public class MasterCategoryTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<MasterCategory> responseEntity = this.api.masterCategories().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<MasterCategory> responseEntity = this.api.masterCategories().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/MasterCategoryAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -32,7 +33,8 @@ public class MasterCategoryTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    MasterCategory responseEntity = this.api.masterCategories().get(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        MasterCategory responseEntity = this.api.masterCategories().get(1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/MasterCategoryGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -51,7 +53,8 @@ public class MasterCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    MasterCategory responseEntity = this.api.masterCategories().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        MasterCategory responseEntity = this.api.masterCategories().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/MasterCategoryCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class MasterCategoryTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    MasterCategory responseEntity = this.api.masterCategories().update(1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        MasterCategory responseEntity = this.api.masterCategories().update(1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/MasterCategoryUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +87,8 @@ public class MasterCategoryTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.masterCategories().delete(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.masterCategories().delete(1, options);
 
     }
 

@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -17,25 +19,29 @@ public class ProductVariantStockService extends AbstractService {
     public ProductVariantStock create(Identifier variantIdentifier, ProductVariantStock model) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, responseModel, model);
+        return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, null, responseModel, model);
     }
 
     public ProductVariantStock create(Identifier variantIdentifier, ProductVariantStock model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), query, null, responseModel, model);
     }
 
     public ApiCollection<ProductVariantStock> all(Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, null, responseModel);
     }
 
     public ApiCollection<ProductVariantStock> all(Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
-        return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), query, null, responseModel);
     }
 
 }

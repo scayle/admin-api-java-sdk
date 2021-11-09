@@ -23,7 +23,8 @@ public class ShopWarehouseTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopWarehouse responseEntity = this.api.shopWarehouses().create("1", "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopWarehouse responseEntity = this.api.shopWarehouses().create("acme", "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopWarehouseCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -42,7 +43,8 @@ public class ShopWarehouseTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopWarehouse responseEntity = this.api.shopWarehouses().update("1", "1", Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopWarehouse responseEntity = this.api.shopWarehouses().update("acme", "acme", Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopWarehouseUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -55,7 +57,8 @@ public class ShopWarehouseTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.shopWarehouses().delete("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopWarehouses().delete("acme", "acme", Identifier.fromId(1), options);
 
     }
 

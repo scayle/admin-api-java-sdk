@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -17,117 +19,137 @@ public class ProductService extends AbstractService {
     public Product create(Product model) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.request("post", this.resolvePath("/products"), null, responseModel, model);
+        return this.request("post", this.resolvePath("/products"), null, null, responseModel, model);
     }
 
     public Product create(Product model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.request("post", this.resolvePath("/products"), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products"), query, null, responseModel, model);
     }
 
     public Product get(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.request("get", this.resolvePath("/products/%s", productIdentifier), null, responseModel);
+        return this.request("get", this.resolvePath("/products/%s", productIdentifier), null, null, responseModel);
     }
 
     public Product get(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.request("get", this.resolvePath("/products/%s", productIdentifier), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/products/%s", productIdentifier), query, null, responseModel);
     }
 
     public ApiCollection<Product> all() throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.requestCollection("get", this.resolvePath("/products"), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/products"), null, null, responseModel);
     }
 
     public ApiCollection<Product> all(ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.requestCollection("get", this.resolvePath("/products"), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/products"), query, null, responseModel);
     }
 
     public Product update(Identifier productIdentifier, Product model) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.request("put", this.resolvePath("/products/%s", productIdentifier), null, responseModel, model);
+        return this.request("put", this.resolvePath("/products/%s", productIdentifier), null, null, responseModel, model);
     }
 
     public Product update(Identifier productIdentifier, Product model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 
-        return this.request("put", this.resolvePath("/products/%s", productIdentifier), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/%s", productIdentifier), query, null, responseModel, model);
     }
 
     public void delete(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/products/%s", productIdentifier), null, null);
+        this.request("delete", this.resolvePath("/products/%s", productIdentifier), null, null, null);
     }
 
     public void delete(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/products/%s", productIdentifier), options, null);
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/products/%s", productIdentifier), query, null, null);
     }
 
     public Attribute updateOrCreateAttribute(Identifier productIdentifier, Attribute model) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
-        return this.request("post", this.resolvePath("/products/%s/attributes", productIdentifier), null, responseModel, model);
+        return this.request("post", this.resolvePath("/products/%s/attributes", productIdentifier), null, null, responseModel, model);
     }
 
     public Attribute updateOrCreateAttribute(Identifier productIdentifier, Attribute model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
-        return this.request("post", this.resolvePath("/products/%s/attributes", productIdentifier), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products/%s/attributes", productIdentifier), query, null, responseModel, model);
     }
 
     public void deleteAttribute(Identifier productIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), null, null);
+        this.request("delete", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), null, null, null);
     }
 
     public void deleteAttribute(Identifier productIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), options, null);
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), query, null, null);
     }
 
     public Attribute getAttribute(Identifier productIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
-        return this.request("get", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), null, responseModel);
+        return this.request("get", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), null, null, responseModel);
     }
 
     public Attribute getAttribute(Identifier productIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
-        return this.request("get", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/products/%s/attributes/%s", productIdentifier, attributeGroupName), query, null, responseModel);
     }
 
     public ApiCollection<Attribute> allAttributes(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
-        return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), null, null, responseModel);
     }
 
     public ApiCollection<Attribute> allAttributes(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
-        return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/products/%s/attributes", productIdentifier), query, null, responseModel);
     }
 
     public ProductMasterCategories updateMasterCategories(Identifier productIdentifier, ProductMasterCategories model) throws ApiErrorException, ConnectionException {
         Class<ProductMasterCategories> responseModel = (Class<ProductMasterCategories>)(Class<?>)ProductMasterCategories.class;
 
-        return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), null, responseModel, model);
+        return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), null, null, responseModel, model);
     }
 
     public ProductMasterCategories updateMasterCategories(Identifier productIdentifier, ProductMasterCategories model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductMasterCategories> responseModel = (Class<ProductMasterCategories>)(Class<?>)ProductMasterCategories.class;
 
-        return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), query, null, responseModel, model);
     }
 
 }

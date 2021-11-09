@@ -23,7 +23,8 @@ public class ProductVariantPriceTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductVariantPrice responseEntity = this.api.productVariantPrices().create(Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ProductVariantPrice responseEntity = this.api.productVariantPrices().create(Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantPriceCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class ProductVariantPriceTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<ProductVariantPrice> responseEntity = this.api.productVariantPrices().all(Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<ProductVariantPrice> responseEntity = this.api.productVariantPrices().all(Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantPriceAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -51,7 +53,8 @@ public class ProductVariantPriceTest extends BaseApiTest {
     @Test
     public void testDeleteFuturePrice() throws Exception {
 
-    this.api.productVariantPrices().deleteFuturePrice(Identifier.fromId(1), 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productVariantPrices().deleteFuturePrice(Identifier.fromId(1), 1, options);
 
     }
 

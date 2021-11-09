@@ -23,7 +23,8 @@ public class CancellationTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.cancellations().send(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.cancellations().send(requestEntity, options);
 
     }
 

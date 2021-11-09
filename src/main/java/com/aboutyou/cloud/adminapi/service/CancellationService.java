@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -16,12 +18,14 @@ public class CancellationService extends AbstractService {
 
     public void send(Cancellation model) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/fulfillment/cancellations"), null, null, model);
+        this.request("post", this.resolvePath("/fulfillment/cancellations"), null, null, null, model);
     }
 
     public void send(Cancellation model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/fulfillment/cancellations"), options, null, model);
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/fulfillment/cancellations"), query, null, null, model);
     }
 
 }

@@ -23,14 +23,16 @@ public class AttributeTranslationTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.attributeTranslations().updateOrCreate("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.attributeTranslations().updateOrCreate("acme", requestEntity, options);
 
     }
 
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<Map<String, String>> responseEntity = this.api.attributeTranslations().all("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Map<String, String>> responseEntity = this.api.attributeTranslations().all("acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/AttributeTranslationAllResponse.json");
         assertThatJson(expectedResponseJson)

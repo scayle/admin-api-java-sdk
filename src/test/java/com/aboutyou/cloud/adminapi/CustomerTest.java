@@ -17,7 +17,8 @@ public class CustomerTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    Customer responseEntity = this.api.customers().get("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Customer responseEntity = this.api.customers().get("acme", "acme", Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Customer responseEntity = this.api.customers().create("1", "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Customer responseEntity = this.api.customers().create("acme", "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -55,7 +57,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Customer responseEntity = this.api.customers().update("1", "1", Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Customer responseEntity = this.api.customers().update("acme", "acme", Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -74,7 +77,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Customer responseEntity = this.api.customers().updateReferenceKey("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Customer responseEntity = this.api.customers().updateReferenceKey("acme", "acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateReferenceKeyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -87,14 +91,16 @@ public class CustomerTest extends BaseApiTest {
     @Test
     public void testAnonymize() throws Exception {
 
-    this.api.customers().anonymize("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().anonymize("acme", "acme", Identifier.fromId(1), options);
 
     }
 
     @Test
     public void testGetStatus() throws Exception {
 
-    CustomerStatus responseEntity = this.api.customers().getStatus("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerStatus responseEntity = this.api.customers().getStatus("acme", "acme", Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetStatusResponse.json");
         assertThatJson(expectedResponseJson)
@@ -113,7 +119,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomerStatus responseEntity = this.api.customers().updateStatus("1", "1", Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerStatus responseEntity = this.api.customers().updateStatus("acme", "acme", Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateStatusResponse.json");
         assertThatJson(expectedResponseJson)
@@ -126,7 +133,8 @@ public class CustomerTest extends BaseApiTest {
     @Test
     public void testGetAddresses() throws Exception {
 
-    ApiCollection<CustomerAddress> responseEntity = this.api.customers().getAddresses("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<CustomerAddress> responseEntity = this.api.customers().getAddresses("acme", "acme", Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetAddressesResponse.json");
         assertThatJson(expectedResponseJson)
@@ -141,7 +149,8 @@ public class CustomerTest extends BaseApiTest {
     @Test
     public void testGetAddress() throws Exception {
 
-    CustomerAddress responseEntity = this.api.customers().getAddress("1", "1", Identifier.fromId(1), Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerAddress responseEntity = this.api.customers().getAddress("acme", "acme", Identifier.fromId(1), Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetAddressResponse.json");
         assertThatJson(expectedResponseJson)
@@ -160,7 +169,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomerAddress responseEntity = this.api.customers().createAddress("1", "1", Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerAddress responseEntity = this.api.customers().createAddress("acme", "acme", Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerCreateAddressResponse.json");
         assertThatJson(expectedResponseJson)
@@ -179,7 +189,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomerAddress responseEntity = this.api.customers().updateAddress("1", "1", Identifier.fromId(1), Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerAddress responseEntity = this.api.customers().updateAddress("acme", "acme", Identifier.fromId(1), Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateAddressResponse.json");
         assertThatJson(expectedResponseJson)
@@ -198,7 +209,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    CustomerAddress responseEntity = this.api.customers().updateAddressReferenceKey("1", "1", Identifier.fromId(1), 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerAddress responseEntity = this.api.customers().updateAddressReferenceKey("acme", "acme", Identifier.fromId(1), 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateAddressReferenceKeyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -211,14 +223,16 @@ public class CustomerTest extends BaseApiTest {
     @Test
     public void testAnonymizeAddress() throws Exception {
 
-    this.api.customers().anonymizeAddress("1", "1", Identifier.fromId(1), Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().anonymizeAddress("acme", "acme", Identifier.fromId(1), Identifier.fromId(1), options);
 
     }
 
     @Test
     public void testResetPassword() throws Exception {
 
-    this.api.customers().resetPassword("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().resetPassword("acme", "acme", Identifier.fromId(1), options);
 
     }
 
@@ -231,7 +245,8 @@ public class CustomerTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Customer responseEntity = this.api.customers().addGroups("1", "1", Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Customer responseEntity = this.api.customers().addGroups("acme", "acme", Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CustomerAddGroupsResponse.json");
         assertThatJson(expectedResponseJson)
@@ -244,7 +259,8 @@ public class CustomerTest extends BaseApiTest {
     @Test
     public void testDeleteGroup() throws Exception {
 
-    this.api.customers().deleteGroup("1", "1", Identifier.fromId(1), "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().deleteGroup("acme", "acme", Identifier.fromId(1), "acme", options);
 
     }
 

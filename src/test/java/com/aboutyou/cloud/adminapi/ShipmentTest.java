@@ -23,7 +23,8 @@ public class ShipmentTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.shipments().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shipments().create(requestEntity, options);
 
     }
 

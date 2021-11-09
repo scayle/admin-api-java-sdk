@@ -17,7 +17,8 @@ public class WebhookEventTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<WebhookEvent> responseEntity = this.api.webhookEvents().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<WebhookEvent> responseEntity = this.api.webhookEvents().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/WebhookEventAllResponse.json");
         assertThatJson(expectedResponseJson)

@@ -23,7 +23,8 @@ public class ShopCategoryProductSetUnlinkInstructionTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    this.api.shopCategoryProductSetUnlinkInstructions().unlink("1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategoryProductSetUnlinkInstructions().unlink("acme", 1, requestEntity, options);
 
     }
 

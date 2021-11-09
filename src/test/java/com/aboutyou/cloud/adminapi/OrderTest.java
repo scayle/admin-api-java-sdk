@@ -17,7 +17,8 @@ public class OrderTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    Order responseEntity = this.api.orders().get("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Order responseEntity = this.api.orders().get("acme", "acme", Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/OrderGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class OrderTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Order responseEntity = this.api.orders().updateReferenceKey("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Order responseEntity = this.api.orders().updateReferenceKey("acme", "acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/OrderUpdateReferenceKeyResponse.json");
         assertThatJson(expectedResponseJson)
@@ -49,7 +51,8 @@ public class OrderTest extends BaseApiTest {
     @Test
     public void testGetStatus() throws Exception {
 
-    OrderStatus responseEntity = this.api.orders().getStatus("1", "1", Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        OrderStatus responseEntity = this.api.orders().getStatus("acme", "acme", Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/OrderGetStatusResponse.json");
         assertThatJson(expectedResponseJson)

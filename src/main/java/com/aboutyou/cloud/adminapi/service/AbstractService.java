@@ -10,7 +10,6 @@ import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
 import com.aboutyou.cloud.adminapi.exception.ConnectionException;
 import com.aboutyou.cloud.adminapi.http.HttpClient;
 import com.aboutyou.cloud.adminapi.model.ApiCollection;
-import com.aboutyou.cloud.adminapi.model.ApiOptions;
 
 import okhttp3.Response;
 
@@ -24,20 +23,20 @@ public abstract class AbstractService {
         this.jsonSerializer = new JsonSerializer();
     }
 
-    protected <T> T request(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass) throws ApiErrorException, ConnectionException {
-        return this.request(httpMethod, relativeUrl, options, modelClass, null);
+    protected <T> T request(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass) throws ApiErrorException, ConnectionException {
+        return this.request(httpMethod, relativeUrl, query, headers, modelClass, null);
     }
 
-    protected <T> T request(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
+    protected <T> T request(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
         try {
-            Response response = this.executeRequest(httpMethod, relativeUrl, options, body);
+            Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body);
             String responseBodyContent = response.body().string();
             Integer statusCode = response.code();
 
             if (statusCode >= 200 && statusCode < 300) {
                 if(responseBodyContent == null || responseBodyContent.isEmpty()) {
-                return null;
-            }
+                    return null;
+                }
 
                 return this.jsonSerializer.unserializeApiObject(responseBodyContent, modelClass);
             } else {
@@ -52,13 +51,13 @@ public abstract class AbstractService {
         }
     }
 
-    protected <T> ApiCollection<T> requestCollection(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass) throws ApiErrorException, ConnectionException {
-        return this.requestCollection(httpMethod, relativeUrl, options, modelClass, null);
+    protected <T> ApiCollection<T> requestCollection(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass) throws ApiErrorException, ConnectionException {
+        return this.requestCollection(httpMethod, relativeUrl, query, headers, modelClass, null);
     }
 
-    protected <T> ApiCollection<T> requestCollection(String httpMethod, String relativeUrl, ApiOptions options, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
+    protected <T> ApiCollection<T> requestCollection(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
         try {
-                Response response = this.executeRequest(httpMethod, relativeUrl, options, body);
+                Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body);
                 String responseBodyContent = response.body().string();
                 Integer statusCode = response.code();
 
@@ -84,18 +83,13 @@ public abstract class AbstractService {
         return String.format(path, params);
     }
 
-    private Response executeRequest(String httpMethod, String relativeUrl, ApiOptions options, Object body) throws Exception {
+    private Response executeRequest(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Object body) throws Exception {
         String jsonRequestBody = null;
-        Map<String, Object> requestOptions = null;
-
-        if (options != null) {
-            requestOptions = options.getOptions();
-        }
 
         if (body != null) {
             jsonRequestBody = this.jsonSerializer.serializeApiObject(body);
         }
 
-        return this.httpClient.request(httpMethod, relativeUrl, requestOptions, jsonRequestBody);
+        return this.httpClient.request(httpMethod, relativeUrl, query, headers, jsonRequestBody);
     }
 }

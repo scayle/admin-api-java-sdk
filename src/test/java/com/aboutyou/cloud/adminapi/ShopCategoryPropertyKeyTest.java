@@ -23,7 +23,8 @@ public class ShopCategoryPropertyKeyTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategoryPropertyKey responseEntity = this.api.shopCategoryPropertyKeys().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryPropertyKey responseEntity = this.api.shopCategoryPropertyKeys().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryPropertyKeyCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class ShopCategoryPropertyKeyTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    ShopCategoryPropertyKey responseEntity = this.api.shopCategoryPropertyKeys().get("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryPropertyKey responseEntity = this.api.shopCategoryPropertyKeys().get("acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryPropertyKeyGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -49,7 +51,8 @@ public class ShopCategoryPropertyKeyTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<ShopCategoryPropertyKey> responseEntity = this.api.shopCategoryPropertyKeys().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<ShopCategoryPropertyKey> responseEntity = this.api.shopCategoryPropertyKeys().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryPropertyKeyAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class ShopCategoryPropertyKeyTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ShopCategoryPropertyKey responseEntity = this.api.shopCategoryPropertyKeys().update("1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ShopCategoryPropertyKey responseEntity = this.api.shopCategoryPropertyKeys().update("acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ShopCategoryPropertyKeyUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +87,8 @@ public class ShopCategoryPropertyKeyTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.shopCategoryPropertyKeys().delete("1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.shopCategoryPropertyKeys().delete("acme", options);
 
     }
 

@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -16,24 +18,28 @@ public class AttributeTranslationService extends AbstractService {
 
     public void updateOrCreate(String attributeGroupName, Map<String, String> model) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, null, model);
+        this.request("post", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, null, null, model);
     }
 
     public void updateOrCreate(String attributeGroupName, Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("post", this.resolvePath("/attributes/%s/translations", attributeGroupName), options, null, model);
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/attributes/%s/translations", attributeGroupName), query, null, null, model);
     }
 
     public ApiCollection<Map<String, String>> all(String attributeGroupName) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 
-        return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, null, responseModel);
     }
 
     public ApiCollection<Map<String, String>> all(String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 
-        return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeGroupName), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeGroupName), query, null, responseModel);
     }
 
 }

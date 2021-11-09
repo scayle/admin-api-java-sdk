@@ -17,7 +17,8 @@ public class VoucherTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<Voucher> responseEntity = this.api.vouchers().all("1", "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Voucher> responseEntity = this.api.vouchers().all("acme", "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -32,7 +33,8 @@ public class VoucherTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    Voucher responseEntity = this.api.vouchers().get("1", "1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Voucher responseEntity = this.api.vouchers().get("acme", "acme", 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -51,7 +53,8 @@ public class VoucherTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Voucher responseEntity = this.api.vouchers().create("1", "1", requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Voucher responseEntity = this.api.vouchers().create("acme", "acme", requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class VoucherTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Voucher responseEntity = this.api.vouchers().update("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Voucher responseEntity = this.api.vouchers().update("acme", "acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,14 +87,16 @@ public class VoucherTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.vouchers().delete("1", "1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.vouchers().delete("acme", "acme", 1, options);
 
     }
 
     @Test
     public void testGetCriteria() throws Exception {
 
-    ApiCollection<VoucherCriterion> responseEntity = this.api.vouchers().getCriteria("1", "1", 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<VoucherCriterion> responseEntity = this.api.vouchers().getCriteria("acme", "acme", 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherGetCriteriaResponse.json");
         assertThatJson(expectedResponseJson)
@@ -105,7 +111,8 @@ public class VoucherTest extends BaseApiTest {
     @Test
     public void testGetCriterion() throws Exception {
 
-    VoucherCriterion responseEntity = this.api.vouchers().getCriterion("1", "1", 1, 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        VoucherCriterion responseEntity = this.api.vouchers().getCriterion("acme", "acme", 1, 1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherGetCriterionResponse.json");
         assertThatJson(expectedResponseJson)
@@ -124,7 +131,8 @@ public class VoucherTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    VoucherCriterion responseEntity = this.api.vouchers().createCriterion("1", "1", 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        VoucherCriterion responseEntity = this.api.vouchers().createCriterion("acme", "acme", 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherCreateCriterionResponse.json");
         assertThatJson(expectedResponseJson)
@@ -143,7 +151,8 @@ public class VoucherTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    VoucherCriterion responseEntity = this.api.vouchers().updateCriterion("1", "1", 1, 1, requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        VoucherCriterion responseEntity = this.api.vouchers().updateCriterion("acme", "acme", 1, 1, requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/VoucherUpdateCriterionResponse.json");
         assertThatJson(expectedResponseJson)
@@ -156,7 +165,8 @@ public class VoucherTest extends BaseApiTest {
     @Test
     public void testDeleteCriterion() throws Exception {
 
-    this.api.vouchers().deleteCriterion("1", "1", 1, 1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.vouchers().deleteCriterion("acme", "acme", 1, 1, options);
 
     }
 

@@ -23,7 +23,8 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Product responseEntity = this.api.products().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Product responseEntity = this.api.products().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class ProductTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    Product responseEntity = this.api.products().get(Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Product responseEntity = this.api.products().get(Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -49,7 +51,8 @@ public class ProductTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<Product> responseEntity = this.api.products().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Product> responseEntity = this.api.products().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -70,7 +73,8 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Product responseEntity = this.api.products().update(Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Product responseEntity = this.api.products().update(Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -83,7 +87,8 @@ public class ProductTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.products().delete(Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.products().delete(Identifier.fromId(1), options);
 
     }
 
@@ -96,7 +101,8 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    Attribute responseEntity = this.api.products().updateOrCreateAttribute(Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Attribute responseEntity = this.api.products().updateOrCreateAttribute(Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateOrCreateAttributeResponse.json");
         assertThatJson(expectedResponseJson)
@@ -109,14 +115,16 @@ public class ProductTest extends BaseApiTest {
     @Test
     public void testDeleteAttribute() throws Exception {
 
-    this.api.products().deleteAttribute(Identifier.fromId(1), "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.products().deleteAttribute(Identifier.fromId(1), "acme", options);
 
     }
 
     @Test
     public void testGetAttribute() throws Exception {
 
-    Attribute responseEntity = this.api.products().getAttribute(Identifier.fromId(1), "1",  null);
+        ApiOptions options = ApiOptions.builder().build();
+        Attribute responseEntity = this.api.products().getAttribute(Identifier.fromId(1), "acme", options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductGetAttributeResponse.json");
         assertThatJson(expectedResponseJson)
@@ -129,7 +137,8 @@ public class ProductTest extends BaseApiTest {
     @Test
     public void testAllAttributes() throws Exception {
 
-    ApiCollection<Attribute> responseEntity = this.api.products().allAttributes(Identifier.fromId(1),  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Attribute> responseEntity = this.api.products().allAttributes(Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductAllAttributesResponse.json");
         assertThatJson(expectedResponseJson)
@@ -150,7 +159,8 @@ public class ProductTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    ProductMasterCategories responseEntity = this.api.products().updateMasterCategories(Identifier.fromId(1), requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        ProductMasterCategories responseEntity = this.api.products().updateMasterCategories(Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateMasterCategoriesResponse.json");
         assertThatJson(expectedResponseJson)

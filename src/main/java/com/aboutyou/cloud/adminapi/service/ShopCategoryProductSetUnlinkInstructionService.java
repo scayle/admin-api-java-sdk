@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -16,12 +18,14 @@ public class ShopCategoryProductSetUnlinkInstructionService extends AbstractServ
 
     public void unlink(String shopKey, Integer productSetId, ShopCategoryProductSetUnlinkInstruction model) throws ApiErrorException, ConnectionException {
 
-        this.request("put", this.resolvePath("/shops/%s/product-sets/%s/unlink", shopKey, productSetId), null, null, model);
+        this.request("put", this.resolvePath("/shops/%s/product-sets/%s/unlink", shopKey, productSetId), null, null, null, model);
     }
 
     public void unlink(String shopKey, Integer productSetId, ShopCategoryProductSetUnlinkInstruction model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("put", this.resolvePath("/shops/%s/product-sets/%s/unlink", shopKey, productSetId), options, null, model);
+        Map<String, Object> query = options.all();
+
+        this.request("put", this.resolvePath("/shops/%s/product-sets/%s/unlink", shopKey, productSetId), query, null, null, model);
     }
 
 }

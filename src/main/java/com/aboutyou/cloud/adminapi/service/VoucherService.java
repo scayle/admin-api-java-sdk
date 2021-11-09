@@ -1,6 +1,8 @@
 package com.aboutyou.cloud.adminapi.service;
 
+import java.util.Arrays;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 
 import com.aboutyou.cloud.adminapi.exception.ApiErrorException;
@@ -17,117 +19,137 @@ public class VoucherService extends AbstractService {
     public ApiCollection<Voucher> all(String shopKey, String countryCode) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), null, null, responseModel);
     }
 
     public ApiCollection<Voucher> all(String shopKey, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), query, null, responseModel);
     }
 
     public Voucher get(String shopKey, String countryCode, Integer voucherId) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, responseModel);
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, null, responseModel);
     }
 
     public Voucher get(String shopKey, String countryCode, Integer voucherId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), query, null, responseModel);
     }
 
     public Voucher create(String shopKey, String countryCode, Voucher model) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), null, responseModel, model);
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), null, null, responseModel, model);
     }
 
     public Voucher create(String shopKey, String countryCode, Voucher model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers", shopKey, countryCode), query, null, responseModel, model);
     }
 
     public Voucher update(String shopKey, String countryCode, Integer voucherId, Voucher model) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, responseModel, model);
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, null, responseModel, model);
     }
 
     public Voucher update(String shopKey, String countryCode, Integer voucherId, Voucher model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Voucher> responseModel = (Class<Voucher>)(Class<?>)Voucher.class;
 
-        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), query, null, responseModel, model);
     }
 
     public void delete(String shopKey, String countryCode, Integer voucherId) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), null, null, null);
     }
 
     public void delete(String shopKey, String countryCode, Integer voucherId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), options, null);
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s", shopKey, countryCode, voucherId), query, null, null);
     }
 
     public ApiCollection<VoucherCriterion> getCriteria(String shopKey, String countryCode, Integer voucherId) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), null, responseModel);
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), null, null, responseModel);
     }
 
     public ApiCollection<VoucherCriterion> getCriteria(String shopKey, String countryCode, Integer voucherId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), query, null, responseModel);
     }
 
     public VoucherCriterion getCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, responseModel);
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, null, responseModel);
     }
 
     public VoucherCriterion getCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), options, responseModel);
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), query, null, responseModel);
     }
 
     public VoucherCriterion createCriterion(String shopKey, String countryCode, Integer voucherId, VoucherCriterion model) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), null, responseModel, model);
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), null, null, responseModel, model);
     }
 
     public VoucherCriterion createCriterion(String shopKey, String countryCode, Integer voucherId, VoucherCriterion model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria", shopKey, countryCode, voucherId), query, null, responseModel, model);
     }
 
     public VoucherCriterion updateCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, VoucherCriterion model) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, null, responseModel, model);
     }
 
     public VoucherCriterion updateCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, VoucherCriterion model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<VoucherCriterion> responseModel = (Class<VoucherCriterion>)(Class<?>)VoucherCriterion.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), options, responseModel, model);
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), query, null, responseModel, model);
     }
 
     public void deleteCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), null, null, null);
     }
 
     public void deleteCriterion(String shopKey, String countryCode, Integer voucherId, Integer voucherCriterionId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), options, null);
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/vouchers/%s/criteria/%s", shopKey, countryCode, voucherId, voucherCriterionId), query, null, null);
     }
 
 }

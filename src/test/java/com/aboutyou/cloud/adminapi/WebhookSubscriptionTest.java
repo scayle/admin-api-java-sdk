@@ -23,7 +23,8 @@ public class WebhookSubscriptionTest extends BaseApiTest {
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
-    WebhookSubscription responseEntity = this.api.webhookSubscriptions().create(requestEntity,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookSubscription responseEntity = this.api.webhookSubscriptions().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/WebhookSubscriptionCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -36,7 +37,8 @@ public class WebhookSubscriptionTest extends BaseApiTest {
     @Test
     public void testGet() throws Exception {
 
-    WebhookSubscription responseEntity = this.api.webhookSubscriptions().get(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookSubscription responseEntity = this.api.webhookSubscriptions().get(1, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/WebhookSubscriptionGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -49,7 +51,8 @@ public class WebhookSubscriptionTest extends BaseApiTest {
     @Test
     public void testAll() throws Exception {
 
-    ApiCollection<WebhookSubscription> responseEntity = this.api.webhookSubscriptions().all( null);
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<WebhookSubscription> responseEntity = this.api.webhookSubscriptions().all(options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/WebhookSubscriptionAllResponse.json");
         assertThatJson(expectedResponseJson)
@@ -64,7 +67,8 @@ public class WebhookSubscriptionTest extends BaseApiTest {
     @Test
     public void testDelete() throws Exception {
 
-    this.api.webhookSubscriptions().delete(1,  null);
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.webhookSubscriptions().delete(1, options);
 
     }
 
