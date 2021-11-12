@@ -1,7 +1,6 @@
 package com.aboutyou.cloud.adminapi.model;
 
 import java.net.URLEncoder;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 
 public class Identifier {
@@ -15,12 +14,12 @@ public class Identifier {
         return new Identifier(Integer.toString(id));
     }
 
-    public static Identifier fromKey(String referenceKey) throws UnsupportedEncodingException {
+    public static Identifier fromKey(String referenceKey) {
 
         return new Identifier(
             URLEncoder.encode(
                 "key=" + referenceKey,
-                StandardCharsets.UTF_8.name()
+                StandardCharsets.UTF_8
             )
         );
     }
