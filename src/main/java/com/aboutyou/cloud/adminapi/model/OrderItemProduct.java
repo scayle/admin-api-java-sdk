@@ -23,4 +23,10 @@ public class OrderItemProduct implements ApiObjectInterface {
     @SerializedName("referenceKey")
     String referenceKey;
 
+    /**
+    * The product name.
+    */
+    @SerializedName("name")
+    String name;
+
 }
