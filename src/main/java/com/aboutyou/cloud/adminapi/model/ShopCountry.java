@@ -18,6 +18,12 @@ public class ShopCountry implements ApiObjectInterface {
     Integer id;
 
     /**
+    * The key of the shop created by Backbone Core.
+    */
+    @SerializedName("shopKey")
+    String shopKey;
+
+    /**
     * ISO 3166 alpha 2 country code.
     */
     @SerializedName("countryCode")

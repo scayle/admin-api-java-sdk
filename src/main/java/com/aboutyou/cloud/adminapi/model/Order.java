@@ -51,7 +51,13 @@ public class Order implements ApiObjectInterface {
     * 
     */
     @SerializedName("customer")
-    OrderCustomer customer;
+    Customer customer;
+
+    /**
+    * 
+    */
+    @SerializedName("shopCountry")
+    ShopCountry shopCountry;
 
     /**
     * 
