@@ -15,12 +15,12 @@ public class OrderVat implements ApiObjectInterface {
     * 
     */
     @SerializedName("amount")
-    Integer amount;
+    Double amount;
 
     /**
     * 
     */
     @SerializedName("rate")
-    Integer rate;
+    Double rate;
 
 }

@@ -21,6 +21,6 @@ public class OrderReductionAmount implements ApiObjectInterface {
     * 
     */
     @SerializedName("relative")
-    Integer relative;
+    Double relative;
 
 }

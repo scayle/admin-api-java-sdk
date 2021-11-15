@@ -15,6 +15,6 @@ public class OrderCostVat implements ApiObjectInterface {
     * 
     */
     @SerializedName("amount")
-    Integer amount;
+    Double amount;
 
 }
