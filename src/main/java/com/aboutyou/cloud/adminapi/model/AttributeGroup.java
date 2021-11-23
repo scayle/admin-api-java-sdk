@@ -58,12 +58,12 @@ Mandatory for the advanced type.
     Map<String, Object> structure;
 
     /**
-    * A list of shop keys the attribute group is valid for.
-The attribute group is valid for all shops if the field is omitted.
+    * A list of shop countries the attribute group is valid for.
+The attribute group is valid for all shop countries if the field is omitted.
 
     */
-    @SerializedName("shopKeys")
-    List<String> shopKeys;
+    @SerializedName("shopCountries")
+    List<AttributeGroupShopCountry> shopCountries;
 
     /**
     * Defines if shop-specific attribute values are allowed for the given attribute group.
