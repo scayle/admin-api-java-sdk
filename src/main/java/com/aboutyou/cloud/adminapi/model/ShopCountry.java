@@ -81,7 +81,7 @@ public class ShopCountry implements ApiObjectInterface {
     * A list of warehouses attached to the shop country.
     */
     @SerializedName("warehouses")
-    List<ShopWarehouse> warehouses;
+    List<ShopCountryWarehouse> warehouses;
 
     /**
     * 

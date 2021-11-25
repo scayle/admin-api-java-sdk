@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ShopWarehouse implements ApiObjectInterface {
+public class ShopCountryWarehouse implements ApiObjectInterface {
     /**
     * The ID of the warehouse created by Backbone Core.
     */

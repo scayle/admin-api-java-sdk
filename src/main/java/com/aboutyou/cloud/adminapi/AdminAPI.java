@@ -17,7 +17,7 @@ import com.aboutyou.cloud.adminapi.service.ShopCategoryProductSetUnlinkInstructi
 import com.aboutyou.cloud.adminapi.service.ShopCountryService;
 import com.aboutyou.cloud.adminapi.service.BrandService;
 import com.aboutyou.cloud.adminapi.service.ProductSortingService;
-import com.aboutyou.cloud.adminapi.service.ShopWarehouseService;
+import com.aboutyou.cloud.adminapi.service.ShopCountryWarehouseService;
 import com.aboutyou.cloud.adminapi.service.PackageGroupService;
 import com.aboutyou.cloud.adminapi.service.CustomDataConfigService;
 import com.aboutyou.cloud.adminapi.service.CustomerService;
@@ -115,8 +115,8 @@ public final class AdminAPI extends AbstractApiClient {
         return service;
     }
 
-    public ShopWarehouseService shopWarehouses() {
-        ShopWarehouseService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopWarehouseService");
+    public ShopCountryWarehouseService shopCountryWarehouses() {
+        ShopCountryWarehouseService service = this.getService("com.aboutyou.cloud.adminapi.service.ShopCountryWarehouseService");
         return service;
     }
 

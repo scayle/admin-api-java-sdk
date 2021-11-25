@@ -12,21 +12,21 @@ import java.util.HashMap;
 import java.util.List;
 
 @SuppressWarnings("unchecked")
-public class ShopWarehouseTest extends BaseApiTest {
+public class ShopCountryWarehouseTest extends BaseApiTest {
 
     @Test
     public void testCreate() throws Exception {
-        String expectedRequestJson = this.loadFixture("/fixtures/ShopWarehouseCreateRequest.json");
-        ShopWarehouse requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopWarehouse.class);
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCountryWarehouseCreateRequest.json");
+        ShopCountryWarehouse requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopCountryWarehouse.class);
 
         assertThatJson(expectedRequestJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
         ApiOptions options = ApiOptions.builder().build();
-        ShopWarehouse responseEntity = this.api.shopWarehouses().create("acme", "acme", requestEntity, options);
+        ShopCountryWarehouse responseEntity = this.api.shopCountryWarehouses().create("acme", "acme", requestEntity, options);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/ShopWarehouseCreateResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCountryWarehouseCreateResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
@@ -36,17 +36,17 @@ public class ShopWarehouseTest extends BaseApiTest {
 
     @Test
     public void testUpdate() throws Exception {
-        String expectedRequestJson = this.loadFixture("/fixtures/ShopWarehouseUpdateRequest.json");
-        ShopWarehouse requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopWarehouse.class);
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCountryWarehouseUpdateRequest.json");
+        ShopCountryWarehouse requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ShopCountryWarehouse.class);
 
         assertThatJson(expectedRequestJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
         ApiOptions options = ApiOptions.builder().build();
-        ShopWarehouse responseEntity = this.api.shopWarehouses().update("acme", "acme", Identifier.fromId(1), requestEntity, options);
+        ShopCountryWarehouse responseEntity = this.api.shopCountryWarehouses().update("acme", "acme", Identifier.fromId(1), requestEntity, options);
 
-        String expectedResponseJson = this.loadFixture("/fixtures/ShopWarehouseUpdateResponse.json");
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCountryWarehouseUpdateResponse.json");
         assertThatJson(expectedResponseJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
@@ -58,7 +58,7 @@ public class ShopWarehouseTest extends BaseApiTest {
     public void testDelete() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
-        this.api.shopWarehouses().delete("acme", "acme", Identifier.fromId(1), options);
+        this.api.shopCountryWarehouses().delete("acme", "acme", Identifier.fromId(1), options);
 
     }
 
