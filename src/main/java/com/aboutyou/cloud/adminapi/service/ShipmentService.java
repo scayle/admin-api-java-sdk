@@ -23,9 +23,12 @@ public class ShipmentService extends AbstractService {
 
     public void create(Shipment model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        Map<String, Object> query = options.all();
+        Map<String, Object> query = options.except(Arrays.asList("companyId"));
 
-        this.request("post", this.resolvePath("/fulfillment/shipments"), query, null, null, model);
+        Map<String, Object> headers = new HashMap<String, Object>();
+        headers.put("X-Company-Id", options.get("companyId"));
+
+        this.request("post", this.resolvePath("/fulfillment/shipments"), query, headers, null, model);
     }
 
 }

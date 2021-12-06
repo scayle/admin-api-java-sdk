@@ -23,9 +23,12 @@ public class CancellationService extends AbstractService {
 
     public void send(Cancellation model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
-        Map<String, Object> query = options.all();
+        Map<String, Object> query = options.except(Arrays.asList("companyId"));
 
-        this.request("post", this.resolvePath("/fulfillment/cancellations"), query, null, null, model);
+        Map<String, Object> headers = new HashMap<String, Object>();
+        headers.put("X-Company-Id", options.get("companyId"));
+
+        this.request("post", this.resolvePath("/fulfillment/cancellations"), query, headers, null, model);
     }
 
 }
