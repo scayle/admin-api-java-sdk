@@ -42,7 +42,7 @@ public class Product implements ApiObjectInterface {
     Master master;
 
     /**
-    * The state of the product determined by the state evaluation process. The problem state should not be requested as it can only be the result of the state evaluation process. If product is in problem state, the reasons are listed in read-only 'problems' field.
+    * The state of the product determined by the state evaluation process. The only possible values to request are `live` and `draft`. The `problem` state can only be the result of the state evaluation process. If product is in problem state, the reasons are listed in read-only 'problems' field. The `new`, `inApproval` or `blocked` state can be set in the Commerce Suite Panel.
     */
     @SerializedName("state")
     String state = "live";
