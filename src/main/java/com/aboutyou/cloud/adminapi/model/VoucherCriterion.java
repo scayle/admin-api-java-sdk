@@ -24,7 +24,7 @@ public class VoucherCriterion implements ApiObjectInterface {
     String key;
 
     /**
-    * 
+    * In case shopCategoryId key used that should be corresponded for country type of application instead of shop.
     */
     @SerializedName("type")
     String type;
