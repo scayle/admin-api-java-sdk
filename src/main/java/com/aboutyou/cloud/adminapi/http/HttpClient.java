@@ -34,7 +34,6 @@ public class HttpClient {
 
         Builder builder = new Request.Builder()
             .header("X-Access-Token", this.apiConfiguration.getAccessToken())
-            .header("X-SDK", "java/1.0.0")
             .url(urlBuilder.build().toString());
 
         if (headers != null) {
