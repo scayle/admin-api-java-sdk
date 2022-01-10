@@ -39,6 +39,6 @@ public class ProductSorting implements ApiObjectInterface {
     * The value used for sorting.
     */
     @SerializedName("sortValue")
-    Double sortValue;
+    Integer sortValue;
 
 }
