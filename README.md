@@ -9,7 +9,7 @@
 ## Requirements
 
 * Admin API dev-master
-* Java 15 or higher
+* Java 11 or higher
 
 ## Installation
 
