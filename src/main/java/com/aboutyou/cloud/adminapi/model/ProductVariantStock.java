@@ -29,4 +29,10 @@ public class ProductVariantStock implements ApiObjectInterface {
     @SerializedName("changedAt")
     String changedAt;
 
+    /**
+    * Defines if the variant can be sold even when the available stock is 0.
+    */
+    @SerializedName("sellableWithoutStock")
+    Boolean sellableWithoutStock;
+
 }
