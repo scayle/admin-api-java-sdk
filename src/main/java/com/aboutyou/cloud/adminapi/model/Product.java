@@ -65,4 +65,10 @@ public class Product implements ApiObjectInterface {
     @SerializedName("images")
     List<ProductImage> images;
 
+    /**
+    * A list of product sortings.
+    */
+    @SerializedName("productSortings")
+    List<ProductSorting> productSortings;
+
 }
