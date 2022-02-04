@@ -71,4 +71,10 @@ public class Product implements ApiObjectInterface {
     @SerializedName("productSortings")
     List<ProductSorting> productSortings;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
 }
