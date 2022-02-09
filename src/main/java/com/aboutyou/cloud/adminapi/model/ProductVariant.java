@@ -41,4 +41,10 @@ public class ProductVariant implements ApiObjectInterface {
     @SerializedName("prices")
     List<ProductVariantPrice> prices;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
 }
