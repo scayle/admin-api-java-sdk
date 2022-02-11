@@ -85,7 +85,7 @@ uploadArchives {
         name 'About You Cloud AdminAPI SDK'
         packaging 'jar'
         description 'About You Cloud AdminAPI SDK'
-        url 'https://resources.aboutyou.cloud/en/dev/adminapi/introduction'
+        url 'https://scayle.dev//en/dev/admin-api/introduction'
 
         scm {
           connection 'scm:git:git@gitlab.com:aboutyou/cc-babo/admin-api-java-sdk.git'

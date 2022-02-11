@@ -2,9 +2,13 @@
 
 ## Contents
 
-* [Requirements](#requirements)
-* [Installation](#installation)
-* [Documentation](#documentation)
+- [AboutYou Cloud AdminAPI SDK](#aboutyou-cloud-adminapi-sdk)
+  - [Contents](#contents)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+    - [Maven](#maven)
+    - [Gradle](#gradle)
+  - [Documentation](#documentation)
 
 ## Requirements
 
@@ -23,7 +27,7 @@ Add the following dependency to your POM:
 <dependency>
     <groupId>com.aboutyou.cloud.adminapi</groupId>
     <artifactId>AdminAPI</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -32,9 +36,9 @@ Add the following dependency to your POM:
 Add the following dependency to your `build.gradle`:
 
 ```
-implementation "com.aboutyou.cloud.adminapi:AdminAPI:1.0.0"
+implementation "com.aboutyou.cloud.adminapi:AdminAPI:1.1.0"
 ```
 
 ## Documentation
 
-Please refer to the [Admin API Developer Guide](https://resources.aboutyou.cloud/en/dev/adminapi/introduction) for method descriptions and usage examples.
+Please refer to the [Admin API Developer Guide](https://scayle.dev//en/dev/admin-api/introduction) for method descriptions and usage examples.
