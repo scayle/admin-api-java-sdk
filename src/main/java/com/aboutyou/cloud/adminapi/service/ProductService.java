@@ -152,4 +152,84 @@ public class ProductService extends AbstractService {
         return this.request("put", this.resolvePath("/products/%s/master-categories", productIdentifier), query, null, responseModel, model);
     }
 
+    public Map<String, Object> createOrUpdateCustomData(Identifier productIdentifier, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/products/%s/custom-data", productIdentifier), null, null, responseModel, model);
+    }
+
+    public Map<String, Object> createOrUpdateCustomData(Identifier productIdentifier, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/%s/custom-data", productIdentifier), query, null, responseModel, model);
+    }
+
+    public void deleteCustomData(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/%s/custom-data", productIdentifier), null, null, null);
+    }
+
+    public void deleteCustomData(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/products/%s/custom-data", productIdentifier), query, null, null);
+    }
+
+    public Map<String, Object> getCustomData(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/products/%s/custom-data", productIdentifier), null, null, responseModel);
+    }
+
+    public Map<String, Object> getCustomData(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/products/%s/custom-data", productIdentifier), query, null, responseModel);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataForKey(Identifier productIdentifier, String key, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("put", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), null, null, responseModel, model);
+    }
+
+    public Map<String, Object> createOrUpdateCustomDataForKey(Identifier productIdentifier, String key, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), query, null, responseModel, model);
+    }
+
+    public void deleteCustomDataForKey(Identifier productIdentifier, String key) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), null, null, null);
+    }
+
+    public void deleteCustomDataForKey(Identifier productIdentifier, String key, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), query, null, null);
+    }
+
+    public Map<String, Object> getCustomDataForKey(Identifier productIdentifier, String key) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        return this.request("get", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), null, null, responseModel);
+    }
+
+    public Map<String, Object> getCustomDataForKey(Identifier productIdentifier, String key, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), query, null, responseModel);
+    }
+
 }
