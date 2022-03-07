@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductMasterCategories implements ApiObjectInterface {
     /**
-    * Specifies if the product categories were locked via Commerce Suite Panel.
+    * Specifies if the product categories were locked via the SCAYLE Panel.
     */
     @SerializedName("isLocked")
     Boolean isLocked;

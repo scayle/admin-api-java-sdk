@@ -30,7 +30,7 @@ public class Attribute implements ApiObjectInterface {
     Object value;
 
     /**
-    * Specifies if the attribute was locked via Commerce Suite Panel.
+    * Specifies if the attribute was locked via SCAYLE Panel.
     */
     @SerializedName("isLocked")
     Boolean isLocked;
