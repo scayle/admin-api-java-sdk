@@ -59,4 +59,10 @@ public class Campaign implements ApiObjectInterface {
     @SerializedName("campaignKey")
     String campaignKey;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
 }
