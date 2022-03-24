@@ -66,6 +66,12 @@ public class ShopCountry implements ApiObjectInterface {
     String priceGroupKey;
 
     /**
+    * The currency used in the shop country.
+    */
+    @SerializedName("currencyCode")
+    String currencyCode;
+
+    /**
     * 
     */
     @SerializedName("assortment")
