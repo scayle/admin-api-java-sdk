@@ -10,18 +10,18 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Attribute implements ApiObjectInterface {
+public class AttributeShopCountrySpecific implements ApiObjectInterface {
     /**
-    * The attribute name.
+    * A key that uniquely identifies the shop within the tenant's ecosystem.
     */
-    @SerializedName("name")
-    String name;
+    @SerializedName("shopKey")
+    String shopKey;
 
     /**
-    * The attribute type.
+    * ISO 3166 alpha 2 country code.
     */
-    @SerializedName("type")
-    String type;
+    @SerializedName("countryCode")
+    String countryCode;
 
     /**
     * The attribute value where the datatype is defined by the type property.
@@ -34,11 +34,5 @@ public class Attribute implements ApiObjectInterface {
     */
     @SerializedName("isLocked")
     Boolean isLocked;
-
-    /**
-    * Used to override the attribute value for a specific shop country.
-    */
-    @SerializedName("shopCountrySpecific")
-    List<AttributeShopCountrySpecific> shopCountrySpecific;
 
 }
