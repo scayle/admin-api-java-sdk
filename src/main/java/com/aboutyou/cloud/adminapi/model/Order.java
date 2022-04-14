@@ -12,79 +12,79 @@ import lombok.Setter;
 @Setter
 public class Order implements ApiObjectInterface {
     /**
-    * 
+    * The ID of the order created
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * 
+    * Billing and Shipping address of the customer
     */
     @SerializedName("address")
     OrderAddress address;
 
     /**
-    * 
+    * A key that uniquely identifies customer's cart
     */
     @SerializedName("basketKey")
     String basketKey;
 
     /**
-    * 
+    * Timestamp when the order was confirmed
     */
     @SerializedName("confirmedAt")
     String confirmedAt;
 
     /**
-    * 
+    * Total cost of the order that includes tax, VAT, etc
     */
     @SerializedName("cost")
     OrderCost cost;
 
     /**
-    * 
+    * ISO 4217 currency code
     */
     @SerializedName("currencyCode")
     String currencyCode;
 
     /**
-    * 
+    * Details about the customer account
     */
     @SerializedName("customer")
     Customer customer;
 
     /**
-    * 
+    * Country of the shop as ISO 3166 alpha 2 country code
     */
     @SerializedName("shopCountry")
     ShopCountry shopCountry;
 
     /**
-    * 
+    * Timestamp when the invoice is sent
     */
     @SerializedName("invoicedAt")
     String invoicedAt;
 
     /**
-    * 
+    * Collection of items ordered
     */
     @SerializedName("items")
     List<OrderItem> items;
 
     /**
-    * 
+    * Custom data added to the order (legacy feature)
     */
     @SerializedName("legacyCustomData")
     Map<String, Object> legacyCustomData;
 
     /**
-    * 
+    * Details for the package(s) part of the order
     */
     @SerializedName("packages")
     List<OrderPackage> packages;
 
     /**
-    * 
+    * Payment details
     */
     @SerializedName("payment")
     List<OrderPayment> payment;
@@ -102,19 +102,19 @@ public class Order implements ApiObjectInterface {
     String referenceKey;
 
     /**
-    * 
+    * Shipping details
     */
     @SerializedName("shipping")
     OrderShipping shipping;
 
     /**
-    * 
+    * Status of the order e.g: invoice_completed
     */
     @SerializedName("status")
     String status;
 
     /**
-    * 
+    * Applicable voucher and its details
     */
     @SerializedName("vouchers")
     List<OrderVoucher> vouchers;

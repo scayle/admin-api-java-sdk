@@ -12,19 +12,19 @@ import lombok.Setter;
 @Setter
 public class ReturnItem implements ApiObjectInterface {
     /**
-    * 
+    * Timestamp when the product return is received
     */
     @SerializedName("received")
     String received;
 
     /**
-    * 
+    * A key that is assigned to uniquely identify a return request
     */
     @SerializedName("returnKey")
     String returnKey;
 
     /**
-    * 
+    * Description of why the return is initiated
     */
     @SerializedName("returnReason")
     String returnReason;

@@ -78,7 +78,7 @@ public class Shop implements ApiObjectInterface {
     List<ShopCountry> countries;
 
     /**
-    * 
+    * Arbitrary fields assigned to Shop
     */
     @SerializedName("customData")
     Object customData;

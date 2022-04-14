@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class WebhookEvent implements ApiObjectInterface {
     /**
-    * 
+    * Name of the hook event.
     */
     @SerializedName("event")
     String event;

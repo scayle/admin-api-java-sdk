@@ -48,7 +48,7 @@ public class Brand implements ApiObjectInterface {
     List<Attribute> attributes;
 
     /**
-    * 
+    * Arbitrary fields assigned to Brands
     */
     @SerializedName("customData")
     Object customData;

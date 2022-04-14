@@ -72,7 +72,7 @@ public class ShopCountry implements ApiObjectInterface {
     String currencyCode;
 
     /**
-    * 
+    * Rules that defines what products can be sold within which Shop country
     */
     @SerializedName("assortment")
     Assortment assortment;
@@ -84,7 +84,7 @@ public class ShopCountry implements ApiObjectInterface {
     List<ShopCountryWarehouse> warehouses;
 
     /**
-    * 
+    * Arbitrary fields assigned to Shop countries
     */
     @SerializedName("customData")
     Object customData;

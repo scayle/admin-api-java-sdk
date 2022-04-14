@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class CustomerGroup implements ApiObjectInterface {
     /**
-    * 
+    * Group to which the customer belongs to
     */
     @SerializedName("groups")
     List<String> groups;

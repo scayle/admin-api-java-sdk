@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class CustomerStatus implements ApiObjectInterface {
     /**
-    * 
+    * Declares whether the customer account is active or not
     */
     @SerializedName("isActive")
     Boolean isActive;
 
     /**
-    * 
+    * Declares if the customer have an account or not
     */
     @SerializedName("isGuestCustomer")
     Boolean isGuestCustomer;

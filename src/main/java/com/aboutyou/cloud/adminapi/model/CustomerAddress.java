@@ -24,13 +24,13 @@ public class CustomerAddress implements ApiObjectInterface {
     String referenceKey;
 
     /**
-    * 
+    * Street is the mandatory string value in recepient's address
     */
     @SerializedName("street")
     String street;
 
     /**
-    * 
+    * House number of the recepient address
     */
     @SerializedName("houseNumber")
     String houseNumber;
@@ -42,37 +42,37 @@ public class CustomerAddress implements ApiObjectInterface {
     String additional;
 
     /**
-    * 
+    * Zip code is a postal code of recepients location. Its a madatory value
     */
     @SerializedName("zipCode")
     String zipCode;
 
     /**
-    * 
+    * City of the recipient. It is a mandatory value
     */
     @SerializedName("city")
     String city;
 
     /**
-    * 
+    * ISO 3166 alpha 2 country code
     */
     @SerializedName("countryCode")
     String countryCode;
 
     /**
-    * 
+    * Details of the point where the parcel is received (if used)
     */
     @SerializedName("collectionPoint")
     CustomerAddressCollectionPoint collectionPoint;
 
     /**
-    * 
+    * Defines whether the address is the default billing and shipping address
     */
     @SerializedName("isDefault")
     CustomerAddressDefault isDefault;
 
     /**
-    * 
+    * Recipient personal details
     */
     @SerializedName("recipient")
     CustomerAddressRecipient recipient;

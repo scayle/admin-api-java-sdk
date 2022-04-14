@@ -66,7 +66,7 @@ public class ShopCategory implements ApiObjectInterface {
     Boolean isVisible;
 
     /**
-    * 
+    * Arbitrary fields assigned to shop categories
     */
     @SerializedName("customData")
     Object customData;

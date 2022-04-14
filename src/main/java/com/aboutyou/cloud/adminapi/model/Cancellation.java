@@ -12,25 +12,25 @@ import lombok.Setter;
 @Setter
 public class Cancellation implements ApiObjectInterface {
     /**
-    * 
+    * A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 2 chars long.
     */
     @SerializedName("shopKey")
     String shopKey;
 
     /**
-    * 
+    * ISO 3166 alpha 2 country code
     */
     @SerializedName("countryCode")
     String countryCode;
 
     /**
-    * 
+    * Collection of items requested for cancellation
     */
     @SerializedName("items")
     List<CancellationItem> items;
 
     /**
-    * 
+    * Unique identity of the order for which the cancellation was requested
     */
     @SerializedName("orderId")
     Integer orderId;

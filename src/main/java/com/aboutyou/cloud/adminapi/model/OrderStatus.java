@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class OrderStatus implements ApiObjectInterface {
     /**
-    * 
+    * Phases of order e.g: cancelled , delivered
     */
     @SerializedName("status")
     String status;
