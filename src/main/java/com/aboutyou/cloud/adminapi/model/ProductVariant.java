@@ -47,4 +47,16 @@ public class ProductVariant implements ApiObjectInterface {
     @SerializedName("customData")
     Object customData;
 
+    /**
+    * Indicates whether the variant is composite.
+    */
+    @SerializedName("isComposite")
+    Boolean isComposite;
+
+    /**
+    * A list of variants that belong to the composite variant.
+    */
+    @SerializedName("relatedVariants")
+    List<RelatedProductVariant> relatedVariants;
+
 }

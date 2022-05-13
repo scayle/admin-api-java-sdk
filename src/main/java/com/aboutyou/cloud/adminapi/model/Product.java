@@ -77,4 +77,10 @@ public class Product implements ApiObjectInterface {
     @SerializedName("customData")
     Object customData;
 
+    /**
+    * Indicates whether the product is composite.
+    */
+    @SerializedName("isComposite")
+    Boolean isComposite;
+
 }
