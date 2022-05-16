@@ -218,4 +218,44 @@ public class ProductVariantService extends AbstractService {
         return this.request("get", this.resolvePath("/variants/%s/custom-data/%s", variantIdentifier, key), query, null, responseModel);
     }
 
+    public ProductVariant createComposite(Identifier productIdentifier, ProductVariant model) throws ApiErrorException, ConnectionException {
+        Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
+
+        return this.request("post", this.resolvePath("/products/composite/%s/variants", productIdentifier), null, null, responseModel, model);
+    }
+
+    public ProductVariant createComposite(Identifier productIdentifier, ProductVariant model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products/composite/%s/variants", productIdentifier), query, null, responseModel, model);
+    }
+
+    public ProductVariant updateComposite(Identifier productIdentifier, Identifier variantIdentifier, ProductVariant model) throws ApiErrorException, ConnectionException {
+        Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
+
+        return this.request("put", this.resolvePath("/products/composite/%s/variants/%s", productIdentifier, variantIdentifier), null, null, responseModel, model);
+    }
+
+    public ProductVariant updateComposite(Identifier productIdentifier, Identifier variantIdentifier, ProductVariant model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ProductVariant> responseModel = (Class<ProductVariant>)(Class<?>)ProductVariant.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/composite/%s/variants/%s", productIdentifier, variantIdentifier), query, null, responseModel, model);
+    }
+
+    public void deleteComposite(Identifier productIdentifier, Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/composite/%s/variants/%s", productIdentifier, variantIdentifier), null, null, null);
+    }
+
+    public void deleteComposite(Identifier productIdentifier, Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/products/composite/%s/variants/%s", productIdentifier, variantIdentifier), query, null, null);
+    }
+
 }

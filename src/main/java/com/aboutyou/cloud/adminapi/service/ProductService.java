@@ -232,4 +232,44 @@ public class ProductService extends AbstractService {
         return this.request("get", this.resolvePath("/products/%s/custom-data/%s", productIdentifier, key), query, null, responseModel);
     }
 
+    public Product createComposite(Product model) throws ApiErrorException, ConnectionException {
+        Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
+
+        return this.request("post", this.resolvePath("/products/composite"), null, null, responseModel, model);
+    }
+
+    public Product createComposite(Product model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products/composite"), query, null, responseModel, model);
+    }
+
+    public Product updateComposite(Identifier productIdentifier, Product model) throws ApiErrorException, ConnectionException {
+        Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
+
+        return this.request("put", this.resolvePath("/products/composite/%s", productIdentifier), null, null, responseModel, model);
+    }
+
+    public Product updateComposite(Identifier productIdentifier, Product model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/composite/%s", productIdentifier), query, null, responseModel, model);
+    }
+
+    public void deleteComposite(Identifier productIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/products/composite/%s", productIdentifier), null, null, null);
+    }
+
+    public void deleteComposite(Identifier productIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/products/composite/%s", productIdentifier), query, null, null);
+    }
+
 }

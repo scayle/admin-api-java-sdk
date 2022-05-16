@@ -254,4 +254,52 @@ public class ProductTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreateComposite() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductCreateCompositeRequest.json");
+        Product requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Product.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Product responseEntity = this.api.products().createComposite(requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductCreateCompositeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateComposite() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUpdateCompositeRequest.json");
+        Product requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Product.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Product responseEntity = this.api.products().updateComposite(Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateCompositeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteComposite() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.products().deleteComposite(Identifier.fromId(1), options);
+
+    }
+
 }

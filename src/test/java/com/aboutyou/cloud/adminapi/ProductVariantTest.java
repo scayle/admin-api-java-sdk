@@ -234,4 +234,52 @@ public class ProductVariantTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreateComposite() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantCreateCompositeRequest.json");
+        ProductVariant requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ProductVariant.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        ProductVariant responseEntity = this.api.productVariants().createComposite(Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantCreateCompositeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateComposite() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantUpdateCompositeRequest.json");
+        ProductVariant requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ProductVariant.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        ProductVariant responseEntity = this.api.productVariants().updateComposite(Identifier.fromId(1), Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantUpdateCompositeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteComposite() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productVariants().deleteComposite(Identifier.fromId(1), Identifier.fromId(1), options);
+
+    }
+
 }
