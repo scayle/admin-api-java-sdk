@@ -8,7 +8,7 @@
 
 ## Requirements
 
-* Admin API v1.20.0
+* Admin API v1.21.0
 * Java 11 or higher
 
 ## Installation
