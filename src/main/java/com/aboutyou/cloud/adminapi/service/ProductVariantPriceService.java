@@ -44,16 +44,16 @@ public class ProductVariantPriceService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/variants/%s/prices", variantIdentifier), query, null, responseModel);
     }
 
-    public void deleteFuturePrice(Identifier variantIdentifier, Integer priceId) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier variantIdentifier, String priceKey) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceId), null, null, null);
+        this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceKey), null, null, null);
     }
 
-    public void deleteFuturePrice(Identifier variantIdentifier, Integer priceId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(Identifier variantIdentifier, String priceKey, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();
 
-        this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceId), query, null, null);
+        this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceKey), query, null, null);
     }
 
 }

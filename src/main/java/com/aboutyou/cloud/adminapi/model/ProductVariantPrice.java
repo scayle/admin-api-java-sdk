@@ -12,16 +12,40 @@ import lombok.Setter;
 @Setter
 public class ProductVariantPrice implements ApiObjectInterface {
     /**
-    * ID assigned by BACKBONE Core.
+    * Key assigned by BACKBONE Core.
     */
-    @SerializedName("id")
-    Integer id;
+    @SerializedName("key")
+    String key;
 
     /**
-    * ISO 4217 currency code.
+    * Price of the variant.
     */
-    @SerializedName("currencyCode")
-    String currencyCode;
+    @SerializedName("price")
+    Integer price;
+
+    /**
+    * Old price of the variant.
+    */
+    @SerializedName("oldPrice")
+    Integer oldPrice;
+
+    /**
+    * Recommended retail price of the variant.
+    */
+    @SerializedName("recommendedRetailPrice")
+    Integer recommendedRetailPrice;
+
+    /**
+    * Buying price of the variant.
+    */
+    @SerializedName("buyingPrice")
+    Integer buyingPrice;
+
+    /**
+    * A valid tax rate.
+    */
+    @SerializedName("tax")
+    Double tax;
 
     /**
     * ISO 3166 alpha 2 country code.
@@ -30,22 +54,10 @@ public class ProductVariantPrice implements ApiObjectInterface {
     String countryCode;
 
     /**
-    * Price in the smalltest subunit, e.g., cent.
+    * ISO 4217 currency code.
     */
-    @SerializedName("price")
-    Integer price;
-
-    /**
-    * Old price in the smalltest subunit, e.g., cent.
-    */
-    @SerializedName("oldPrice")
-    Integer oldPrice;
-
-    /**
-    * Recommended retail price in the smalltest subunit, e.g., cent.
-    */
-    @SerializedName("recommendedRetailPrice")
-    Integer recommendedRetailPrice;
+    @SerializedName("currencyCode")
+    String currencyCode;
 
     /**
     * Key of the group the price is assigned to.
@@ -64,12 +76,6 @@ public class ProductVariantPrice implements ApiObjectInterface {
     */
     @SerializedName("unitPrice")
     ProductVariantUnitPrice unitPrice;
-
-    /**
-    * A valid tax rate.
-    */
-    @SerializedName("tax")
-    Double tax;
 
     /**
     * Controls when the price will be activated. If not present or null, the valid from is specified from now.

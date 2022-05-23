@@ -51,10 +51,10 @@ public class ProductVariantPriceTest extends BaseApiTest {
     }
 
     @Test
-    public void testDeleteFuturePrice() throws Exception {
+    public void testDelete() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
-        this.api.productVariantPrices().deleteFuturePrice(Identifier.fromId(1), 1, options);
+        this.api.productVariantPrices().delete(Identifier.fromId(1), "acme", options);
 
     }
 
