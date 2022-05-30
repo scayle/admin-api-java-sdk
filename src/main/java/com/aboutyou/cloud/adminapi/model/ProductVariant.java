@@ -42,6 +42,12 @@ public class ProductVariant implements ApiObjectInterface {
     List<ProductVariantPrice> prices;
 
     /**
+    * The product variant stock information.
+    */
+    @SerializedName("stocks")
+    List<ProductVariantStock> stocks;
+
+    /**
     * 
     */
     @SerializedName("customData")
