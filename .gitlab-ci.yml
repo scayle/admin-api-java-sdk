@@ -1,27 +1,33 @@
 stages:
-- deploy
+  - deploy
 
 default:
-    image: node:buster
-    services:
-        - docker:dind
-    tags:
-        - babo-runner
-    before_script:
-        - apt-get update
-        - apt-get install -y openjdk-11-jdk
-        - sh ./gradlew clean
+  image: node:buster
+  services:
+    - docker:dind
+  tags:
+    - babo-runner
+  before_script:
+    - apt-get update
+    - apt-get install -y openjdk-11-jdk
+    - sh ./gradlew clean
+
+.deploy: &depoloy
+  stage: deploy
+  script:
+    # we expect tags to be in the format v1.2.3
+    - ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
+    - sh ./gradlew uploadArchives
+  only:
+    - tags
+  when: manual
 
 deploy:snapshot:
-    stage: deploy
-    rules:
-        - when: manual
-    script:
-        - ORG_GRADLE_PROJECT_environment=snapshot sh ./gradlew uploadArchives
+  <<: *depoloy
+  variables:
+    ORG_GRADLE_PROJECT_environment: snapshot
 
 deploy:release:
-    stage: deploy
-    rules:
-        - when: manual
-    script:
-        - ORG_GRADLE_PROJECT_environment=release sh ./gradlew uploadArchives
+  <<: *depoloy
+  variables:
+    ORG_GRADLE_PROJECT_environment: release
