@@ -28,4 +28,16 @@ public class ProductSortingService extends AbstractService {
         this.request("post", this.resolvePath("/product-sortings"), query, null, null, model);
     }
 
+    public void delete(List<ProductSorting> model) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/product-sortings"), null, null, null, model);
+    }
+
+    public void delete(List<ProductSorting> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/product-sortings"), query, null, null, model);
+    }
+
 }

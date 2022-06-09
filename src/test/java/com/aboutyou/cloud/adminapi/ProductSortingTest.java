@@ -28,4 +28,18 @@ public class ProductSortingTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testDelete() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductSortingDeleteRequest.json");
+        List<ProductSorting> requestEntity = this.jsonSerializer.unserializeList(expectedRequestJson, ProductSorting.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productSortings().delete(requestEntity, options);
+
+    }
+
 }
