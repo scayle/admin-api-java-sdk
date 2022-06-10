@@ -8,7 +8,7 @@
 
 ## Requirements
 
-* Admin API dev-master
+* Admin API v1.28.0
 * Java 11 or higher
 
 ## Installation
