@@ -119,4 +119,16 @@ public class Order implements ApiObjectInterface {
     @SerializedName("vouchers")
     List<OrderVoucher> vouchers;
 
+    /**
+    * Reference to the campaign applied to this order
+    */
+    @SerializedName("campaignKey")
+    String campaignKey;
+
+    /**
+    * 
+    */
+    @SerializedName("loyaltyCard")
+    OrderLoyaltyCard loyaltyCard;
+
 }
