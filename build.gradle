@@ -19,11 +19,15 @@ def getNexusPassword() {
 }
 
 def isRelease() {
-  findProperty("environment") == "release"
+    findProperty("environment") == "release"
+}
+
+def resolveVersion() {
+    return findProperty("version") + (isRelease() ? "" : "-SNAPSHOT")
 }
 
 group = 'com.aboutyou.cloud.adminapi'
-version = '1.1.0' + (isRelease() ? '' : '-SNAPSHOT')
+version = resolveVersion()
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
