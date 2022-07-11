@@ -2,6 +2,7 @@ package com.aboutyou.cloud.adminapi;
 
 import com.aboutyou.cloud.adminapi.model.ApiConfiguration;
 import com.aboutyou.cloud.adminapi.service.ProductService;
+import com.aboutyou.cloud.adminapi.service.MasterService;
 import com.aboutyou.cloud.adminapi.service.ProductImageService;
 import com.aboutyou.cloud.adminapi.service.ProductVariantService;
 import com.aboutyou.cloud.adminapi.service.ProductVariantPriceService;
@@ -38,6 +39,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductService products() {
         ProductService service = this.getService("com.aboutyou.cloud.adminapi.service.ProductService");
+        return service;
+    }
+
+    public MasterService masters() {
+        MasterService service = this.getService("com.aboutyou.cloud.adminapi.service.MasterService");
         return service;
     }
 
