@@ -30,4 +30,18 @@ public class MasterService extends AbstractService {
         return this.request("put", this.resolvePath("/product-masters/%s/master-categories", productMasterIdentifier), query, null, responseModel, model);
     }
 
+    public ApiCollection<Attribute> allAttributes(Identifier productMasterIdentifier) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.requestCollection("get", this.resolvePath("/product-masters/%s/attributes", productMasterIdentifier), null, null, responseModel);
+    }
+
+    public ApiCollection<Attribute> allAttributes(Identifier productMasterIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/product-masters/%s/attributes", productMasterIdentifier), query, null, responseModel);
+    }
+
 }
