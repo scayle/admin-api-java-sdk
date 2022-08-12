@@ -54,7 +54,7 @@ public class CustomerAddress implements ApiObjectInterface {
     String city;
 
     /**
-    * ISO 3166 alpha 2 country code
+    * ISO 3166-1 alpha-3 country code
     */
     @SerializedName("countryCode")
     String countryCode;

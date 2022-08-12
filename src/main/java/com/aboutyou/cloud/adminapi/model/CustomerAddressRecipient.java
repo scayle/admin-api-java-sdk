@@ -35,10 +35,4 @@ public class CustomerAddressRecipient implements ApiObjectInterface {
     @SerializedName("title")
     String title;
 
-    /**
-    * 
-    */
-    @SerializedName("type")
-    String type;
-
 }
