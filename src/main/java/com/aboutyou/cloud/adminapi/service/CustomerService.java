@@ -16,6 +16,20 @@ public class CustomerService extends AbstractService {
         super(httpClient);
     }
 
+    public ApiCollection<Customer> all(String shopKey, String countryCode) throws ApiErrorException, ConnectionException {
+        Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/customers", shopKey, countryCode), null, null, responseModel);
+    }
+
+    public ApiCollection<Customer> all(String shopKey, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/customers", shopKey, countryCode), query, null, responseModel);
+    }
+
     public Customer get(String shopKey, String countryCode, Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
         Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
 

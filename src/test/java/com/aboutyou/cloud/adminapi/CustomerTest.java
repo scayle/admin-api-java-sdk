@@ -15,6 +15,22 @@ import java.util.List;
 public class CustomerTest extends BaseApiTest {
 
     @Test
+    public void testAll() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Customer> responseEntity = this.api.customers().all("acme", "acme", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerAllResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Customer entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
     public void testGet() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
