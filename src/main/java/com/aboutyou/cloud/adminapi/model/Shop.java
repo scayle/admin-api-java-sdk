@@ -36,7 +36,7 @@ public class Shop implements ApiObjectInterface {
     String logoUrl;
 
     /**
-    * A source specifieng where to download the logo from.
+    * A source specifying where to download the logo from.
     */
     @SerializedName("logoSource")
     AssetSource logoSource;
@@ -48,7 +48,7 @@ public class Shop implements ApiObjectInterface {
     Boolean active;
 
     /**
-    * Defines it the shop is deleted.
+    * Defines if the shop is deleted.
     */
     @SerializedName("deleted")
     Boolean deleted;
@@ -60,7 +60,7 @@ public class Shop implements ApiObjectInterface {
     String priceGroupKey;
 
     /**
-    * Defines shop categories tree id. Can be set only on creation.
+    * Defines shop category tree id. Can be set only on creation.
     */
     @SerializedName("shopCategoryTreeId")
     Integer shopCategoryTreeId;
@@ -72,7 +72,7 @@ public class Shop implements ApiObjectInterface {
     Integer companyId;
 
     /**
-    * The countries assigned to the shop.
+    * The countries assigned to the shop. Can be set only on creation.
     */
     @SerializedName("countries")
     List<ShopCountry> countries;
