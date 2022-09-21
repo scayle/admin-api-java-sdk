@@ -30,6 +30,20 @@ public class OrderService extends AbstractService {
         return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), query, null, responseModel);
     }
 
+    public ApiCollection<Order> all(String shopKey, String countryCode) throws ApiErrorException, ConnectionException {
+        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/orders", shopKey, countryCode), null, null, responseModel);
+    }
+
+    public ApiCollection<Order> all(String shopKey, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/orders", shopKey, countryCode), query, null, responseModel);
+    }
+
     public Order updateReferenceKey(String shopKey, String countryCode, Integer orderId, OrderReferenceKey model) throws ApiErrorException, ConnectionException {
         Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
 

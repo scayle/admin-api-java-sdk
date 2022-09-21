@@ -29,6 +29,22 @@ public class OrderTest extends BaseApiTest {
     }
 
     @Test
+    public void testAll() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Order> responseEntity = this.api.orders().all("acme", "acme", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/OrderAllResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Order entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
     public void testUpdateReferenceKey() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/OrderUpdateReferenceKeyRequest.json");
         OrderReferenceKey requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, OrderReferenceKey.class);
