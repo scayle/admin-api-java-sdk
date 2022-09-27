@@ -66,6 +66,18 @@ public class Order implements ApiObjectInterface {
     String invoicedAt;
 
     /**
+    * Timestamp when the order is created
+    */
+    @SerializedName("createdAt")
+    String createdAt;
+
+    /**
+    * Timestamp when the order is updated
+    */
+    @SerializedName("updatedAt")
+    String updatedAt;
+
+    /**
     * Collection of items ordered
     */
     @SerializedName("items")
