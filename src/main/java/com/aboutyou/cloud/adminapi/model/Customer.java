@@ -36,7 +36,7 @@ public class Customer implements ApiObjectInterface {
     String lastName;
 
     /**
-    * Gender of the customer mentioned as per defined ENUM as "m" , "f"
+    * Gender of the customer mentioned as per defined ENUM as "m" , "f", "d"
     */
     @SerializedName("gender")
     String gender;
