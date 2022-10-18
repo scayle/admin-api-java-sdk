@@ -56,8 +56,8 @@ public class OrderItem implements ApiObjectInterface {
     /**
     * 
     */
-    @SerializedName("referenceKey")
-    String referenceKey;
+    @SerializedName("key")
+    String key;
 
     /**
     * 
