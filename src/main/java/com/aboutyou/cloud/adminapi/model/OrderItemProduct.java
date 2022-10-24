@@ -18,12 +18,6 @@ public class OrderItemProduct implements ApiObjectInterface {
     Integer id;
 
     /**
-    * External reference set by the client to integrate third party systems.
-    */
-    @SerializedName("referenceKey")
-    String referenceKey;
-
-    /**
     * The product name.
     */
     @SerializedName("name")
