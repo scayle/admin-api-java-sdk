@@ -50,4 +50,18 @@ public class MasterTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testGetAttribute() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Attribute responseEntity = this.api.masters().getAttribute(Identifier.fromId(1), "acme", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/MasterGetAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }
