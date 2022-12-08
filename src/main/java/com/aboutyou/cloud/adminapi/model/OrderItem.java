@@ -83,10 +83,4 @@ public class OrderItem implements ApiObjectInterface {
     @SerializedName("warehouseId")
     Integer warehouseId;
 
-    /**
-    * 
-    */
-    @SerializedName("itemGroup")
-    OrderItemGroup itemGroup;
-
 }
