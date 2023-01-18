@@ -16,7 +16,13 @@ default:
   stage: deploy
   script:
     # we expect tags to be in the format v1.2.3
-    - ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
+    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
+    - export ORG_GRADLE_PROJECT_environment
+    - export ORG_GRADLE_PROJECT_nexusUsername
+    - export ORG_GRADLE_PROJECT_nexusPassword
+    - export ORG_GRADLE_PROJECT_signingKey
+    - export ORG_GRADLE_PROJECT_signingKeyId
+    - export ORG_GRADLE_PROJECT_signingPassword
     - sh ./gradlew uploadArchives
   only:
     - tags
