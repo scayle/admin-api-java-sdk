@@ -32,19 +32,19 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    implementation 'com.google.guava:guava:29.0-jre'
+    implementation 'com.google.guava:guava:31.0-jre'
     compile 'com.google.code.gson:gson:2.8.6'
 
-    testImplementation 'junit:junit:4.13'
-    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.19.0'
-    testImplementation 'com.squareup.moshi:moshi:1.9.3'
+    testImplementation 'junit:junit:4.13.+'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.28.+'
+    testImplementation 'com.squareup.moshi:moshi:1.13.+'
 
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-    annotationProcessor 'org.projectlombok:lombok:1.18.12'
-    testCompileOnly 'org.projectlombok:lombok:1.18.12'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compileOnly 'org.projectlombok:lombok:1.18.+'
+    annotationProcessor 'org.projectlombok:lombok:1.18.+'
+    testCompileOnly 'org.projectlombok:lombok:1.18.+'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.+'
 
-    compile 'com.squareup.okhttp3:okhttp:4.8.1'
+    compile 'com.squareup.okhttp3:okhttp:4.10.+'
 }
 
 task javadocJar(type: Jar) {
@@ -55,6 +55,15 @@ task javadocJar(type: Jar) {
 task sourcesJar(type: Jar) {
     classifier = 'sources'
     from sourceSets.main.allSource
+}
+
+task fatJar(type: Jar) {
+  archiveClassifier = "all"
+  from {
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+  with jar
 }
 
 artifacts {
