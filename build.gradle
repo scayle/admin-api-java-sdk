@@ -33,18 +33,18 @@ targetCompatibility = 1.8
 
 dependencies {
     implementation 'com.google.guava:guava:31.0-jre'
-    compile 'com.google.code.gson:gson:2.8.6'
+    compile 'com.google.code.gson:gson:2.10.1'
 
-    testImplementation 'junit:junit:4.13.+'
-    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.28.+'
-    testImplementation 'com.squareup.moshi:moshi:1.13.+'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.36.1'
+    testImplementation 'com.squareup.moshi:moshi:1.14.0'
 
-    compileOnly 'org.projectlombok:lombok:1.18.+'
-    annotationProcessor 'org.projectlombok:lombok:1.18.+'
-    testCompileOnly 'org.projectlombok:lombok:1.18.+'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.+'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-    compile 'com.squareup.okhttp3:okhttp:4.10.+'
+    compile 'com.squareup.okhttp3:okhttp:4.10.0'
 }
 
 task javadocJar(type: Jar) {
