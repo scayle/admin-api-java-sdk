@@ -36,7 +36,7 @@ public class Attribute implements ApiObjectInterface {
     Boolean isLocked;
 
     /**
-    * Used to override the attribute value for a specific shop country.
+    * Used to override the attribute value for a specific shop country. Only supported by products, product masters and variants.
     */
     @SerializedName("shopCountrySpecific")
     List<AttributeShopCountrySpecific> shopCountrySpecific;
