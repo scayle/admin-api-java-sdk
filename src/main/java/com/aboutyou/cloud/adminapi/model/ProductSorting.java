@@ -30,6 +30,12 @@ public class ProductSorting implements ApiObjectInterface {
     String shopKey;
 
     /**
+    * ISO 3166 alpha 2 country code.
+    */
+    @SerializedName("countryCode")
+    String countryCode;
+
+    /**
     * The sort key.
     */
     @SerializedName("sortKey")
