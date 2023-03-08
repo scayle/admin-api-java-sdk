@@ -90,6 +90,12 @@ public class Customer implements ApiObjectInterface {
     CustomerStatus status;
 
     /**
+    * Company to which the customer belongs to
+    */
+    @SerializedName("company")
+    Company company;
+
+    /**
     * Customers address (es)
     */
     @SerializedName("addresses")
