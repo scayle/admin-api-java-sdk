@@ -234,6 +234,60 @@ public class CustomerService extends AbstractService {
         return this.request("post", this.resolvePath("/shops/%s/countries/%s/customers/%s/customer-groups", shopKey, countryCode, customerId), query, null, responseModel, model);
     }
 
+    public CustomerMembership createMembership(String shopKey, String countryCode, Identifier customerIdentifier, CustomerMembership model) throws ApiErrorException, ConnectionException {
+        Class<CustomerMembership> responseModel = (Class<CustomerMembership>)(Class<?>)CustomerMembership.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/customers/%s/memberships", shopKey, countryCode, customerIdentifier), null, null, responseModel, model);
+    }
+
+    public CustomerMembership createMembership(String shopKey, String countryCode, Identifier customerIdentifier, CustomerMembership model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerMembership> responseModel = (Class<CustomerMembership>)(Class<?>)CustomerMembership.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/customers/%s/memberships", shopKey, countryCode, customerIdentifier), query, null, responseModel, model);
+    }
+
+    public CustomerMembership updateMembership(String shopKey, String countryCode, Integer membershipId, CustomerMembership model) throws ApiErrorException, ConnectionException {
+        Class<CustomerMembership> responseModel = (Class<CustomerMembership>)(Class<?>)CustomerMembership.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/memberships/%s", shopKey, countryCode, membershipId), null, null, responseModel, model);
+    }
+
+    public CustomerMembership updateMembership(String shopKey, String countryCode, Integer membershipId, CustomerMembership model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerMembership> responseModel = (Class<CustomerMembership>)(Class<?>)CustomerMembership.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/memberships/%s", shopKey, countryCode, membershipId), query, null, responseModel, model);
+    }
+
+    public ApiCollection<CustomerMembership> getMemberships(String shopKey, String countryCode, Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
+        Class<CustomerMembership> responseModel = (Class<CustomerMembership>)(Class<?>)CustomerMembership.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/customers/%s/memberships", shopKey, countryCode, customerIdentifier), null, null, responseModel);
+    }
+
+    public ApiCollection<CustomerMembership> getMemberships(String shopKey, String countryCode, Identifier customerIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<CustomerMembership> responseModel = (Class<CustomerMembership>)(Class<?>)CustomerMembership.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/customers/%s/memberships", shopKey, countryCode, customerIdentifier), query, null, responseModel);
+    }
+
+    public void deleteMembership(String shopKey, String countryCode, Integer membershipId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/memberships/%s", shopKey, countryCode, membershipId), null, null, null);
+    }
+
+    public void deleteMembership(String shopKey, String countryCode, Integer membershipId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/memberships/%s", shopKey, countryCode, membershipId), query, null, null);
+    }
+
     public void deleteGroup(String shopKey, String countryCode, Identifier customerIdentifier, String customerGroup) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/customer-groups/%s", shopKey, countryCode, customerIdentifier, customerGroup), null, null, null);

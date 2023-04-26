@@ -273,6 +273,70 @@ public class CustomerTest extends BaseApiTest {
     }
 
     @Test
+    public void testCreateMembership() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerCreateMembershipRequest.json");
+        CustomerMembership requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerMembership.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerMembership responseEntity = this.api.customers().createMembership("acme", "acme", Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerCreateMembershipResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateMembership() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerUpdateMembershipRequest.json");
+        CustomerMembership requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerMembership.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        CustomerMembership responseEntity = this.api.customers().updateMembership("acme", "acme", 1, requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerUpdateMembershipResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testGetMemberships() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<CustomerMembership> responseEntity = this.api.customers().getMemberships("acme", "acme", Identifier.fromId(1), options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerGetMembershipsResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (CustomerMembership entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
+    public void testDeleteMembership() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().deleteMembership("acme", "acme", 1, options);
+
+    }
+
+    @Test
     public void testDeleteGroup() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
