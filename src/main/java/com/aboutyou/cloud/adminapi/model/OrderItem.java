@@ -89,4 +89,10 @@ public class OrderItem implements ApiObjectInterface {
     @SerializedName("itemGroup")
     OrderItemGroup itemGroup;
 
+    /**
+    * Reference to the campaign applied to this order
+    */
+    @SerializedName("campaignKey")
+    String campaignKey;
+
 }
