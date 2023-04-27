@@ -302,4 +302,24 @@ public class ProductTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUpdateState() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUpdateStateRequest.json");
+        ProductState requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ProductState.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        ProductState responseEntity = this.api.products().updateState(Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductUpdateStateResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

@@ -272,4 +272,18 @@ public class ProductService extends AbstractService {
         this.request("delete", this.resolvePath("/products/composite/%s", productIdentifier), query, null, null);
     }
 
+    public ProductState updateState(Identifier productIdentifier, ProductState model) throws ApiErrorException, ConnectionException {
+        Class<ProductState> responseModel = (Class<ProductState>)(Class<?>)ProductState.class;
+
+        return this.request("put", this.resolvePath("/products/%s/state", productIdentifier), null, null, responseModel, model);
+    }
+
+    public ProductState updateState(Identifier productIdentifier, ProductState model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ProductState> responseModel = (Class<ProductState>)(Class<?>)ProductState.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/products/%s/state", productIdentifier), query, null, responseModel, model);
+    }
+
 }
