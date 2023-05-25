@@ -20,6 +20,12 @@ public class OrderVoucher implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("voucherId")
+    Integer voucherId;
+
+    /**
+    * 
+    */
     @SerializedName("applicableItems")
     List<OrderVoucherItem> applicableItems;
 
