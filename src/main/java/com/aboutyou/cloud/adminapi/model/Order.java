@@ -90,6 +90,12 @@ public class Order implements ApiObjectInterface {
     Map<String, Object> legacyCustomData;
 
     /**
+    * Membership discount information
+    */
+    @SerializedName("membershipDiscount")
+    OrderMembershipDiscount membershipDiscount;
+
+    /**
     * Details for the package(s) part of the order
     */
     @SerializedName("packages")
