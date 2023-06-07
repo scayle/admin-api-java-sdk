@@ -132,6 +132,12 @@ public class Order implements ApiObjectInterface {
     String status;
 
     /**
+    * 
+    */
+    @SerializedName("detailedStatus")
+    OrderDetailedStatus detailedStatus;
+
+    /**
     * Applicable voucher and its details
     */
     @SerializedName("vouchers")

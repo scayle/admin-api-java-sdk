@@ -17,4 +17,10 @@ public class OrderStatus implements ApiObjectInterface {
     @SerializedName("status")
     String status;
 
+    /**
+    * 
+    */
+    @SerializedName("detailedStatus")
+    OrderDetailedStatus detailedStatus;
+
 }
