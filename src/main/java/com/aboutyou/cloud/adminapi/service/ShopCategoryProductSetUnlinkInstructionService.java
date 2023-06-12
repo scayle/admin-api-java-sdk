@@ -16,11 +16,13 @@ public class ShopCategoryProductSetUnlinkInstructionService extends AbstractServ
         super(httpClient);
     }
 
+    
     public void unlink(String shopKey, Integer productSetId, ShopCategoryProductSetUnlinkInstruction model) throws ApiErrorException, ConnectionException {
 
         this.request("put", this.resolvePath("/shops/%s/product-sets/%s/unlink", shopKey, productSetId), null, null, null, model);
     }
 
+    
     public void unlink(String shopKey, Integer productSetId, ShopCategoryProductSetUnlinkInstruction model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();

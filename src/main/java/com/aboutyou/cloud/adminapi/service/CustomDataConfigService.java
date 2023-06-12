@@ -16,12 +16,14 @@ public class CustomDataConfigService extends AbstractService {
         super(httpClient);
     }
 
+    
     public CustomDataConfig get(String entity) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
         return this.request("get", this.resolvePath("/custom-data-configs/%s", entity), null, null, responseModel);
     }
 
+    
     public CustomDataConfig get(String entity, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
@@ -30,12 +32,14 @@ public class CustomDataConfigService extends AbstractService {
         return this.request("get", this.resolvePath("/custom-data-configs/%s", entity), query, null, responseModel);
     }
 
+    
     public CustomDataConfig create(String entity, CustomDataConfig model) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
         return this.request("post", this.resolvePath("/custom-data-configs/%s", entity), null, null, responseModel, model);
     }
 
+    
     public CustomDataConfig create(String entity, CustomDataConfig model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
@@ -44,12 +48,14 @@ public class CustomDataConfigService extends AbstractService {
         return this.request("post", this.resolvePath("/custom-data-configs/%s", entity), query, null, responseModel, model);
     }
 
+    
     public CustomDataConfig update(String entity, CustomDataConfig model) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
         return this.request("put", this.resolvePath("/custom-data-configs/%s", entity), null, null, responseModel, model);
     }
 
+    
     public CustomDataConfig update(String entity, CustomDataConfig model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<CustomDataConfig> responseModel = (Class<CustomDataConfig>)(Class<?>)CustomDataConfig.class;
 
@@ -58,11 +64,13 @@ public class CustomDataConfigService extends AbstractService {
         return this.request("put", this.resolvePath("/custom-data-configs/%s", entity), query, null, responseModel, model);
     }
 
+    
     public void delete(String entity) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/custom-data-configs/%s", entity), null, null, null);
     }
 
+    
     public void delete(String entity, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();

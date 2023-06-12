@@ -16,12 +16,14 @@ public class CompanyService extends AbstractService {
         super(httpClient);
     }
 
+    
     public Company create(Company model) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
         return this.request("post", this.resolvePath("/companies"), null, null, responseModel, model);
     }
 
+    
     public Company create(Company model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
@@ -30,12 +32,14 @@ public class CompanyService extends AbstractService {
         return this.request("post", this.resolvePath("/companies"), query, null, responseModel, model);
     }
 
+    
     public ApiCollection<Company> all() throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
         return this.requestCollection("get", this.resolvePath("/companies"), null, null, responseModel);
     }
 
+    
     public ApiCollection<Company> all(ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
@@ -44,12 +48,14 @@ public class CompanyService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/companies"), query, null, responseModel);
     }
 
+    
     public Company get(Integer companyId) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
         return this.request("get", this.resolvePath("/companies/%s", companyId), null, null, responseModel);
     }
 
+    
     public Company get(Integer companyId, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
@@ -58,12 +64,14 @@ public class CompanyService extends AbstractService {
         return this.request("get", this.resolvePath("/companies/%s", companyId), query, null, responseModel);
     }
 
+    
     public Company update(Integer companyId, Company model) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 
         return this.request("put", this.resolvePath("/companies/%s", companyId), null, null, responseModel, model);
     }
 
+    
     public Company update(Integer companyId, Company model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Company> responseModel = (Class<Company>)(Class<?>)Company.class;
 

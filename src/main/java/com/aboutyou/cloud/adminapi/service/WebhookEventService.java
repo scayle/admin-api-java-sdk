@@ -16,12 +16,14 @@ public class WebhookEventService extends AbstractService {
         super(httpClient);
     }
 
+    
     public ApiCollection<WebhookEvent> all() throws ApiErrorException, ConnectionException {
         Class<WebhookEvent> responseModel = (Class<WebhookEvent>)(Class<?>)WebhookEvent.class;
 
         return this.requestCollection("get", this.resolvePath("/webhooks/events"), null, null, responseModel);
     }
 
+    
     public ApiCollection<WebhookEvent> all(ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<WebhookEvent> responseModel = (Class<WebhookEvent>)(Class<?>)WebhookEvent.class;
 

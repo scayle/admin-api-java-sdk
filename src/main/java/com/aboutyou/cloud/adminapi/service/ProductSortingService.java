@@ -16,11 +16,13 @@ public class ProductSortingService extends AbstractService {
         super(httpClient);
     }
 
+    
     public void updateOrCreate(List<ProductSorting> model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/product-sortings"), null, null, null, model);
     }
 
+    
     public void updateOrCreate(List<ProductSorting> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();
@@ -28,11 +30,13 @@ public class ProductSortingService extends AbstractService {
         this.request("post", this.resolvePath("/product-sortings"), query, null, null, model);
     }
 
+    
     public void delete(List<ProductSorting> model) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/product-sortings"), null, null, null, model);
     }
 
+    
     public void delete(List<ProductSorting> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();

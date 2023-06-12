@@ -16,12 +16,14 @@ public class MasterService extends AbstractService {
         super(httpClient);
     }
 
+    
     public ProductMasterCategories updateProductMasterMasterCategories(Identifier productMasterIdentifier, ProductMasterCategories model) throws ApiErrorException, ConnectionException {
         Class<ProductMasterCategories> responseModel = (Class<ProductMasterCategories>)(Class<?>)ProductMasterCategories.class;
 
         return this.request("put", this.resolvePath("/product-masters/%s/master-categories", productMasterIdentifier), null, null, responseModel, model);
     }
 
+    
     public ProductMasterCategories updateProductMasterMasterCategories(Identifier productMasterIdentifier, ProductMasterCategories model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductMasterCategories> responseModel = (Class<ProductMasterCategories>)(Class<?>)ProductMasterCategories.class;
 
@@ -30,12 +32,14 @@ public class MasterService extends AbstractService {
         return this.request("put", this.resolvePath("/product-masters/%s/master-categories", productMasterIdentifier), query, null, responseModel, model);
     }
 
+    
     public ApiCollection<Attribute> allAttributes(Identifier productMasterIdentifier) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
         return this.requestCollection("get", this.resolvePath("/product-masters/%s/attributes", productMasterIdentifier), null, null, responseModel);
     }
 
+    
     public ApiCollection<Attribute> allAttributes(Identifier productMasterIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
@@ -44,12 +48,14 @@ public class MasterService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/product-masters/%s/attributes", productMasterIdentifier), query, null, responseModel);
     }
 
+    
     public Attribute getAttribute(Identifier productMasterIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
         return this.request("get", this.resolvePath("/product-masters/%s/attributes/%s", productMasterIdentifier, attributeGroupName), null, null, responseModel);
     }
 
+    
     public Attribute getAttribute(Identifier productMasterIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 

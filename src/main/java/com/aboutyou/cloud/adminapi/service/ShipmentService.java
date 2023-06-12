@@ -16,11 +16,13 @@ public class ShipmentService extends AbstractService {
         super(httpClient);
     }
 
+    
     public void create(Shipment model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/fulfillment/shipments"), null, null, null, model);
     }
 
+    
     public void create(Shipment model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.except(Arrays.asList("companyId"));

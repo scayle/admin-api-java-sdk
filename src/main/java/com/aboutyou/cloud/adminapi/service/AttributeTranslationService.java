@@ -16,11 +16,13 @@ public class AttributeTranslationService extends AbstractService {
         super(httpClient);
     }
 
+    
     public void updateOrCreate(String attributeGroupName, Map<String, String> model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, null, null, model);
     }
 
+    
     public void updateOrCreate(String attributeGroupName, Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();
@@ -28,12 +30,14 @@ public class AttributeTranslationService extends AbstractService {
         this.request("post", this.resolvePath("/attributes/%s/translations", attributeGroupName), query, null, null, model);
     }
 
+    
     public ApiCollection<Map<String, String>> all(String attributeGroupName) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 
         return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, null, responseModel);
     }
 
+    
     public ApiCollection<Map<String, String>> all(String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 

@@ -245,6 +245,14 @@ public class CustomerTest extends BaseApiTest {
     }
 
     @Test
+    public void testAnonymizeAddressByIdentifier() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().anonymizeAddressByIdentifier("acme", "acme", Identifier.fromId(1), options);
+
+    }
+
+    @Test
     public void testResetPassword() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

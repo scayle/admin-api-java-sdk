@@ -16,12 +16,14 @@ public class ProductVariantStockService extends AbstractService {
         super(httpClient);
     }
 
+    
     public ProductVariantStock create(Identifier variantIdentifier, ProductVariantStock model) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
         return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, null, responseModel, model);
     }
 
+    
     public ProductVariantStock create(Identifier variantIdentifier, ProductVariantStock model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
@@ -30,12 +32,14 @@ public class ProductVariantStockService extends AbstractService {
         return this.request("post", this.resolvePath("/variants/%s/stocks", variantIdentifier), query, null, responseModel, model);
     }
 
+    
     public ApiCollection<ProductVariantStock> all(Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 
         return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), null, null, responseModel);
     }
 
+    
     public ApiCollection<ProductVariantStock> all(Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantStock> responseModel = (Class<ProductVariantStock>)(Class<?>)ProductVariantStock.class;
 

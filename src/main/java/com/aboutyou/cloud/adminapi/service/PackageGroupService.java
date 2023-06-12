@@ -16,12 +16,14 @@ public class PackageGroupService extends AbstractService {
         super(httpClient);
     }
 
+    
     public ApiCollection<PackageGroup> all(String shopKey, String countryCode) throws ApiErrorException, ConnectionException {
         Class<PackageGroup> responseModel = (Class<PackageGroup>)(Class<?>)PackageGroup.class;
 
         return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/package-groups", shopKey, countryCode), null, null, responseModel);
     }
 
+    
     public ApiCollection<PackageGroup> all(String shopKey, String countryCode, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<PackageGroup> responseModel = (Class<PackageGroup>)(Class<?>)PackageGroup.class;
 
@@ -30,11 +32,13 @@ public class PackageGroupService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/package-groups", shopKey, countryCode), query, null, responseModel);
     }
 
+    
     public void assignPackageGroupToWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), null, null, null, model);
     }
 
+    
     public void assignPackageGroupToWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();
@@ -42,11 +46,13 @@ public class PackageGroupService extends AbstractService {
         this.request("post", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), query, null, null, model);
     }
 
+    
     public void replacePackageGroupForWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model) throws ApiErrorException, ConnectionException {
 
         this.request("put", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), null, null, null, model);
     }
 
+    
     public void replacePackageGroupForWarehouses(String shopKey, String countryCode, Integer packageGroupId, List<PackageGroupWarehouse> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();
@@ -54,11 +60,13 @@ public class PackageGroupService extends AbstractService {
         this.request("put", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), query, null, null, model);
     }
 
+    
     public void delete(String shopKey, String countryCode, Integer packageGroupId) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/shops/%s/countries/%s/package-groups/%s", shopKey, countryCode, packageGroupId), null, null, null);
     }
 
+    
     public void delete(String shopKey, String countryCode, Integer packageGroupId, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();

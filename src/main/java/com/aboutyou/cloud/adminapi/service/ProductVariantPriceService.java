@@ -16,12 +16,14 @@ public class ProductVariantPriceService extends AbstractService {
         super(httpClient);
     }
 
+    
     public ProductVariantPrice create(Identifier variantIdentifier, ProductVariantPrice model) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
         return this.request("post", this.resolvePath("/variants/%s/prices", variantIdentifier), null, null, responseModel, model);
     }
 
+    
     public ProductVariantPrice create(Identifier variantIdentifier, ProductVariantPrice model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
@@ -30,12 +32,14 @@ public class ProductVariantPriceService extends AbstractService {
         return this.request("post", this.resolvePath("/variants/%s/prices", variantIdentifier), query, null, responseModel, model);
     }
 
+    
     public ApiCollection<ProductVariantPrice> all(Identifier variantIdentifier) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
         return this.requestCollection("get", this.resolvePath("/variants/%s/prices", variantIdentifier), null, null, responseModel);
     }
 
+    
     public ApiCollection<ProductVariantPrice> all(Identifier variantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ProductVariantPrice> responseModel = (Class<ProductVariantPrice>)(Class<?>)ProductVariantPrice.class;
 
@@ -44,11 +48,13 @@ public class ProductVariantPriceService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/variants/%s/prices", variantIdentifier), query, null, responseModel);
     }
 
+    
     public void delete(Identifier variantIdentifier, String priceKey) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/variants/%s/prices/%s", variantIdentifier, priceKey), null, null, null);
     }
 
+    
     public void delete(Identifier variantIdentifier, String priceKey, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();

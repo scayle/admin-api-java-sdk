@@ -16,11 +16,13 @@ public class ReturnItemService extends AbstractService {
         super(httpClient);
     }
 
+    
     public void send(List<ReturnItem> model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/fulfillment/return-items"), null, null, null, model);
     }
 
+    
     public void send(List<ReturnItem> model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.except(Arrays.asList("companyId"));

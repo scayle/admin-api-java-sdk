@@ -16,11 +16,13 @@ public class CancellationService extends AbstractService {
         super(httpClient);
     }
 
+    
     public void send(Cancellation model) throws ApiErrorException, ConnectionException {
 
         this.request("post", this.resolvePath("/fulfillment/cancellations"), null, null, null, model);
     }
 
+    
     public void send(Cancellation model, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.except(Arrays.asList("companyId"));
