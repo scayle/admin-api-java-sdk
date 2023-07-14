@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Product implements ApiObjectInterface {
     /**
-    * The ID of the product created by Backbone Core.
+    * The ID of the product created by SCAYLE.
     */
     @SerializedName("id")
     Integer id;
@@ -30,7 +30,7 @@ public class Product implements ApiObjectInterface {
     String referenceKey;
 
     /**
-    * The localized product name. At least the base language that is configured in Backbone Core is mandatory.
+    * The localized product name. At least the base language that is configured in SCAYLE is mandatory.
     */
     @SerializedName("name")
     Map<String, String> name;

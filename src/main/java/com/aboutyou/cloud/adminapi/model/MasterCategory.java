@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class MasterCategory implements ApiObjectInterface {
     /**
-    * The ID of the master category created by Backbone Core.
+    * The ID of the master category created by SCAYLE.
     */
     @SerializedName("id")
     Integer id;

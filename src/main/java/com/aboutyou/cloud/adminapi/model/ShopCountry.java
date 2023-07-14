@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class ShopCountry implements ApiObjectInterface {
     /**
-    * The ID of the shop country created by Backbone Core.
+    * The ID of the shop country created by SCAYLE.
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * The key of the shop created by Backbone Core.
+    * The key of the shop created by SCAYLE.
     */
     @SerializedName("shopKey")
     String shopKey;

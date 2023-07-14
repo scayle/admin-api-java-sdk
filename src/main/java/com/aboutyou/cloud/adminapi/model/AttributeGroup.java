@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class AttributeGroup implements ApiObjectInterface {
     /**
-    * The ID of the attribute group created by Backbone Core.
+    * The ID of the attribute group created by SCAYLE.
     */
     @SerializedName("id")
     Integer id;
@@ -24,7 +24,7 @@ public class AttributeGroup implements ApiObjectInterface {
     String name;
 
     /**
-    * The localized attribute group name. At least the base language that is configured in Backbone Core is mandatory.
+    * The localized attribute group name. At least the base language that is configured in SCAYLE is mandatory.
     */
     @SerializedName("frontendName")
     Map<String, String> frontendName;

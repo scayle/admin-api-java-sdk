@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ShopCountryWarehouse implements ApiObjectInterface {
     /**
-    * The ID of the warehouse created by Backbone Core.
+    * The ID of the warehouse created by SCAYLE.
     */
     @SerializedName("id")
     Integer id;

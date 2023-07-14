@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Company implements ApiObjectInterface {
     /**
-    * The ID of the company created by Backbone Core.
+    * The ID of the company created by SCAYLE.
     */
     @SerializedName("id")
     Integer id;

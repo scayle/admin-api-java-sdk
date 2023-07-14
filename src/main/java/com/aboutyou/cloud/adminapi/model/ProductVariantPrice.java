@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductVariantPrice implements ApiObjectInterface {
     /**
-    * Key assigned by BACKBONE Core.
+    * Key assigned by SCAYLE.
     */
     @SerializedName("key")
     String key;

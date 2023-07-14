@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class ProductSorting implements ApiObjectInterface {
     /**
-    * Backbone Core's internal product identifier.
+    * SCAYLE's internal product identifier.
     */
     @SerializedName("productId")
     Integer productId;

@@ -12,13 +12,13 @@ import lombok.Setter;
 @Setter
 public class ProductVariantCampaignReduction implements ApiObjectInterface {
     /**
-    * Backbone Core's internal reduction identifier.
+    * SCAYLE's internal reduction identifier.
     */
     @SerializedName("id")
     Integer id;
 
     /**
-    * Backbone Core's internal product variant identifier.
+    * SCAYLE's internal product variant identifier.
     */
     @SerializedName("productVariantId")
     Integer productVariantId;
