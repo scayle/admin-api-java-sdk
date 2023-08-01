@@ -29,4 +29,10 @@ public class Assortment implements ApiObjectInterface {
     @SerializedName("attributes")
     List<AttributeAssortmentConfiguration> attributes;
 
+    /**
+    * Configuration of merchant includes/excludes.
+    */
+    @SerializedName("merchantReferenceKeys")
+    MerchantAssortmentConfiguration merchantReferenceKeys;
+
 }
