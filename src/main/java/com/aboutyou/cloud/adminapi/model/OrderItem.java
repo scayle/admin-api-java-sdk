@@ -95,4 +95,10 @@ public class OrderItem implements ApiObjectInterface {
     @SerializedName("campaignKey")
     String campaignKey;
 
+    /**
+    * 
+    */
+    @SerializedName("merchant")
+    OrderItemMerchant merchant;
+
 }
