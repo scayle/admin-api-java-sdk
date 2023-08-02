@@ -36,6 +36,12 @@ public class Order implements ApiObjectInterface {
     String confirmedAt;
 
     /**
+    * Collection of contacts
+    */
+    @SerializedName("contacts")
+    List<OrderContact> contacts;
+
+    /**
     * Total cost of the order that includes tax, VAT, etc
     */
     @SerializedName("cost")
