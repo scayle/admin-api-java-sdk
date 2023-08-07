@@ -51,6 +51,26 @@ public class MasterTest extends BaseApiTest {
     }
 
     @Test
+    public void testUpdateOrCreateAttribute() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/MasterUpdateOrCreateAttributeRequest.json");
+        Attribute requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Attribute.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Attribute responseEntity = this.api.masters().updateOrCreateAttribute(Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/MasterUpdateOrCreateAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testGetAttribute() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

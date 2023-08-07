@@ -49,6 +49,22 @@ public class MasterService extends AbstractService {
     }
 
     
+    public Attribute updateOrCreateAttribute(Identifier productMasterIdentifier, Attribute model) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        return this.request("post", this.resolvePath("/product-masters/%s/attributes", productMasterIdentifier), null, null, responseModel, model);
+    }
+
+    
+    public Attribute updateOrCreateAttribute(Identifier productMasterIdentifier, Attribute model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/product-masters/%s/attributes", productMasterIdentifier), query, null, responseModel, model);
+    }
+
+    
     public Attribute getAttribute(Identifier productMasterIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
         Class<Attribute> responseModel = (Class<Attribute>)(Class<?>)Attribute.class;
 
