@@ -30,6 +30,7 @@ import com.aboutyou.cloud.adminapi.service.CancellationService;
 import com.aboutyou.cloud.adminapi.service.ReturnItemService;
 import com.aboutyou.cloud.adminapi.service.VoucherService;
 import com.aboutyou.cloud.adminapi.service.CompanyService;
+import com.aboutyou.cloud.adminapi.service.AssetService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -179,6 +180,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public CompanyService companies() {
         CompanyService service = this.getService("com.aboutyou.cloud.adminapi.service.CompanyService");
+        return service;
+    }
+
+    public AssetService assets() {
+        AssetService service = this.getService("com.aboutyou.cloud.adminapi.service.AssetService");
         return service;
     }
 
