@@ -83,4 +83,10 @@ public class Product implements ApiObjectInterface {
     @SerializedName("isComposite")
     Boolean isComposite;
 
+    /**
+    * A list of merchant reference keys the product belongs to.
+    */
+    @SerializedName("merchantReferenceKeys")
+    List<String> merchantReferenceKeys;
+
 }

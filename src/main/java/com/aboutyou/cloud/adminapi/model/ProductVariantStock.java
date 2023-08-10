@@ -35,4 +35,10 @@ public class ProductVariantStock implements ApiObjectInterface {
     @SerializedName("sellableWithoutStock")
     Boolean sellableWithoutStock;
 
+    /**
+    * A merchant reference key the stock belongs to.
+    */
+    @SerializedName("merchantReferenceKey")
+    String merchantReferenceKey;
+
 }

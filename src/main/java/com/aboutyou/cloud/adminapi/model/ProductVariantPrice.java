@@ -89,4 +89,10 @@ public class ProductVariantPrice implements ApiObjectInterface {
     @SerializedName("validTo")
     String validTo;
 
+    /**
+    * A merchant reference key the price belongs to.
+    */
+    @SerializedName("merchantReferenceKey")
+    String merchantReferenceKey;
+
 }
