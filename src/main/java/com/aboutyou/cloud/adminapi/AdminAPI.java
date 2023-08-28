@@ -31,6 +31,7 @@ import com.aboutyou.cloud.adminapi.service.ReturnItemService;
 import com.aboutyou.cloud.adminapi.service.VoucherService;
 import com.aboutyou.cloud.adminapi.service.CompanyService;
 import com.aboutyou.cloud.adminapi.service.AssetService;
+import com.aboutyou.cloud.adminapi.service.CarrierService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -185,6 +186,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public AssetService assets() {
         AssetService service = this.getService("com.aboutyou.cloud.adminapi.service.AssetService");
+        return service;
+    }
+
+    public CarrierService carriers() {
+        CarrierService service = this.getService("com.aboutyou.cloud.adminapi.service.CarrierService");
         return service;
     }
 
