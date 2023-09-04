@@ -33,19 +33,19 @@ public class CarrierService extends AbstractService {
     }
 
     
-    public Carrier get(Integer carrierId) throws ApiErrorException, ConnectionException {
+    public Carrier get(Identifier carrierIdentifier) throws ApiErrorException, ConnectionException {
         Class<Carrier> responseModel = (Class<Carrier>)(Class<?>)Carrier.class;
 
-        return this.request("get", this.resolvePath("/carriers/%s", carrierId), null, null, responseModel);
+        return this.request("get", this.resolvePath("/carriers/%s", carrierIdentifier), null, null, responseModel);
     }
 
     
-    public Carrier get(Integer carrierId, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Carrier get(Identifier carrierIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Carrier> responseModel = (Class<Carrier>)(Class<?>)Carrier.class;
 
         Map<String, Object> query = options.all();
 
-        return this.request("get", this.resolvePath("/carriers/%s", carrierId), query, null, responseModel);
+        return this.request("get", this.resolvePath("/carriers/%s", carrierIdentifier), query, null, responseModel);
     }
 
     
@@ -65,19 +65,19 @@ public class CarrierService extends AbstractService {
     }
 
     
-    public Carrier update(Integer carrierId, Carrier model) throws ApiErrorException, ConnectionException {
+    public Carrier update(Identifier carrierIdentifier, Carrier model) throws ApiErrorException, ConnectionException {
         Class<Carrier> responseModel = (Class<Carrier>)(Class<?>)Carrier.class;
 
-        return this.request("put", this.resolvePath("/carriers/%s", carrierId), null, null, responseModel, model);
+        return this.request("put", this.resolvePath("/carriers/%s", carrierIdentifier), null, null, responseModel, model);
     }
 
     
-    public Carrier update(Integer carrierId, Carrier model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public Carrier update(Identifier carrierIdentifier, Carrier model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<Carrier> responseModel = (Class<Carrier>)(Class<?>)Carrier.class;
 
         Map<String, Object> query = options.all();
 
-        return this.request("put", this.resolvePath("/carriers/%s", carrierId), query, null, responseModel, model);
+        return this.request("put", this.resolvePath("/carriers/%s", carrierIdentifier), query, null, responseModel, model);
     }
 
 }

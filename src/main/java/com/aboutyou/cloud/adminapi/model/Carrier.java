@@ -18,10 +18,10 @@ public class Carrier implements ApiObjectInterface {
     Integer id;
 
     /**
-    * Reference key of the carrier.
+    * The key of the carrier.
     */
-    @SerializedName("referenceKey")
-    String referenceKey;
+    @SerializedName("key")
+    String key;
 
     /**
     * Name of the carrier.

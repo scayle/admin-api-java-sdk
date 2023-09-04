@@ -34,7 +34,7 @@ public class CarrierTest extends BaseApiTest {
     public void testGet() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
-        Carrier responseEntity = this.api.carriers().get(1, options);
+        Carrier responseEntity = this.api.carriers().get(Identifier.fromId(1), options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CarrierGetResponse.json");
         assertThatJson(expectedResponseJson)
@@ -74,7 +74,7 @@ public class CarrierTest extends BaseApiTest {
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
         ApiOptions options = ApiOptions.builder().build();
-        Carrier responseEntity = this.api.carriers().update(1, requestEntity, options);
+        Carrier responseEntity = this.api.carriers().update(Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/CarrierUpdateResponse.json");
         assertThatJson(expectedResponseJson)
