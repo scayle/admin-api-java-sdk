@@ -36,7 +36,7 @@ public class CustomerAddress implements ApiObjectInterface {
     String houseNumber;
 
     /**
-    * Additional data pertaining to the address, such as `c/o AboutYou`.
+    * Additional data pertaining to the address
     */
     @SerializedName("additional")
     String additional;
