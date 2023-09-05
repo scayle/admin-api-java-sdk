@@ -80,4 +80,18 @@ public class MasterService extends AbstractService {
         return this.request("get", this.resolvePath("/product-masters/%s/attributes/%s", productMasterIdentifier, attributeGroupName), query, null, responseModel);
     }
 
+    
+    public void deleteAttribute(Identifier productMasterIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/product-masters/%s/attributes/%s", productMasterIdentifier, attributeGroupName), null, null, null);
+    }
+
+    
+    public void deleteAttribute(Identifier productMasterIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/product-masters/%s/attributes/%s", productMasterIdentifier, attributeGroupName), query, null, null);
+    }
+
 }

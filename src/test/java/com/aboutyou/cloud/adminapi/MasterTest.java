@@ -84,4 +84,12 @@ public class MasterTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testDeleteAttribute() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.masters().deleteAttribute(Identifier.fromId(1), "acme", options);
+
+    }
+
 }
