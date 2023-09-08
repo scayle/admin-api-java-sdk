@@ -56,6 +56,12 @@ public class OrderItem implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("promotion")
+    OrderItemPromotion promotion;
+
+    /**
+    * 
+    */
     @SerializedName("key")
     String key;
 
