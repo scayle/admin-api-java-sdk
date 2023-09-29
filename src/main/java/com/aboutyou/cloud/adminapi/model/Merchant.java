@@ -35,4 +35,22 @@ public class Merchant implements ApiObjectInterface {
     @SerializedName("priority")
     Integer priority;
 
+    /**
+    * A list of merchant contacts.
+    */
+    @SerializedName("contacts")
+    List<MerchantContact> contacts;
+
+    /**
+    * A list of merchant return addresses.
+    */
+    @SerializedName("returnAddresses")
+    List<MerchantReturnAddress> returnAddresses;
+
+    /**
+    * A list of carriers attached to the merchant.
+    */
+    @SerializedName("carriers")
+    List<MerchantCarrier> carriers;
+
 }
