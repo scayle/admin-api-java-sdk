@@ -53,4 +53,10 @@ public class Merchant implements ApiObjectInterface {
     @SerializedName("carriers")
     List<MerchantCarrier> carriers;
 
+    /**
+    * A list of warehouses attached to the merchant.
+    */
+    @SerializedName("warehouses")
+    List<Warehouse> warehouses;
+
 }

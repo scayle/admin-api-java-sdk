@@ -256,4 +256,36 @@ public class MerchantTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testAllWarehouses() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<Warehouse> responseEntity = this.api.merchants().allWarehouses(Identifier.fromId(1), options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/MerchantAllWarehousesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (Warehouse entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
+    public void testAttachWarehouse() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.merchants().attachWarehouse(Identifier.fromId(1), Identifier.fromId(1), options);
+
+    }
+
+    @Test
+    public void testDetachWarehouse() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.merchants().detachWarehouse(Identifier.fromId(1), Identifier.fromId(1), options);
+
+    }
+
 }

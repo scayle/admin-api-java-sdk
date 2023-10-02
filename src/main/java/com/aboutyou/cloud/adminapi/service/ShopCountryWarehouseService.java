@@ -33,33 +33,33 @@ public class ShopCountryWarehouseService extends AbstractService {
     }
 
     
-    public ShopCountryWarehouse update(String shopKey, String countryCode, Identifier shopCountryWarehouseIdentifier, ShopCountryWarehouse model) throws ApiErrorException, ConnectionException {
+    public ShopCountryWarehouse update(String shopKey, String countryCode, Identifier warehouseIdentifier, ShopCountryWarehouse model) throws ApiErrorException, ConnectionException {
         Class<ShopCountryWarehouse> responseModel = (Class<ShopCountryWarehouse>)(Class<?>)ShopCountryWarehouse.class;
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopCountryWarehouseIdentifier), null, null, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, warehouseIdentifier), null, null, responseModel, model);
     }
 
     
-    public ShopCountryWarehouse update(String shopKey, String countryCode, Identifier shopCountryWarehouseIdentifier, ShopCountryWarehouse model, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public ShopCountryWarehouse update(String shopKey, String countryCode, Identifier warehouseIdentifier, ShopCountryWarehouse model, ApiOptions options) throws ApiErrorException, ConnectionException {
         Class<ShopCountryWarehouse> responseModel = (Class<ShopCountryWarehouse>)(Class<?>)ShopCountryWarehouse.class;
 
         Map<String, Object> query = options.all();
 
-        return this.request("put", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopCountryWarehouseIdentifier), query, null, responseModel, model);
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, warehouseIdentifier), query, null, responseModel, model);
     }
 
     
-    public void delete(String shopKey, String countryCode, Identifier shopCountryWarehouseIdentifier) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, String countryCode, Identifier warehouseIdentifier) throws ApiErrorException, ConnectionException {
 
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopCountryWarehouseIdentifier), null, null, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, warehouseIdentifier), null, null, null);
     }
 
     
-    public void delete(String shopKey, String countryCode, Identifier shopCountryWarehouseIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+    public void delete(String shopKey, String countryCode, Identifier warehouseIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
 
         Map<String, Object> query = options.all();
 
-        this.request("delete", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, shopCountryWarehouseIdentifier), query, null, null);
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/warehouses/%s", shopKey, countryCode, warehouseIdentifier), query, null, null);
     }
 
 }

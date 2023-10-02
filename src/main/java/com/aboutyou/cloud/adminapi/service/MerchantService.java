@@ -264,4 +264,48 @@ public class MerchantService extends AbstractService {
         this.request("delete", this.resolvePath("/merchants/%s/carriers/%s/countries/%s", merchantIdentifier, carrierIdentifier, countryCode), query, null, null);
     }
 
+    
+    public ApiCollection<Warehouse> allWarehouses(Identifier merchantIdentifier) throws ApiErrorException, ConnectionException {
+        Class<Warehouse> responseModel = (Class<Warehouse>)(Class<?>)Warehouse.class;
+
+        return this.requestCollection("get", this.resolvePath("/merchants/%s/warehouses", merchantIdentifier), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<Warehouse> allWarehouses(Identifier merchantIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Warehouse> responseModel = (Class<Warehouse>)(Class<?>)Warehouse.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/merchants/%s/warehouses", merchantIdentifier), query, null, responseModel);
+    }
+
+    
+    public void attachWarehouse(Identifier merchantIdentifier, Identifier warehouseIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/merchants/%s/warehouses/%s", merchantIdentifier, warehouseIdentifier), null, null, null);
+    }
+
+    
+    public void attachWarehouse(Identifier merchantIdentifier, Identifier warehouseIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/merchants/%s/warehouses/%s", merchantIdentifier, warehouseIdentifier), query, null, null);
+    }
+
+    
+    public void detachWarehouse(Identifier merchantIdentifier, Identifier warehouseIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/merchants/%s/warehouses/%s", merchantIdentifier, warehouseIdentifier), null, null, null);
+    }
+
+    
+    public void detachWarehouse(Identifier merchantIdentifier, Identifier warehouseIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/merchants/%s/warehouses/%s", merchantIdentifier, warehouseIdentifier), query, null, null);
+    }
+
 }

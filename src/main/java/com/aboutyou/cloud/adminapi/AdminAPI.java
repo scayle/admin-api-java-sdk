@@ -33,6 +33,7 @@ import com.aboutyou.cloud.adminapi.service.CompanyService;
 import com.aboutyou.cloud.adminapi.service.AssetService;
 import com.aboutyou.cloud.adminapi.service.CarrierService;
 import com.aboutyou.cloud.adminapi.service.MerchantService;
+import com.aboutyou.cloud.adminapi.service.WarehouseService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -197,6 +198,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public MerchantService merchants() {
         MerchantService service = this.getService("com.aboutyou.cloud.adminapi.service.MerchantService");
+        return service;
+    }
+
+    public WarehouseService warehouses() {
+        WarehouseService service = this.getService("com.aboutyou.cloud.adminapi.service.WarehouseService");
         return service;
     }
 
