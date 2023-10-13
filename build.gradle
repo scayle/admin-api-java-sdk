@@ -26,7 +26,7 @@ def resolveVersion() {
     return findProperty("version") + (isRelease() ? "" : "-SNAPSHOT")
 }
 
-group = 'com.aboutyou.cloud.adminapi'
+group = 'com.scayle.adminapi'
 version = resolveVersion()
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -95,16 +95,10 @@ uploadArchives {
       }
 
       pom.project {
-        name 'About You Cloud AdminAPI SDK'
+        name 'SCAYLE AdminAPI SDK'
         packaging 'jar'
-        description 'About You Cloud AdminAPI SDK'
-        url 'https://resources.aboutyou.cloud/en/dev/adminapi/introduction'
-
-        scm {
-          connection 'scm:git:git@gitlab.com:aboutyou/cc-babo/admin-api-java-sdk.git'
-          developerConnection 'scm:git:git@gitlab.com:aboutyou/cc-babo/admin-api-java-sdk.git'
-          url 'https://gitlab.com/aboutyou/cc-babo/admin-api-java-sdk'
-        }
+        description 'SCAYLE AdminAPI SDK'
+        url 'https://scayle.dev/en/dev/admin-api/introduction'
 
         licenses {
           license {
@@ -115,9 +109,9 @@ uploadArchives {
 
         developers {
           developer {
-            id 'AboutYou'
-            name 'About You'
-            email 'support@aboutyou.com'
+            id 'SCAYLE'
+            name 'SCAYLE Support'
+            email 'support@scayle.com'
           }
         }
       }

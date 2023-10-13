@@ -20,7 +20,7 @@ Add the following dependency to your POM:
 
 ```xml
 <dependency>
-    <groupId>com.aboutyou.cloud.adminapi</groupId>
+    <groupId>com.scayle.adminapi</groupId>
     <artifactId>AdminAPI</artifactId>
     <version>1.1.0</version>
 </dependency>
@@ -31,7 +31,7 @@ Add the following dependency to your POM:
 Add the following dependency to your `build.gradle`:
 
 ```
-implementation "com.aboutyou.cloud.adminapi:AdminAPI:1.1.0"
+implementation "com.scayle.adminapi:AdminAPI:1.1.0"
 ```
 
 ## Documentation

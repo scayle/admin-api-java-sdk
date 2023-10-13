@@ -1,0 +1,38 @@
+package com.scayle.adminapi.model;
+
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.annotations.SerializedName;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class VoucherConstraints implements ApiObjectInterface {
+    /**
+    * 
+    */
+    @SerializedName("date")
+    VoucherConstraintsDate date;
+
+    /**
+    * 
+    */
+    @SerializedName("isValidOnCampaigns")
+    Boolean isValidOnCampaigns;
+
+    /**
+    * 
+    */
+    @SerializedName("maxApplications")
+    VoucherConstraintsApplications maxApplications;
+
+    /**
+    * 
+    */
+    @SerializedName("orderValue")
+    VoucherConstraintsOrder orderValue;
+
+}
