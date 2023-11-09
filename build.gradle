@@ -86,11 +86,11 @@ uploadArchives {
       pom.groupId = project.group
       pom.version = project.version
 
-      repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
         authentication(userName: getNexusUsername(), password: getNexusPassword())
       }
 
-      snapshotRepository(url: "https://s01.oss.sonatype.org/content/repositories/snapshots/") {
+      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
         authentication(userName: getNexusUsername(), password: getNexusPassword())
       }
 

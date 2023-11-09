@@ -23,7 +23,7 @@ default:
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - sh ./gradlew uploadArchives --debug --stacktrace
+    - sh ./gradlew uploadArchives -i
 #  only:
 #    - tags
   when: manual
