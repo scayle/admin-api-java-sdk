@@ -23,8 +23,8 @@ default:
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - echo ORG_GRADLE_PROJECT_nexusUsername
-    - echo ORG_GRADLE_PROJECT_signingKeyId
+    - echo $ORG_GRADLE_PROJECT_nexusUsername
+    - echo $ORG_GRADLE_PROJECT_signingKeyId
     - sh ./gradlew uploadArchives -i
 #  only:
 #    - tags
