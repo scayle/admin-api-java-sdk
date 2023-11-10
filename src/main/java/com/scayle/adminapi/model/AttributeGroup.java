@@ -24,7 +24,7 @@ public class AttributeGroup implements ApiObjectInterface {
     String name;
 
     /**
-    * The localized attribute group name. At least the base language that is configured in SCAYLE is mandatory.
+    * The localized attribute group name. It must include at least the default language that is configured in SCAYLE.
     */
     @SerializedName("frontendName")
     Map<String, String> frontendName;
@@ -36,15 +36,15 @@ public class AttributeGroup implements ApiObjectInterface {
     String type;
 
     /**
-    * Defines whether an attribute value is shared beetwen the entities or every entity has its own value.
-It is not possible to share attributes of advanced type, therefore isShared must be always false in this case.
+    * Specifies whether an attribute value is shared among multiple entities or if each entity has its own unique value. 
+It's important to note that attributes of advanced types cannot be shared, so 'isShared' must always be set to false in such cases.
 
     */
     @SerializedName("isShared")
     Boolean isShared;
 
     /**
-    * An attribute group level, which defines an entity the group is valid for.
+    * Defines the attribute group level, specifying the type of entity it is applicable to.
     */
     @SerializedName("level")
     String level;
