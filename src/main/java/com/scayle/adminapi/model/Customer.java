@@ -105,7 +105,7 @@ public class Customer implements ApiObjectInterface {
     * Custom data added to the customers (legacy feature)
     */
     @SerializedName("legacyCustomData")
-    Map<String, Object> legacyCustomData;
+    Object legacyCustomData;
 
     /**
     * Timestamp when the customer is created

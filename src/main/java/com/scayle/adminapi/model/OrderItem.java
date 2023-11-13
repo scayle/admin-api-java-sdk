@@ -30,10 +30,10 @@ public class OrderItem implements ApiObjectInterface {
     OrderItemDeliveryForecast deliveryForecast;
 
     /**
-    * 
+    * Custom data added to the order item (legacy feature)
     */
     @SerializedName("legacyCustomData")
-    Map<String, Object> legacyCustomData;
+    Object legacyCustomData;
 
     /**
     * 
