@@ -38,6 +38,12 @@ public class Voucher implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("isApplicableToPromotions")
+    Boolean isApplicableToPromotions;
+
+    /**
+    * 
+    */
     @SerializedName("name")
     String name;
 
