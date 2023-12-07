@@ -34,6 +34,7 @@ import com.scayle.adminapi.service.AssetService;
 import com.scayle.adminapi.service.CarrierService;
 import com.scayle.adminapi.service.MerchantService;
 import com.scayle.adminapi.service.WarehouseService;
+import com.scayle.adminapi.service.PromotionService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -203,6 +204,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public WarehouseService warehouses() {
         WarehouseService service = this.getService("com.scayle.adminapi.service.WarehouseService");
+        return service;
+    }
+
+    public PromotionService promotions() {
+        PromotionService service = this.getService("com.scayle.adminapi.service.PromotionService");
         return service;
     }
 
