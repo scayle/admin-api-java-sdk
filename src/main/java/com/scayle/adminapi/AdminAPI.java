@@ -19,6 +19,7 @@ import com.scayle.adminapi.service.ShopCountryService;
 import com.scayle.adminapi.service.BrandService;
 import com.scayle.adminapi.service.ProductSortingService;
 import com.scayle.adminapi.service.ShopCountryWarehouseService;
+import com.scayle.adminapi.service.ShopCountryPriceRoundingService;
 import com.scayle.adminapi.service.PackageGroupService;
 import com.scayle.adminapi.service.CustomDataConfigService;
 import com.scayle.adminapi.service.CustomerService;
@@ -129,6 +130,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ShopCountryWarehouseService shopCountryWarehouses() {
         ShopCountryWarehouseService service = this.getService("com.scayle.adminapi.service.ShopCountryWarehouseService");
+        return service;
+    }
+
+    public ShopCountryPriceRoundingService shopCountryPriceRoundings() {
+        ShopCountryPriceRoundingService service = this.getService("com.scayle.adminapi.service.ShopCountryPriceRoundingService");
         return service;
     }
 
