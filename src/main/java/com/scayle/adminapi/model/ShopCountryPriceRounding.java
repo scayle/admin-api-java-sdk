@@ -24,7 +24,7 @@ public class ShopCountryPriceRounding implements ApiObjectInterface {
     String currencyCode;
 
     /**
-    * The precision that should be applied to a price.
+    * The precision that should be applied to a price, ENUM of "1.00", "5.00", "0.05", "0.99", "0.95", "0.90".
     */
     @SerializedName("precision")
     String precision;
