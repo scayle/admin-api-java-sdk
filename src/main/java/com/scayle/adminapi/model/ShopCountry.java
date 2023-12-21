@@ -84,6 +84,12 @@ public class ShopCountry implements ApiObjectInterface {
     List<ShopCountryWarehouse> warehouses;
 
     /**
+    * List of price rounding configurations.
+    */
+    @SerializedName("priceRoundings")
+    List<ShopCountryPriceRounding> priceRoundings;
+
+    /**
     * Arbitrary fields assigned to Shop countries
     */
     @SerializedName("customData")
