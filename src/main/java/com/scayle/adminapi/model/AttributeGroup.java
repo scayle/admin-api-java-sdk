@@ -80,4 +80,11 @@ This configuration is not applicable to the advanced type, neither to attribute 
     @SerializedName("isDifferentiating")
     Boolean isDifferentiating;
 
+    /**
+    * It is used for grouping the display of attribute groups in the Panel.
+
+    */
+    @SerializedName("group")
+    String group;
+
 }
