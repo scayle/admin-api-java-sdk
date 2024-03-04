@@ -122,4 +122,52 @@ public class AttributeGroupTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testCreateAttribute() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/AttributeGroupCreateAttributeRequest.json");
+        AttributeGroupAttribute requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, AttributeGroupAttribute.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        AttributeGroupAttribute responseEntity = this.api.attributeGroups().createAttribute("acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupCreateAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateAttribute() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/AttributeGroupUpdateAttributeRequest.json");
+        AttributeGroupAttribute requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, AttributeGroupAttribute.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        AttributeGroupAttribute responseEntity = this.api.attributeGroups().updateAttribute("acme", "acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/AttributeGroupUpdateAttributeResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteAttribute() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.attributeGroups().deleteAttribute("acme", "acme", options);
+
+    }
+
 }

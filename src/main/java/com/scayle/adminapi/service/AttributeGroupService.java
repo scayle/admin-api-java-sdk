@@ -124,4 +124,50 @@ public class AttributeGroupService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/attribute-groups/%s/attributes", attributeGroupName), query, null, responseModel);
     }
 
+    
+    public AttributeGroupAttribute createAttribute(String attributeGroupName, AttributeGroupAttribute model) throws ApiErrorException, ConnectionException {
+        Class<AttributeGroupAttribute> responseModel = (Class<AttributeGroupAttribute>)(Class<?>)AttributeGroupAttribute.class;
+
+        return this.request("post", this.resolvePath("/attribute-groups/%s/attributes", attributeGroupName), null, null, responseModel, model);
+    }
+
+    
+    public AttributeGroupAttribute createAttribute(String attributeGroupName, AttributeGroupAttribute model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<AttributeGroupAttribute> responseModel = (Class<AttributeGroupAttribute>)(Class<?>)AttributeGroupAttribute.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/attribute-groups/%s/attributes", attributeGroupName), query, null, responseModel, model);
+    }
+
+    
+    public AttributeGroupAttribute updateAttribute(String attributeGroupName, String attributeValue, AttributeGroupAttribute model) throws ApiErrorException, ConnectionException {
+        Class<AttributeGroupAttribute> responseModel = (Class<AttributeGroupAttribute>)(Class<?>)AttributeGroupAttribute.class;
+
+        return this.request("put", this.resolvePath("/attribute-groups/%s/attributes/%s", attributeGroupName, attributeValue), null, null, responseModel, model);
+    }
+
+    
+    public AttributeGroupAttribute updateAttribute(String attributeGroupName, String attributeValue, AttributeGroupAttribute model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<AttributeGroupAttribute> responseModel = (Class<AttributeGroupAttribute>)(Class<?>)AttributeGroupAttribute.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/attribute-groups/%s/attributes/%s", attributeGroupName, attributeValue), query, null, responseModel, model);
+    }
+
+    
+    public void deleteAttribute(String attributeGroupName, String attributeValue) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/attribute-groups/%s/attributes/%s", attributeGroupName, attributeValue), null, null, null);
+    }
+
+    
+    public void deleteAttribute(String attributeGroupName, String attributeValue, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/attribute-groups/%s/attributes/%s", attributeGroupName, attributeValue), query, null, null);
+    }
+
 }
