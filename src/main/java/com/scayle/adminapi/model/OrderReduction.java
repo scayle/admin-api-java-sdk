@@ -29,4 +29,16 @@ public class OrderReduction implements ApiObjectInterface {
     @SerializedName("type")
     String type;
 
+    /**
+    * Promotion or voucher code (for promotion / voucher reductions)
+    */
+    @SerializedName("code")
+    String code;
+
+    /**
+    * Display name (for promotion reduction)
+    */
+    @SerializedName("displayName")
+    String displayName;
+
 }

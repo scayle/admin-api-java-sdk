@@ -23,4 +23,10 @@ public class OrderItemProduct implements ApiObjectInterface {
     @SerializedName("name")
     String name;
 
+    /**
+    * 
+    */
+    @SerializedName("images")
+    List<OrderItemProductImage> images;
+
 }

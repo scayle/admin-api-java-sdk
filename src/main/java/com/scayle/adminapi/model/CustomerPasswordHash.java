@@ -10,17 +10,17 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemDeliveryForecast implements ApiObjectInterface {
+public class CustomerPasswordHash implements ApiObjectInterface {
     /**
     * 
     */
-    @SerializedName("deliverable")
-    OrderDeliverable deliverable;
+    @SerializedName("hashingType")
+    String hashingType;
 
     /**
     * 
     */
-    @SerializedName("subsequentDelivery")
-    OrderSubsequentDelivery subsequentDelivery;
+    @SerializedName("hash")
+    String hash;
 
 }

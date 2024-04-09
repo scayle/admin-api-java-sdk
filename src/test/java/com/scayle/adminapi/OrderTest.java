@@ -65,6 +65,34 @@ public class OrderTest extends BaseApiTest {
     }
 
     @Test
+    public void testCreate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/OrderCreateRequest.json");
+        Order requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Order.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Order responseEntity = this.api.orders().create("acme", "acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/OrderCreateResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDelete() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.orders().delete("acme", "acme", Identifier.fromId(1), options);
+
+    }
+
+    @Test
     public void testGetStatus() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

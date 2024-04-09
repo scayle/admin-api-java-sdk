@@ -35,4 +35,16 @@ public class OrderPayment implements ApiObjectInterface {
     @SerializedName("transactionKey")
     String transactionKey;
 
+    /**
+    * Details about installments, included as a listing of the values involved in the Installments transaction.
+    */
+    @SerializedName("installment")
+    List<OrderPaymentInstallment> installment;
+
+    /**
+    * 
+    */
+    @SerializedName("options")
+    OrderPaymentOptions options;
+
 }

@@ -41,4 +41,28 @@ public class OrderItemPrice implements ApiObjectInterface {
     @SerializedName("withoutTax")
     Integer withoutTax;
 
+    /**
+    * 
+    */
+    @SerializedName("overrideWithoutTax")
+    Integer overrideWithoutTax;
+
+    /**
+    * 
+    */
+    @SerializedName("overrideWithTax")
+    Integer overrideWithTax;
+
+    /**
+    * Undiscounted item price **excluding** taxes
+    */
+    @SerializedName("undiscountedWithOutTax")
+    Integer undiscountedWithOutTax;
+
+    /**
+    * Undiscounted item price **including** taxes
+    */
+    @SerializedName("undiscountedWithTax")
+    Integer undiscountedWithTax;
+
 }

@@ -10,17 +10,17 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemDeliveryForecast implements ApiObjectInterface {
+public class OrderPackageTracking implements ApiObjectInterface {
     /**
     * 
     */
-    @SerializedName("deliverable")
-    OrderDeliverable deliverable;
+    @SerializedName("id")
+    String id;
 
     /**
     * 
     */
-    @SerializedName("subsequentDelivery")
-    OrderSubsequentDelivery subsequentDelivery;
+    @SerializedName("url")
+    String url;
 
 }

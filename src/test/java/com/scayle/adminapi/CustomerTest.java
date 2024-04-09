@@ -113,6 +113,34 @@ public class CustomerTest extends BaseApiTest {
     }
 
     @Test
+    public void testSetPassword() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerSetPasswordRequest.json");
+        CustomerPassword requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerPassword.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().setPassword("acme", "acme", Identifier.fromId(1), requestEntity, options);
+
+    }
+
+    @Test
+    public void testSetPasswordHash() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerSetPasswordHashRequest.json");
+        CustomerPasswordHash requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerPasswordHash.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.customers().setPasswordHash("acme", "acme", Identifier.fromId(1), requestEntity, options);
+
+    }
+
+    @Test
     public void testGetStatus() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

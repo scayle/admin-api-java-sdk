@@ -12,6 +12,12 @@ import lombok.Setter;
 @Setter
 public class OrderItemMerchant implements ApiObjectInterface {
     /**
+    * The merchant id to which the item belongs.
+    */
+    @SerializedName("id")
+    Integer id;
+
+    /**
     * A merchant reference key the item belongs to.
     */
     @SerializedName("referenceKey")

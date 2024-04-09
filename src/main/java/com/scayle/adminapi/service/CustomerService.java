@@ -111,6 +111,34 @@ public class CustomerService extends AbstractService {
     }
 
     
+    public void setPassword(String shopKey, String countryCode, Identifier customerIdentifier, CustomerPassword model) throws ApiErrorException, ConnectionException {
+
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/password", shopKey, countryCode, customerIdentifier), null, null, null, model);
+    }
+
+    
+    public void setPassword(String shopKey, String countryCode, Identifier customerIdentifier, CustomerPassword model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/password", shopKey, countryCode, customerIdentifier), query, null, null, model);
+    }
+
+    
+    public void setPasswordHash(String shopKey, String countryCode, Identifier customerIdentifier, CustomerPasswordHash model) throws ApiErrorException, ConnectionException {
+
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/password-hash", shopKey, countryCode, customerIdentifier), null, null, null, model);
+    }
+
+    
+    public void setPasswordHash(String shopKey, String countryCode, Identifier customerIdentifier, CustomerPasswordHash model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/password-hash", shopKey, countryCode, customerIdentifier), query, null, null, model);
+    }
+
+    
     public CustomerStatus getStatus(String shopKey, String countryCode, Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
         Class<CustomerStatus> responseModel = (Class<CustomerStatus>)(Class<?>)CustomerStatus.class;
 

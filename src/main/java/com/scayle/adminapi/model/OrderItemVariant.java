@@ -14,6 +14,12 @@ public class OrderItemVariant implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("stock")
+    OrderItemVariantStock stock;
+
+    /**
+    * 
+    */
     @SerializedName("id")
     Integer id;
 

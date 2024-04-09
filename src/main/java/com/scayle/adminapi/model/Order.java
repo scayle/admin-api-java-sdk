@@ -30,6 +30,12 @@ public class Order implements ApiObjectInterface {
     String basketKey;
 
     /**
+    * Reference to the campaign applied to this order
+    */
+    @SerializedName("campaignKey")
+    String campaignKey;
+
+    /**
     * Timestamp when the order was confirmed
     */
     @SerializedName("confirmedAt")
@@ -114,6 +120,12 @@ public class Order implements ApiObjectInterface {
     List<OrderPayment> payment;
 
     /**
+    * Order promotions
+    */
+    @SerializedName("promotion")
+    List<OrderPromotion> promotion;
+
+    /**
     * Public reference set by the client to display to customers in account areas and transactional emails.
     */
     @SerializedName("publicKey")
@@ -148,6 +160,12 @@ public class Order implements ApiObjectInterface {
     */
     @SerializedName("vouchers")
     List<OrderVoucher> vouchers;
+
+    /**
+    * Applicable voucher and its details
+    */
+    @SerializedName("voucher")
+    OrderVoucher voucher;
 
     /**
     * 

@@ -65,6 +65,36 @@ public class OrderService extends AbstractService {
     }
 
     
+    public Order create(String shopKey, String countryCode, Order model) throws ApiErrorException, ConnectionException {
+        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders", shopKey, countryCode), null, null, responseModel, model);
+    }
+
+    
+    public Order create(String shopKey, String countryCode, Order model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders", shopKey, countryCode), query, null, responseModel, model);
+    }
+
+    
+    public void delete(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), null, null, null);
+    }
+
+    
+    public void delete(String shopKey, String countryCode, Identifier orderIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/orders/%s", shopKey, countryCode, orderIdentifier), query, null, null);
+    }
+
+    
     public OrderStatus getStatus(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
         Class<OrderStatus> responseModel = (Class<OrderStatus>)(Class<?>)OrderStatus.class;
 

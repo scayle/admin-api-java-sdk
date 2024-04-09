@@ -20,6 +20,12 @@ public class OrderPackage implements ApiObjectInterface {
     /**
     * 
     */
+    @SerializedName("shipmentKey")
+    String shipmentKey;
+
+    /**
+    * 
+    */
     @SerializedName("carrierKey")
     String carrierKey;
 
@@ -34,5 +40,11 @@ public class OrderPackage implements ApiObjectInterface {
     */
     @SerializedName("deliveryStatus")
     String deliveryStatus;
+
+    /**
+    * 
+    */
+    @SerializedName("tracking")
+    OrderPackageTracking tracking;
 
 }

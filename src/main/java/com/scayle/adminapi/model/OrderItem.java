@@ -24,6 +24,12 @@ public class OrderItem implements ApiObjectInterface {
     Integer availableQuantity;
 
     /**
+    * The three character [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency code that identifies the currency. The currency is defined on the configuration of the shop, and can be modified in the cloud panel.
+    */
+    @SerializedName("currency")
+    String currency;
+
+    /**
     * 
     */
     @SerializedName("deliveryForecast")
@@ -46,6 +52,12 @@ public class OrderItem implements ApiObjectInterface {
     */
     @SerializedName("price")
     OrderItemPrice price;
+
+    /**
+    * 
+    */
+    @SerializedName("lowestPriorPrice")
+    OrderItemLowestPriorPrice lowestPriorPrice;
 
     /**
     * 
@@ -106,5 +118,17 @@ public class OrderItem implements ApiObjectInterface {
     */
     @SerializedName("merchant")
     OrderItemMerchant merchant;
+
+    /**
+    * Timestamp when the order item is created
+    */
+    @SerializedName("createdAt")
+    String createdAt;
+
+    /**
+    * Timestamp when the order item is updated
+    */
+    @SerializedName("updatedAt")
+    String updatedAt;
 
 }

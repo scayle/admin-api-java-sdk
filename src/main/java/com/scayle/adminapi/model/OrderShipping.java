@@ -17,4 +17,22 @@ public class OrderShipping implements ApiObjectInterface {
     @SerializedName("policy")
     String policy;
 
+    /**
+    * 
+    */
+    @SerializedName("deliveredOn")
+    String deliveredOn;
+
+    /**
+    * 
+    */
+    @SerializedName("deliveryCosts")
+    Integer deliveryCosts;
+
+    /**
+    * 
+    */
+    @SerializedName("expressDeliveryCosts")
+    Integer expressDeliveryCosts;
+
 }
