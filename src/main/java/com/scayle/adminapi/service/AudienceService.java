@@ -1,0 +1,35 @@
+package com.scayle.adminapi.service;
+
+import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.List;
+
+import com.scayle.adminapi.exception.ApiErrorException;
+import com.scayle.adminapi.exception.ConnectionException;
+import com.scayle.adminapi.http.HttpClient;
+import com.scayle.adminapi.model.*;
+
+@SuppressWarnings("unchecked")
+public class AudienceService extends AbstractService {
+    public AudienceService(HttpClient httpClient) {
+        super(httpClient);
+    }
+
+    
+    public ApiCollection<Audience> getAudiences() throws ApiErrorException, ConnectionException {
+        Class<Audience> responseModel = (Class<Audience>)(Class<?>)Audience.class;
+
+        return this.requestCollection("get", this.resolvePath("/promotions/audiences"), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<Audience> getAudiences(ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Audience> responseModel = (Class<Audience>)(Class<?>)Audience.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/promotions/audiences"), query, null, responseModel);
+    }
+
+}
