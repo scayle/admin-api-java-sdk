@@ -30,4 +30,38 @@ public class AudienceTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testCreateAudience() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/AudienceCreateAudienceRequest.json");
+        Audience requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Audience.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Audience responseEntity = this.api.audiences().createAudience(requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/AudienceCreateAudienceResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testGetAudience() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Audience responseEntity = this.api.audiences().getAudience("acme", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/AudienceGetAudienceResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

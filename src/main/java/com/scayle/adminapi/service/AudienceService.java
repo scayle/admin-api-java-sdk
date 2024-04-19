@@ -32,4 +32,36 @@ public class AudienceService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/promotions/audiences"), query, null, responseModel);
     }
 
+    
+    public Audience createAudience(Audience model) throws ApiErrorException, ConnectionException {
+        Class<Audience> responseModel = (Class<Audience>)(Class<?>)Audience.class;
+
+        return this.request("post", this.resolvePath("/promotions/audiences"), null, null, responseModel, model);
+    }
+
+    
+    public Audience createAudience(Audience model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Audience> responseModel = (Class<Audience>)(Class<?>)Audience.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/promotions/audiences"), query, null, responseModel, model);
+    }
+
+    
+    public Audience getAudience(String audienceId) throws ApiErrorException, ConnectionException {
+        Class<Audience> responseModel = (Class<Audience>)(Class<?>)Audience.class;
+
+        return this.request("get", this.resolvePath("/promotions/audiences/%s", audienceId), null, null, responseModel);
+    }
+
+    
+    public Audience getAudience(String audienceId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Audience> responseModel = (Class<Audience>)(Class<?>)Audience.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/promotions/audiences/%s", audienceId), query, null, responseModel);
+    }
+
 }
