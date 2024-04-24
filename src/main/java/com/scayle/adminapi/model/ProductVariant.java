@@ -24,6 +24,12 @@ public class ProductVariant implements ApiObjectInterface {
     String referenceKey;
 
     /**
+    * A list of merchant reference keys the variant belongs to.
+    */
+    @SerializedName("merchantReferenceKeys")
+    List<String> merchantReferenceKeys;
+
+    /**
     * An ean that refers to a product variant .
     */
     @SerializedName("ean")
