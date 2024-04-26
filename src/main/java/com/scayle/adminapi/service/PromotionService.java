@@ -20,7 +20,7 @@ public class PromotionService extends AbstractService {
     public Promotion create(Promotion model) throws ApiErrorException, ConnectionException {
         Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
 
-        return this.request("post", this.resolvePath("/promotions"), null, null, responseModel, model);
+        return this.request("post", this.resolvePath("/create-promotion"), null, null, responseModel, model);
     }
 
     
@@ -29,14 +29,14 @@ public class PromotionService extends AbstractService {
 
         Map<String, Object> query = options.all();
 
-        return this.request("post", this.resolvePath("/promotions"), query, null, responseModel, model);
+        return this.request("post", this.resolvePath("/create-promotion"), query, null, responseModel, model);
     }
 
     
     public Promotion update(String promotionId, Promotion model) throws ApiErrorException, ConnectionException {
         Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
 
-        return this.request("put", this.resolvePath("/promotions/%s", promotionId), null, null, responseModel, model);
+        return this.request("put", this.resolvePath("/update-promotion/%s", promotionId), null, null, responseModel, model);
     }
 
     
@@ -45,7 +45,7 @@ public class PromotionService extends AbstractService {
 
         Map<String, Object> query = options.all();
 
-        return this.request("put", this.resolvePath("/promotions/%s", promotionId), query, null, responseModel, model);
+        return this.request("put", this.resolvePath("/update-promotion/%s", promotionId), query, null, responseModel, model);
     }
 
 }
