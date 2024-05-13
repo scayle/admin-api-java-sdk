@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Promotion implements ApiObjectInterface {
+public class PromotionV1 implements ApiObjectInterface {
     /**
     * Promotion id
     */
@@ -30,93 +30,75 @@ public class Promotion implements ApiObjectInterface {
     String name;
 
     /**
-    * Display name localisation
-    */
-    @SerializedName("displayName")
-    Map<String, String> displayName;
-
-    /**
-    * The status of the promotion
-    */
-    @SerializedName("status")
-    String status;
-
-    /**
-    * Promotion activation type
-    */
-    @SerializedName("activationType")
-    String activationType;
-
-    /**
-    * Promotion application level
-    */
-    @SerializedName("level")
-    String level;
-
-    /**
     * Time range when the promotion is active
     */
     @SerializedName("schedule")
-    PromotionSchedule schedule;
+    PromotionScheduleV1 schedule;
+
+    /**
+    * Promotion active flag
+    */
+    @SerializedName("isActive")
+    Boolean isActive;
+
+    /**
+    * The list of shop ids where the promotion takes place
+    */
+    @SerializedName("shopId")
+    List<String> shopId;
 
     /**
     * The list of company ids where the promotion takes place
     */
-    @SerializedName("companyIds")
-    List<Integer> companyIds;
-
-    /**
-    * The list of shop country ids where the promotion takes place
-    */
-    @SerializedName("shopCountryIds")
-    PromotionShopCountryId shopCountryIds;
+    @SerializedName("companyId")
+    List<String> companyId;
 
     /**
     * Sibling promotions allow/block other promotions from being used together with this one
     */
     @SerializedName("siblingPromotions")
-    PromotionSiblingPromotion siblingPromotions;
+    PromotionSiblingPromotionsV1 siblingPromotions;
 
     /**
     * Audiences allow/block list. Use it to restrict promotions to specific customer groups
     */
     @SerializedName("audiences")
-    PromotionAudience audiences;
+    PromotionAudiencesV1 audiences;
 
     /**
     * The effect that will be applied if all conditions are satisfied
     */
     @SerializedName("effect")
-    PromotionEffect effect;
+    PromotionEffectV1 effect;
 
     /**
     * The list of conditions ('payload.*') that determines whether the promotion is applicable or not
     */
-    @SerializedName("conditions")
-    List<PromotionCondition> conditions;
+    @SerializedName("globalConditions")
+    List<PromotionGlobalConditionV1> globalConditions;
+
+    /**
+    * The list conditions ('item.*') that determine whether promotion is applicable or not for a particular item
+    */
+    @SerializedName("itemConditions")
+    List<PromotionItemConditionV1> itemConditions;
 
     /**
     * Priority of the promotion
     */
     @SerializedName("priority")
-    Integer priority;
+    String priority;
 
     /**
     * Additional data of the promotion. Can be legal text or some other info, that will be shown to customer
     */
-    @SerializedName("customData")
-    Object customData;
+    @SerializedName("additionalData")
+    Object additionalData;
 
     /**
     * The list of promotion tiers. Tiers must be sent in ascending order
     */
     @SerializedName("tiers")
-    List<PromotionTier> tiers;
-
-    /**
-    * 
-    */
-    @SerializedName("usageLimit")
-    PromotionUsageLimit usageLimit;
+    List<PromotionTierV1> tiers;
 
 }

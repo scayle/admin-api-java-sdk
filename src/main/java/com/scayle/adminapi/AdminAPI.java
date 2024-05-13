@@ -35,6 +35,7 @@ import com.scayle.adminapi.service.AssetService;
 import com.scayle.adminapi.service.CarrierService;
 import com.scayle.adminapi.service.MerchantService;
 import com.scayle.adminapi.service.WarehouseService;
+import com.scayle.adminapi.service.PromotionV1Service;
 import com.scayle.adminapi.service.PromotionService;
 import com.scayle.adminapi.service.AudienceService;
 
@@ -211,6 +212,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public WarehouseService warehouses() {
         WarehouseService service = this.getService("com.scayle.adminapi.service.WarehouseService");
+        return service;
+    }
+
+    public PromotionV1Service promotionV1s() {
+        PromotionV1Service service = this.getService("com.scayle.adminapi.service.PromotionV1Service");
         return service;
     }
 

@@ -10,15 +10,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionEffect implements ApiObjectInterface {
+public class PromotionTierEffectV1 implements ApiObjectInterface {
     /**
-    * Type of the promotion
-    */
-    @SerializedName("type")
-    String type;
-
-    /**
-    * Additional data of the promotion effect, maxCountType and eligibleItemsQuantity are optional
+    * Additional data of the promotion tier effect
     */
     @SerializedName("additionalData")
     Object additionalData;

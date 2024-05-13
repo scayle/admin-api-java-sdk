@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionSiblingPromotions implements ApiObjectInterface {
+public class PromotionSiblingPromotionsV1 implements ApiObjectInterface {
     /**
     * 
     */

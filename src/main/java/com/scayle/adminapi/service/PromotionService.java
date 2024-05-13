@@ -17,10 +17,26 @@ public class PromotionService extends AbstractService {
     }
 
     
+    public ApiCollection<Promotion> all() throws ApiErrorException, ConnectionException {
+        Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
+
+        return this.requestCollection("get", this.resolvePath("/promotions"), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<Promotion> all(ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/promotions"), query, null, responseModel);
+    }
+
+    
     public Promotion create(Promotion model) throws ApiErrorException, ConnectionException {
         Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
 
-        return this.request("post", this.resolvePath("/create-promotion"), null, null, responseModel, model);
+        return this.request("post", this.resolvePath("/promotions"), null, null, responseModel, model);
     }
 
     
@@ -29,14 +45,44 @@ public class PromotionService extends AbstractService {
 
         Map<String, Object> query = options.all();
 
-        return this.request("post", this.resolvePath("/create-promotion"), query, null, responseModel, model);
+        return this.request("post", this.resolvePath("/promotions"), query, null, responseModel, model);
+    }
+
+    
+    public Promotion get(String promotionId) throws ApiErrorException, ConnectionException {
+        Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
+
+        return this.request("get", this.resolvePath("/promotions/%s", promotionId), null, null, responseModel);
+    }
+
+    
+    public Promotion get(String promotionId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/promotions/%s", promotionId), query, null, responseModel);
+    }
+
+    
+    public void delete(String promotionId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/promotions/%s", promotionId), null, null, null);
+    }
+
+    
+    public void delete(String promotionId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/promotions/%s", promotionId), query, null, null);
     }
 
     
     public Promotion update(String promotionId, Promotion model) throws ApiErrorException, ConnectionException {
         Class<Promotion> responseModel = (Class<Promotion>)(Class<?>)Promotion.class;
 
-        return this.request("put", this.resolvePath("/update-promotion/%s", promotionId), null, null, responseModel, model);
+        return this.request("put", this.resolvePath("/promotions/%s", promotionId), null, null, responseModel, model);
     }
 
     
@@ -45,7 +91,7 @@ public class PromotionService extends AbstractService {
 
         Map<String, Object> query = options.all();
 
-        return this.request("put", this.resolvePath("/update-promotion/%s", promotionId), query, null, responseModel, model);
+        return this.request("put", this.resolvePath("/promotions/%s", promotionId), query, null, responseModel, model);
     }
 
 }
