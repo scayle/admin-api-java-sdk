@@ -18,6 +18,12 @@ public class ShopCategoryCountry implements ApiObjectInterface {
     String countryCode;
 
     /**
+    * Id of Shop Country.
+    */
+    @SerializedName("shopCountryId")
+    Integer shopCountryId;
+
+    /**
     * String representation of the URL path to the category.
     */
     @SerializedName("path")
