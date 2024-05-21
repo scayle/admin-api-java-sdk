@@ -42,6 +42,12 @@ public class ShopCategoryCountry implements ApiObjectInterface {
     Boolean isVisible;
 
     /**
+    * Declares whether the shop category country should be excluded from search.
+    */
+    @SerializedName("isExcludedFromSearch")
+    Boolean isExcludedFromSearch;
+
+    /**
     * The properties assigned to the shop category.
     */
     @SerializedName("properties")
