@@ -66,6 +66,12 @@ public class ShopCategory implements ApiObjectInterface {
     Boolean isVisible;
 
     /**
+    * Declares whether the shop category should be excluded from search.
+    */
+    @SerializedName("isExcludedFromSearch")
+    Boolean isExcludedFromSearch;
+
+    /**
     * Arbitrary fields assigned to shop categories
     */
     @SerializedName("customData")
