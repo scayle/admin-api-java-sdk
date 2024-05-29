@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  <a href="https://scayle.dev">Documentation</a> |
+  <a href="https://new.scayle.dev/en/">Documentation</a> |
   <a href="https://www.scayle.com/">Website</a>
 </h4>
 
@@ -18,9 +18,9 @@
 
 ## Getting Started
 
-Visit the [Quickstart Guide](https://scayle.dev/en/dev/admin-api/sdk-setup) to set up the Admin API Java SDK
+Visit the [Quickstart Guide](https://new.scayle.dev/en/developer-guide/introduction/apis#admin-api) to set up the Admin API Java SDK
 
-Visit the [Docs](https://scayle.dev) to learn more about our system requirements.
+Visit the [Docs](https://new.scayle.dev/en/) to learn more about our system requirements.
 
 ## Requirements
 
@@ -54,10 +54,9 @@ implementation "com.scayle.adminapi:AdminAPI:1.1.0"
 
 [SCAYLE](https://scayle.com) is a full-featured e-commerce software solution that comes with flexible APIs. Within SCAYLE, you can manage all aspects of your shop, such as products, stocks, customers, and transactions.
 
-Learn more about [Scayles’s architecture](https://scayle.dev/en/dev/getting-started/introduction) and [commerce modules](https://scayle.dev/en/dev/getting-started/introduction) in the Docs.
+Learn more about Scayles’s architecture and commerce modules in the [Docs](https://new.scayle.dev/en/developer-guide).
 
 ##  Community
-
 The community and core teams are available in [GitHub Discussions](https://github.com/scayle/admin-api-java-sdk/discussions), where you can ask for support, discuss roadmap, and share ideas.
 
 ## Other channels

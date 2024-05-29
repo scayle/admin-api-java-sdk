@@ -98,7 +98,7 @@ uploadArchives {
         name 'SCAYLE AdminAPI SDK'
         packaging 'jar'
         description 'SCAYLE AdminAPI SDK'
-        url 'https://scayle.dev/en/dev/admin-api/introduction'
+        url 'https://new.scayle.dev/en/developer-guide/introduction/apis#admin-api'
 
         scm {
           connection 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
