@@ -18,6 +18,12 @@ public class ShopCategoryCountry implements ApiObjectInterface {
     String countryCode;
 
     /**
+    * Id of Shop Country.
+    */
+    @SerializedName("shopCountryId")
+    Integer shopCountryId;
+
+    /**
     * String representation of the URL path to the category.
     */
     @SerializedName("path")
@@ -34,6 +40,12 @@ public class ShopCategoryCountry implements ApiObjectInterface {
     */
     @SerializedName("isVisible")
     Boolean isVisible;
+
+    /**
+    * Declares whether the shop category country should be excluded from search.
+    */
+    @SerializedName("isExcludedFromSearch")
+    Boolean isExcludedFromSearch;
 
     /**
     * The properties assigned to the shop category.
