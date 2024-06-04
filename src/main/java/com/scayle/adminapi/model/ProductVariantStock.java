@@ -41,4 +41,10 @@ public class ProductVariantStock implements ApiObjectInterface {
     @SerializedName("merchantReferenceKey")
     String merchantReferenceKey;
 
+    /**
+    * Date when the stock is expected to be available. If provided, it MUST be in the future.
+    */
+    @SerializedName("expectedAvailabilityAt")
+    String expectedAvailabilityAt;
+
 }
