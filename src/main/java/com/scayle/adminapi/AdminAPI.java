@@ -39,6 +39,7 @@ import com.scayle.adminapi.service.PromotionV1Service;
 import com.scayle.adminapi.service.PromotionService;
 import com.scayle.adminapi.service.AudienceService;
 import com.scayle.adminapi.service.ReservationService;
+import com.scayle.adminapi.service.RedirectService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -233,6 +234,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ReservationService reservations() {
         ReservationService service = this.getService("com.scayle.adminapi.service.ReservationService");
+        return service;
+    }
+
+    public RedirectService redirects() {
+        RedirectService service = this.getService("com.scayle.adminapi.service.RedirectService");
         return service;
     }
 
