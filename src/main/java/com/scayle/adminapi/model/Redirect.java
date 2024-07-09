@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Redirect implements ApiObjectInterface {
     /**
-    * id of the redirects
+    * id of the redirect
     */
     @SerializedName("id")
     Integer id;
@@ -30,7 +30,7 @@ public class Redirect implements ApiObjectInterface {
     String target;
 
     /**
-    * status of the redirects
+    * status of the redirect
     */
     @SerializedName("statusCode")
     Integer statusCode;
@@ -45,13 +45,19 @@ public class Redirect implements ApiObjectInterface {
     * 
     */
     @SerializedName("parent")
-    Object parent;
+    Redirect parent;
 
     /**
     * 
     */
     @SerializedName("priority")
     Integer priority;
+
+    /**
+    * 
+    */
+    @SerializedName("error")
+    RedirectError error;
 
     /**
     * Timestamp when the redirect is created
