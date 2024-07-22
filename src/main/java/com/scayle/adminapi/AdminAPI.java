@@ -8,6 +8,7 @@ import com.scayle.adminapi.service.ProductVariantService;
 import com.scayle.adminapi.service.ProductVariantPriceService;
 import com.scayle.adminapi.service.AttributeTranslationService;
 import com.scayle.adminapi.service.ProductVariantStockService;
+import com.scayle.adminapi.service.SellableWithoutStockService;
 import com.scayle.adminapi.service.ShopService;
 import com.scayle.adminapi.service.AttributeGroupService;
 import com.scayle.adminapi.service.CampaignService;
@@ -79,6 +80,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductVariantStockService productVariantStocks() {
         ProductVariantStockService service = this.getService("com.scayle.adminapi.service.ProductVariantStockService");
+        return service;
+    }
+
+    public SellableWithoutStockService sellableWithoutStocks() {
+        SellableWithoutStockService service = this.getService("com.scayle.adminapi.service.SellableWithoutStockService");
         return service;
     }
 
