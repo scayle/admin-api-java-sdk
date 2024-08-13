@@ -41,6 +41,8 @@ import com.scayle.adminapi.service.PromotionService;
 import com.scayle.adminapi.service.AudienceService;
 import com.scayle.adminapi.service.ReservationService;
 import com.scayle.adminapi.service.RedirectService;
+import com.scayle.adminapi.service.EmailKeyService;
+import com.scayle.adminapi.service.EmailService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -245,6 +247,16 @@ public final class AdminAPI extends AbstractApiClient {
 
     public RedirectService redirects() {
         RedirectService service = this.getService("com.scayle.adminapi.service.RedirectService");
+        return service;
+    }
+
+    public EmailKeyService emailKeys() {
+        EmailKeyService service = this.getService("com.scayle.adminapi.service.EmailKeyService");
+        return service;
+    }
+
+    public EmailService emails() {
+        EmailService service = this.getService("com.scayle.adminapi.service.EmailService");
         return service;
     }
 
