@@ -18,7 +18,7 @@ public class Shipment implements ApiObjectInterface {
     String shopKey;
 
     /**
-    * ISO 3166 alpha 2 country code
+    * ISO 3166 alpha 2 country code; use shop country ID instead of country code when a country is ambiguous within a shop
     */
     @SerializedName("countryCode")
     String countryCode;
