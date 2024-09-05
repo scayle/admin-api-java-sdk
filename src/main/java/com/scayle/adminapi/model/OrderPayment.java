@@ -47,4 +47,10 @@ public class OrderPayment implements ApiObjectInterface {
     @SerializedName("options")
     OrderPaymentOptions options;
 
+    /**
+    * 
+    */
+    @SerializedName("isGiftCard")
+    Boolean isGiftCard;
+
 }

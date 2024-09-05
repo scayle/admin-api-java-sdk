@@ -77,4 +77,16 @@ public class CustomerAddress implements ApiObjectInterface {
     @SerializedName("recipient")
     CustomerAddressRecipient recipient;
 
+    /**
+    * 
+    */
+    @SerializedName("phone")
+    String phone;
+
+    /**
+    * 
+    */
+    @SerializedName("state")
+    String state;
+
 }

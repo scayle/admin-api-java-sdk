@@ -106,4 +106,24 @@ public class OrderTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreateSubscriptionOrder() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/OrderCreateSubscriptionOrderRequest.json");
+        SubscriptionOrder requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, SubscriptionOrder.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Order responseEntity = this.api.orders().createSubscriptionOrder("acme", "acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/OrderCreateSubscriptionOrderResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

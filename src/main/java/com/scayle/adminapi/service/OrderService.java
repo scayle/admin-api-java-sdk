@@ -110,4 +110,20 @@ public class OrderService extends AbstractService {
         return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/status", shopKey, countryCode, orderIdentifier), query, null, responseModel);
     }
 
+    
+    public Order createSubscriptionOrder(String shopKey, String countryCode, SubscriptionOrder model) throws ApiErrorException, ConnectionException {
+        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders/subscription-orders", shopKey, countryCode), null, null, responseModel, model);
+    }
+
+    
+    public Order createSubscriptionOrder(String shopKey, String countryCode, SubscriptionOrder model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders/subscription-orders", shopKey, countryCode), query, null, responseModel, model);
+    }
+
 }

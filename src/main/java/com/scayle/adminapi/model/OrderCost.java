@@ -59,4 +59,10 @@ public class OrderCost implements ApiObjectInterface {
     @SerializedName("costCapture")
     Integer costCapture;
 
+    /**
+    * 
+    */
+    @SerializedName("itemGroups")
+    Object itemGroups;
+
 }

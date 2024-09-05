@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemPromotion implements ApiObjectInterface {
+public class SubscriptionOrderAddressInstanceParcelShop implements ApiObjectInterface {
     /**
     * 
     */
@@ -20,25 +20,25 @@ public class OrderItemPromotion implements ApiObjectInterface {
     /**
     * 
     */
-    @SerializedName("name")
-    String name;
+    @SerializedName("customerId")
+    String customerId;
 
     /**
     * 
     */
-    @SerializedName("version")
-    String version;
+    @SerializedName("delegationId")
+    String delegationId;
 
     /**
     * 
     */
-    @SerializedName("displayName")
-    String displayName;
+    @SerializedName("description")
+    String description;
 
     /**
     * 
     */
-    @SerializedName("code")
-    String code;
+    @SerializedName("type")
+    String type;
 
 }

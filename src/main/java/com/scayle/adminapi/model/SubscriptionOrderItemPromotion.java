@@ -10,30 +10,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemPromotion implements ApiObjectInterface {
+public class SubscriptionOrderItemPromotion implements ApiObjectInterface {
     /**
     * 
     */
     @SerializedName("id")
     String id;
-
-    /**
-    * 
-    */
-    @SerializedName("name")
-    String name;
-
-    /**
-    * 
-    */
-    @SerializedName("version")
-    String version;
-
-    /**
-    * 
-    */
-    @SerializedName("displayName")
-    String displayName;
 
     /**
     * 
