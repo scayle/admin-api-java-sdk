@@ -15,18 +15,18 @@ public class OrderDetailedStatus implements ApiObjectInterface {
     * 
     */
     @SerializedName("order")
-    OrderDetailedStatusItem order;
+    Object order;
 
     /**
     * 
     */
     @SerializedName("shipping")
-    OrderDetailedStatusItem shipping;
+    Object shipping;
 
     /**
     * 
     */
     @SerializedName("billing")
-    OrderDetailedStatusItem billing;
+    Object billing;
 
 }

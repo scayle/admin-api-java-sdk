@@ -84,7 +84,7 @@ public class OrderItem implements ApiObjectInterface {
     String reservationKey;
 
     /**
-    * 
+    * Possible values: available, unavailable, deliverable, undeliverable, cancelled, returned.
     */
     @SerializedName("status")
     String status;
