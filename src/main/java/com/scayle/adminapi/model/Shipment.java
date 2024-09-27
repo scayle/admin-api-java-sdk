@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Shipment implements ApiObjectInterface {
     /**
-    * Description of why the return is initiated
+    * A key that uniquely identifies the shop within the tenant's ecosystem.
     */
     @SerializedName("shopKey")
     String shopKey;
