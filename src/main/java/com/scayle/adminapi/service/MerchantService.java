@@ -49,15 +49,15 @@ public class MerchantService extends AbstractService {
     }
 
     
-    public Merchant create(Merchant model) throws ApiErrorException, ConnectionException {
-        Class<Merchant> responseModel = (Class<Merchant>)(Class<?>)Merchant.class;
+    public MerchantCreateOrUpdate create(MerchantCreateOrUpdate model) throws ApiErrorException, ConnectionException {
+        Class<MerchantCreateOrUpdate> responseModel = (Class<MerchantCreateOrUpdate>)(Class<?>)MerchantCreateOrUpdate.class;
 
         return this.request("post", this.resolvePath("/merchants"), null, null, responseModel, model);
     }
 
     
-    public Merchant create(Merchant model, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<Merchant> responseModel = (Class<Merchant>)(Class<?>)Merchant.class;
+    public MerchantCreateOrUpdate create(MerchantCreateOrUpdate model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<MerchantCreateOrUpdate> responseModel = (Class<MerchantCreateOrUpdate>)(Class<?>)MerchantCreateOrUpdate.class;
 
         Map<String, Object> query = options.all();
 
@@ -65,15 +65,15 @@ public class MerchantService extends AbstractService {
     }
 
     
-    public Merchant update(Identifier merchantIdentifier, Merchant model) throws ApiErrorException, ConnectionException {
-        Class<Merchant> responseModel = (Class<Merchant>)(Class<?>)Merchant.class;
+    public MerchantCreateOrUpdate update(Identifier merchantIdentifier, MerchantCreateOrUpdate model) throws ApiErrorException, ConnectionException {
+        Class<MerchantCreateOrUpdate> responseModel = (Class<MerchantCreateOrUpdate>)(Class<?>)MerchantCreateOrUpdate.class;
 
         return this.request("put", this.resolvePath("/merchants/%s", merchantIdentifier), null, null, responseModel, model);
     }
 
     
-    public Merchant update(Identifier merchantIdentifier, Merchant model, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<Merchant> responseModel = (Class<Merchant>)(Class<?>)Merchant.class;
+    public MerchantCreateOrUpdate update(Identifier merchantIdentifier, MerchantCreateOrUpdate model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<MerchantCreateOrUpdate> responseModel = (Class<MerchantCreateOrUpdate>)(Class<?>)MerchantCreateOrUpdate.class;
 
         Map<String, Object> query = options.all();
 

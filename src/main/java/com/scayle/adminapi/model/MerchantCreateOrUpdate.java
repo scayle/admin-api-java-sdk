@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Merchant implements ApiObjectInterface {
+public class MerchantCreateOrUpdate implements ApiObjectInterface {
     /**
     * The ID of the merchant created by SCAYLE.
     */
@@ -34,29 +34,5 @@ public class Merchant implements ApiObjectInterface {
     */
     @SerializedName("priority")
     Integer priority;
-
-    /**
-    * A list of merchant contacts.
-    */
-    @SerializedName("contacts")
-    List<MerchantContact> contacts;
-
-    /**
-    * A list of merchant return addresses.
-    */
-    @SerializedName("returnAddresses")
-    List<MerchantReturnAddress> returnAddresses;
-
-    /**
-    * A list of carriers attached to the merchant.
-    */
-    @SerializedName("carriers")
-    List<MerchantCarrier> carriers;
-
-    /**
-    * A list of warehouses attached to the merchant.
-    */
-    @SerializedName("warehouses")
-    List<Object> warehouses;
 
 }

@@ -47,14 +47,14 @@ public class MerchantTest extends BaseApiTest {
     @Test
     public void testCreate() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/MerchantCreateRequest.json");
-        Merchant requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Merchant.class);
+        MerchantCreateOrUpdate requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, MerchantCreateOrUpdate.class);
 
         assertThatJson(expectedRequestJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
         ApiOptions options = ApiOptions.builder().build();
-        Merchant responseEntity = this.api.merchants().create(requestEntity, options);
+        MerchantCreateOrUpdate responseEntity = this.api.merchants().create(requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/MerchantCreateResponse.json");
         assertThatJson(expectedResponseJson)
@@ -67,14 +67,14 @@ public class MerchantTest extends BaseApiTest {
     @Test
     public void testUpdate() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/MerchantUpdateRequest.json");
-        Merchant requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Merchant.class);
+        MerchantCreateOrUpdate requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, MerchantCreateOrUpdate.class);
 
         assertThatJson(expectedRequestJson)
             .when(TREATING_NULL_AS_ABSENT)
             .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
 
         ApiOptions options = ApiOptions.builder().build();
-        Merchant responseEntity = this.api.merchants().update(Identifier.fromId(1), requestEntity, options);
+        MerchantCreateOrUpdate responseEntity = this.api.merchants().update(Identifier.fromId(1), requestEntity, options);
 
         String expectedResponseJson = this.loadFixture("/fixtures/MerchantUpdateResponse.json");
         assertThatJson(expectedResponseJson)
