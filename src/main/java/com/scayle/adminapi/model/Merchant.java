@@ -36,6 +36,18 @@ public class Merchant implements ApiObjectInterface {
     Integer priority;
 
     /**
+    * URL to send order delegation requests to the merchants.
+    */
+    @SerializedName("orderDelegationUrl")
+    String orderDelegationUrl;
+
+    /**
+    * URL to send order cancellation requests.
+    */
+    @SerializedName("cancellationUrl")
+    String cancellationUrl;
+
+    /**
     * A list of merchant contacts.
     */
     @SerializedName("contacts")

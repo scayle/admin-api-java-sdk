@@ -35,4 +35,16 @@ public class MerchantCreateOrUpdate implements ApiObjectInterface {
     @SerializedName("priority")
     Integer priority;
 
+    /**
+    * URL to send order delegation requests to the merchants.
+    */
+    @SerializedName("orderDelegationUrl")
+    String orderDelegationUrl;
+
+    /**
+    * URL to send order cancellation requests.
+    */
+    @SerializedName("cancellationUrl")
+    String cancellationUrl;
+
 }
