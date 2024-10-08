@@ -24,13 +24,13 @@ public class CustomerAddress implements ApiObjectInterface {
     String referenceKey;
 
     /**
-    * Street is the mandatory string value in recepient's address
+    * Street is the mandatory string value in recipient's address
     */
     @SerializedName("street")
     String street;
 
     /**
-    * House number of the recepient address
+    * House number of the recipient address
     */
     @SerializedName("houseNumber")
     String houseNumber;
@@ -42,7 +42,7 @@ public class CustomerAddress implements ApiObjectInterface {
     String additional;
 
     /**
-    * Zip code is a postal code of recepients location. Its a madatory value
+    * Zip code is the postal code of the recipient's location. Its a mandatory value
     */
     @SerializedName("zipCode")
     String zipCode;
