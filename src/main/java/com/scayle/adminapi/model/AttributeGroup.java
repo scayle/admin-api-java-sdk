@@ -18,7 +18,9 @@ public class AttributeGroup implements ApiObjectInterface {
     Integer id;
 
     /**
-    * A name that uniquely identifies an attribute group.
+    * A name that uniquely identifies an attribute group. 
+Please ensure the input is URL-encoded, avoid using special characters like `%`, `&`, `#` directly.
+
     */
     @SerializedName("name")
     String name;
