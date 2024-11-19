@@ -24,13 +24,13 @@ public class ShopCategoryProductSet implements ApiObjectInterface {
     Integer referencedProductSetId;
 
     /**
-    * Product IDs, which are explicitly included in the shop category.
+    * Product IDs, which are explicitly included in the shop category (limited to a maximum of 10,000 Product IDS).
     */
     @SerializedName("includeProductIds")
     List<Integer> includeProductIds;
 
     /**
-    * Product IDs, which are explicitly excluded from the shop category.
+    * Product IDs, which are explicitly excluded from the shop category (limited to a maximum of 10,000 Product IDS).
     */
     @SerializedName("excludeProductIds")
     List<Integer> excludeProductIds;
