@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionV1 implements ApiObjectInterface {
+public class PromotionV1 extends AbstractModel  {
     /**
     * Promotion id
     */

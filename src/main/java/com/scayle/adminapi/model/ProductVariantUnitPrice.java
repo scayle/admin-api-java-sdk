@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductVariantUnitPrice implements ApiObjectInterface {
+public class ProductVariantUnitPrice extends AbstractModel  {
     /**
     * The name of the unit the amount and price references to.
     */

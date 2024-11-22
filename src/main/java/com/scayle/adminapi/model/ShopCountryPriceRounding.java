@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ShopCountryPriceRounding implements ApiObjectInterface {
+public class ShopCountryPriceRounding extends AbstractModel  {
     /**
     * The ID of the price rounding created by SCAYLE.
     */

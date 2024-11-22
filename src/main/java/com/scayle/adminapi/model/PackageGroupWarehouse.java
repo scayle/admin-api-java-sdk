@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PackageGroupWarehouse implements ApiObjectInterface {
+public class PackageGroupWarehouse extends AbstractModel  {
     /**
     * The ID of the warehouse created by SCAYLE.
     */

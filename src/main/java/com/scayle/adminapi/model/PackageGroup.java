@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PackageGroup implements ApiObjectInterface {
+public class PackageGroup extends AbstractModel  {
     /**
     * The ID of the package group.
     */

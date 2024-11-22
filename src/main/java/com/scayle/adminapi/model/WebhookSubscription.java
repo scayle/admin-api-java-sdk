@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WebhookSubscription implements ApiObjectInterface {
+public class WebhookSubscription extends AbstractModel  {
     /**
     * The unique webhook identifier.
     */

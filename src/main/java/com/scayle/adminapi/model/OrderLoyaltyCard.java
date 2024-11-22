@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderLoyaltyCard implements ApiObjectInterface {
+public class OrderLoyaltyCard extends AbstractModel  {
     /**
     * The loyalty card number
     */

@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MerchantProductState implements ApiObjectInterface {
+public class MerchantProductState extends AbstractModel  {
     /**
     * Reference key of the merchant to which the product belongs to.
     */

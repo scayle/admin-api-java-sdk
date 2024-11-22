@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WebhookEvent implements ApiObjectInterface {
+public class WebhookEvent extends AbstractModel  {
     /**
     * Name of the hook event.
     */

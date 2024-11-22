@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SubscriptionOrderApplication implements ApiObjectInterface {
+public class SubscriptionOrderApplication extends AbstractModel  {
     /**
     * 
     */

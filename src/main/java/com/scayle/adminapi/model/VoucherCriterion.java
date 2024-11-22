@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class VoucherCriterion implements ApiObjectInterface {
+public class VoucherCriterion extends AbstractModel  {
     /**
     * 
     */

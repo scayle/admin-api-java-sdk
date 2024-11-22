@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionShopCountryId implements ApiObjectInterface {
+public class PromotionShopCountryId extends AbstractModel  {
     /**
     * The list of shop IDs where the promotion is allowed
     */

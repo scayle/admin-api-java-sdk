@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionUsageLimitPromotion implements ApiObjectInterface {
+public class PromotionUsageLimitPromotion extends AbstractModel  {
     /**
     * Promotion total usage limit count
     */

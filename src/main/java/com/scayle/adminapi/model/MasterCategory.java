@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MasterCategory implements ApiObjectInterface {
+public class MasterCategory extends AbstractModel  {
     /**
     * The ID of the master category created by SCAYLE.
     */

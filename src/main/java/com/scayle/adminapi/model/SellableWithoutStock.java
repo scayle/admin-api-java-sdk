@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SellableWithoutStock implements ApiObjectInterface {
+public class SellableWithoutStock extends AbstractModel  {
     /**
     * Reference key of warehouse for which the stock update is related to.
     */

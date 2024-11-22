@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderPaymentOptions implements ApiObjectInterface {
+public class OrderPaymentOptions extends AbstractModel  {
     /**
     * Number of installments chosen by the Customer for the Order
     */

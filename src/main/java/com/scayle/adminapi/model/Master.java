@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Master implements ApiObjectInterface {
+public class Master extends AbstractModel  {
     /**
     * A key that uniquely identifies a group of products (e.g., all colors of a shirt) within the tenant's ecosystem.
     */

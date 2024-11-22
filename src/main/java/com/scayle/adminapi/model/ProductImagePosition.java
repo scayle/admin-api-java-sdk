@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductImagePosition implements ApiObjectInterface {
+public class ProductImagePosition extends AbstractModel  {
     /**
     * Position of the image. Counting starts with 0, so when a product image should be on the first position, you have to send 0.
     */

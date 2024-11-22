@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemLowestPriorPrice implements ApiObjectInterface {
+public class OrderItemLowestPriorPrice extends AbstractModel  {
     /**
     * 
     */

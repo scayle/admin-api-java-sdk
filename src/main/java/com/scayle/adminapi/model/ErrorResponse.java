@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ErrorResponse implements ApiObjectInterface {
+public class ErrorResponse extends AbstractModel  {
     /**
     * 
     */

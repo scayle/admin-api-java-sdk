@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ShopCategoryProductSetUnlinkInstruction implements ApiObjectInterface {
+public class ShopCategoryProductSetUnlinkInstruction extends AbstractModel  {
     /**
     * IDs of the referencing product sets for which the reference to the stated product set should be unlinked.
     */

@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Cancellation implements ApiObjectInterface {
+public class Cancellation extends AbstractModel  {
     /**
     * A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 2 chars long.
     */

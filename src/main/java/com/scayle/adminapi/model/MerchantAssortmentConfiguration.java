@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MerchantAssortmentConfiguration implements ApiObjectInterface {
+public class MerchantAssortmentConfiguration extends AbstractModel  {
     /**
     * Merchant reference keys to include.
     */

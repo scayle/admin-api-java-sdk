@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductVariantStock implements ApiObjectInterface {
+public class ProductVariantStock extends AbstractModel  {
     /**
     * Current quantity of SKU.
     */

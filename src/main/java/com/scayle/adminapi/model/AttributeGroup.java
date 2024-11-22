@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AttributeGroup implements ApiObjectInterface {
+public class AttributeGroup extends AbstractModel  {
     /**
     * The ID of the attribute group created by SCAYLE.
     */

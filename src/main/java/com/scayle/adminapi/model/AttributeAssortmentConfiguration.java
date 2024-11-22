@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AttributeAssortmentConfiguration implements ApiObjectInterface {
+public class AttributeAssortmentConfiguration extends AbstractModel  {
     /**
     * The attribute name.
     */

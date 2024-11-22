@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MerchantReturnAddress implements ApiObjectInterface {
+public class MerchantReturnAddress extends AbstractModel  {
     /**
     * The ID of the return address created by SCAYLE.
     */

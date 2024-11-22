@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class VoucherConstraints implements ApiObjectInterface {
+public class VoucherConstraints extends AbstractModel  {
     /**
     * 
     */

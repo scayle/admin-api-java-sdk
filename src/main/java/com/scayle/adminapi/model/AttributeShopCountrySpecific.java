@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AttributeShopCountrySpecific implements ApiObjectInterface {
+public class AttributeShopCountrySpecific extends AbstractModel  {
     /**
     * A key that uniquely identifies the shop within the tenant's ecosystem.
     */

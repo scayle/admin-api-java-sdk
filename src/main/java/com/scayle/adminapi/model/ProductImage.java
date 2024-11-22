@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductImage implements ApiObjectInterface {
+public class ProductImage extends AbstractModel  {
     /**
     * ID assigned by SCAYLE.
     */

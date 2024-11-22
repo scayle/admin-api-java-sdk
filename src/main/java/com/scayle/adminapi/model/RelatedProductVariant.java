@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RelatedProductVariant implements ApiObjectInterface {
+public class RelatedProductVariant extends AbstractModel  {
     /**
     * A key that uniquely identifies the variant, which is a part of a composite variant.
     */

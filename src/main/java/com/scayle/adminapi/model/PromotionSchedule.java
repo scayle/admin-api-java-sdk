@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionSchedule implements ApiObjectInterface {
+public class PromotionSchedule extends AbstractModel  {
     /**
     * The beginning of the time range when the promotion is active
     */

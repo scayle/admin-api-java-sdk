@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MasterCategoryAttribute implements ApiObjectInterface {
+public class MasterCategoryAttribute extends AbstractModel  {
     /**
     * The attribute name.
     */

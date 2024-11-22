@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Cursor implements ApiObjectInterface {
+public class Cursor extends AbstractModel  {
     /**
     * The cursor pointing to the next page. If null there is no next page available.
     */

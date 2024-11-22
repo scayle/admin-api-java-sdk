@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ShopCategory implements ApiObjectInterface {
+public class ShopCategory extends AbstractModel  {
     /**
     * The ID of the shop category.
     */

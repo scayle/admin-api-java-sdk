@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MerchantContact implements ApiObjectInterface {
+public class MerchantContact extends AbstractModel  {
     /**
     * The ID of the contact created by SCAYLE.
     */

@@ -1,6 +1,7 @@
 package com.scayle.adminapi.service;
 
 import java.util.Map;
+import java.lang.NumberFormatException;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -10,7 +11,11 @@ import com.scayle.adminapi.exception.ApiErrorException;
 import com.scayle.adminapi.exception.ConnectionException;
 import com.scayle.adminapi.http.HttpClient;
 import com.scayle.adminapi.model.ApiCollection;
+import com.scayle.adminapi.model.Meta;
+import com.scayle.adminapi.model.RateLimit;
+import com.scayle.adminapi.model.AbstractApiObject;
 
+import okhttp3.Request;
 import okhttp3.Response;
 
 public abstract class AbstractService {
@@ -38,11 +43,28 @@ public abstract class AbstractService {
                     return null;
                 }
 
-                return this.jsonSerializer.unserializeApiObject(responseBodyContent, modelClass);
+                T model = this.jsonSerializer.unserializeApiObject(responseBodyContent, modelClass);
+
+                if (model instanceof AbstractApiObject) {
+                    AbstractApiObject apiObject = (AbstractApiObject) model;
+
+                    RateLimit rateLimit = new RateLimit(
+                        response.header("X-RateLimit-Scope"),
+                        parseIntegerHeader(response.header("X-RateLimit-Limit")),
+                        parseIntegerHeader(response.header("X-RateLimit-Remaining")),
+                        parseIntegerHeader(response.header("X-RateLimit-Reset"))
+                    );
+
+                    apiObject.setMeta(new Meta(rateLimit));
+                }
+
+                return model;
             } else {
+                Request request = response.request();
+                String url = request.url().toString();
                 JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
 
-                throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), statusCode);
+                throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), url, statusCode);
             }
         } catch (ApiErrorException apiException) {
             throw apiException;
@@ -61,16 +83,29 @@ public abstract class AbstractService {
                 String responseBodyContent = response.body().string();
                 Integer statusCode = response.code();
 
-                if (statusCode >= 200 && statusCode < 300) {
-                    if(responseBodyContent == null || responseBodyContent.isEmpty()) {
-                        return null;
-                }
+                    if (statusCode >= 200 && statusCode < 300) {
+                        if(responseBodyContent == null || responseBodyContent.isEmpty()) {
+                            return null;
+                    }
 
-                    return this.jsonSerializer.unserializeApiCollection(responseBodyContent, modelClass);
+                    ApiCollection<T> collection = this.jsonSerializer.unserializeApiCollection(responseBodyContent, modelClass);
+
+                    RateLimit rateLimit = new RateLimit(
+                        response.header("X-RateLimit-Scope"),
+                        parseIntegerHeader(response.header("X-RateLimit-Limit")),
+                        parseIntegerHeader(response.header("X-RateLimit-Remaining")),
+                        parseIntegerHeader(response.header("X-RateLimit-Reset"))
+                    );
+
+                    collection.setMeta(new Meta(rateLimit));
+
+                    return collection;
                 } else {
+                    Request request = response.request();
+                    String url = request.url().toString();
                     JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
 
-                    throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), statusCode);
+                    throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), url, statusCode);
                 }
             } catch (ApiErrorException apiException) {
                 throw apiException;
@@ -91,5 +126,13 @@ public abstract class AbstractService {
         }
 
         return this.httpClient.request(httpMethod, relativeUrl, query, headers, jsonRequestBody);
+    }
+
+    private Integer parseIntegerHeader(String headerValue) {
+        try {
+            return headerValue != null ? Integer.parseInt(headerValue) : null;
+        } catch (NumberFormatException e) {
+            return null;
+        }
     }
 }

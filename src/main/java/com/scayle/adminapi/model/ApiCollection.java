@@ -9,7 +9,7 @@ import com.scayle.adminapi.model.Cursor;
 import lombok.Getter;
 
 @Getter
-public class ApiCollection<T> implements ApiObjectInterface{
+public class ApiCollection<T> extends AbstractApiObject implements ApiObjectInterface{
     @SerializedName("entities")
     List<T> entities;
 

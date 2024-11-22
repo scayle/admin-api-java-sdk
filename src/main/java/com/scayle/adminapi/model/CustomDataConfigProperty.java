@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomDataConfigProperty implements ApiObjectInterface {
+public class CustomDataConfigProperty extends AbstractModel  {
     /**
     * Name of the property.
     */

@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CancellationItem implements ApiObjectInterface {
+public class CancellationItem extends AbstractModel  {
     /**
     * 
     */

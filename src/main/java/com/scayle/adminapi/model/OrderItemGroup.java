@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemGroup implements ApiObjectInterface {
+public class OrderItemGroup extends AbstractModel  {
     /**
     * Item group ID
     */

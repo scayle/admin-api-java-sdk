@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ReturnItem implements ApiObjectInterface {
+public class ReturnItem extends AbstractModel  {
     /**
     * Timestamp when the product return is received
     */

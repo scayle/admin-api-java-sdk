@@ -9,11 +9,20 @@ import com.google.gson.JsonObject;
 
 public class ApiErrorException extends RuntimeException {
     private List<ApiError> errors;
+    private String url;
     private Integer statusCode;
 
-    public ApiErrorException(JsonObject errorResponse, Integer statusCode) {
+    public ApiErrorException(JsonObject errorResponse, String url, Integer statusCode) {
         this.errors = this.parseErrorResponse(errorResponse);
         this.statusCode = statusCode;
+        this.url = url;
+    }
+
+    public String getMessage() {
+        ApiError firstError = this.getFirstError();
+        String reasonPhrase = firstError == null ? "No error message" : firstError.getMessage();
+
+        return String.format("Client error response [url] %s [status code] %d [reason phrase] %s", this.url, this.statusCode, reasonPhrase);
     }
 
     public ApiError getFirstError() {

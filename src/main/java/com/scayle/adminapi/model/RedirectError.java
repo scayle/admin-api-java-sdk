@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class RedirectError implements ApiObjectInterface {
+public class RedirectError extends AbstractModel  {
     /**
     * A key that describes the occurred error.
     */

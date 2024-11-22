@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductsFirstLiveAt implements ApiObjectInterface {
+public class ProductsFirstLiveAt extends AbstractModel  {
     /**
     * A key that uniquely identifies the shop within the tenant's ecosystem.
     */

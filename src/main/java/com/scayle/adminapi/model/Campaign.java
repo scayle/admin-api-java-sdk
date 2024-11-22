@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Campaign implements ApiObjectInterface {
+public class Campaign extends AbstractModel  {
     /**
     * The ID of the campaign created by SCAYLE.
     */

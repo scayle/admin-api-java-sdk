@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AssetSource implements ApiObjectInterface {
+public class AssetSource extends AbstractModel  {
     /**
     * URL of remote asset.
     */

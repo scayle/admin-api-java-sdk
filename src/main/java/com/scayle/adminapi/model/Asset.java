@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Asset implements ApiObjectInterface {
+public class Asset extends AbstractModel  {
     /**
     * A source from where to upload an asset.
     */

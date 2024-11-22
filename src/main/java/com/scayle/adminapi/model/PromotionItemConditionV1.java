@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionItemConditionV1 implements ApiObjectInterface {
+public class PromotionItemConditionV1 extends AbstractModel  {
     /**
     * Key of the condition. Can be used to identify which condition failed in the validate endpoint
     */

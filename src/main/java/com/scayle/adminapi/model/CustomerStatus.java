@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerStatus implements ApiObjectInterface {
+public class CustomerStatus extends AbstractModel  {
     /**
     * Declares whether the customer account is active or not
     */

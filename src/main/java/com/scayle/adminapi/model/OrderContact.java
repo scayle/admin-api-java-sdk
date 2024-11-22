@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderContact implements ApiObjectInterface {
+public class OrderContact extends AbstractModel  {
     /**
     * 
     */

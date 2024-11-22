@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductVariantPrice implements ApiObjectInterface {
+public class ProductVariantPrice extends AbstractModel  {
     /**
     * Key assigned by SCAYLE.
     */

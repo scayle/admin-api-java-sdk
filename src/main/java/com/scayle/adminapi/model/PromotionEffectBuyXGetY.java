@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionEffectBuyXGetY implements ApiObjectInterface {
+public class PromotionEffectBuyXGetY extends AbstractModel  {
     /**
     * Depicts what items can be given away for free when the promotion conditions match.
     */

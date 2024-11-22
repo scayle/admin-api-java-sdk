@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MasterCategoryAssortmentConfiguration implements ApiObjectInterface {
+public class MasterCategoryAssortmentConfiguration extends AbstractModel  {
     /**
     * List of master categories to include.
     */

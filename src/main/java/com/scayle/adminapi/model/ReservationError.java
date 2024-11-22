@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ReservationError implements ApiObjectInterface {
+public class ReservationError extends AbstractModel  {
     /**
     * 
     */

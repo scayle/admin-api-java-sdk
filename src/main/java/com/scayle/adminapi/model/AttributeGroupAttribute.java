@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AttributeGroupAttribute implements ApiObjectInterface {
+public class AttributeGroupAttribute extends AbstractModel  {
     /**
     * 
     */

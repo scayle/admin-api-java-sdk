@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ShopCategoryAttributeCriterion implements ApiObjectInterface {
+public class ShopCategoryAttributeCriterion extends AbstractModel  {
     /**
     * The attribute name.
     */

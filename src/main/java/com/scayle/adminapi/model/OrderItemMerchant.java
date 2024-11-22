@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderItemMerchant implements ApiObjectInterface {
+public class OrderItemMerchant extends AbstractModel  {
     /**
     * The merchant id to which the item belongs.
     */

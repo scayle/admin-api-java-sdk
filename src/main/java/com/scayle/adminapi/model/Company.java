@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Company implements ApiObjectInterface {
+public class Company extends AbstractModel  {
     /**
     * The ID of the company created by SCAYLE.
     */

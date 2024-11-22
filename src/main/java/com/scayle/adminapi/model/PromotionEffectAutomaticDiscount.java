@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionEffectAutomaticDiscount implements ApiObjectInterface {
+public class PromotionEffectAutomaticDiscount extends AbstractModel  {
     /**
     * Depicts if the discount should be % of item cost or absolute amount that can be reduced from the item cost.
     */

@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MerchantCarrier implements ApiObjectInterface {
+public class MerchantCarrier extends AbstractModel  {
     /**
     * ISO 3166 alpha 2 country code.
     */

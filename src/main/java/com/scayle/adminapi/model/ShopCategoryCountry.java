@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ShopCategoryCountry implements ApiObjectInterface {
+public class ShopCategoryCountry extends AbstractModel  {
     /**
     * ISO 3166 alpha 2 country code.
     */

@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PromotionCondition implements ApiObjectInterface {
+public class PromotionCondition extends AbstractModel  {
     /**
     * The list of conditions ('payload.*') that determines whether the promotion is applicable or not.
 If `level = global`, a condition ('payload.*') that determines whether the promotion is applicable or not.

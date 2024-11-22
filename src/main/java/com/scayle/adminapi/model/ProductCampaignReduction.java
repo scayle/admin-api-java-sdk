@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductCampaignReduction implements ApiObjectInterface {
+public class ProductCampaignReduction extends AbstractModel  {
     /**
     * SCAYLE's internal product identifier.
     */

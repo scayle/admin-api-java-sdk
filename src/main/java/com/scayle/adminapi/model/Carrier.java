@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Carrier implements ApiObjectInterface {
+public class Carrier extends AbstractModel  {
     /**
     * The ID of the carrier created by SCAYLE.
     */

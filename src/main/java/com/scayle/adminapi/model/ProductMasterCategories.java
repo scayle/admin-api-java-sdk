@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductMasterCategories implements ApiObjectInterface {
+public class ProductMasterCategories extends AbstractModel  {
     /**
     * Specifies if the product categories were locked via the SCAYLE Panel.
     */

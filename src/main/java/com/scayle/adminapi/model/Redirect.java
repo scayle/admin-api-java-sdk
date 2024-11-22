@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Redirect implements ApiObjectInterface {
+public class Redirect extends AbstractModel  {
     /**
     * id of the redirect
     */

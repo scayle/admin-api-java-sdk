@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Customer implements ApiObjectInterface {
+public class Customer extends AbstractModel  {
     /**
     * The ID of the customer
     */
@@ -82,6 +82,12 @@ public class Customer implements ApiObjectInterface {
     */
     @SerializedName("groups")
     List<String> groups;
+
+    /**
+    * A list of Identity Providers (IDP)
+    */
+    @SerializedName("identities")
+    List<CustomerIdentityProvider> identities;
 
     /**
     * Defines if customer isActive or not and if customer isGuestCustomer or not

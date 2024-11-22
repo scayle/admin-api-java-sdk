@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CustomerAddressReferenceKey implements ApiObjectInterface {
+public class CustomerAddressReferenceKey extends AbstractModel  {
     /**
     * External address reference set by the client to integrate a third party system.
     */
