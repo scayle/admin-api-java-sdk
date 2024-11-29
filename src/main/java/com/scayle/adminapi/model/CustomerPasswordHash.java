@@ -15,7 +15,7 @@ public class CustomerPasswordHash extends AbstractModel  {
     * 
     */
     @SerializedName("hashingType")
-    String hashingType;
+    String hashingType = "internal";
 
     /**
     * 

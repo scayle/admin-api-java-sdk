@@ -42,7 +42,7 @@ public class SubscriptionOrderAddressInstance extends AbstractModel  {
     Boolean forwardToCollectionPoint;
 
     /**
-    * 
+    * Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
     */
     @SerializedName("gender")
     String gender;
