@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class Shipment extends AbstractModel  {
@@ -33,7 +34,7 @@ public class Shipment extends AbstractModel  {
     * Defines the timestamp of the package leaving the warehouse
     */
     @SerializedName("deliveryDate")
-    String deliveryDate;
+    java.time.Instant deliveryDate;
 
     /**
     * Collection of items shipped

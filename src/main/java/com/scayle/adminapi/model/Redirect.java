@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class Redirect extends AbstractModel  {
@@ -63,12 +64,12 @@ public class Redirect extends AbstractModel  {
     * Timestamp when the redirect is created
     */
     @SerializedName("createdAt")
-    String createdAt;
+    java.time.Instant createdAt;
 
     /**
     * Timestamp when the redirect is updated
     */
     @SerializedName("updatedAt")
-    String updatedAt;
+    java.time.Instant updatedAt;
 
 }

@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class OrderItem extends AbstractModel  {
@@ -123,12 +124,12 @@ public class OrderItem extends AbstractModel  {
     * Timestamp when the order item is created
     */
     @SerializedName("createdAt")
-    String createdAt;
+    java.time.Instant createdAt;
 
     /**
     * Timestamp when the order item is updated
     */
     @SerializedName("updatedAt")
-    String updatedAt;
+    java.time.Instant updatedAt;
 
 }

@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class ProductVariantPrice extends AbstractModel  {
@@ -81,13 +82,13 @@ public class ProductVariantPrice extends AbstractModel  {
     * Controls when the price will be activated. If not present or null, the valid from is specified from now.
     */
     @SerializedName("validFrom")
-    String validFrom;
+    java.time.Instant validFrom;
 
     /**
     * Controls when the price will be deactivated. If not present or null, the price is valid forever.
     */
     @SerializedName("validTo")
-    String validTo;
+    java.time.Instant validTo;
 
     /**
     * A merchant reference key the price belongs to.

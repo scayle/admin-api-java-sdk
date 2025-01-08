@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.Gender;
+
 @Getter
 @Setter
 public class SubscriptionOrderAddressInstance extends AbstractModel  {
@@ -45,7 +47,7 @@ public class SubscriptionOrderAddressInstance extends AbstractModel  {
     * Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
     */
     @SerializedName("gender")
-    String gender;
+    Gender gender;
 
     /**
     * 

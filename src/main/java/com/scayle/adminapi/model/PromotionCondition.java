@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.PromotionConditionLevel;
+
 @Getter
 @Setter
 public class PromotionCondition extends AbstractModel  {
@@ -18,7 +20,7 @@ If `level = item`, a conditions ('item.*') that determines whether promotion is 
 
     */
     @SerializedName("level")
-    String level;
+    PromotionConditionLevel level;
 
     /**
     * Key of the condition. Can be used to identify which condition failed in the validate endpoint

@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class VoucherConstraintsDate extends AbstractModel  {
@@ -15,12 +16,12 @@ public class VoucherConstraintsDate extends AbstractModel  {
     * 
     */
     @SerializedName("max")
-    String max;
+    java.time.Instant max;
 
     /**
     * 
     */
     @SerializedName("min")
-    String min;
+    java.time.Instant min;
 
 }

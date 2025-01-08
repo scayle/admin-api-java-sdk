@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.AttributeType;
+
 @Getter
 @Setter
 public class Attribute extends AbstractModel  {
@@ -21,7 +23,7 @@ public class Attribute extends AbstractModel  {
     * The attribute type.
     */
     @SerializedName("type")
-    String type;
+    AttributeType type;
 
     /**
     * The attribute value where the datatype is defined by the type property.

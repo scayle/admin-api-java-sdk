@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.Gender;
+
 @Getter
 @Setter
 public class Customer extends AbstractModel  {
@@ -39,7 +41,7 @@ public class Customer extends AbstractModel  {
     * Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
     */
     @SerializedName("gender")
-    String gender;
+    Gender gender;
 
     /**
     * Date of birth of the customer in YYYY-MM-DD format
@@ -117,12 +119,12 @@ public class Customer extends AbstractModel  {
     * Timestamp when the customer is created
     */
     @SerializedName("createdAt")
-    String createdAt;
+    java.time.Instant createdAt;
 
     /**
     * Timestamp when the customer is updated
     */
     @SerializedName("updatedAt")
-    String updatedAt;
+    java.time.Instant updatedAt;
 
 }

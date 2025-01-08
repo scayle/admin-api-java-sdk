@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.OrderPaymentInstallmentType;
+
 @Getter
 @Setter
 public class OrderPaymentInstallment extends AbstractModel  {
@@ -21,6 +23,6 @@ public class OrderPaymentInstallment extends AbstractModel  {
     * 
     */
     @SerializedName("type")
-    String type;
+    OrderPaymentInstallmentType type;
 
 }

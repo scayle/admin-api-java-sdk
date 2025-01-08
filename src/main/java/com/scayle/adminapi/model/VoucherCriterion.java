@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.VoucherCriteriaKey;
+import com.scayle.adminapi.enums.VoucherCriteriaKeyType;
+
 @Getter
 @Setter
 public class VoucherCriterion extends AbstractModel  {
@@ -21,13 +24,13 @@ public class VoucherCriterion extends AbstractModel  {
     * 
     */
     @SerializedName("key")
-    String key;
+    VoucherCriteriaKey key;
 
     /**
     * If the 'shopCategoryId' key is utilized, it should be associated with a 'country' type of application rather than 'shop'.
     */
     @SerializedName("type")
-    String type;
+    VoucherCriteriaKeyType type;
 
     /**
     * 

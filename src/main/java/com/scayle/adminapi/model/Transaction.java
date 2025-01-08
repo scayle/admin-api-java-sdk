@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.TransactionOperationStatus;
+
 @Getter
 @Setter
 public class Transaction extends AbstractModel  {
@@ -21,6 +23,6 @@ public class Transaction extends AbstractModel  {
     * 
     */
     @SerializedName("operationStatus")
-    String operationStatus;
+    TransactionOperationStatus operationStatus;
 
 }

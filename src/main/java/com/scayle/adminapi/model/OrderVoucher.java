@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.VoucherType;
+
 @Getter
 @Setter
 public class OrderVoucher extends AbstractModel  {
@@ -39,7 +41,7 @@ public class OrderVoucher extends AbstractModel  {
     * 
     */
     @SerializedName("type")
-    String type;
+    VoucherType type;
 
     /**
     * 

@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.SubscriptionOrderApplicationDevice;
+
 @Getter
 @Setter
 public class SubscriptionOrderApplication extends AbstractModel  {
@@ -21,6 +23,6 @@ public class SubscriptionOrderApplication extends AbstractModel  {
     * 
     */
     @SerializedName("device")
-    String device;
+    SubscriptionOrderApplicationDevice device;
 
 }

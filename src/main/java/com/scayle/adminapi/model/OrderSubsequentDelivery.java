@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.OrderSubsequentDeliveryKey;
+
 @Getter
 @Setter
 public class OrderSubsequentDelivery extends AbstractModel  {
@@ -15,6 +17,6 @@ public class OrderSubsequentDelivery extends AbstractModel  {
     * 
     */
     @SerializedName("key")
-    String key;
+    OrderSubsequentDeliveryKey key;
 
 }

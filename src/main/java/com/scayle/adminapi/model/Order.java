@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.OrderStatus;
+
 @Getter
 @Setter
 public class Order extends AbstractModel  {
@@ -39,7 +41,7 @@ public class Order extends AbstractModel  {
     * Timestamp when the order was confirmed
     */
     @SerializedName("confirmedAt")
-    String confirmedAt;
+    java.time.Instant confirmedAt;
 
     /**
     * Collection of contacts
@@ -75,19 +77,19 @@ public class Order extends AbstractModel  {
     * Timestamp when the invoice is sent
     */
     @SerializedName("invoicedAt")
-    String invoicedAt;
+    java.time.Instant invoicedAt;
 
     /**
     * Timestamp when the order is created
     */
     @SerializedName("createdAt")
-    String createdAt;
+    java.time.Instant createdAt;
 
     /**
     * Timestamp when the order is updated
     */
     @SerializedName("updatedAt")
-    String updatedAt;
+    java.time.Instant updatedAt;
 
     /**
     * Collection of items ordered
@@ -147,7 +149,7 @@ public class Order extends AbstractModel  {
     * Status of the order e.g: invoice_completed
     */
     @SerializedName("status")
-    String status;
+    OrderStatus status;
 
     /**
     * 

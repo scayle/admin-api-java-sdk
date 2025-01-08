@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.OrderFeeType;
+
 @Getter
 @Setter
 public class OrderFee extends AbstractModel  {
@@ -21,7 +23,7 @@ public class OrderFee extends AbstractModel  {
     * 
     */
     @SerializedName("category")
-    String category;
+    OrderFeeType category;
 
     /**
     * 

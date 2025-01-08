@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.PromotionEffectType;
+
 @Getter
 @Setter
 public class PromotionEffect extends AbstractModel  {
@@ -15,7 +17,7 @@ public class PromotionEffect extends AbstractModel  {
     * Type of the promotion
     */
     @SerializedName("type")
-    String type;
+    PromotionEffectType type;
 
     /**
     * Additional data of the promotion effect, maxCountType and eligibleItemsQuantity are optional

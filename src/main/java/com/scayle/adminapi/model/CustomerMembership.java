@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class CustomerMembership extends AbstractModel  {
@@ -39,12 +40,12 @@ public class CustomerMembership extends AbstractModel  {
     * Timestamp when the membership is created.
     */
     @SerializedName("createdAt")
-    String createdAt;
+    java.time.Instant createdAt;
 
     /**
     * Timestamp when the membership is updated.
     */
     @SerializedName("updatedAt")
-    String updatedAt;
+    java.time.Instant updatedAt;
 
 }

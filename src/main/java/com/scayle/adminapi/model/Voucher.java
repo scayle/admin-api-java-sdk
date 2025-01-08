@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.VoucherStatus;
+import com.scayle.adminapi.enums.VoucherType;
+
 @Getter
 @Setter
 public class Voucher extends AbstractModel  {
@@ -51,7 +54,7 @@ public class Voucher extends AbstractModel  {
     * 
     */
     @SerializedName("status")
-    String status;
+    VoucherStatus status;
 
     /**
     * 
@@ -63,7 +66,7 @@ public class Voucher extends AbstractModel  {
     * 
     */
     @SerializedName("type")
-    String type;
+    VoucherType type;
 
     /**
     * 

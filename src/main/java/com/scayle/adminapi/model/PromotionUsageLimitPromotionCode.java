@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.PromotionUsageLimitPromotionCodeType;
+
 @Getter
 @Setter
 public class PromotionUsageLimitPromotionCode extends AbstractModel  {
@@ -28,6 +30,6 @@ Customer - if different customers use the same code, each customer has their own
 
     */
     @SerializedName("type")
-    String type;
+    PromotionUsageLimitPromotionCodeType type;
 
 }

@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.PromotionEffectMaxCountType;
+
 @Getter
 @Setter
 public class PromotionEffectBuyXGetY extends AbstractModel  {
@@ -31,7 +33,7 @@ public class PromotionEffectBuyXGetY extends AbstractModel  {
 
     */
     @SerializedName("maxCountType")
-    String maxCountType;
+    PromotionEffectMaxCountType maxCountType;
 
     /**
     * Has to be configured with `maxCountType=per_eligible_items_quantity`. Used for calculating of limit free items, check formula above.

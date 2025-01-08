@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.CustomerPasswordHashingType;
+
 @Getter
 @Setter
 public class CustomerPasswordHash extends AbstractModel  {
@@ -15,7 +17,7 @@ public class CustomerPasswordHash extends AbstractModel  {
     * 
     */
     @SerializedName("hashingType")
-    String hashingType = "internal";
+    CustomerPasswordHashingType hashingType = CustomerPasswordHashingType.VALUE_INTERNAL;
 
     /**
     * 

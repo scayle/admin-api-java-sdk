@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class PromotionSchedule extends AbstractModel  {
@@ -15,12 +16,12 @@ public class PromotionSchedule extends AbstractModel  {
     * The beginning of the time range when the promotion is active
     */
     @SerializedName("from")
-    String from;
+    java.time.Instant from;
 
     /**
     * The end of the time range when the promotion is active
     */
     @SerializedName("to")
-    String to;
+    java.time.Instant to;
 
 }

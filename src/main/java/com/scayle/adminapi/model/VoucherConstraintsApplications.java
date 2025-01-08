@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.VoucherConstraintsApplicationsRestriction;
+
 @Getter
 @Setter
 public class VoucherConstraintsApplications extends AbstractModel  {
@@ -21,6 +23,6 @@ public class VoucherConstraintsApplications extends AbstractModel  {
     * 
     */
     @SerializedName("restriction")
-    String restriction;
+    VoucherConstraintsApplicationsRestriction restriction;
 
 }

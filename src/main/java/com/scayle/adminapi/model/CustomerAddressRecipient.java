@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.Gender;
+import com.scayle.adminapi.enums.CustomerAddressRecipientType;
+
 @Getter
 @Setter
 public class CustomerAddressRecipient extends AbstractModel  {
@@ -27,7 +30,7 @@ public class CustomerAddressRecipient extends AbstractModel  {
     * Gender of the customer mentioned as per defined ENUM as "m" , "f", "d", "n"
     */
     @SerializedName("gender")
-    String gender;
+    Gender gender;
 
     /**
     * 
@@ -39,6 +42,6 @@ public class CustomerAddressRecipient extends AbstractModel  {
     * 
     */
     @SerializedName("type")
-    String type;
+    CustomerAddressRecipientType type;
 
 }

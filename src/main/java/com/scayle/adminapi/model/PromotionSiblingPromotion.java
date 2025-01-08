@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.PromotionSiblingPromotionLevel;
+
 @Getter
 @Setter
 public class PromotionSiblingPromotion extends AbstractModel  {
@@ -33,6 +35,6 @@ public class PromotionSiblingPromotion extends AbstractModel  {
     * The level on which promotion is applied
     */
     @SerializedName("level")
-    String level;
+    PromotionSiblingPromotionLevel level;
 
 }

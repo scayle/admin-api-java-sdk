@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.RoundingPrecision;
+import com.scayle.adminapi.enums.RoundingType;
+
 @Getter
 @Setter
 public class ShopCountryPriceRounding extends AbstractModel  {
@@ -27,12 +30,12 @@ public class ShopCountryPriceRounding extends AbstractModel  {
     * The precision that should be applied to a price, ENUM of "1.00", "5.00", "0.05", "0.99", "0.95", "0.90".
     */
     @SerializedName("precision")
-    String precision;
+    RoundingPrecision precision;
 
     /**
     * The rounding type that should be used when rounding a price.
     */
     @SerializedName("roundingType")
-    String roundingType;
+    RoundingType roundingType;
 
 }

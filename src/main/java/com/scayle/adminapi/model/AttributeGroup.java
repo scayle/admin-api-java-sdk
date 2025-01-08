@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.AttributeGroupType;
+import com.scayle.adminapi.enums.AttributeGroupLevel;
+
 @Getter
 @Setter
 public class AttributeGroup extends AbstractModel  {
@@ -35,7 +38,7 @@ Please ensure the input is URL-encoded, avoid using special characters like `%`,
     * An attribute group type.
     */
     @SerializedName("type")
-    String type;
+    AttributeGroupType type;
 
     /**
     * Specifies whether an attribute value is shared among multiple entities or if each entity has its own unique value. 
@@ -49,7 +52,7 @@ It's important to note that attributes of advanced types cannot be shared, so 'i
     * Defines the attribute group level, specifying the type of entity it is applicable to.
     */
     @SerializedName("level")
-    String level;
+    AttributeGroupLevel level;
 
     /**
     * A structure, which describes advanced attribute values.

@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.AttributeType;
+
 @Getter
 @Setter
 public class MasterCategoryAttribute extends AbstractModel  {
@@ -21,7 +23,7 @@ public class MasterCategoryAttribute extends AbstractModel  {
     * The attribute type.
     */
     @SerializedName("type")
-    String type;
+    AttributeType type;
 
     /**
     * Whether the attribute is mandatory or not. Used in the state *calculation*.

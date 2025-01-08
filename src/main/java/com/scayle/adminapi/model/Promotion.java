@@ -8,6 +8,10 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.PromotionStatus;
+import com.scayle.adminapi.enums.PromotionActivationType;
+import com.scayle.adminapi.enums.PromotionLevel;
+
 @Getter
 @Setter
 public class Promotion extends AbstractModel  {
@@ -39,19 +43,19 @@ public class Promotion extends AbstractModel  {
     * The status of the promotion
     */
     @SerializedName("status")
-    String status;
+    PromotionStatus status;
 
     /**
     * Promotion activation type
     */
     @SerializedName("activationType")
-    String activationType;
+    PromotionActivationType activationType;
 
     /**
     * Promotion application level
     */
     @SerializedName("level")
-    String level;
+    PromotionLevel level;
 
     /**
     * Time range when the promotion is active

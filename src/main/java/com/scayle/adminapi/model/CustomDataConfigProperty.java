@@ -8,6 +8,8 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.CustomDataConfigPropertyType;
+
 @Getter
 @Setter
 public class CustomDataConfigProperty extends AbstractModel  {
@@ -21,7 +23,7 @@ public class CustomDataConfigProperty extends AbstractModel  {
     * Type of the property.
     */
     @SerializedName("type")
-    String type;
+    CustomDataConfigPropertyType type;
 
     /**
     * Whether the property is localized or not. Default is `false`, supported only for config properties of type `json` and `string`. Toggling `isLocalized` from `true` to `false` is not supported when there is custom data on the corresponding entity.

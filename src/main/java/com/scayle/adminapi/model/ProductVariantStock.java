@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter
 @Setter
 public class ProductVariantStock extends AbstractModel  {
@@ -27,7 +28,7 @@ public class ProductVariantStock extends AbstractModel  {
     * Date time when the stock changed in Iso8601 format.
     */
     @SerializedName("changedAt")
-    String changedAt;
+    java.time.Instant changedAt;
 
     /**
     * Defines if the variant can be sold even when the available stock is 0.
