@@ -54,7 +54,7 @@ public class HttpClient {
             requestBody = RequestBody.create(body, mediaType);
         }
 
-        if (body == null && httpMethod.equals("POST")) {
+        if (body == null && (httpMethod.equals("POST") || httpMethod.equals("PUT"))) {
             requestBody = RequestBody.create(null, new byte[0]);
         }
 
