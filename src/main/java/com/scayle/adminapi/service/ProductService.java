@@ -326,4 +326,36 @@ public class ProductService extends AbstractService {
         return this.request("put", this.resolvePath("/products/%s/state", productIdentifier), query, null, responseModel, model);
     }
 
+    
+    public BulkRequest createBulkRequest(CreateBulkRequest model) throws ApiErrorException, ConnectionException {
+        Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
+
+        return this.request("post", this.resolvePath("/products/bulk-requests"), null, null, responseModel, model);
+    }
+
+    
+    public BulkRequest createBulkRequest(CreateBulkRequest model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products/bulk-requests"), query, null, responseModel, model);
+    }
+
+    
+    public BulkRequest createCompositeProductBulkRequest(CreateBulkRequest model) throws ApiErrorException, ConnectionException {
+        Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
+
+        return this.request("post", this.resolvePath("/products/composite/bulk-requests"), null, null, responseModel, model);
+    }
+
+    
+    public BulkRequest createCompositeProductBulkRequest(CreateBulkRequest model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products/composite/bulk-requests"), query, null, responseModel, model);
+    }
+
 }

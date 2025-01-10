@@ -322,4 +322,44 @@ public class ProductTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreateBulkRequest() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductCreateBulkRequestRequest.json");
+        CreateBulkRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CreateBulkRequest.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        BulkRequest responseEntity = this.api.products().createBulkRequest(requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductCreateBulkRequestResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateCompositeProductBulkRequest() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductCreateCompositeProductBulkRequestRequest.json");
+        CreateBulkRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CreateBulkRequest.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        BulkRequest responseEntity = this.api.products().createCompositeProductBulkRequest(requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductCreateCompositeProductBulkRequestResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

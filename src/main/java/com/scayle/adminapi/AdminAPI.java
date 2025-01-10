@@ -44,6 +44,9 @@ import com.scayle.adminapi.service.ReservationService;
 import com.scayle.adminapi.service.RedirectService;
 import com.scayle.adminapi.service.EmailKeyService;
 import com.scayle.adminapi.service.EmailService;
+import com.scayle.adminapi.service.BulkRequestService;
+import com.scayle.adminapi.service.BulkRequestStatusService;
+import com.scayle.adminapi.service.BulkOperationStatusService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -263,6 +266,21 @@ public final class AdminAPI extends AbstractApiClient {
 
     public EmailService emails() {
         EmailService service = this.getService("com.scayle.adminapi.service.EmailService");
+        return service;
+    }
+
+    public BulkRequestService bulkRequests() {
+        BulkRequestService service = this.getService("com.scayle.adminapi.service.BulkRequestService");
+        return service;
+    }
+
+    public BulkRequestStatusService bulkRequestStatuses() {
+        BulkRequestStatusService service = this.getService("com.scayle.adminapi.service.BulkRequestStatusService");
+        return service;
+    }
+
+    public BulkOperationStatusService bulkOperationStatuses() {
+        BulkOperationStatusService service = this.getService("com.scayle.adminapi.service.BulkOperationStatusService");
         return service;
     }
 
