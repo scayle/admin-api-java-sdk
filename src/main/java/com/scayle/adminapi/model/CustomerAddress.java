@@ -8,6 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.CustomerAddressType;
 
 @Getter
 @Setter
@@ -89,5 +90,17 @@ public class CustomerAddress extends AbstractModel  {
     */
     @SerializedName("state")
     String state;
+
+    /**
+    * Defines the type of the address.
+    */
+    @SerializedName("type")
+    CustomerAddressType type;
+
+    /**
+    * 
+    */
+    @SerializedName("shopCountry")
+    ShopCountry shopCountry;
 
 }
