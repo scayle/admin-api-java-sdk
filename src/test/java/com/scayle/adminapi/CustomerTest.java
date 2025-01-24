@@ -105,6 +105,26 @@ public class CustomerTest extends BaseApiTest {
     }
 
     @Test
+    public void testCreateOrUpdateLegacyCustomData() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/CustomerCreateOrUpdateLegacyCustomDataRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Customer responseEntity = this.api.customers().createOrUpdateLegacyCustomData("acme", "acme", 1, requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/CustomerCreateOrUpdateLegacyCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testAnonymize() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

@@ -97,6 +97,22 @@ public class CustomerService extends AbstractService {
     }
 
     
+    public Customer createOrUpdateLegacyCustomData(String shopKey, String countryCode, Integer customerId, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+        Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/legacy-custom-data", shopKey, countryCode, customerId), null, null, responseModel, model);
+    }
+
+    
+    public Customer createOrUpdateLegacyCustomData(String shopKey, String countryCode, Integer customerId, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/shops/%s/countries/%s/customers/%s/legacy-custom-data", shopKey, countryCode, customerId), query, null, responseModel, model);
+    }
+
+    
     public void anonymize(String shopKey, String countryCode, Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/anonymize", shopKey, countryCode, customerIdentifier), null, null, null);
