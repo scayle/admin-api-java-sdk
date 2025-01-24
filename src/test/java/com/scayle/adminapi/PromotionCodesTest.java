@@ -34,4 +34,12 @@ public class PromotionCodesTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testDelete() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.promotionCodess().delete("645e0c241a93369ff53f26e0", options);
+
+    }
+
 }

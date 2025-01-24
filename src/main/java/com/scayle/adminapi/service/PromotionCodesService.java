@@ -32,4 +32,18 @@ public class PromotionCodesService extends AbstractService {
         return this.request("post", this.resolvePath("/promotions/%s/codes", promotionId), query, null, responseModel, model);
     }
 
+    
+    public void delete(String promotionId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/promotions/%s/codes", promotionId), null, null, null);
+    }
+
+    
+    public void delete(String promotionId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/promotions/%s/codes", promotionId), query, null, null);
+    }
+
 }
