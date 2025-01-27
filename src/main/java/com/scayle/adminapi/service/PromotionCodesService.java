@@ -33,6 +33,22 @@ public class PromotionCodesService extends AbstractService {
     }
 
     
+    public ApiCollection<PromotionCode> all(String promotionId) throws ApiErrorException, ConnectionException {
+        Class<PromotionCode> responseModel = (Class<PromotionCode>)(Class<?>)PromotionCode.class;
+
+        return this.requestCollection("get", this.resolvePath("/promotions/%s/codes", promotionId), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<PromotionCode> all(String promotionId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<PromotionCode> responseModel = (Class<PromotionCode>)(Class<?>)PromotionCode.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/promotions/%s/codes", promotionId), query, null, responseModel);
+    }
+
+    
     public void delete(String promotionId) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/promotions/%s/codes", promotionId), null, null, null);

@@ -35,6 +35,22 @@ public class PromotionCodesTest extends BaseApiTest {
     }
 
     @Test
+    public void testAll() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<PromotionCode> responseEntity = this.api.promotionCodess().all("645e0c241a93369ff53f26e0", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/PromotionCodesAllResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (PromotionCode entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
     public void testDelete() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
