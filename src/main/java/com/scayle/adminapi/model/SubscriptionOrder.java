@@ -84,4 +84,16 @@ public class SubscriptionOrder extends AbstractModel  {
     @SerializedName("voucher")
     SubscriptionOrderVoucher voucher;
 
+    /**
+    * 
+    */
+    @SerializedName("carrier")
+    SubscriptionOrderCarrier carrier;
+
+    /**
+    * External reference set by the client to integrate 3rd party system
+    */
+    @SerializedName("referenceKey")
+    String referenceKey;
+
 }
