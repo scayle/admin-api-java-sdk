@@ -29,6 +29,18 @@ default:
     - tags
   when: manual
 
+.deploytest: &deploytest
+  stage: deploy
+  script:
+    # we expect tags to be in the format v1.2.3
+    - export ORG_GRADLE_PROJECT_version="v1.2.3"
+    - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${ORG_GRADLE_PROJECT_version}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
+    - cat ./src/main/java/com/scayle/adminapi/http/HttpClient.java
+  when: manual
+
+deploy:test:
+  <<: *deploytest
+
 deploy:snapshot:
   <<: *depoloy
   variables:
