@@ -15,6 +15,7 @@ import okhttp3.Request.Builder;
 public class HttpClient {
     private OkHttpClient httpClient;
     private ApiConfiguration apiConfiguration;
+    private static final String SDK_VERSION = "SDK_VERSION_PLACEHOLDER"; // Placeholder is replaced during deploy
 
     public HttpClient(ApiConfiguration apiConfiguration) {
         this.httpClient = new OkHttpClient();
@@ -52,6 +53,10 @@ public class HttpClient {
             builder.header("Content-Type", "application/json");
             MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
             requestBody = RequestBody.create(body, mediaType);
+        }
+
+        if (HttpClient.SDK_VERSION != "SDK_VERSION_PLACEHOLDER") {
+            builder.header("X-SDK-Version", HttpClient.SDK_VERSION);
         }
 
         if (body == null && (httpMethod.equals("POST") || httpMethod.equals("PUT"))) {
