@@ -126,4 +126,20 @@ public class OrderTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testGetOrderInvoices() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<OrderInvoice> responseEntity = this.api.orders().getOrderInvoices("acme", "acme", Identifier.fromId(1), options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/OrderGetOrderInvoicesResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (OrderInvoice entity : responseEntity.getEntities()) {
+        }
+    }
+
 }

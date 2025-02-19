@@ -126,4 +126,20 @@ public class OrderService extends AbstractService {
         return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders/subscription-orders", shopKey, countryCode), query, null, responseModel, model);
     }
 
+    
+    public ApiCollection<OrderInvoice> getOrderInvoices(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
+        Class<OrderInvoice> responseModel = (Class<OrderInvoice>)(Class<?>)OrderInvoice.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/invoices", shopKey, countryCode, orderIdentifier), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<OrderInvoice> getOrderInvoices(String shopKey, String countryCode, Identifier orderIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<OrderInvoice> responseModel = (Class<OrderInvoice>)(Class<?>)OrderInvoice.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/invoices", shopKey, countryCode, orderIdentifier), query, null, responseModel);
+    }
+
 }
