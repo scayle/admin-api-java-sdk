@@ -8,15 +8,16 @@ import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
 import lombok.Setter;
 
+import com.scayle.adminapi.enums.OrderStatusEnum;
 
 @Getter
 @Setter
 public class OrderStatus extends AbstractModel  {
     /**
-    * Phases of order e.g: cancelled , delivered
+    * Status of the order, e.g. invoice_completed
     */
     @SerializedName("status")
-    String status;
+    OrderStatusEnum status;
 
     /**
     * 

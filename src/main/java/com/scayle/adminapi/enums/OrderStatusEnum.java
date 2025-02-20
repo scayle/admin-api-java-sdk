@@ -2,7 +2,7 @@ package com.scayle.adminapi.enums;
 
 import com.google.gson.annotations.SerializedName;
 
-public enum OrderStatus {
+public enum OrderStatusEnum {
     @SerializedName("order_open")
     VALUE_ORDER_OPEN("order_open"),
 
@@ -27,7 +27,7 @@ public enum OrderStatus {
 
     private final String val;
 
-    OrderStatus(String val) {
+    OrderStatusEnum(String val) {
         this.val = val;
     }
 
