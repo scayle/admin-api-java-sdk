@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static net.javacrumbs.jsonunit.core.Option.TREATING_NULL_AS_ABSENT;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -140,6 +142,18 @@ public class OrderTest extends BaseApiTest {
 
         for (OrderInvoice entity : responseEntity.getEntities()) {
         }
+    }
+
+    @Test
+    public void testGetOrderInvoice() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Object responseEntity = this.api.orders().getOrderInvoice("acme", "acme", Identifier.fromId(1), 1, options);
+
+        assertNotNull(responseEntity);
+        assertTrue(responseEntity instanceof byte[]);
+
+
     }
 
 }

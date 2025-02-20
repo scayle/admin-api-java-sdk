@@ -35,11 +35,19 @@ public abstract class AbstractService {
     protected <T> T request(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
         try {
             Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body);
-            String responseBodyContent = response.body().string();
             Integer statusCode = response.code();
 
             if (statusCode >= 200 && statusCode < 300) {
-                if(responseBodyContent == null || responseBodyContent.isEmpty()) {
+
+                String contentType = response.header("Content-Type");
+                boolean isFile = contentType != null && contentType.startsWith("application/pdf");
+
+                if (isFile) {
+                    return (T) response.body().bytes();
+                }
+
+                String responseBodyContent = response.body().string();
+                if (responseBodyContent == null || responseBodyContent.isEmpty()) {
                     return null;
                 }
 
@@ -61,6 +69,7 @@ public abstract class AbstractService {
                 return model;
             } else {
                 Request request = response.request();
+                String responseBodyContent = response.body().string();
                 String url = request.url().toString();
                 JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
 
@@ -83,8 +92,8 @@ public abstract class AbstractService {
                 String responseBodyContent = response.body().string();
                 Integer statusCode = response.code();
 
-                    if (statusCode >= 200 && statusCode < 300) {
-                        if(responseBodyContent == null || responseBodyContent.isEmpty()) {
+                if (statusCode >= 200 && statusCode < 300) {
+                    if(responseBodyContent == null || responseBodyContent.isEmpty()) {
                             return null;
                     }
 
