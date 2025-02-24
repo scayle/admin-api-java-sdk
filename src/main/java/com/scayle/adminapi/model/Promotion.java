@@ -100,6 +100,12 @@ public class Promotion extends AbstractModel  {
     List<PromotionCondition> conditions;
 
     /**
+    * The list of itemSet IDs that can be applied into the promotion
+    */
+    @SerializedName("itemSetIds")
+    List<String> itemSetIds;
+
+    /**
     * Priority of the promotion
     */
     @SerializedName("priority")

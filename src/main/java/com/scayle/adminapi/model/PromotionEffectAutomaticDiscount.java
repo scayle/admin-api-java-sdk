@@ -20,7 +20,7 @@ public class PromotionEffectAutomaticDiscount extends AbstractModel  {
     PromotionEffectAutomationDiscountType type;
 
     /**
-    * Integer value that depicts percentage or absolute amount - currency is considered from the shop settings.
+    * Integer value that depicts relative (percentage) or absolute amount - currency is considered from the shop settings.
     */
     @SerializedName("value")
     Double value;
