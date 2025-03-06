@@ -2,6 +2,7 @@ package com.scayle.adminapi;
 
 import com.scayle.adminapi.model.ApiConfiguration;
 import com.scayle.adminapi.service.ProductService;
+import com.scayle.adminapi.service.ProductsFirstLiveAtService;
 import com.scayle.adminapi.service.MasterService;
 import com.scayle.adminapi.service.ProductImageService;
 import com.scayle.adminapi.service.ProductVariantService;
@@ -57,6 +58,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductService products() {
         ProductService service = this.getService("com.scayle.adminapi.service.ProductService");
+        return service;
+    }
+
+    public ProductsFirstLiveAtService productsFirstLiveAts() {
+        ProductsFirstLiveAtService service = this.getService("com.scayle.adminapi.service.ProductsFirstLiveAtService");
         return service;
     }
 
