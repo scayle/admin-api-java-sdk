@@ -23,6 +23,6 @@ public class PromotionEffectV1 extends AbstractModel  {
     * Additional data of the promotion effect, max_count_type and eligible_items_quantity are optional
     */
     @SerializedName("additionalData")
-    Object additionalData;
+    Map<String, Object> additionalData;
 
 }

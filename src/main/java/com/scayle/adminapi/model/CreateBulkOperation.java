@@ -35,12 +35,12 @@ public class CreateBulkOperation extends AbstractModel  {
     * Operation additional HTTP headers
     */
     @SerializedName("headers")
-    Object headers;
+    Map<String, Object> headers;
 
     /**
     * Operation request body
     */
     @SerializedName("body")
-    Object body;
+    Map<String, Object> body;
 
 }

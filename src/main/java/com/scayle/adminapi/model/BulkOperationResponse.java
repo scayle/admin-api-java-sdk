@@ -16,7 +16,7 @@ public class BulkOperationResponse extends AbstractModel  {
     * Operation response body. Can be null if operation doesn't return any response (e.g. 204 status code)
     */
     @SerializedName("body")
-    Object body;
+    Map<String, Object> body;
 
     /**
     * Operation response status code.

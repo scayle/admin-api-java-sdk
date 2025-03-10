@@ -16,6 +16,6 @@ public class PromotionTierEffectV1 extends AbstractModel  {
     * Additional data of the promotion tier effect
     */
     @SerializedName("additionalData")
-    Object additionalData;
+    Map<String, Object> additionalData;
 
 }

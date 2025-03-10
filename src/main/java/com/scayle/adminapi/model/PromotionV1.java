@@ -94,7 +94,7 @@ public class PromotionV1 extends AbstractModel  {
     * Additional data of the promotion. Can be legal text or some other info, that will be shown to customer
     */
     @SerializedName("additionalData")
-    Object additionalData;
+    Map<String, Object> additionalData;
 
     /**
     * The list of promotion tiers. Tiers must be sent in ascending order

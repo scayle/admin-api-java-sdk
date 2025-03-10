@@ -70,6 +70,6 @@ public class Merchant extends AbstractModel  {
     * A list of warehouses attached to the merchant.
     */
     @SerializedName("warehouses")
-    List<Object> warehouses;
+    List<MerchantWarehouse> warehouses;
 
 }

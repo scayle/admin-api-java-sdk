@@ -28,6 +28,6 @@ public class ProductsFirstLiveAt extends AbstractModel  {
     * 
     */
     @SerializedName("products")
-    List<Object> products;
+    List<ProductsFirstLiveAtProduct> products;
 
 }
