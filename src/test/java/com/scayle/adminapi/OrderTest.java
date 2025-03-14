@@ -156,4 +156,18 @@ public class OrderTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCreateOrUpdateLegacyCustomData() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/OrderCreateOrUpdateLegacyCustomDataRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.orders().createOrUpdateLegacyCustomData("acme", "acme", Identifier.fromId(1), requestEntity, options);
+
+    }
+
 }

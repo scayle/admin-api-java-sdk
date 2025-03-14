@@ -158,4 +158,18 @@ public class OrderService extends AbstractService {
         return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/invoices/%s", shopKey, countryCode, orderIdentifier, invoiceId), query, null, responseModel);
     }
 
+    
+    public void createOrUpdateLegacyCustomData(String shopKey, String countryCode, Identifier orderIdentifier, Map<String, Object> model) throws ApiErrorException, ConnectionException {
+
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/legacy-custom-data", shopKey, countryCode, orderIdentifier), null, null, null, model);
+    }
+
+    
+    public void createOrUpdateLegacyCustomData(String shopKey, String countryCode, Identifier orderIdentifier, Map<String, Object> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/legacy-custom-data", shopKey, countryCode, orderIdentifier), query, null, null, model);
+    }
+
 }
