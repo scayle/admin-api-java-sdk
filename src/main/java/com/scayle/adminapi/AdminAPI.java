@@ -50,6 +50,7 @@ import com.scayle.adminapi.service.EmailService;
 import com.scayle.adminapi.service.BulkRequestService;
 import com.scayle.adminapi.service.BulkRequestStatusService;
 import com.scayle.adminapi.service.BulkOperationStatusService;
+import com.scayle.adminapi.service.ProductSellableTimeframeService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -299,6 +300,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public BulkOperationStatusService bulkOperationStatuses() {
         BulkOperationStatusService service = this.getService("com.scayle.adminapi.service.BulkOperationStatusService");
+        return service;
+    }
+
+    public ProductSellableTimeframeService productSellableTimeframes() {
+        ProductSellableTimeframeService service = this.getService("com.scayle.adminapi.service.ProductSellableTimeframeService");
         return service;
     }
 

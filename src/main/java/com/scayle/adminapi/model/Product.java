@@ -80,6 +80,12 @@ public class Product extends AbstractModel  {
     Object customData;
 
     /**
+    * A list of product sellable timeframes.
+    */
+    @SerializedName("sellableTimeframes")
+    List<ProductSellableTimeframe> sellableTimeframes;
+
+    /**
     * Indicates whether the product is composite.
     */
     @SerializedName("isComposite")
