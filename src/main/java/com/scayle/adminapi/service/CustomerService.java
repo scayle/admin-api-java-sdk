@@ -81,6 +81,20 @@ public class CustomerService extends AbstractService {
     }
 
     
+    public void delete(String shopKey, String countryCode, Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s", shopKey, countryCode, customerIdentifier), null, null, null);
+    }
+
+    
+    public void delete(String shopKey, String countryCode, Identifier customerIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s", shopKey, countryCode, customerIdentifier), query, null, null);
+    }
+
+    
     public Customer updateReferenceKey(String shopKey, String countryCode, Integer customerId, CustomerReferenceKey model) throws ApiErrorException, ConnectionException {
         Class<Customer> responseModel = (Class<Customer>)(Class<?>)Customer.class;
 
@@ -124,6 +138,20 @@ public class CustomerService extends AbstractService {
         Map<String, Object> query = options.all();
 
         this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/anonymize", shopKey, countryCode, customerIdentifier), query, null, null);
+    }
+
+    
+    public void cancelQueuedDeletion(String shopKey, String countryCode, Identifier customerIdentifier) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/queued-deletion", shopKey, countryCode, customerIdentifier), null, null, null);
+    }
+
+    
+    public void cancelQueuedDeletion(String shopKey, String countryCode, Identifier customerIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/shops/%s/countries/%s/customers/%s/queued-deletion", shopKey, countryCode, customerIdentifier), query, null, null);
     }
 
     
