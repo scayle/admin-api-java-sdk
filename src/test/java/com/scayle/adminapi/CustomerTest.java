@@ -87,14 +87,6 @@ public class CustomerTest extends BaseApiTest {
     }
 
     @Test
-    public void testDelete() throws Exception {
-
-        ApiOptions options = ApiOptions.builder().build();
-        this.api.customers().delete("acme", "acme", Identifier.fromId(1), options);
-
-    }
-
-    @Test
     public void testUpdateReferenceKey() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/CustomerUpdateReferenceKeyRequest.json");
         CustomerReferenceKey requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CustomerReferenceKey.class);
@@ -139,14 +131,6 @@ public class CustomerTest extends BaseApiTest {
 
         ApiOptions options = ApiOptions.builder().build();
         this.api.customers().anonymize("acme", "acme", Identifier.fromId(1), options);
-
-    }
-
-    @Test
-    public void testCancelQueuedDeletion() throws Exception {
-
-        ApiOptions options = ApiOptions.builder().build();
-        this.api.customers().cancelQueuedDeletion("acme", "acme", Identifier.fromId(1), options);
 
     }
 
