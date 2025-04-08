@@ -107,6 +107,26 @@ public class ShopCountryTest extends BaseApiTest {
     }
 
     @Test
+    public void testPartiallyUpdateAssortment() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ShopCountryPartiallyUpdateAssortmentRequest.json");
+        PartialAssortment requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, PartialAssortment.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Assortment responseEntity = this.api.shopCountries().partiallyUpdateAssortment("acme", "acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ShopCountryPartiallyUpdateAssortmentResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testCreateOrUpdateCustomData() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/ShopCountryCreateOrUpdateCustomDataRequest.json");
         Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
