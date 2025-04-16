@@ -31,6 +31,20 @@ public class AttributeTranslationTest extends BaseApiTest {
     }
 
     @Test
+    public void testPartialUpdateOrCreate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/AttributeTranslationPartialUpdateOrCreateRequest.json");
+        Map<String, String> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.attributeTranslations().partialUpdateOrCreate("acme", requestEntity, options);
+
+    }
+
+    @Test
     public void testAll() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

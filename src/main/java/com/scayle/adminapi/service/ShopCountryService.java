@@ -97,6 +97,22 @@ public class ShopCountryService extends AbstractService {
     }
 
     
+    public Assortment partiallyUpdateAssortment(String shopKey, String countryCode, PartialAssortment model) throws ApiErrorException, ConnectionException {
+        Class<Assortment> responseModel = (Class<Assortment>)(Class<?>)Assortment.class;
+
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/assortment", shopKey, countryCode), null, null, responseModel, model);
+    }
+
+    
+    public Assortment partiallyUpdateAssortment(String shopKey, String countryCode, PartialAssortment model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Assortment> responseModel = (Class<Assortment>)(Class<?>)Assortment.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("patch", this.resolvePath("/shops/%s/countries/%s/assortment", shopKey, countryCode), query, null, responseModel, model);
+    }
+
+    
     public Map<String, Object> createOrUpdateCustomData(String shopKey, String countryCode, Map<String, Object> model) throws ApiErrorException, ConnectionException {
         Class<Map<String, Object>> responseModel = (Class<Map<String, Object>>)(Class<?>)Map.class;
 

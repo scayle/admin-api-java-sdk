@@ -31,6 +31,20 @@ public class AttributeTranslationService extends AbstractService {
     }
 
     
+    public void partialUpdateOrCreate(String attributeGroupName, Map<String, String> model) throws ApiErrorException, ConnectionException {
+
+        this.request("patch", this.resolvePath("/attributes/%s/translations", attributeGroupName), null, null, null, model);
+    }
+
+    
+    public void partialUpdateOrCreate(String attributeGroupName, Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("patch", this.resolvePath("/attributes/%s/translations", attributeGroupName), query, null, null, model);
+    }
+
+    
     public ApiCollection<Map<String, String>> all(String attributeGroupName) throws ApiErrorException, ConnectionException {
         Class<Map<String, String>> responseModel = (Class<Map<String, String>>)(Class<?>)Map.class;
 
