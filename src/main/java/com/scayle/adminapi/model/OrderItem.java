@@ -25,6 +25,12 @@ public class OrderItem extends AbstractModel  {
     Integer availableQuantity;
 
     /**
+    * 
+    */
+    @SerializedName("basketItemKey")
+    String basketItemKey;
+
+    /**
     * The three character [ISO-4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes) currency code that identifies the currency. The currency is defined on the configuration of the shop, and can be modified in the cloud panel.
     */
     @SerializedName("currency")
