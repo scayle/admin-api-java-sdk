@@ -9,8 +9,14 @@ public enum RoundingPrecision {
     @SerializedName("5.00")
     VALUE_5_00("5.00"),
 
+    @SerializedName("0.50")
+    VALUE_0_50("0.50"),
+
     @SerializedName("0.05")
     VALUE_0_05("0.05"),
+
+    @SerializedName("0.01")
+    VALUE_0_01("0.01"),
 
     @SerializedName("0.99")
     VALUE_0_99("0.99"),
