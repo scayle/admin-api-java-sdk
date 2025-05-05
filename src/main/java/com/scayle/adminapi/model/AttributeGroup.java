@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import com.scayle.adminapi.enums.AttributeGroupType;
+import com.scayle.adminapi.enums.NonSharedSimpleAttributeGroupValueType;
 import com.scayle.adminapi.enums.AttributeGroupLevel;
 
 @Getter
@@ -47,6 +48,18 @@ It's important to note that attributes of advanced types cannot be shared, so 'i
     */
     @SerializedName("isShared")
     Boolean isShared;
+
+    /**
+    * Value type. It can only be set for non-shared simple attribute groups and defaults to 'text' if not specified.
+    */
+    @SerializedName("simpleValueType")
+    NonSharedSimpleAttributeGroupValueType simpleValueType;
+
+    /**
+    * 
+    */
+    @SerializedName("simpleValueTypeConfig")
+    Object simpleValueTypeConfig;
 
     /**
     * Defines the attribute group level, specifying the type of entity it is applicable to.
