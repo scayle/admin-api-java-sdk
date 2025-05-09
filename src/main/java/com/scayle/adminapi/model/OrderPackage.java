@@ -48,4 +48,10 @@ public class OrderPackage extends AbstractModel  {
     @SerializedName("tracking")
     OrderPackageTracking tracking;
 
+    /**
+    * 
+    */
+    @SerializedName("returnIdentCode")
+    String returnIdentCode;
+
 }
