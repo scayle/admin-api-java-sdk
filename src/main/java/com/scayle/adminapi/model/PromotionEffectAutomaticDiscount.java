@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import com.scayle.adminapi.enums.PromotionEffectAutomationDiscountType;
+import com.scayle.adminapi.enums.PromotionEffectDiscountDistribution;
 
 @Getter
 @Setter
@@ -24,5 +25,13 @@ public class PromotionEffectAutomaticDiscount extends AbstractModel  {
     */
     @SerializedName("value")
     Double value;
+
+    /**
+    * - **none**: Applies the promotion reduction only to unit items specified in `promotionGroups.*.applicableUnitItemIds`. Items in `promotionGroups.*.eligibleUnitItemIds` receive a reduction of 0.
+- **pro_rata**: Distributes the promotion reduction proportionally among all `promotionGroups` and unit items within them.
+
+    */
+    @SerializedName("discountDistribution")
+    PromotionEffectDiscountDistribution discountDistribution;
 
 }

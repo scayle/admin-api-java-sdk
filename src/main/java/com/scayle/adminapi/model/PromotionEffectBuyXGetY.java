@@ -10,7 +10,7 @@ import lombok.Setter;
 
 import com.scayle.adminapi.enums.PromotionEffectMaxCountType;
 import com.scayle.adminapi.enums.PromotionEffectBuyXGetYDiscountType;
-import com.scayle.adminapi.enums.PromotionEffectBuyXGetYDiscountDistribution;
+import com.scayle.adminapi.enums.PromotionEffectDiscountDistribution;
 import com.scayle.adminapi.enums.PromotionEffectBuyXGetYApplicableItemSelectionType;
 
 @Getter
@@ -64,7 +64,7 @@ public class PromotionEffectBuyXGetY extends AbstractModel  {
 
     */
     @SerializedName("discountDistribution")
-    PromotionEffectBuyXGetYDiscountDistribution discountDistribution;
+    PromotionEffectDiscountDistribution discountDistribution;
 
     /**
     * Allows different `y` item selection strategies:  

@@ -2,7 +2,7 @@ package com.scayle.adminapi.enums;
 
 import com.google.gson.annotations.SerializedName;
 
-public enum PromotionEffectBuyXGetYDiscountDistribution {
+public enum PromotionEffectDiscountDistribution {
     @SerializedName("none")
     VALUE_NONE("none"),
 
@@ -12,7 +12,7 @@ public enum PromotionEffectBuyXGetYDiscountDistribution {
 
     private final String val;
 
-    PromotionEffectBuyXGetYDiscountDistribution(String val) {
+    PromotionEffectDiscountDistribution(String val) {
         this.val = val;
     }
 
