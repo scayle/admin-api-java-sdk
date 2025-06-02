@@ -21,6 +21,12 @@ public class OrderItemPrice extends AbstractModel  {
     /**
     * 
     */
+    @SerializedName("absoluteVoucherReducedPrice")
+    OrderItemAbsoluteVoucherReducedPrice absoluteVoucherReducedPrice;
+
+    /**
+    * 
+    */
     @SerializedName("reference")
     OrderItemPriceReference reference;
 
