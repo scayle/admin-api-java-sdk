@@ -66,46 +66,4 @@ public class Campaign extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
-    /**
-    * The localized headline. Recommended max length is up to 30 characters.
-    */
-    @SerializedName("headline")
-    Map<String, String> headline;
-
-    /**
-    * The localized sub line. Recommended max length is up to 75 characters.
-    */
-    @SerializedName("subline")
-    Map<String, String> subline;
-
-    /**
-    * The localized relative link.
-    */
-    @SerializedName("link")
-    Map<String, String> link;
-
-    /**
-    * The localized condition. Recommended max length is up to 250 characters.
-    */
-    @SerializedName("condition")
-    Map<String, String> condition;
-
-    /**
-    * Defines if the count down should be hidden or not. Displayed by default.
-    */
-    @SerializedName("hideCountdown")
-    Boolean hideCountdown;
-
-    /**
-    * The campaign information related to product, for example badge label.
-    */
-    @SerializedName("product")
-    CampaignProduct product;
-
-    /**
-    * The color of background and text in hex code with hash
-    */
-    @SerializedName("color")
-    CampaignColor color;
-
 }

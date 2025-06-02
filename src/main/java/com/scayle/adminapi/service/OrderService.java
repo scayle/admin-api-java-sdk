@@ -172,20 +172,4 @@ public class OrderService extends AbstractService {
         this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/legacy-custom-data", shopKey, countryCode, orderIdentifier), query, null, null, model);
     }
 
-    
-    public Order triggerManualCapture(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
-        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
-
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders/%s/payment/manual-capture", shopKey, countryCode, orderIdentifier), null, null, responseModel);
-    }
-
-    
-    public Order triggerManualCapture(String shopKey, String countryCode, Identifier orderIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
-        Class<Order> responseModel = (Class<Order>)(Class<?>)Order.class;
-
-        Map<String, Object> query = options.all();
-
-        return this.request("post", this.resolvePath("/shops/%s/countries/%s/orders/%s/payment/manual-capture", shopKey, countryCode, orderIdentifier), query, null, responseModel);
-    }
-
 }
