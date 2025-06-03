@@ -6,7 +6,7 @@ default:
   services:
     - docker:dind
   tags:
-    - babo-runner
+    - $GITLAB_CI_RUNNER_AMD
   before_script:
     - apt-get update
     - apt-get install -y openjdk-11-jdk
