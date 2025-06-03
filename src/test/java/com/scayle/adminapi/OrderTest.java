@@ -170,4 +170,18 @@ public class OrderTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testTriggerManualCapture() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Order responseEntity = this.api.orders().triggerManualCapture("acme", "acme", Identifier.fromId(1), options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/OrderTriggerManualCaptureResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }
