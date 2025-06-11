@@ -84,4 +84,10 @@ public class Shop extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
+    /**
+    * 
+    */
+    @SerializedName("smartSortingKey")
+    Object smartSortingKey;
+
 }

@@ -91,6 +91,12 @@ public class ShopCountry extends AbstractModel  {
     List<ShopCountryPriceRounding> priceRoundings;
 
     /**
+    * 
+    */
+    @SerializedName("smartSortingKey")
+    Object smartSortingKey;
+
+    /**
     * Arbitrary fields assigned to Shop countries
     */
     @SerializedName("customData")
