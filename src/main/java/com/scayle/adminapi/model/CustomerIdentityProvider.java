@@ -24,4 +24,10 @@ public class CustomerIdentityProvider extends AbstractModel  {
     @SerializedName("externalUserId")
     String externalUserId;
 
+    public void setExternalUserId(String value) {
+        if (value == null) {
+            this.setNull("externalUserId");
+        }
+        this.externalUserId = value;
+    }
 }

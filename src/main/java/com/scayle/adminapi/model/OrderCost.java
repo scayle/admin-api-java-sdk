@@ -66,4 +66,10 @@ public class OrderCost extends AbstractModel  {
     @SerializedName("itemGroups")
     Object itemGroups;
 
+    public void setItemGroups(Object value) {
+        if (value == null) {
+            this.setNull("itemGroups");
+        }
+        this.itemGroups = value;
+    }
 }

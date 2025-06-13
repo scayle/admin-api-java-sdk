@@ -18,4 +18,10 @@ public class PackageGroup extends AbstractModel  {
     @SerializedName("id")
     Integer id;
 
+    public void setId(Integer value) {
+        if (value == null) {
+            this.setNull("id");
+        }
+        this.id = value;
+    }
 }

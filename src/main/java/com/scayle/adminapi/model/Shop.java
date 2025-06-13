@@ -36,6 +36,12 @@ public class Shop extends AbstractModel  {
     @SerializedName("logoUrl")
     String logoUrl;
 
+    public void setLogoUrl(String value) {
+        if (value == null) {
+            this.setNull("logoUrl");
+        }
+        this.logoUrl = value;
+    }
     /**
     * A source specifying where to download the logo from.
     */
@@ -60,6 +66,12 @@ public class Shop extends AbstractModel  {
     @SerializedName("priceGroupKey")
     String priceGroupKey;
 
+    public void setPriceGroupKey(String value) {
+        if (value == null) {
+            this.setNull("priceGroupKey");
+        }
+        this.priceGroupKey = value;
+    }
     /**
     * Defines shop category tree id. Can be set only on creation.
     */
@@ -84,10 +96,22 @@ public class Shop extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
     /**
     * 
     */
     @SerializedName("smartSortingKey")
     Object smartSortingKey;
 
+    public void setSmartSortingKey(Object value) {
+        if (value == null) {
+            this.setNull("smartSortingKey");
+        }
+        this.smartSortingKey = value;
+    }
 }

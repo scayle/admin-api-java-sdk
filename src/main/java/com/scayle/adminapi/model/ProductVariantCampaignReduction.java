@@ -30,6 +30,12 @@ public class ProductVariantCampaignReduction extends AbstractModel  {
     @SerializedName("productVariantReferenceKey")
     String productVariantReferenceKey;
 
+    public void setProductVariantReferenceKey(String value) {
+        if (value == null) {
+            this.setNull("productVariantReferenceKey");
+        }
+        this.productVariantReferenceKey = value;
+    }
     /**
     * The reduction percentage applied to this specific variant.
     */

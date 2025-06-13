@@ -30,6 +30,12 @@ public class SubscriptionOrderPaymentType extends AbstractModel  {
     @SerializedName("primaryPaymentMerchantKey")
     String primaryPaymentMerchantKey;
 
+    public void setPrimaryPaymentMerchantKey(String value) {
+        if (value == null) {
+            this.setNull("primaryPaymentMerchantKey");
+        }
+        this.primaryPaymentMerchantKey = value;
+    }
     /**
     * 
     */
@@ -42,4 +48,10 @@ public class SubscriptionOrderPaymentType extends AbstractModel  {
     @SerializedName("type")
     String type;
 
+    public void setType(String value) {
+        if (value == null) {
+            this.setNull("type");
+        }
+        this.type = value;
+    }
 }

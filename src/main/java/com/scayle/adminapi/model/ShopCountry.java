@@ -66,12 +66,24 @@ public class ShopCountry extends AbstractModel  {
     @SerializedName("priceGroupKey")
     String priceGroupKey;
 
+    public void setPriceGroupKey(String value) {
+        if (value == null) {
+            this.setNull("priceGroupKey");
+        }
+        this.priceGroupKey = value;
+    }
     /**
     * The currency used in the shop country.
     */
     @SerializedName("currencyCode")
     String currencyCode;
 
+    public void setCurrencyCode(String value) {
+        if (value == null) {
+            this.setNull("currencyCode");
+        }
+        this.currencyCode = value;
+    }
     /**
     * Rules that defines what products can be sold within which Shop country
     */
@@ -96,10 +108,22 @@ public class ShopCountry extends AbstractModel  {
     @SerializedName("smartSortingKey")
     Object smartSortingKey;
 
+    public void setSmartSortingKey(Object value) {
+        if (value == null) {
+            this.setNull("smartSortingKey");
+        }
+        this.smartSortingKey = value;
+    }
     /**
     * Arbitrary fields assigned to Shop countries
     */
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
 }

@@ -148,6 +148,12 @@
             "countryCode": "AT",
             "sellableFrom": "2022-01-20T00:00:00+00:00",
             "sellableTo": "2022-02-20T00:00:00+00:00"
+        },
+        {
+            "shopKey": "ay",
+            "countryCode": "CH",
+            "sellableFrom": null,
+            "sellableTo": null
         }
     ]
 }

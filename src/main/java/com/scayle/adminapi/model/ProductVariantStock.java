@@ -48,4 +48,10 @@ public class ProductVariantStock extends AbstractModel  {
     @SerializedName("expectedAvailabilityAt")
     String expectedAvailabilityAt;
 
+    public void setExpectedAvailabilityAt(String value) {
+        if (value == null) {
+            this.setNull("expectedAvailabilityAt");
+        }
+        this.expectedAvailabilityAt = value;
+    }
 }

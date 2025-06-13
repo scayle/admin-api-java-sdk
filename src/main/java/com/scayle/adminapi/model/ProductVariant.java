@@ -60,6 +60,12 @@ public class ProductVariant extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
     /**
     * Indicates whether the variant is composite.
     */

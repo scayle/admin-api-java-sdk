@@ -127,6 +127,12 @@ public class Order extends AbstractModel  {
     @SerializedName("promotion")
     List<OrderPromotion> promotion;
 
+    public void setPromotion(List<OrderPromotion> value) {
+        if (value == null) {
+            this.setNull("promotion");
+        }
+        this.promotion = value;
+    }
     /**
     * Public reference set by the client to display to customers in account areas and transactional emails.
     */

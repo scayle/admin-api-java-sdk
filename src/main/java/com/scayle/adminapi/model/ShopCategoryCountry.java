@@ -48,6 +48,12 @@ public class ShopCategoryCountry extends AbstractModel  {
     @SerializedName("isExcludedFromSearch")
     Boolean isExcludedFromSearch;
 
+    public void setIsExcludedFromSearch(Boolean value) {
+        if (value == null) {
+            this.setNull("isExcludedFromSearch");
+        }
+        this.isExcludedFromSearch = value;
+    }
     /**
     * The properties assigned to the shop category.
     */
@@ -60,12 +66,24 @@ public class ShopCategoryCountry extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
     /**
     * 
     */
     @SerializedName("smartSortingKey")
     Object smartSortingKey;
 
+    public void setSmartSortingKey(Object value) {
+        if (value == null) {
+            this.setNull("smartSortingKey");
+        }
+        this.smartSortingKey = value;
+    }
     /**
     * A custom sorting key that will be applied to sort the products displayed in a shopCategoryCountry. 
 - When a customSortingKey is not provided for a newly created shopCategoryCountry, it will be inherited from its parent shopCategoryCountry.
@@ -77,4 +95,10 @@ public class ShopCategoryCountry extends AbstractModel  {
     @SerializedName("customSortingKey")
     String customSortingKey;
 
+    public void setCustomSortingKey(String value) {
+        if (value == null) {
+            this.setNull("customSortingKey");
+        }
+        this.customSortingKey = value;
+    }
 }

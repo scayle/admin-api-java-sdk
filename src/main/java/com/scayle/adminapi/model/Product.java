@@ -79,6 +79,12 @@ public class Product extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
     /**
     * A list of product sellable timeframes.
     */

@@ -73,6 +73,12 @@ public class Customer extends AbstractModel  {
     @SerializedName("title")
     String title;
 
+    public void setTitle(String value) {
+        if (value == null) {
+            this.setNull("title");
+        }
+        this.title = value;
+    }
     /**
     * Type of customer (like personal)
     */

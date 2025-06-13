@@ -30,18 +30,36 @@ public class ProductVariantPrice extends AbstractModel  {
     @SerializedName("oldPrice")
     Integer oldPrice;
 
+    public void setOldPrice(Integer value) {
+        if (value == null) {
+            this.setNull("oldPrice");
+        }
+        this.oldPrice = value;
+    }
     /**
     * Recommended retail price of the variant.
     */
     @SerializedName("recommendedRetailPrice")
     Integer recommendedRetailPrice;
 
+    public void setRecommendedRetailPrice(Integer value) {
+        if (value == null) {
+            this.setNull("recommendedRetailPrice");
+        }
+        this.recommendedRetailPrice = value;
+    }
     /**
     * Buying price of the variant.
     */
     @SerializedName("buyingPrice")
     Integer buyingPrice;
 
+    public void setBuyingPrice(Integer value) {
+        if (value == null) {
+            this.setNull("buyingPrice");
+        }
+        this.buyingPrice = value;
+    }
     /**
     * A valid tax rate.
     */
@@ -66,12 +84,24 @@ public class ProductVariantPrice extends AbstractModel  {
     @SerializedName("groupKey")
     String groupKey;
 
+    public void setGroupKey(String value) {
+        if (value == null) {
+            this.setNull("groupKey");
+        }
+        this.groupKey = value;
+    }
     /**
     * Key of the promotion the price is assigned to.
     */
     @SerializedName("promotionKey")
     String promotionKey;
 
+    public void setPromotionKey(String value) {
+        if (value == null) {
+            this.setNull("promotionKey");
+        }
+        this.promotionKey = value;
+    }
     /**
     * Describes the price for a specific unit.
     */
@@ -84,12 +114,24 @@ public class ProductVariantPrice extends AbstractModel  {
     @SerializedName("validFrom")
     java.time.Instant validFrom;
 
+    public void setValidFrom(java.time.Instant value) {
+        if (value == null) {
+            this.setNull("validFrom");
+        }
+        this.validFrom = value;
+    }
     /**
     * Controls when the price will be deactivated. If not present or null, the price is valid forever.
     */
     @SerializedName("validTo")
     java.time.Instant validTo;
 
+    public void setValidTo(java.time.Instant value) {
+        if (value == null) {
+            this.setNull("validTo");
+        }
+        this.validTo = value;
+    }
     /**
     * A merchant reference key the price belongs to.
     */

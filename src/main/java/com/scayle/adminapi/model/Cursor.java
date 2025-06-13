@@ -18,4 +18,10 @@ public class Cursor extends AbstractModel  {
     @SerializedName("next")
     String next;
 
+    public void setNext(String value) {
+        if (value == null) {
+            this.setNull("next");
+        }
+        this.next = value;
+    }
 }

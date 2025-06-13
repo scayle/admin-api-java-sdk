@@ -67,12 +67,24 @@ public class SubscriptionOrderAddressInstance extends AbstractModel  {
     @SerializedName("phone")
     String phone;
 
+    public void setPhone(String value) {
+        if (value == null) {
+            this.setNull("phone");
+        }
+        this.phone = value;
+    }
     /**
     * 
     */
     @SerializedName("state")
     String state;
 
+    public void setState(String value) {
+        if (value == null) {
+            this.setNull("state");
+        }
+        this.state = value;
+    }
     /**
     * 
     */
@@ -85,12 +97,24 @@ public class SubscriptionOrderAddressInstance extends AbstractModel  {
     @SerializedName("title")
     String title;
 
+    public void setTitle(String value) {
+        if (value == null) {
+            this.setNull("title");
+        }
+        this.title = value;
+    }
     /**
     * 
     */
     @SerializedName("zipCode")
     String zipCode;
 
+    public void setZipCode(String value) {
+        if (value == null) {
+            this.setNull("zipCode");
+        }
+        this.zipCode = value;
+    }
     /**
     * 
     */

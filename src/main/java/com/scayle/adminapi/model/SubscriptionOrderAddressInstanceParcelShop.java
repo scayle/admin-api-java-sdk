@@ -24,12 +24,24 @@ public class SubscriptionOrderAddressInstanceParcelShop extends AbstractModel  {
     @SerializedName("customerId")
     String customerId;
 
+    public void setCustomerId(String value) {
+        if (value == null) {
+            this.setNull("customerId");
+        }
+        this.customerId = value;
+    }
     /**
     * 
     */
     @SerializedName("delegationId")
     String delegationId;
 
+    public void setDelegationId(String value) {
+        if (value == null) {
+            this.setNull("delegationId");
+        }
+        this.delegationId = value;
+    }
     /**
     * 
     */

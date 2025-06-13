@@ -18,4 +18,10 @@ public class CampaignProduct extends AbstractModel  {
     @SerializedName("badgeLabel")
     Map<String, String> badgeLabel;
 
+    public void setBadgeLabel(Map<String, String> value) {
+        if (value == null) {
+            this.setNull("badgeLabel");
+        }
+        this.badgeLabel = value;
+    }
 }

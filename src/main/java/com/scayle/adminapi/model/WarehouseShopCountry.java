@@ -30,10 +30,22 @@ public class WarehouseShopCountry extends AbstractModel  {
     @SerializedName("priority")
     Integer priority;
 
+    public void setPriority(Integer value) {
+        if (value == null) {
+            this.setNull("priority");
+        }
+        this.priority = value;
+    }
     /**
     * The assigned package group of the warehouse.
     */
     @SerializedName("packageGroup")
     PackageGroup packageGroup;
 
+    public void setPackageGroup(PackageGroup value) {
+        if (value == null) {
+            this.setNull("packageGroup");
+        }
+        this.packageGroup = value;
+    }
 }

@@ -18,10 +18,22 @@ public class CampaignColor extends AbstractModel  {
     @SerializedName("background")
     String background;
 
+    public void setBackground(String value) {
+        if (value == null) {
+            this.setNull("background");
+        }
+        this.background = value;
+    }
     /**
     * Text color in hex code with hash
     */
     @SerializedName("text")
     String text;
 
+    public void setText(String value) {
+        if (value == null) {
+            this.setNull("text");
+        }
+        this.text = value;
+    }
 }

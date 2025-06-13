@@ -18,10 +18,22 @@ public class BulkOperationResponse extends AbstractModel  {
     @SerializedName("body")
     Map<String, Object> body;
 
+    public void setBody(Map<String, Object> value) {
+        if (value == null) {
+            this.setNull("body");
+        }
+        this.body = value;
+    }
     /**
     * Operation response status code.
     */
     @SerializedName("statusCode")
     Integer statusCode;
 
+    public void setStatusCode(Integer value) {
+        if (value == null) {
+            this.setNull("statusCode");
+        }
+        this.statusCode = value;
+    }
 }

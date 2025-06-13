@@ -75,6 +75,12 @@ Mandatory for the advanced type.
     @SerializedName("structure")
     Map<String, Object> structure;
 
+    public void setStructure(Map<String, Object> value) {
+        if (value == null) {
+            this.setNull("structure");
+        }
+        this.structure = value;
+    }
     /**
     * A list of shop countries the attribute group is valid for.
 The attribute group is valid for all shop countries if the field is omitted.
@@ -83,6 +89,12 @@ The attribute group is valid for all shop countries if the field is omitted.
     @SerializedName("shopCountries")
     List<AttributeGroupShopCountry> shopCountries;
 
+    public void setShopCountries(List<AttributeGroupShopCountry> value) {
+        if (value == null) {
+            this.setNull("shopCountries");
+        }
+        this.shopCountries = value;
+    }
     /**
     * Defines if shop-specific attribute values are allowed for the given attribute group.
 
@@ -105,4 +117,10 @@ This configuration is not applicable to the advanced type, neither to attribute 
     @SerializedName("group")
     String group;
 
+    public void setGroup(String value) {
+        if (value == null) {
+            this.setNull("group");
+        }
+        this.group = value;
+    }
 }

@@ -25,6 +25,12 @@ public class ProductState extends AbstractModel  {
     @SerializedName("merchantReferenceKeys")
     List<String> merchantReferenceKeys;
 
+    public void setMerchantReferenceKeys(List<String> value) {
+        if (value == null) {
+            this.setNull("merchantReferenceKeys");
+        }
+        this.merchantReferenceKeys = value;
+    }
     /**
     * A list of merchant keys to which the merchant product belongs to and the state of the merchant product.
     */

@@ -54,6 +54,12 @@ public class SubscriptionOrderPaymentTypeConfirmationData extends AbstractModel 
     @SerializedName("creditCardBrand")
     String creditCardBrand;
 
+    public void setCreditCardBrand(String value) {
+        if (value == null) {
+            this.setNull("creditCardBrand");
+        }
+        this.creditCardBrand = value;
+    }
     /**
     * 
     */
@@ -114,12 +120,24 @@ public class SubscriptionOrderPaymentTypeConfirmationData extends AbstractModel 
     @SerializedName("paymentMeans")
     Map<String, Object> paymentMeans;
 
+    public void setPaymentMeans(Map<String, Object> value) {
+        if (value == null) {
+            this.setNull("paymentMeans");
+        }
+        this.paymentMeans = value;
+    }
     /**
     * 
     */
     @SerializedName("paymentPurpose")
     String paymentPurpose;
 
+    public void setPaymentPurpose(String value) {
+        if (value == null) {
+            this.setNull("paymentPurpose");
+        }
+        this.paymentPurpose = value;
+    }
     /**
     * 
     */
@@ -132,6 +150,12 @@ public class SubscriptionOrderPaymentTypeConfirmationData extends AbstractModel 
     @SerializedName("profileId")
     String profileId;
 
+    public void setProfileId(String value) {
+        if (value == null) {
+            this.setNull("profileId");
+        }
+        this.profileId = value;
+    }
     /**
     * 
     */

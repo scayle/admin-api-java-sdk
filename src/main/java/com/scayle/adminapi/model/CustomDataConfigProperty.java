@@ -37,6 +37,12 @@ public class CustomDataConfigProperty extends AbstractModel  {
     @SerializedName("defaultValue")
     Object defaultValue;
 
+    public void setDefaultValue(Object value) {
+        if (value == null) {
+            this.setNull("defaultValue");
+        }
+        this.defaultValue = value;
+    }
     /**
     * A collection of rules that applies to the corresponding property in the entity custom data.
     */

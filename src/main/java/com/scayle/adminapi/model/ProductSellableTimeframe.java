@@ -36,10 +36,22 @@ public class ProductSellableTimeframe extends AbstractModel  {
     @SerializedName("sellableFrom")
     java.time.Instant sellableFrom;
 
+    public void setSellableFrom(java.time.Instant value) {
+        if (value == null) {
+            this.setNull("sellableFrom");
+        }
+        this.sellableFrom = value;
+    }
     /**
     * The date and time until which the product is sellable
     */
     @SerializedName("sellableTo")
     java.time.Instant sellableTo;
 
+    public void setSellableTo(java.time.Instant value) {
+        if (value == null) {
+            this.setNull("sellableTo");
+        }
+        this.sellableTo = value;
+    }
 }

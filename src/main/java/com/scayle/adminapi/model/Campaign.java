@@ -30,6 +30,12 @@ public class Campaign extends AbstractModel  {
     @SerializedName("description")
     String description;
 
+    public void setDescription(String value) {
+        if (value == null) {
+            this.setNull("description");
+        }
+        this.description = value;
+    }
     /**
     * List of country codes the campaign is valid for.
     */
@@ -66,30 +72,60 @@ public class Campaign extends AbstractModel  {
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
     /**
     * The localized headline. Recommended max length is up to 30 characters.
     */
     @SerializedName("headline")
     Map<String, String> headline;
 
+    public void setHeadline(Map<String, String> value) {
+        if (value == null) {
+            this.setNull("headline");
+        }
+        this.headline = value;
+    }
     /**
     * The localized sub line. Recommended max length is up to 75 characters.
     */
     @SerializedName("subline")
     Map<String, String> subline;
 
+    public void setSubline(Map<String, String> value) {
+        if (value == null) {
+            this.setNull("subline");
+        }
+        this.subline = value;
+    }
     /**
     * The localized relative link.
     */
     @SerializedName("link")
     Map<String, String> link;
 
+    public void setLink(Map<String, String> value) {
+        if (value == null) {
+            this.setNull("link");
+        }
+        this.link = value;
+    }
     /**
     * The localized condition. Recommended max length is up to 250 characters.
     */
     @SerializedName("condition")
     Map<String, String> condition;
 
+    public void setCondition(Map<String, String> value) {
+        if (value == null) {
+            this.setNull("condition");
+        }
+        this.condition = value;
+    }
     /**
     * Defines if the count down should be hidden or not. Displayed by default.
     */

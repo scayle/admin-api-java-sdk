@@ -18,10 +18,22 @@ public class Invoice extends AbstractModel  {
     @SerializedName("number")
     Integer number;
 
+    public void setNumber(Integer value) {
+        if (value == null) {
+            this.setNull("number");
+        }
+        this.number = value;
+    }
     /**
     * Invoice identifier number that customer views on Order page
     */
     @SerializedName("fullNumber")
     String fullNumber;
 
+    public void setFullNumber(String value) {
+        if (value == null) {
+            this.setNull("fullNumber");
+        }
+        this.fullNumber = value;
+    }
 }

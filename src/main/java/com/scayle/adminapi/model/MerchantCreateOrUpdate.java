@@ -42,10 +42,22 @@ public class MerchantCreateOrUpdate extends AbstractModel  {
     @SerializedName("orderDelegationUrl")
     String orderDelegationUrl;
 
+    public void setOrderDelegationUrl(String value) {
+        if (value == null) {
+            this.setNull("orderDelegationUrl");
+        }
+        this.orderDelegationUrl = value;
+    }
     /**
     * URL to send order cancellation requests.
     */
     @SerializedName("cancellationUrl")
     String cancellationUrl;
 
+    public void setCancellationUrl(String value) {
+        if (value == null) {
+            this.setNull("cancellationUrl");
+        }
+        this.cancellationUrl = value;
+    }
 }

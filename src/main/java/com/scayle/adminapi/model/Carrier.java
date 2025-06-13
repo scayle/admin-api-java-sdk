@@ -36,4 +36,10 @@ public class Carrier extends AbstractModel  {
     @SerializedName("trackingUrl")
     String trackingUrl;
 
+    public void setTrackingUrl(String value) {
+        if (value == null) {
+            this.setNull("trackingUrl");
+        }
+        this.trackingUrl = value;
+    }
 }

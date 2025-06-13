@@ -30,6 +30,12 @@ public class OrderPackage extends AbstractModel  {
     @SerializedName("carrierKey")
     String carrierKey;
 
+    public void setCarrierKey(String value) {
+        if (value == null) {
+            this.setNull("carrierKey");
+        }
+        this.carrierKey = value;
+    }
     /**
     * 
     */
@@ -54,4 +60,10 @@ public class OrderPackage extends AbstractModel  {
     @SerializedName("returnIdentCode")
     String returnIdentCode;
 
+    public void setReturnIdentCode(String value) {
+        if (value == null) {
+            this.setNull("returnIdentCode");
+        }
+        this.returnIdentCode = value;
+    }
 }

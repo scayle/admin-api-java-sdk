@@ -19,12 +19,24 @@ public class BulkRequestCallbacks extends AbstractModel  {
     @SerializedName("requestUrl")
     String requestUrl;
 
+    public void setRequestUrl(String value) {
+        if (value == null) {
+            this.setNull("requestUrl");
+        }
+        this.requestUrl = value;
+    }
     /**
     * Callback url, which will be triggered when operation status is changed
     */
     @SerializedName("operationUrl")
     String operationUrl;
 
+    public void setOperationUrl(String value) {
+        if (value == null) {
+            this.setNull("operationUrl");
+        }
+        this.operationUrl = value;
+    }
     /**
     * Status of the bulk request creation
     */
@@ -37,4 +49,10 @@ public class BulkRequestCallbacks extends AbstractModel  {
     @SerializedName("bulkRequestKey")
     Integer bulkRequestKey;
 
+    public void setBulkRequestKey(Integer value) {
+        if (value == null) {
+            this.setNull("bulkRequestKey");
+        }
+        this.bulkRequestKey = value;
+    }
 }

@@ -24,6 +24,12 @@ public class MasterCategory extends AbstractModel  {
     @SerializedName("parentId")
     Integer parentId;
 
+    public void setParentId(Integer value) {
+        if (value == null) {
+            this.setNull("parentId");
+        }
+        this.parentId = value;
+    }
     /**
     * The complete category path.
     */

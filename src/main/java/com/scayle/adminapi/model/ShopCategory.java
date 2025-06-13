@@ -24,12 +24,24 @@ public class ShopCategory extends AbstractModel  {
     @SerializedName("parentId")
     Integer parentId;
 
+    public void setParentId(Integer value) {
+        if (value == null) {
+            this.setNull("parentId");
+        }
+        this.parentId = value;
+    }
     /**
     * The ID of the left sibling shop category. It defines the shop category position in the category tree.
     */
     @SerializedName("leftSiblingId")
     Integer leftSiblingId;
 
+    public void setLeftSiblingId(Integer value) {
+        if (value == null) {
+            this.setNull("leftSiblingId");
+        }
+        this.leftSiblingId = value;
+    }
     /**
     * The localized category name.
     */
@@ -72,12 +84,24 @@ public class ShopCategory extends AbstractModel  {
     @SerializedName("isExcludedFromSearch")
     Boolean isExcludedFromSearch;
 
+    public void setIsExcludedFromSearch(Boolean value) {
+        if (value == null) {
+            this.setNull("isExcludedFromSearch");
+        }
+        this.isExcludedFromSearch = value;
+    }
     /**
     * Arbitrary fields assigned to shop categories
     */
     @SerializedName("customData")
     Object customData;
 
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
     /**
     * List of country specific configurations.
     */

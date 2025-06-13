@@ -108,6 +108,12 @@ public class OrderItem extends AbstractModel  {
     @SerializedName("warehouseId")
     Integer warehouseId;
 
+    public void setWarehouseId(Integer value) {
+        if (value == null) {
+            this.setNull("warehouseId");
+        }
+        this.warehouseId = value;
+    }
     /**
     * 
     */
