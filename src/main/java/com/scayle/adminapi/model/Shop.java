@@ -102,4 +102,16 @@ public class Shop extends AbstractModel  {
         }
         this.customData = value;
     }
+    /**
+    * 
+    */
+    @SerializedName("smartSortingKey")
+    Object smartSortingKey;
+
+    public void setSmartSortingKey(Object value) {
+        if (value == null) {
+            this.setNull("smartSortingKey");
+        }
+        this.smartSortingKey = value;
+    }
 }

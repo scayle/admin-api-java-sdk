@@ -103,6 +103,18 @@ public class ShopCountry extends AbstractModel  {
     List<ShopCountryPriceRounding> priceRoundings;
 
     /**
+    * 
+    */
+    @SerializedName("smartSortingKey")
+    Object smartSortingKey;
+
+    public void setSmartSortingKey(Object value) {
+        if (value == null) {
+            this.setNull("smartSortingKey");
+        }
+        this.smartSortingKey = value;
+    }
+    /**
     * Arbitrary fields assigned to Shop countries
     */
     @SerializedName("customData")

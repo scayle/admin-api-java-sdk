@@ -72,4 +72,33 @@ public class ShopCategoryCountry extends AbstractModel  {
         }
         this.customData = value;
     }
+    /**
+    * 
+    */
+    @SerializedName("smartSortingKey")
+    Object smartSortingKey;
+
+    public void setSmartSortingKey(Object value) {
+        if (value == null) {
+            this.setNull("smartSortingKey");
+        }
+        this.smartSortingKey = value;
+    }
+    /**
+    * A custom sorting key that will be applied to sort the products displayed in a shopCategoryCountry. 
+- When a customSortingKey is not provided for a newly created shopCategoryCountry, it will be inherited from its parent shopCategoryCountry.
+- When the customSortingKey is updated for an existing shopCategoryCountry, the update will be propagated to all of its child shopCategoryCountry entries.
+- When the customSortingKey is set to null or not provided, it will be removed from all of its child and ancestor shopCategoryCountry entries.
+- When the parent of a shopCategoryCountry is updated, the customSortingKey will be propagated from the new parent to the updated shopCategoryCountry and its child shopCategoryCountries.
+
+    */
+    @SerializedName("customSortingKey")
+    String customSortingKey;
+
+    public void setCustomSortingKey(String value) {
+        if (value == null) {
+            this.setNull("customSortingKey");
+        }
+        this.customSortingKey = value;
+    }
 }
