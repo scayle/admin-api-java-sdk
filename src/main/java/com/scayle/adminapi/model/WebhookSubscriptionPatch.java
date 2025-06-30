@@ -11,25 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WebhookSubscription extends AbstractModel  {
-    /**
-    * The unique webhook identifier.
-    */
-    @SerializedName("id")
-    Integer id;
-
-    /**
-    * Name of the hook event.
-    */
-    @SerializedName("event")
-    String event;
-
-    /**
-    * The version of the hook.
-    */
-    @SerializedName("version")
-    Integer version;
-
+public class WebhookSubscriptionPatch extends AbstractModel  {
     /**
     * The URL that will be called whenever the hook is triggered. Sensitive data will be obfuscated in responses.
     */
@@ -40,6 +22,6 @@ public class WebhookSubscription extends AbstractModel  {
     * 
     */
     @SerializedName("filters")
-    List<WebhookSubscriptionFilter> filters;
+    List<PartialWebhookSubscriptionFilter> filters;
 
 }

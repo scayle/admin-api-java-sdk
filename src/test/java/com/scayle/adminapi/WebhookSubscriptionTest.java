@@ -37,6 +37,26 @@ public class WebhookSubscriptionTest extends BaseApiTest {
     }
 
     @Test
+    public void testUpdate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/WebhookSubscriptionUpdateRequest.json");
+        WebhookSubscriptionPatch requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, WebhookSubscriptionPatch.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookSubscription responseEntity = this.api.webhookSubscriptions().update(1, requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/WebhookSubscriptionUpdateResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testGet() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

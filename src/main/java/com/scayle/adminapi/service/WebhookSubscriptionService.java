@@ -33,6 +33,22 @@ public class WebhookSubscriptionService extends AbstractService {
     }
 
     
+    public WebhookSubscription update(Integer subscriptionId, WebhookSubscriptionPatch model) throws ApiErrorException, ConnectionException {
+        Class<WebhookSubscription> responseModel = (Class<WebhookSubscription>)(Class<?>)WebhookSubscription.class;
+
+        return this.request("patch", this.resolvePath("/webhooks/subscriptions/%s", subscriptionId), null, null, responseModel, model);
+    }
+
+    
+    public WebhookSubscription update(Integer subscriptionId, WebhookSubscriptionPatch model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<WebhookSubscription> responseModel = (Class<WebhookSubscription>)(Class<?>)WebhookSubscription.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("patch", this.resolvePath("/webhooks/subscriptions/%s", subscriptionId), query, null, responseModel, model);
+    }
+
+    
     public WebhookSubscription get(Integer subscriptionId) throws ApiErrorException, ConnectionException {
         Class<WebhookSubscription> responseModel = (Class<WebhookSubscription>)(Class<?>)WebhookSubscription.class;
 
