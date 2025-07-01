@@ -73,11 +73,23 @@ public class OrderItem extends AbstractModel  {
     OrderItemProduct product;
 
     /**
-    * 
+    * Order item promotion; will be soon deprecated.
     */
     @SerializedName("promotion")
     OrderItemPromotion promotion;
 
+    /**
+    * Order item promotions
+    */
+    @SerializedName("promotions")
+    List<OrderItemPromotion> promotions;
+
+    public void setPromotions(List<OrderItemPromotion> value) {
+        if (value == null) {
+            this.setNull("promotions");
+        }
+        this.promotions = value;
+    }
     /**
     * 
     */

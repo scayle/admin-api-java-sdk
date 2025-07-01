@@ -13,6 +13,12 @@ import lombok.Setter;
 @Setter
 public class OrderReduction extends AbstractModel  {
     /**
+    * Reduction identifier
+    */
+    @SerializedName("id")
+    String id;
+
+    /**
     * 
     */
     @SerializedName("amount")
