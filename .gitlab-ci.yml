@@ -9,9 +9,6 @@ default:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
     - apt-get update && apt-get install -y --no-install-recommends gnupg # Install gnupg for GPG signing
-    - echo "--- Contents of build.gradle being used by CI ---"
-    - cat build.gradle
-    - echo "--- End of build.gradle content ---"
     - sh ./gradlew clean --stacktrace --info
 
 .deploy_template: &deploy_template
