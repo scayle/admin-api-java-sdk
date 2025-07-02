@@ -23,7 +23,7 @@ default:
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - sh ./gradlew publish -Penvironment="${ORG_GRADLE_PROJECT_environment}"
+    - sh ./gradlew publish -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
   only:
     - tags
   when: manual
