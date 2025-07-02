@@ -2,17 +2,16 @@ stages:
   - deploy
 
 default:
-  image: node:buster
+  image: openjdk:11-jdk-buster # Changed: Using an image with OpenJDK 11 pre-installed (Debian Buster based)
   services:
     - docker:dind
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - apt-get update
-    - apt-get install -y openjdk-11-jdk
+    - apt-get update && apt-get install -y --no-install-recommends gnupg # Install gnupg for GPG signing
     - sh ./gradlew clean
 
-.deploy: &depoloy
+.deploy_template: &deploy_template
   stage: deploy
   script:
     # we expect tags to be in the format v1.2.3
@@ -24,17 +23,17 @@ default:
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - sh ./gradlew uploadArchives
+    - sh ./gradlew publish -Penvironment="${ORG_GRADLE_PROJECT_environment}"
   only:
     - tags
   when: manual
 
 deploy:snapshot:
-  <<: *depoloy
+  <<: *deploy_template
   variables:
     ORG_GRADLE_PROJECT_environment: snapshot
 
 deploy:release:
-  <<: *depoloy
+  <<: *deploy_template
   variables:
     ORG_GRADLE_PROJECT_environment: release
