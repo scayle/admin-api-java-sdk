@@ -80,21 +80,6 @@ artifacts {
     // archives fatJar
 }
 
-// ********** NEW SIGNING CONFIGURATION **********
-signing {
-    // GPG key details.
-    def signingKeyId = findProperty("signingKeyId")
-    def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
-
-    // Use in-memory keys for security, reading from properties/env vars
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-
-    // Sign the specific publication defined above.
-    // This replaces 'sign configurations.archives' and automatically signs the POM.
-    sign publishing.publications.mavenJava
-}
-
 // ********** NEW PUBLISHING CONFIGURATION **********
 publishing {
     publications {
@@ -157,4 +142,19 @@ publishing {
             }
         }
     }
+}
+
+// ********** NEW SIGNING CONFIGURATION **********
+signing {
+    // GPG key details.
+    def signingKeyId = findProperty("signingKeyId")
+    def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPassword")
+
+    // Use in-memory keys for security, reading from properties/env vars
+    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+
+    // Sign the specific publication defined above.
+    // This replaces 'sign configurations.archives' and automatically signs the POM.
+    sign publishing.publications.mavenJava
 }
