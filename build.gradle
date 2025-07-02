@@ -99,7 +99,7 @@ signing {
 publishing {
     publications {
         // Define your Maven publication. 'mavenJava' is a common name.
-        create<MavenPublication>("mavenJava") { // This creates a publication named "mavenJava" of type MavenPublication
+        create("mavenJava", MavenPublication) { // This creates a publication named "mavenJava" of type MavenPublication
             // This line tells Gradle to include the main JAR, sources JAR,
             // javadoc JAR, and the generated POM for this publication.
             from components.java
