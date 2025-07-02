@@ -9,7 +9,7 @@ default:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
     - apt-get update && apt-get install -y --no-install-recommends gnupg # Install gnupg for GPG signing
-    - sh ./gradlew clean
+    - sh ./gradlew clean --stacktrace --info
 
 .deploy_template: &deploy_template
   stage: deploy
