@@ -8,14 +8,6 @@ repositories {
     mavenCentral()
 }
 
-def getNexusUsername() {
-    return hasProperty("nexusUsername") ? findProperty("nexusUsername") : ""
-}
-
-def getNexusPassword() {
-    return hasProperty("nexusPassword") ? findProperty("nexusPassword") : ""
-}
-
 def isRelease() {
     findProperty("environment") == "release"
 }
