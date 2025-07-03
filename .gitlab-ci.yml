@@ -30,6 +30,12 @@ default:
 
     - echo "Attempting to upload ZIP bundle from: ${BUNDLE_ZIP_PATH}"
     - ls -lh "${BUNDLE_ZIP_PATH}"
+
+    - curl -s -w "\nHTTP_STATUS:%{http_code}\n" -X POST \
+      -H "Authorization: Bearer ${SONATYPE_API_TOKEN}" \
+      -H "Content-Type: application/zip" \
+      --data-binary "@${BUNDLE_ZIP_PATH}" \
+      https://central.sonatype.com/api/v1/publisher/upload
   only:
     - tags
   when: manual
