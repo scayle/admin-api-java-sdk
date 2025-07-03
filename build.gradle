@@ -1,12 +1,10 @@
 plugins {
     id 'java-library'
-    // id 'maven' // REMOVED: This plugin is deprecated and replaced by 'maven-publish'
     id 'signing'
     id 'maven-publish'
 }
 
 repositories {
-    jcenter() // Note: JCenter is deprecated, consider replacing with mavenCentral() or other public repositories
     mavenCentral()
 }
 
@@ -32,7 +30,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    // Using 'implementation' for compile-time and runtime dependencies
     implementation 'com.google.guava:guava:32.0.1-jre'
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'com.squareup.okhttp3:okhttp:4.10.0' // Moved from 'compile'
@@ -41,24 +38,27 @@ dependencies {
     testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.36.1'
     testImplementation 'com.squareup.moshi:moshi:1.14.0'
 
-    // Lombok configuration
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-// Task to create the Javadoc JAR (required by Maven Central)
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
+// Ensure the Java plugin correctly prepares sources and javadoc artifacts
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
-// Task to create the Sources JAR (required by Maven Central)
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
+// task javadocJar(type: Jar) {
+//     classifier = 'javadoc'
+//     from javadoc
+// }
+//
+// task sourcesJar(type: Jar) {
+//     classifier = 'sources'
+//     from sourceSets.main.allSource
+// }
 
 // custom fatJar task
 task fatJar(type: Jar) {
@@ -69,16 +69,10 @@ task fatJar(type: Jar) {
     }
     with jar
 }
-
-// Artifacts block is often not strictly needed with maven-publish if you use components.java
-// However, if you explicitly want to attach these to the 'archives' configuration, it's fine.
-// The maven-publish plugin's 'from components.java' will pick up sources and javadoc jars
-// if they are properly configured as Java components.
-artifacts {
-    archives javadocJar, sourcesJar
-    // If you want to publish the fatJar as an additional artifact:
-    // archives fatJar
-}
+//
+// artifacts {
+//     archives javadocJar, sourcesJar
+// }
 
 // ********** NEW PUBLISHING CONFIGURATION **********
 publishing {
@@ -123,25 +117,25 @@ publishing {
         }
     }
 
-    repositories {
-        maven {
-            // This name is internal to your Gradle build script.
-            // It's used when you run tasks like 'publishMavenJavaPublicationToSonatypeCentralRepository'.
-            name = "sonatypeCentral"
-
-            // The URL for the new Sonatype Central Portal Staging API.
-            // The 'maven-publish' plugin intelligently handles release vs. snapshot
-            // based on your project.version.
-            url = uri("https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/")
-
-            // Authentication using your helper methods.
-            // These should provide your Sonatype Central Portal API Tokens.
-            credentials {
-                username = getNexusUsername()
-                password = getNexusPassword()
-            }
-        }
-    }
+//     repositories {
+//         maven {
+//             // This name is internal to your Gradle build script.
+//             // It's used when you run tasks like 'publishMavenJavaPublicationToSonatypeCentralRepository'.
+//             name = "sonatypeCentral"
+//
+//             // The URL for the new Sonatype Central Portal Staging API.
+//             // The 'maven-publish' plugin intelligently handles release vs. snapshot
+//             // based on your project.version.
+//             url = uri("https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/")
+//
+//             // Authentication using your helper methods.
+//             // These should provide your Sonatype Central Portal API Tokens.
+//             credentials {
+//                 username = getNexusUsername()
+//                 password = getNexusPassword()
+//             }
+//         }
+//     }
 }
 
 // ********** NEW SIGNING CONFIGURATION **********
@@ -157,4 +151,23 @@ signing {
     // Sign the specific publication defined above.
     // This replaces 'sign configurations.archives' and automatically signs the POM.
     sign publishing.publications.mavenJava
+}
+
+// ********** NEW TASK: ZIP Publication Bundle for Publisher API **********
+tasks.register('zipPublicationBundle', Zip) {
+    dependsOn tasks.named('jar')
+    dependsOn tasks.named('sourcesJar')
+    dependsOn tasks.named('javadocJar')
+    dependsOn tasks.named('signMavenJavaPublication')
+
+    archiveFileName = "${project.group.replace('.', '/')}/${project.name}/${project.version}/${project.name}-${project.version}-bundle.zip"
+    // The Publisher API expects the actual Maven repository structure *inside* the ZIP
+    // So we need to put the contents of the publication directory directly into the ZIP's root.
+    from(layout.buildDirectory.dir("publications/${publishing.publications.mavenJava.name}")) {
+        // Make sure files are at the root of the zip, not nested under "mavenJava"
+        eachFile { file ->
+            file.path = file.name
+        }
+    }
+    destinationDirectory = layout.buildDirectory.dir("publisher-bundles") // Output to build/publisher-bundles
 }
