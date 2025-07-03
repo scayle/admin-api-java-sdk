@@ -28,8 +28,7 @@ default:
 
     - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${GROUP_PATH}/${ARTIFACT_NAME}/${ORG_GRADLE_PROJECT_version}/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
 
-    - |
-      curl -s -w \"\nHTTP_STATUS:%{http_code}\n\" -X POST \
+    - "curl -s -w \"\nHTTP_STATUS:%{http_code}\n\" -X POST \
             -H \"Authorization: Bearer ${SONATYPE_API_TOKEN}\" \
             -H \"Content-Type: application/zip\" \
             --data-binary \"@${BUNDLE_ZIP_PATH}\" \
