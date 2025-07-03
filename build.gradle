@@ -158,16 +158,21 @@ tasks.register('zipPublicationBundle', Zip) {
     dependsOn tasks.named('jar')
     dependsOn tasks.named('sourcesJar')
     dependsOn tasks.named('javadocJar')
+    // This dependency ensures the artifacts are signed and available in the publication directory
     dependsOn tasks.named('signMavenJavaPublication')
 
-    archiveFileName = "${project.group.replace('.', '/')}/${project.name}/${project.version}/${project.name}-${project.version}-bundle.zip"
-    // The Publisher API expects the actual Maven repository structure *inside* the ZIP
-    // So we need to put the contents of the publication directory directly into the ZIP's root.
+    // The name of the resulting ZIP file. The previous 'archiveFileName' created folders *for the zip itself*
+    // but the Publisher API usually expects the structure *inside* the zip.
+    // Let's simplify the zip file name to just the artifact name and version for clarity.
+    archiveFileName = "${project.name}-${project.version}-bundle.zip" // e.g., AdminAPI-1.0.0-bundle.zip
+
+    destinationDirectory = layout.buildDirectory.dir("publisher-bundles") // Output location
+
+    // Source the artifacts from the directory where MavenPublication prepares them.
+    // By default, this will preserve the relative paths (e.g., com/scayle/adminapi/...).
     from(layout.buildDirectory.dir("publications/${publishing.publications.mavenJava.name}")) {
-        // Make sure files are at the root of the zip, not nested under "mavenJava"
-        eachFile { file ->
-            file.path = file.name
-        }
+        // REMOVE THE 'eachFile' BLOCK HERE!
+        // No 'eachFile' transformation is needed; we want the default behavior
+        // of preserving the relative directory structure.
     }
-    destinationDirectory = layout.buildDirectory.dir("publisher-bundles") // Output to build/publisher-bundles
 }
