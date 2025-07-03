@@ -1,0 +1,155 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+    id 'org.jreleaser' version '1.11.0'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+def getNexusUsername() {
+    return hasProperty("nexusUsername") ? findProperty("nexusUsername") : ""
+}
+
+def getNexusPassword() {
+    return hasProperty("nexusPassword") ? findProperty("nexusPassword") : ""
+}
+
+def isRelease() {
+    findProperty("environment") == "release"
+}
+
+def resolveVersion() {
+    return findProperty("version") + (isRelease() ? "" : "-SNAPSHOT")
+}
+
+group = 'com.scayle.adminapi'
+version = resolveVersion()
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    implementation 'com.google.guava:guava:32.0.1-jre'
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.36.1'
+    testImplementation 'com.squareup.moshi:moshi:1.14.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testImplementation 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+}
+
+task javadocJar(type: Jar) {
+    archiveClassifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task fatJar(type: Jar) {
+  archiveClassifier = "all"
+  from {
+    configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+  with jar
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    def signingKeyId = findProperty("signingKeyId")
+    def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPassword")
+    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+    sign configurations.archives
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
+
+jreleaser {
+    project {
+        name = 'SCAYLE AdminAPI SDK'
+        description = 'SCAYLE AdminAPI SDK'
+        longDescription = 'SCAYLE AdminAPI SDK'
+        inceptionYear = '2023'
+        copyright = 'SCAYLE'
+
+        licenses {
+            license {
+                name = 'The MIT License'
+                url = 'https://opensource.org/licenses/MIT'
+            }
+        }
+
+        developers {
+            developer {
+                id = 'SCAYLE'
+                name = 'SCAYLE Support'
+                email = 'support@scayle.com'
+            }
+        }
+
+        scm {
+            connection = 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
+            developerConnection = 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
+            url = 'https://github.com/scayle/admin-api-java-sdk'
+            tag = "${project.version}"
+        }
+
+        links {
+            homepage = 'https://scayle.dev/en/developer-guide/introduction/apis#admin-api'
+        }
+    }
+
+    signing {
+        active = 'ALWAYS'
+    }
+
+    checksums {
+        active = 'ALWAYS'
+    }
+
+    archive {
+        active = 'ALWAYS'
+    }
+
+    deployments {
+        maven("mavenCentral") {
+            url = "https://central.sonatype.com/api/v1/publisher"
+            snapshotUrl = "https://central.sonatype.com/repository/maven-snapshots/"
+
+            username = getNexusUsername()
+            password = getNexusPassword()
+
+            signing {
+                active = 'ALWAYS'
+            }
+
+            pom {
+                active = 'ALWAYS'
+            }
+        }
+    }
+}

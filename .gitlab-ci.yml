@@ -2,34 +2,32 @@ stages:
   - deploy
 
 default:
-  image: openjdk:11-jdk-buster
+  image: node:buster
   services:
     - docker:dind
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq # Install gnupg, curl, and jq
-    - sh ./gradlew clean --stacktrace --info # Clean before every build
+    - apt-get update
+    - apt-get install -y openjdk-11-jdk
+    - sh ./gradlew clean
 
 .deploy_template: &deploy_template
   stage: deploy
   script:
-    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}" # Removes 'v' prefix from tag
+    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
     - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${ORG_GRADLE_PROJECT_version}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
     - export ORG_GRADLE_PROJECT_environment
-    - export ORG_GRADLE_PROJECT_signingKey
-    - export ORG_GRADLE_PROJECT_signingKeyId
-    - export ORG_GRADLE_PROJECT_signingPassword
 
-    - sh ./gradlew build zipPublicationBundle -x test -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
-    - ls -lh "${CI_PROJECT_DIR}/build/publications/mavenJava"
-    - ls -lh "${CI_PROJECT_DIR}/build/publisher-bundles"
-    - ARTIFACT_NAME="AdminAPI"
-    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
-    - echo "Bundle ZIP Path:${BUNDLE_ZIP_PATH}"
-    - "curl --request POST --verbose --header \"Authorization: Bearer ${SONATYPE_API_TOKEN}\" --form bundle=@${BUNDLE_ZIP_PATH} https://central.sonatype.com/api/v1/publisher/upload"
-  only:
-    - tags
+    - export JRELEASER_MAVEN_CENTRAL_USERNAME="${ORG_GRADLE_PROJECT_nexusUsername}"
+    - export JRELEASER_MAVEN_CENTRAL_PASSWORD="${ORG_GRADLE_PROJECT_nexusPassword}"
+    - export JRELEASER_GPG_SECRET_KEY="${ORG_GRADLE_PROJECT_signingKey}"
+    - export JRELEASER_GPG_SECRET_KEY_ID="${ORG_GRADLE_PROJECT_signingKeyId}"
+    - export JRELEASER_GPG_PASSPHRASE="${ORG_GRADLE_PROJECT_signingPassword}"
+
+    - sh ./gradlew jreleaserPublish --info
+  # only:
+  #   - tags
   when: manual
 
 deploy:snapshot:

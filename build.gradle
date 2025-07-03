@@ -1,117 +1,87 @@
 plugins {
     id 'java-library'
-    id 'signing'
     id 'maven-publish'
+    id 'signing'
+    id 'org.jreleaser' version '1.19.0'
 }
 
-repositories {
-    mavenCentral()
+def getNexusUsername() {
+    return hasProperty("nexusUsername") ? findProperty("nexusUsername") : ""
 }
 
-def isRelease() {
-    findProperty("environment") == "release"
+def getNexusPassword() {
+    return hasProperty("nexusPassword") ? findProperty("nexusPassword") : ""
 }
 
-def resolveVersion() {
-    return findProperty("version") + (isRelease() ? "" : "-SNAPSHOT")
-}
-
-group = 'com.scayle.adminapi'
-version = resolveVersion()
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-dependencies {
-    implementation 'com.google.guava:guava:32.0.1-jre'
-    implementation 'com.google.code.gson:gson:2.10.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0' // Moved from 'compile'
-
-    testImplementation 'junit:junit:4.13.2'
-    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.36.1'
-    testImplementation 'com.squareup.moshi:moshi:1.14.0'
-
-    compileOnly 'org.projectlombok:lombok:1.18.24'
-    annotationProcessor 'org.projectlombok:lombok:1.18.24'
-    testCompileOnly 'org.projectlombok:lombok:1.18.24'
-    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-}
-
-// Ensure the Java plugin correctly prepares sources and javadoc artifacts
 java {
-    withSourcesJar()
     withJavadocJar()
+    withSourcesJar()
 }
 
-// custom fatJar task
-task fatJar(type: Jar) {
-    archiveClassifier = "all"
-    from {
-        // Use 'configurations.runtimeClasspath' for all runtime dependencies
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-    with jar
+signing {
+    def signingKeyId = findProperty("signingKeyId")
+    def signingKey = findProperty("signingKey")
+    def signingPassword = findProperty("signingPassword")
+    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+    sign configurations.archives
 }
 
-// ********** NEW PUBLISHING CONFIGURATION **********
 publishing {
     publications {
-        // Define your Maven publication. 'mavenJava' is a common name.
-        create("mavenJava", MavenPublication) { // This creates a publication named "mavenJava" of type MavenPublication
+        maven(MavenPublication) {
+            groupId = 'com.scayle'
+            artifactId = 'adminapi'
+
             from components.java
 
-            // Define the POM metadata. This replaces the pom.project block from uploadArchives.
             pom {
                 name = 'SCAYLE AdminAPI SDK'
-                packaging = 'jar' // Ensure packaging is set
                 description = 'SCAYLE AdminAPI SDK'
-                url = 'https://scayle.dev/en/developer-guide/introduction/apis#admin-api'
-
-                scm {
-                    connection = 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
-                    developerConnection = 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
-                    url = 'https://github.com/scayle/admin-api-java-sdk'
-                }
-
+                url = 'https://github.com/scayle/admin-api-java-sdk'
+                inceptionYear = '2023'
                 licenses {
-                    license {
-                        name = 'The MIT License'
-                        url = 'https://opensource.org/licenses/MIT'
-                    }
+		            license {
+		                name = 'The MIT License'
+		                url = 'https://opensource.org/licenses/MIT'
+		            }
                 }
-
                 developers {
                     developer {
-                        id = 'SCAYLE'
-                        name = 'SCAYLE Support'
-                        email = 'support@scayle.com'
+		                id = 'SCAYLE'
+		                name = 'SCAYLE Support'
+		                email = 'support@scayle.com'
                     }
+                }
+                scm {
+		            connection = 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
+		            developerConnection = 'scm:git:git@github.com:scayle/admin-api-java-sdk.git'
+		            url = 'https://github.com/scayle/admin-api-java-sdk'
                 }
             }
         }
     }
+
+    repositories {
+        maven {
+            url = layout.buildDirectory.dir('staging-deploy')
+        }
+    }
 }
 
-signing {
-    // GPG key details.
-    def signingKeyId = findProperty("signingKeyId")
-    def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
-
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-    sign publishing.publications.mavenJava
-}
-
-tasks.register('zipPublicationBundle', Zip) {
-    dependsOn tasks.named('jar')
-    dependsOn tasks.named('sourcesJar')
-    dependsOn tasks.named('javadocJar')
-
-    dependsOn tasks.named('generatePomFileForMavenJavaPublication')
-    dependsOn tasks.named('signMavenJavaPublication')
-
-    archiveFileName = "${project.name}-${project.version}-bundle.zip"
-    destinationDirectory = layout.buildDirectory.dir("publisher-bundles")
-
-    from(layout.buildDirectory.dir("publications/${publishing.publications.mavenJava.name}")) {
+jreleaser {
+    signing {
+        active = 'ALWAYS'
+        armored = true
+    }
+    deploy {
+        maven {
+            mavenCentral {
+                sonatype {
+                    active = 'ALWAYS'
+                    url = 'https://central.sonatype.com/api/v1/publisher'
+                    stagingRepository('build/staging-deploy')
+                }
+            }
+        }
     }
 }
