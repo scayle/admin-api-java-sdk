@@ -15,18 +15,17 @@ default:
 .deploy: &depoloy
   stage: deploy
   script:
-    # we expect tags to be in the format v1.2.3
-    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
-    - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${ORG_GRADLE_PROJECT_version}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
+    - export PROJECT_VERSION="3.2-test"
+    - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${PROJECT_VERSION}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
     - export ORG_GRADLE_PROJECT_environment
     - export ORG_GRADLE_PROJECT_nexusUsername
     - export ORG_GRADLE_PROJECT_nexusPassword
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - sh ./gradlew uploadArchives
-  only:
-    - tags
+    - sh ./gradlew publish -Pversion=${PROJECT_VERSION}
+  # only:
+  #   - tags
   when: manual
 
 deploy:snapshot:
