@@ -22,7 +22,9 @@ default:
     - export ORG_GRADLE_PROJECT_signingPassword
 
     - sh ./gradlew build zipPublicationBundle -x test -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
-    - ls -lh ./build/publications/mavenJava
+    - ls -lh "${CI_PROJECT_DIR}/build/publications/"
+    - ls -lh "${CI_PROJECT_DIR}/build/publications/mavenJava"
+    - ls -lh "${CI_PROJECT_DIR}/build/publisher-bundles"
 #    - ARTIFACT_NAME="AdminAPI"
 #    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
 #    - echo "Bundle ZIP Path:${BUNDLE_ZIP_PATH}"
