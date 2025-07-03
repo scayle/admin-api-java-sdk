@@ -14,36 +14,22 @@ default:
 .deploy_template: &deploy_template
   stage: deploy
   script:
-    # 1. Prepare Gradle project properties from CI variables
     - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}" # Removes 'v' prefix from tag
     - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${ORG_GRADLE_PROJECT_version}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
     - export ORG_GRADLE_PROJECT_environment
-    # These signing variables are passed to Gradle for the 'zipPublicationBundle' task
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
 
-    # 2. Run Gradle to build, sign, and create the ZIP bundle
     - sh ./gradlew build zipPublicationBundle -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
 
-    # 3. Locate the generated ZIP bundle
-    # The 'group' and 'name' are fixed strings from build.gradle, 'version' comes from CI_COMMIT_TAG
-    - GROUP_PATH="com/scayle/adminapi" # Hardcoded from your build.gradle group
-    - ARTIFACT_NAME="AdminAPI"         # Hardcoded from your build.gradle project.name
+    - GROUP_PATH="com/scayle/adminapi"
+    - ARTIFACT_NAME="AdminAPI"
 
     - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${GROUP_PATH}/${ARTIFACT_NAME}/${ORG_GRADLE_PROJECT_version}/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
 
     - echo "Attempting to upload ZIP bundle from: ${BUNDLE_ZIP_PATH}"
-    - ls -lh "${BUNDLE_ZIP_PATH}" # Verify file exists before upload
-
-    # 4. Upload the bundle using curl to the Publisher API
-    # Use the SONATYPE_API_TOKEN variable which is set directly in the job config
-    - |
-      curl -s -w "\nHTTP_STATUS:%{http_code}\n" -X POST \
-      -H "Authorization: Bearer ${SONATYPE_API_TOKEN}" \
-      -H "Content-Type: application/zip" \
-      --data-binary "@${BUNDLE_ZIP_PATH}" \
-      https://central.sonatype.com/api/v1/publisher/upload)
+    - ls -lh "${BUNDLE_ZIP_PATH}"
   only:
     - tags
   when: manual
