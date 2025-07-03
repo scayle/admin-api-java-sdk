@@ -46,11 +46,11 @@ default:
       https://central.sonatype.com/api/v1/publisher/upload)
 
     # 5. Parse and report upload results
-    - HTTP_STATUS=$(echo "${CURL_OUTPUT}" | awk -F: '/^HTTP_STATUS/{print $2}')
-    - RESPONSE_BODY=$(echo "${CURL_OUTPUT}" | sed '/^HTTP_STATUS/d')
+    - HTTP_STATUS=$(echo "$CURL_OUTPUT" | awk -F: '/^HTTP_STATUS/{print $2}')
+    - RESPONSE_BODY=$(echo "$CURL_OUTPUT" | sed '/^HTTP_STATUS/d')
 
-    - echo "HTTP Status: ${HTTP_STATUS}"
-    - echo "Response Body: ${RESPONSE_BODY}"
+    - echo "HTTP Status: $HTTP_STATUS"
+    - echo "Response Body: $RESPONSE_BODY"
 
     - |
       if [ "${HTTP_STATUS}" -eq 200 ] || [ "${HTTP_STATUS}" -eq 202 ]; then
