@@ -45,26 +45,9 @@ default:
       --data-binary "@${BUNDLE_ZIP_PATH}" \
       https://central.sonatype.com/api/v1/publisher/upload)
 
-    # 5. Parse and report upload results
-    - HTTP_STATUS=$(echo "$CURL_OUTPUT" | awk -F: '/^HTTP_STATUS/{print $2}')
-    - RESPONSE_BODY=$(echo "$CURL_OUTPUT" | sed '/^HTTP_STATUS/d')
-
-    - echo "HTTP Status: $HTTP_STATUS"
-    - echo "Response Body: $RESPONSE_BODY"
-
-    - |
-      if [ "${HTTP_STATUS}" -eq 200 ] || [ "${HTTP_STATUS}" -eq 202 ]; then
-        echo "Upload successful! Check Sonatype Central Portal deployments tab."
-        # Use 'jq' to parse JSON response and extract deploymentId
-        DEPLOYMENT_ID=$(echo "${RESPONSE_BODY}" | jq -r '.deploymentId')
-        if [ -n "${DEPLOYMENT_ID}" ] && [ "${DEPLOYMENT_ID}" != "null" ]; then
-          echo "Deployment ID: ${DEPLOYMENT_ID}"
-        fi
-        exit 0
-      else
-        echo "Error: Upload failed. Check the HTTP status and response body for details."
-        exit 1
-      fi
+    - echo "cURL Output:"
+    - echo "$CURL_OUTPUT"
+    - echo "--- End cURL Output ---"
   only:
     - tags
   when: manual
