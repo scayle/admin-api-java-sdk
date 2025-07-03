@@ -68,6 +68,8 @@ publishing {
             // This line tells Gradle to include the main JAR, sources JAR,
             // javadoc JAR, and the generated POM for this publication.
             from components.java
+            artifact javadocJar
+            artifact sourcesJar
 
             // Define the POM metadata. This replaces the pom.project block from uploadArchives.
             pom {
