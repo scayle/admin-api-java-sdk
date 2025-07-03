@@ -22,6 +22,14 @@ default:
     - export ORG_GRADLE_PROJECT_signingPassword
 
     - sh ./gradlew build zipPublicationBundle -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
+
+    - GROUP_PATH="com/scayle/adminapi"
+    - ARTIFACT_NAME="AdminAPI"
+
+    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${GROUP_PATH}/${ARTIFACT_NAME}/${ORG_GRADLE_PROJECT_version}/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
+
+    - echo "Attempting to upload ZIP bundle from: ${BUNDLE_ZIP_PATH}"
+    - ls -lh "${BUNDLE_ZIP_PATH}"
   only:
     - tags
   when: manual
