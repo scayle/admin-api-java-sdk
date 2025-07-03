@@ -57,11 +57,7 @@ publishing {
     publications {
         // Define your Maven publication. 'mavenJava' is a common name.
         create("mavenJava", MavenPublication) { // This creates a publication named "mavenJava" of type MavenPublication
-            // This line tells Gradle to include the main JAR, sources JAR,
-            // javadoc JAR, and the generated POM for this publication.
             from components.java
-            artifact javadocJar
-            artifact sourcesJar
 
             // Define the POM metadata. This replaces the pom.project block from uploadArchives.
             pom {
@@ -105,7 +101,6 @@ signing {
     sign publishing.publications.mavenJava
 }
 
-// ********** NEW TASK: ZIP Publication Bundle for Publisher API **********
 tasks.register('zipPublicationBundle', Zip) {
     dependsOn tasks.named('jar')
     dependsOn tasks.named('sourcesJar')
