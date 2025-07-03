@@ -39,15 +39,11 @@ default:
     # 4. Upload the bundle using curl to the Publisher API
     # Use the SONATYPE_API_TOKEN variable which is set directly in the job config
     - |
-      CURL_OUTPUT=$(curl -s -w "\nHTTP_STATUS:%{http_code}\n" -X POST \
+      curl -s -w "\nHTTP_STATUS:%{http_code}\n" -X POST \
       -H "Authorization: Bearer ${SONATYPE_API_TOKEN}" \
       -H "Content-Type: application/zip" \
       --data-binary "@${BUNDLE_ZIP_PATH}" \
       https://central.sonatype.com/api/v1/publisher/upload)
-
-    - echo "cURL Output:"
-    - echo "$CURL_OUTPUT"
-    - echo "--- End cURL Output ---"
   only:
     - tags
   when: manual
