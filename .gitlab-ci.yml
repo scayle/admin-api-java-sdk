@@ -25,7 +25,7 @@ default:
 
     - ARTIFACT_NAME="AdminAPI"
 
-    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}/${ORG_GRADLE_PROJECT_version}/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
+    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
     - echo "Bundle ZIP Path:${BUNDLE_ZIP_PATH}"
     - "curl --request POST --verbose --header \"Authorization: Bearer ${SONATYPE_API_TOKEN}\" --form bundle=@${BUNDLE_ZIP_PATH} https://central.sonatype.com/api/v1/publisher/upload"
   only:
