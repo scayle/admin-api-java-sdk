@@ -2,28 +2,69 @@ stages:
   - deploy
 
 default:
-  image: openjdk:11-jdk-buster # Changed: Using an image with OpenJDK 11 pre-installed (Debian Buster based)
+  image: openjdk:11-jdk-buster
   services:
     - docker:dind
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - apt-get update && apt-get install -y --no-install-recommends gnupg # Install gnupg for GPG signing
-    - sh ./gradlew clean --stacktrace --info
+    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq # Install gnupg, curl, and jq
+    - sh ./gradlew clean --stacktrace --info # Clean before every build
 
 .deploy_template: &deploy_template
   stage: deploy
   script:
-    # we expect tags to be in the format v1.2.3
-    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
+    # 1. Prepare Gradle project properties from CI variables
+    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}" # Removes 'v' prefix from tag
     - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${ORG_GRADLE_PROJECT_version}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
     - export ORG_GRADLE_PROJECT_environment
-    - export ORG_GRADLE_PROJECT_nexusUsername
-    - export ORG_GRADLE_PROJECT_nexusPassword
+    # These signing variables are passed to Gradle for the 'zipPublicationBundle' task
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - sh ./gradlew publish -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
+
+    # 2. Run Gradle to build, sign, and create the ZIP bundle
+    - sh ./gradlew build zipPublicationBundle -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
+
+    # 3. Locate the generated ZIP bundle
+    # The 'group' and 'name' are fixed strings from build.gradle, 'version' comes from CI_COMMIT_TAG
+    - GROUP_PATH="com/scayle/adminapi" # Hardcoded from your build.gradle group
+    - ARTIFACT_NAME="AdminAPI"         # Hardcoded from your build.gradle project.name
+
+    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${GROUP_PATH}/${ARTIFACT_NAME}/${ORG_GRADLE_PROJECT_version}/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
+
+    - echo "Attempting to upload ZIP bundle from: ${BUNDLE_ZIP_PATH}"
+    - ls -lh "${BUNDLE_ZIP_PATH}" # Verify file exists before upload
+
+    # 4. Upload the bundle using curl to the Publisher API
+    # Use the SONATYPE_API_TOKEN variable which is set directly in the job config
+    - |
+      CURL_OUTPUT=$(curl -s -w "\nHTTP_STATUS:%{http_code}\n" -X POST \
+      -H "Authorization: Bearer ${SONATYPE_API_TOKEN}" \
+      -H "Content-Type: application/zip" \
+      --data-binary "@${BUNDLE_ZIP_PATH}" \
+      https://central.sonatype.com/api/v1/publisher/upload)
+
+    # 5. Parse and report upload results
+    - HTTP_STATUS=$(echo "${CURL_OUTPUT}" | awk -F: '/^HTTP_STATUS/{print $2}')
+    - RESPONSE_BODY=$(echo "${CURL_OUTPUT}" | sed '/^HTTP_STATUS/d')
+
+    - echo "HTTP Status: ${HTTP_STATUS}"
+    - echo "Response Body: ${RESPONSE_BODY}"
+
+    - |
+      if [ "${HTTP_STATUS}" -eq 200 ] || [ "${HTTP_STATUS}" -eq 202 ]; then
+        echo "Upload successful! Check Sonatype Central Portal deployments tab."
+        # Use 'jq' to parse JSON response and extract deploymentId
+        DEPLOYMENT_ID=$(echo "${RESPONSE_BODY}" | jq -r '.deploymentId')
+        if [ -n "${DEPLOYMENT_ID}" ] && [ "${DEPLOYMENT_ID}" != "null" ]; then
+          echo "Deployment ID: ${DEPLOYMENT_ID}"
+        fi
+        exit 0
+      else
+        echo "Error: Upload failed. Check the HTTP status and response body for details."
+        exit 1
+      fi
   only:
     - tags
   when: manual
