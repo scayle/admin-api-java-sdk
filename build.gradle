@@ -50,16 +50,6 @@ java {
     withJavadocJar()
 }
 
-// task javadocJar(type: Jar) {
-//     classifier = 'javadoc'
-//     from javadoc
-// }
-//
-// task sourcesJar(type: Jar) {
-//     classifier = 'sources'
-//     from sourceSets.main.allSource
-// }
-
 // custom fatJar task
 task fatJar(type: Jar) {
     archiveClassifier = "all"
@@ -69,10 +59,6 @@ task fatJar(type: Jar) {
     }
     with jar
 }
-//
-// artifacts {
-//     archives javadocJar, sourcesJar
-// }
 
 // ********** NEW PUBLISHING CONFIGURATION **********
 publishing {
@@ -111,45 +97,17 @@ publishing {
                     }
                 }
             }
-
-            // If you want to include the fatJar as an additional artifact in this publication:
-            // artifact(fatJar)
         }
     }
-
-//     repositories {
-//         maven {
-//             // This name is internal to your Gradle build script.
-//             // It's used when you run tasks like 'publishMavenJavaPublicationToSonatypeCentralRepository'.
-//             name = "sonatypeCentral"
-//
-//             // The URL for the new Sonatype Central Portal Staging API.
-//             // The 'maven-publish' plugin intelligently handles release vs. snapshot
-//             // based on your project.version.
-//             url = uri("https://ossrh-staging-api.central.sonatype.com/service/local/staging/deploy/maven2/")
-//
-//             // Authentication using your helper methods.
-//             // These should provide your Sonatype Central Portal API Tokens.
-//             credentials {
-//                 username = getNexusUsername()
-//                 password = getNexusPassword()
-//             }
-//         }
-//     }
 }
 
-// ********** NEW SIGNING CONFIGURATION **********
 signing {
     // GPG key details.
     def signingKeyId = findProperty("signingKeyId")
     def signingKey = findProperty("signingKey")
     def signingPassword = findProperty("signingPassword")
 
-    // Use in-memory keys for security, reading from properties/env vars
     useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-
-    // Sign the specific publication defined above.
-    // This replaces 'sign configurations.archives' and automatically signs the POM.
     sign publishing.publications.mavenJava
 }
 
@@ -158,21 +116,13 @@ tasks.register('zipPublicationBundle', Zip) {
     dependsOn tasks.named('jar')
     dependsOn tasks.named('sourcesJar')
     dependsOn tasks.named('javadocJar')
-    // This dependency ensures the artifacts are signed and available in the publication directory
+
+    dependsOn tasks.named('generatePomFileForMavenJavaPublication')
     dependsOn tasks.named('signMavenJavaPublication')
 
-    // The name of the resulting ZIP file. The previous 'archiveFileName' created folders *for the zip itself*
-    // but the Publisher API usually expects the structure *inside* the zip.
-    // Let's simplify the zip file name to just the artifact name and version for clarity.
-    archiveFileName = "${project.name}-${project.version}-bundle.zip" // e.g., AdminAPI-1.0.0-bundle.zip
+    archiveFileName = "${project.name}-${project.version}-bundle.zip"
+    destinationDirectory = layout.buildDirectory.dir("publisher-bundles")
 
-    destinationDirectory = layout.buildDirectory.dir("publisher-bundles") // Output location
-
-    // Source the artifacts from the directory where MavenPublication prepares them.
-    // By default, this will preserve the relative paths (e.g., com/scayle/adminapi/...).
     from(layout.buildDirectory.dir("publications/${publishing.publications.mavenJava.name}")) {
-        // REMOVE THE 'eachFile' BLOCK HERE!
-        // No 'eachFile' transformation is needed; we want the default behavior
-        // of preserving the relative directory structure.
     }
 }
