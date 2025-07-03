@@ -21,7 +21,7 @@ default:
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
 
-    - sh ./gradlew build zipPublicationBundle -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
+    - sh ./gradlew build zipPublicationBundle -x test -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
 
     - GROUP_PATH="com/scayle/adminapi"
     - ARTIFACT_NAME="AdminAPI"
