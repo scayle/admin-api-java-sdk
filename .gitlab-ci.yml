@@ -8,8 +8,8 @@ default:
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq # Install gnupg, curl, and jq
-    - sh ./gradlew clean --stacktrace --info # Clean before every build
+    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq
+    - sh ./gradlew clean --stacktrace --info
 
 .deploy_template: &deploy_template
   stage: deploy
@@ -22,8 +22,7 @@ default:
     - export ORG_GRADLE_PROJECT_signingPassword
 
     - sh ./gradlew build zipPublicationBundle -x test -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
-    - ls -lh "${CI_PROJECT_DIR}/build/publications/mavenJava"
-    - ls -lh "${CI_PROJECT_DIR}/build/publisher-bundles"
+
     - ARTIFACT_NAME="AdminAPI"
     - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
     - echo "Bundle ZIP Path:${BUNDLE_ZIP_PATH}"
@@ -31,11 +30,6 @@ default:
   only:
     - tags
   when: manual
-
-deploy:snapshot:
-  <<: *deploy_template
-  variables:
-    ORG_GRADLE_PROJECT_environment: snapshot
 
 deploy:release:
   <<: *deploy_template

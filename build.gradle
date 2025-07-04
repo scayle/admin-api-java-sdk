@@ -102,20 +102,15 @@ tasks.register('stageFinalMavenArtifacts', Copy) {
     dependsOn tasks.named('generateMetadataFileForMavenJavaPublication') // Ensure module.json is made
     dependsOn tasks.named('signMavenJavaPublication') // Ensure signed files are produced
 
-    // Copy the main JAR and its signature
     from(tasks.named('jar').get().archiveFile)
     from(tasks.named('jar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
 
-    // Copy sources JAR and its signature
     from(tasks.named('sourcesJar').get().archiveFile)
     from(tasks.named('sourcesJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
 
-    // Copy javadoc JAR and its signature
     from(tasks.named('javadocJar').get().archiveFile)
     from(tasks.named('javadocJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
 
-
-    // Copy the generated POM file and its signature, renaming them correctly
     from(file("${buildDir}/publications/mavenJava/pom-default.xml")) {
         rename { fileName -> "${project.name}-${project.version}.pom" }
     }
@@ -123,17 +118,8 @@ tasks.register('stageFinalMavenArtifacts', Copy) {
         rename { fileName -> "${project.name}-${project.version}.pom.asc" }
     }
 
-//     from(file("${buildDir}/publications/mavenJava/module.json")) {
-//         rename { fileName -> "${project.name}-${project.version}.module" } // Rename to .module
-//     }
-//     from(file("${buildDir}/publications/mavenJava/module.json.asc")) {
-//         rename { fileName -> "${project.name}-${project.version}.module.asc" } // Rename signature
-//     }
-
-
-    // --- NEW: Generate MD5 and SHA1 Checksums for all staged files ---
     doLast {
-        println "\n--- DEBUG: Generating MD5/SHA1 checksums ---"
+        println "\n--- Generating MD5/SHA1 checksums ---"
         if (targetDirectory.exists()) {
             targetDirectory.eachFileRecurse { file ->
                 // Only generate checksums for actual artifacts, not signatures or existing checksums
@@ -150,17 +136,6 @@ tasks.register('stageFinalMavenArtifacts', Copy) {
             }
         }
         println "-------------------------------------------\n"
-
-        // Original diagnostic print (now after checksum generation)
-        println "\n--- DEBUG: Final Manually Staged artifacts to: ${targetDirectory.absolutePath} ---"
-        if (targetDirectory.exists()) {
-            targetDirectory.eachFileRecurse { file ->
-                println "  - Staged file: ${file.path} (Exists: ${file.exists()})"
-            }
-        } else {
-            println "  Manual staging directory not created: ${targetDirectory.absolutePath}"
-        }
-        println "----------------------------------------------------------------------\n"
     }
 }
 
@@ -177,7 +152,6 @@ tasks.register('zipPublicationBundle', Zip) {
 task fatJar(type: Jar) {
     archiveClassifier = "all"
     from {
-        // Use 'configurations.runtimeClasspath' for all runtime dependencies
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
     with jar
