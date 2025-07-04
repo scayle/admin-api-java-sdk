@@ -18,13 +18,14 @@ def resolveVersion() {
 
 group = 'com.scayle.adminapi'
 version = resolveVersion()
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
     implementation 'com.google.guava:guava:32.0.1-jre'
     implementation 'com.google.code.gson:gson:2.10.1'
-    implementation 'com.squareup.okhttp3:okhttp:4.10.0' // Moved from 'compile'
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:2.36.1'
@@ -36,33 +37,19 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
 
-// Ensure the Java plugin correctly prepares sources and javadoc artifacts
 java {
     withSourcesJar()
     withJavadocJar()
 }
 
-// custom fatJar task
-task fatJar(type: Jar) {
-    archiveClassifier = "all"
-    from {
-        // Use 'configurations.runtimeClasspath' for all runtime dependencies
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-    with jar
-}
-
-// ********** NEW PUBLISHING CONFIGURATION **********
 publishing {
     publications {
-        // Define your Maven publication. 'mavenJava' is a common name.
-        create("mavenJava", MavenPublication) { // This creates a publication named "mavenJava" of type MavenPublication
+        create("mavenJava", MavenPublication) {
             from components.java
 
-            // Define the POM metadata. This replaces the pom.project block from uploadArchives.
             pom {
                 name = 'SCAYLE AdminAPI SDK'
-                packaging = 'jar' // Ensure packaging is set
+                packaging = 'jar'
                 description = 'SCAYLE AdminAPI SDK'
                 url = 'https://scayle.dev/en/developer-guide/introduction/apis#admin-api'
 
@@ -101,17 +88,59 @@ signing {
     sign publishing.publications.mavenJava
 }
 
-tasks.register('zipPublicationBundle', Zip) {
+tasks.register('stageFinalMavenArtifacts', Copy) {
+    def gavPath = "${project.group.replace('.', '/')}/${project.name}/${project.version}"
+    def targetDirectory = layout.buildDirectory.dir("final-maven-staging/${gavPath}").get().asFile
+
+    into(targetDirectory)
+
+    // Dependencies
     dependsOn tasks.named('jar')
     dependsOn tasks.named('sourcesJar')
     dependsOn tasks.named('javadocJar')
-
     dependsOn tasks.named('generatePomFileForMavenJavaPublication')
+    dependsOn tasks.named('generateMetadataFileForMavenJavaPublication')
     dependsOn tasks.named('signMavenJavaPublication')
+
+    from(tasks.named('jar').get().archiveFile)
+    from(tasks.named('jar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
+
+    from(tasks.named('sourcesJar').get().archiveFile)
+    from(tasks.named('sourcesJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
+
+    from(tasks.named('javadocJar').get().archiveFile)
+    from(tasks.named('javadocJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
+
+    from(file("${buildDir}/publications/mavenJava/pom-default.xml")) {
+        rename { fileName -> "${project.name}-${project.version}.pom" }
+    }
+    from(file("${buildDir}/publications/mavenJava/pom-default.xml.asc")) {
+        rename { fileName -> "${project.name}-${project.version}.pom.asc" }
+    }
+
+    from(file("${buildDir}/publications/mavenJava/module.json")) {
+        rename { fileName -> "module.json" }
+    }
+    from(file("${buildDir}/publications/mavenJava/module.json.asc")) {
+        rename { fileName -> "module.json.asc" }
+    }
+}
+
+tasks.register('zipPublicationBundle', Zip) {
+    dependsOn tasks.named('stageFinalMavenArtifacts')
 
     archiveFileName = "${project.name}-${project.version}-bundle.zip"
     destinationDirectory = layout.buildDirectory.dir("publisher-bundles")
 
-    from(layout.buildDirectory.dir("publications/${publishing.publications.mavenJava.name}")) {
+    from(layout.buildDirectory.dir("final-maven-staging").get().asFile) {
     }
+}
+
+task fatJar(type: Jar) {
+    archiveClassifier = "all"
+    from {
+        // Use 'configurations.runtimeClasspath' for all runtime dependencies
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
 }
