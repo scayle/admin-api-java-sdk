@@ -42,4 +42,10 @@ public class WebhookEvent extends AbstractModel  {
     @SerializedName("isBlocking")
     Boolean isBlocking;
 
+    /**
+    * 
+    */
+    @SerializedName("supportedFilters")
+    WebhookEventSupportedFilters supportedFilters;
+
 }
