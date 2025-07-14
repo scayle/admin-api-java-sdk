@@ -122,6 +122,12 @@ public class Customer extends AbstractModel  {
     Object legacyCustomData;
 
     /**
+    * Defines if the customer has a password set.
+    */
+    @SerializedName("hasPassword")
+    Boolean hasPassword;
+
+    /**
     * Timestamp when the customer is created
     */
     @SerializedName("createdAt")
