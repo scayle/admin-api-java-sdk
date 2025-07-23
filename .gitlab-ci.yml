@@ -2,7 +2,7 @@ stages:
   - deploy
 
 default:
-  image: node:buster
+  image: node:18-bullseye
   services:
     - docker:dind
   tags:
