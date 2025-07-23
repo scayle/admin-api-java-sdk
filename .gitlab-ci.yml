@@ -2,13 +2,15 @@ stages:
   - deploy
 
 default:
-  image: node:18-bullseye
+  image: node:buster
   services:
     - docker:dind
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - apt-get update
+    - sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list
+    - sed -i 's|http://security.debian.org|http://archive.debian.org/debian-security|g' /etc/apt/sources.list
+    - apt-get -o Acquire::Check-Valid-Until=false update
     - apt-get install -y openjdk-11-jdk
     - sh ./gradlew clean
 
