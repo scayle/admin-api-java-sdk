@@ -2,41 +2,42 @@ stages:
   - deploy
 
 default:
-  image: node:buster
+  image: openjdk:11-jdk-buster
   services:
     - docker:dind
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - sed -i 's|http://deb.debian.org/debian|http://archive.debian.org/debian|g' /etc/apt/sources.list
-    - sed -i 's|http://security.debian.org|http://archive.debian.org/debian-security|g' /etc/apt/sources.list
-    - apt-get -o Acquire::Check-Valid-Until=false update
-    - apt-get install -y openjdk-11-jdk
-    - sh ./gradlew clean
+    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq # Install gnupg, curl, and jq
+    - sh ./gradlew clean --stacktrace --info # Clean before every build
 
-.deploy: &depoloy
+.deploy_template: &deploy_template
   stage: deploy
   script:
-    # we expect tags to be in the format v1.2.3
-    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}"
+    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}" # Removes 'v' prefix from tag
     - sed -i "0,/SDK_VERSION_PLACEHOLDER/s//${ORG_GRADLE_PROJECT_version}/" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
     - export ORG_GRADLE_PROJECT_environment
-    - export ORG_GRADLE_PROJECT_nexusUsername
-    - export ORG_GRADLE_PROJECT_nexusPassword
     - export ORG_GRADLE_PROJECT_signingKey
     - export ORG_GRADLE_PROJECT_signingKeyId
     - export ORG_GRADLE_PROJECT_signingPassword
-    - sh ./gradlew publish
+
+    - sh ./gradlew build zipPublicationBundle -x test -Penvironment="${ORG_GRADLE_PROJECT_environment}" --stacktrace --info
+    - ls -lh "${CI_PROJECT_DIR}/build/publications/mavenJava"
+    - ls -lh "${CI_PROJECT_DIR}/build/publisher-bundles"
+    - ARTIFACT_NAME="AdminAPI"
+    - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
+    - echo "Bundle ZIP Path:${BUNDLE_ZIP_PATH}"
+    - "curl --request POST --verbose --header \"Authorization: Bearer ${SONATYPE_API_TOKEN}\" --form bundle=@${BUNDLE_ZIP_PATH} https://central.sonatype.com/api/v1/publisher/upload"
   only:
     - tags
   when: manual
 
 deploy:snapshot:
-  <<: *depoloy
+  <<: *deploy_template
   variables:
     ORG_GRADLE_PROJECT_environment: snapshot
 
 deploy:release:
-  <<: *depoloy
+  <<: *deploy_template
   variables:
     ORG_GRADLE_PROJECT_environment: release
