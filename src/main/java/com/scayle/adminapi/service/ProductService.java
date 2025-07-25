@@ -358,4 +358,18 @@ public class ProductService extends AbstractService {
         return this.request("post", this.resolvePath("/products/composite/bulk-requests"), query, null, responseModel, model);
     }
 
+    
+    public void unlockAttributeGroup(Identifier productIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/products/%s/attributes/%s/unlock", productIdentifier, attributeGroupName), null, null, null);
+    }
+
+    
+    public void unlockAttributeGroup(Identifier productIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/products/%s/attributes/%s/unlock", productIdentifier, attributeGroupName), query, null, null);
+    }
+
 }

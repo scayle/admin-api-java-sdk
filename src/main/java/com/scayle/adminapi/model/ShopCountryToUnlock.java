@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AttributeShopCountrySpecific extends AbstractModel  {
+public class ShopCountryToUnlock extends AbstractModel  {
     /**
     * A key that uniquely identifies the shop within the tenant's ecosystem.
     */
@@ -23,17 +23,5 @@ public class AttributeShopCountrySpecific extends AbstractModel  {
     */
     @SerializedName("countryCode")
     String countryCode;
-
-    /**
-    * The attribute value where the datatype is defined by the type property.
-    */
-    @SerializedName("value")
-    Object value;
-
-    /**
-    * Specifies if the attribute group should be locked for the shopCountry.
-    */
-    @SerializedName("isLocked")
-    Boolean isLocked;
 
 }
