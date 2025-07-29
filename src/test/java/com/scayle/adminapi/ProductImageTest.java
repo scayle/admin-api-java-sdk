@@ -138,12 +138,4 @@ public class ProductImageTest extends BaseApiTest {
         }
     }
 
-    @Test
-    public void testUnlockAttributeGroup() throws Exception {
-
-        ApiOptions options = ApiOptions.builder().build();
-        this.api.productImages().unlockAttributeGroup(Identifier.fromId(1), Identifier.fromId(1), "acme", options);
-
-    }
-
 }

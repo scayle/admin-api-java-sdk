@@ -94,12 +94,4 @@ public class MasterTest extends BaseApiTest {
 
     }
 
-    @Test
-    public void testUnlockAttributeGroup() throws Exception {
-
-        ApiOptions options = ApiOptions.builder().build();
-        this.api.masters().unlockAttributeGroup(Identifier.fromId(1), "acme", options);
-
-    }
-
 }

@@ -31,7 +31,7 @@ public class AttributeShopCountrySpecific extends AbstractModel  {
     Object value;
 
     /**
-    * Specifies if the attribute group should be locked for the shopCountry.
+    * Specifies if the attribute was locked via SCAYLE Panel.
     */
     @SerializedName("isLocked")
     Boolean isLocked;

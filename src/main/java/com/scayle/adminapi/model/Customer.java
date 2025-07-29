@@ -56,10 +56,10 @@ public class Customer extends AbstractModel  {
     String email;
 
     /**
-    * 
+    * phone number of the customer
     */
     @SerializedName("phone")
-    Object phone;
+    String phone;
 
     /**
     * Public reference set by the client to display to customers in account areas and transactional emails.

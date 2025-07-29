@@ -65,8 +65,14 @@ public class SubscriptionOrderAddressInstance extends AbstractModel  {
     * 
     */
     @SerializedName("phone")
-    Object phone;
+    String phone;
 
+    public void setPhone(String value) {
+        if (value == null) {
+            this.setNull("phone");
+        }
+        this.phone = value;
+    }
     /**
     * 
     */

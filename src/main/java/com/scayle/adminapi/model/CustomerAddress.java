@@ -83,7 +83,7 @@ public class CustomerAddress extends AbstractModel  {
     * 
     */
     @SerializedName("phone")
-    Object phone;
+    String phone;
 
     /**
     * 

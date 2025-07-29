@@ -94,18 +94,4 @@ public class MasterService extends AbstractService {
         this.request("delete", this.resolvePath("/product-masters/%s/attributes/%s", productMasterIdentifier, attributeGroupName), query, null, null);
     }
 
-    
-    public void unlockAttributeGroup(Identifier productMasterIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
-
-        this.request("post", this.resolvePath("/product-masters/%s/attributes/%s/unlock", productMasterIdentifier, attributeGroupName), null, null, null);
-    }
-
-    
-    public void unlockAttributeGroup(Identifier productMasterIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
-
-        Map<String, Object> query = options.all();
-
-        this.request("post", this.resolvePath("/product-masters/%s/attributes/%s/unlock", productMasterIdentifier, attributeGroupName), query, null, null);
-    }
-
 }

@@ -36,4 +36,10 @@ public class Cancellation extends AbstractModel  {
     @SerializedName("orderId")
     Integer orderId;
 
+    /**
+    * Reference key of the merchant to which the cancellation belongs to.
+    */
+    @SerializedName("merchantReferenceKey")
+    String merchantReferenceKey;
+
 }

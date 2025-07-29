@@ -30,4 +30,12 @@ public class ReturnItem extends AbstractModel  {
     @SerializedName("returnReason")
     String returnReason;
 
+    /**
+    * Reference key of the merchant to which the return belongs to.
+Please note that all items in the request should belong to same merchant.
+
+    */
+    @SerializedName("merchantReferenceKey")
+    String merchantReferenceKey;
+
 }

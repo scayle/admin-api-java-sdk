@@ -140,18 +140,4 @@ public class ProductImageService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/products/%s/images/%s/attributes", productIdentifier, imageIdentifier), query, null, responseModel);
     }
 
-    
-    public void unlockAttributeGroup(Identifier productIdentifier, Identifier imageIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
-
-        this.request("post", this.resolvePath("/products/%s/images/%s/attributes/%s/unlock", productIdentifier, imageIdentifier, attributeGroupName), null, null, null);
-    }
-
-    
-    public void unlockAttributeGroup(Identifier productIdentifier, Identifier imageIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
-
-        Map<String, Object> query = options.all();
-
-        this.request("post", this.resolvePath("/products/%s/images/%s/attributes/%s/unlock", productIdentifier, imageIdentifier, attributeGroupName), query, null, null);
-    }
-
 }

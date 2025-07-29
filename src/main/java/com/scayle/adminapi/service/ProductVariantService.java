@@ -294,18 +294,4 @@ public class ProductVariantService extends AbstractService {
         this.request("delete", this.resolvePath("/products/composite/%s/variants/%s", productIdentifier, variantIdentifier), query, null, null);
     }
 
-    
-    public void unlockAttributeGroup(Identifier productIdentifier, Identifier variantIdentifier, String attributeGroupName) throws ApiErrorException, ConnectionException {
-
-        this.request("post", this.resolvePath("/products/%s/variants/%s/attributes/%s/unlock", productIdentifier, variantIdentifier, attributeGroupName), null, null, null);
-    }
-
-    
-    public void unlockAttributeGroup(Identifier productIdentifier, Identifier variantIdentifier, String attributeGroupName, ApiOptions options) throws ApiErrorException, ConnectionException {
-
-        Map<String, Object> query = options.all();
-
-        this.request("post", this.resolvePath("/products/%s/variants/%s/attributes/%s/unlock", productIdentifier, variantIdentifier, attributeGroupName), query, null, null);
-    }
-
 }

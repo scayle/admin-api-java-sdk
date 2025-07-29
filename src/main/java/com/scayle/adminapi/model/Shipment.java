@@ -60,4 +60,10 @@ public class Shipment extends AbstractModel  {
     @SerializedName("shipmentKey")
     String shipmentKey;
 
+    /**
+    * Reference key of the merchant to which the shipment belongs to.
+    */
+    @SerializedName("merchantReferenceKey")
+    String merchantReferenceKey;
+
 }
