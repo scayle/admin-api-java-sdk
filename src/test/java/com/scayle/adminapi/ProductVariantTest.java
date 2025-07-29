@@ -284,4 +284,12 @@ public class ProductVariantTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUnlockAttributeGroup() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productVariants().unlockAttributeGroup(Identifier.fromId(1), Identifier.fromId(1), "acme", options);
+
+    }
+
 }

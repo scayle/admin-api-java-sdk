@@ -32,7 +32,7 @@ public class Attribute extends AbstractModel  {
     Object value;
 
     /**
-    * Specifies if the attribute was locked via SCAYLE Panel.
+    * Specifies if the attribute group should be locked.
     */
     @SerializedName("isLocked")
     Boolean isLocked;
