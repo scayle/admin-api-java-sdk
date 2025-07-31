@@ -35,4 +35,10 @@ public class Cancellation implements ApiObjectInterface {
     @SerializedName("orderId")
     Integer orderId;
 
+    /**
+     * Reference key of the merchant to which the cancellation belongs to.
+     */
+    @SerializedName("merchantReferenceKey")
+    String merchantReferenceKey;
+
 }
