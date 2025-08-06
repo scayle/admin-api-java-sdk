@@ -60,4 +60,18 @@ public class AttributeTranslationTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testUpdateOrCreateAdvanced() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/AttributeTranslationUpdateOrCreateAdvancedRequest.json");
+        Map<String, String> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.attributeTranslations().updateOrCreateAdvanced(requestEntity, options);
+
+    }
+
 }

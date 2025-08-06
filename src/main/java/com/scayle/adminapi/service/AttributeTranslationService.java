@@ -60,4 +60,18 @@ public class AttributeTranslationService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/attributes/%s/translations", attributeGroupName), query, null, responseModel);
     }
 
+    
+    public void updateOrCreateAdvanced(Map<String, String> model) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/attributes/translations"), null, null, null, model);
+    }
+
+    
+    public void updateOrCreateAdvanced(Map<String, String> model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/attributes/translations"), query, null, null, model);
+    }
+
 }
