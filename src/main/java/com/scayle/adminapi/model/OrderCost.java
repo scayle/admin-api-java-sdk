@@ -19,7 +19,7 @@ public class OrderCost extends AbstractModel  {
     List<OrderFee> appliedFees;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("appliedReductions")
     List<OrderReduction> appliedReductions;
@@ -28,7 +28,7 @@ public class OrderCost extends AbstractModel  {
     * 
     */
     @SerializedName("tax")
-    OrderCostTax tax;
+    OrderTax tax;
 
     /**
     * The price is calculated including taxes and all applicable reductions such as discounts for sale and campaigns (should a campaign key be provdided on the request).
@@ -38,6 +38,8 @@ public class OrderCost extends AbstractModel  {
 
     /**
     * This price excludes taxes, but also includes all applicable reductions.
+If the order has an external price, this field becomes optional.
+
     */
     @SerializedName("withoutTax")
     Integer withoutTax;
@@ -50,6 +52,8 @@ public class OrderCost extends AbstractModel  {
 
     /**
     * This price excludes taxes, but also includes all applicable reductions and membership discount.
+If the order has an external price, this field will not be included in the response payload.
+
     */
     @SerializedName("withoutTaxWithMembershipDiscount")
     Integer withoutTaxWithMembershipDiscount;
@@ -72,4 +76,10 @@ public class OrderCost extends AbstractModel  {
         }
         this.itemGroups = value;
     }
+    /**
+    * Indicates whether the order contains external prices.
+    */
+    @SerializedName("hasExternalPrices")
+    Boolean hasExternalPrices;
+
 }

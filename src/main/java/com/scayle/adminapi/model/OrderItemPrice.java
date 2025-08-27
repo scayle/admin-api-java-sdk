@@ -13,19 +13,19 @@ import lombok.Setter;
 @Setter
 public class OrderItemPrice extends AbstractModel  {
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("appliedReductions")
     List<OrderReduction> appliedReductions;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("absoluteVoucherReducedPrice")
     OrderItemAbsoluteVoucherReducedPrice absoluteVoucherReducedPrice;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("reference")
     OrderItemPriceReference reference;
@@ -43,31 +43,35 @@ public class OrderItemPrice extends AbstractModel  {
     Integer withTax;
 
     /**
-    * 
+    * If the order has an external price, this field becomes optional.
     */
     @SerializedName("withoutTax")
     Integer withoutTax;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("overrideWithoutTax")
     Integer overrideWithoutTax;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("overrideWithTax")
     Integer overrideWithTax;
 
     /**
-    * Undiscounted item price **excluding** taxes
+    * Un-discounted item price **excluding** taxes
+If the order has an external price, this field will not be included in the response payload.
+
     */
     @SerializedName("undiscountedWithOutTax")
     Integer undiscountedWithOutTax;
 
     /**
-    * Undiscounted item price **including** taxes
+    * Un-discounted item price **including** taxes
+If the order has an external price, this field will not be included in the response payload.
+
     */
     @SerializedName("undiscountedWithTax")
     Integer undiscountedWithTax;

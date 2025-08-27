@@ -61,7 +61,7 @@ public class OrderItem extends AbstractModel  {
     OrderItemPrice price;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("lowestPriorPrice")
     OrderItemLowestPriorPrice lowestPriorPrice;

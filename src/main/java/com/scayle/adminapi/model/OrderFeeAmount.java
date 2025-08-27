@@ -13,13 +13,13 @@ import lombok.Setter;
 @Setter
 public class OrderFeeAmount extends AbstractModel  {
     /**
-    * 
+    * If the order has an external price, this field becomes optional.
     */
     @SerializedName("withoutTax")
     Integer withoutTax;
 
     /**
-    * 
+    * If the order has an external price, this field becomes optional.
     */
     @SerializedName("withTax")
     Integer withTax;

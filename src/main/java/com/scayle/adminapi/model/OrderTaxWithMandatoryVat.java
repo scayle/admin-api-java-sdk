@@ -11,11 +11,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class OrderCostTax extends AbstractModel  {
+public class OrderTaxWithMandatoryVat extends AbstractModel  {
     /**
     * 
     */
     @SerializedName("vat")
-    OrderCostVat vat;
+    OrderVat vat;
 
 }

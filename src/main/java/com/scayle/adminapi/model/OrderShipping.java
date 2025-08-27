@@ -25,13 +25,13 @@ public class OrderShipping extends AbstractModel  {
     String deliveredOn;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("deliveryCosts")
     Integer deliveryCosts;
 
     /**
-    * 
+    * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("expressDeliveryCosts")
     Integer expressDeliveryCosts;
