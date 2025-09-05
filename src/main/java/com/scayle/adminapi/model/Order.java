@@ -181,4 +181,10 @@ public class Order extends AbstractModel  {
     @SerializedName("loyaltyCard")
     OrderLoyaltyCard loyaltyCard;
 
+    /**
+    * 
+    */
+    @SerializedName("channel")
+    OrderChannel channel;
+
 }

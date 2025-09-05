@@ -51,6 +51,7 @@ import com.scayle.adminapi.service.BulkRequestService;
 import com.scayle.adminapi.service.BulkRequestStatusService;
 import com.scayle.adminapi.service.BulkOperationStatusService;
 import com.scayle.adminapi.service.ProductSellableTimeframeService;
+import com.scayle.adminapi.service.ChannelService;
 
 public final class AdminAPI extends AbstractApiClient {
 
@@ -305,6 +306,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductSellableTimeframeService productSellableTimeframes() {
         ProductSellableTimeframeService service = this.getService("com.scayle.adminapi.service.ProductSellableTimeframeService");
+        return service;
+    }
+
+    public ChannelService channels() {
+        ChannelService service = this.getService("com.scayle.adminapi.service.ChannelService");
         return service;
     }
 
