@@ -32,11 +32,6 @@ default:
     - tags
   when: manual
 
-deploy:snapshot:
-  <<: *deploy_template
-  variables:
-    ORG_GRADLE_PROJECT_environment: snapshot
-
 deploy:release:
   <<: *deploy_template
   variables:
