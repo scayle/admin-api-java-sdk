@@ -103,4 +103,10 @@ public class Product extends AbstractModel  {
     @SerializedName("merchantReferenceKeys")
     List<String> merchantReferenceKeys;
 
+    /**
+    * A list of similar products.
+    */
+    @SerializedName("similarProducts")
+    List<SimilarProducts> similarProducts;
+
 }

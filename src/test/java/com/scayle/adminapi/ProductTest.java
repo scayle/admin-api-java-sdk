@@ -325,6 +325,20 @@ public class ProductTest extends BaseApiTest {
     }
 
     @Test
+    public void testPatchSimilarProducts() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductPatchSimilarProductsRequest.json");
+        List<SimilarProducts> requestEntity = this.jsonSerializer.unserializeList(expectedRequestJson, SimilarProducts.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.products().patchSimilarProducts(Identifier.fromId(1), requestEntity, options);
+
+    }
+
+    @Test
     public void testCreateBulkRequest() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/ProductCreateBulkRequestRequest.json");
         CreateBulkRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CreateBulkRequest.class);
