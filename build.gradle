@@ -8,12 +8,8 @@ repositories {
     mavenCentral()
 }
 
-def isRelease() {
-    findProperty("environment") == "release"
-}
-
 def resolveVersion() {
-    return findProperty("version") + (isRelease() ? "" : "-SNAPSHOT")
+    return findProperty("version")
 }
 
 group = 'com.scayle.adminapi'
