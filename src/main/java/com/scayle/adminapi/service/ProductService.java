@@ -327,20 +327,6 @@ public class ProductService extends AbstractService {
     }
 
     
-    public void patchSimilarProducts(Identifier productIdentifier, List<SimilarProducts> model) throws ApiErrorException, ConnectionException {
-
-        this.request("patch", this.resolvePath("/products/%s/similar-products", productIdentifier), null, null, null, model);
-    }
-
-    
-    public void patchSimilarProducts(Identifier productIdentifier, List<SimilarProducts> model, ApiOptions options) throws ApiErrorException, ConnectionException {
-
-        Map<String, Object> query = options.all();
-
-        this.request("patch", this.resolvePath("/products/%s/similar-products", productIdentifier), query, null, null, model);
-    }
-
-    
     public BulkRequest createBulkRequest(CreateBulkRequest model) throws ApiErrorException, ConnectionException {
         Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
 

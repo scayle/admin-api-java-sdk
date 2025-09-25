@@ -155,22 +155,5 @@
             "sellableFrom": null,
             "sellableTo": null
         }
-    ],
-    "similarProducts": [
-        {
-            "shopKey": "ay",
-            "countryCode": "DE",
-            "productIds": [
-                1,
-                2
-            ]
-        },
-        {
-            "shopKey": "ay",
-            "productIds": [
-                1,
-                2
-            ]
-        }
     ]
 }
