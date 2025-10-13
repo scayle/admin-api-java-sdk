@@ -49,6 +49,12 @@ public class OrderPackage extends AbstractModel  {
     String deliveryStatus;
 
     /**
+    * Timestamp when the order item was shipped, in Iso8601 format.
+    */
+    @SerializedName("shippedAt")
+    java.time.Instant shippedAt;
+
+    /**
     * 
     */
     @SerializedName("tracking")

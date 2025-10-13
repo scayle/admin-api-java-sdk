@@ -156,4 +156,28 @@ public class OrderItem extends AbstractModel  {
     @SerializedName("updatedAt")
     java.time.Instant updatedAt;
 
+    /**
+    * Timestamp when the order item was successfully delegated, in Iso8601 format.
+    */
+    @SerializedName("delegatedAt")
+    java.time.Instant delegatedAt;
+
+    /**
+    * Timestamp when the order item was shipped, in Iso8601 format.
+    */
+    @SerializedName("shippedAt")
+    java.time.Instant shippedAt;
+
+    /**
+    * Timestamp when the order item was canceled, in Iso8601 format.
+    */
+    @SerializedName("cancelledAt")
+    java.time.Instant cancelledAt;
+
+    /**
+    * Timestamp when the order item was returned by the customer and recorded in the system, in Iso8601 format.
+    */
+    @SerializedName("returnedAt")
+    java.time.Instant returnedAt;
+
 }
