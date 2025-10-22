@@ -27,6 +27,7 @@ import com.scayle.adminapi.service.CustomDataConfigService;
 import com.scayle.adminapi.service.CustomerService;
 import com.scayle.adminapi.service.OrderService;
 import com.scayle.adminapi.service.OrderItemService;
+import com.scayle.adminapi.service.OrderBillingStatusService;
 import com.scayle.adminapi.service.ShipmentService;
 import com.scayle.adminapi.service.WebhookEventService;
 import com.scayle.adminapi.service.WebhookSubscriptionService;
@@ -186,6 +187,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public OrderItemService orderItems() {
         OrderItemService service = this.getService("com.scayle.adminapi.service.OrderItemService");
+        return service;
+    }
+
+    public OrderBillingStatusService orderBillingStatuses() {
+        OrderBillingStatusService service = this.getService("com.scayle.adminapi.service.OrderBillingStatusService");
         return service;
     }
 
