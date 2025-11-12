@@ -2,7 +2,7 @@ stages:
   - deploy
 
 default:
-  image: openjdk:11.0.6-jdk-buster
+  image: openjdk:11.0.16-jdk-buster
   services:
     - docker:dind
   tags:
