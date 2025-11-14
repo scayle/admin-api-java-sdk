@@ -60,4 +60,16 @@ public class MerchantCreateOrUpdate extends AbstractModel  {
         }
         this.cancellationUrl = value;
     }
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
 }

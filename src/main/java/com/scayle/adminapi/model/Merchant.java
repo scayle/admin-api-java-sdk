@@ -84,4 +84,16 @@ public class Merchant extends AbstractModel  {
     @SerializedName("warehouses")
     List<MerchantWarehouse> warehouses;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
 }
