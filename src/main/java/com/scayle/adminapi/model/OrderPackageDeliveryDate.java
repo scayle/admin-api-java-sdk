@@ -24,4 +24,10 @@ public class OrderPackageDeliveryDate extends AbstractModel  {
     @SerializedName("minimum")
     String minimum;
 
+    /**
+    * 
+    */
+    @SerializedName("desired")
+    String desired;
+
 }
