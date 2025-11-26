@@ -17,7 +17,7 @@ public class VoucherConstraintsApplications extends AbstractModel  {
     * 
     */
     @SerializedName("count")
-    Integer count;
+    Long count;
 
     /**
     * 
