@@ -15,7 +15,7 @@ public class VoucherConstraintsApplications implements ApiObjectInterface {
     * 
     */
     @SerializedName("count")
-    Integer count;
+    Long count;
 
     /**
     * 
