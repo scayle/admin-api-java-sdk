@@ -52,4 +52,24 @@ public class ProductVariantStockTest extends BaseApiTest {
         }
     }
 
+    @Test
+    public void testCreateBulkRequest() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantStockCreateBulkRequestRequest.json");
+        CreateBulkRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CreateBulkRequest.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        BulkRequest responseEntity = this.api.productVariantStocks().createBulkRequest(requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantStockCreateBulkRequestResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

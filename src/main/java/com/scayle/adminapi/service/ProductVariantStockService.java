@@ -48,4 +48,20 @@ public class ProductVariantStockService extends AbstractService {
         return this.requestCollection("get", this.resolvePath("/variants/%s/stocks", variantIdentifier), query, null, responseModel);
     }
 
+    
+    public BulkRequest createBulkRequest(CreateBulkRequest model) throws ApiErrorException, ConnectionException {
+        Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
+
+        return this.request("post", this.resolvePath("/variants/stocks/bulk-requests"), null, null, responseModel, model);
+    }
+
+    
+    public BulkRequest createBulkRequest(CreateBulkRequest model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<BulkRequest> responseModel = (Class<BulkRequest>)(Class<?>)BulkRequest.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/variants/stocks/bulk-requests"), query, null, responseModel, model);
+    }
+
 }
