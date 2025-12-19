@@ -60,4 +60,16 @@ public class ProductImage extends AbstractModel  {
     @SerializedName("attributes")
     List<Attribute> attributes;
 
+    /**
+    * 
+    */
+    @SerializedName("customData")
+    Object customData;
+
+    public void setCustomData(Object value) {
+        if (value == null) {
+            this.setNull("customData");
+        }
+        this.customData = value;
+    }
 }
