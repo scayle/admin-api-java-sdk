@@ -36,11 +36,23 @@ Please ensure the input is URL-encoded, avoid using special characters like `%`,
     Map<String, String> frontendName;
 
     /**
-    * An attribute group type.
+    * The attribute type of the attribute group.
     */
     @SerializedName("type")
     AttributeGroupType type;
 
+    /**
+    * The attribute group type.
+    */
+    @SerializedName("cluster")
+    String cluster;
+
+    public void setCluster(String value) {
+        if (value == null) {
+            this.setNull("cluster");
+        }
+        this.cluster = value;
+    }
     /**
     * Specifies whether an attribute value is shared among multiple entities or if each entity has its own unique value. 
 It's important to note that attributes of advanced types cannot be shared, so 'isShared' must always be set to false in such cases.
