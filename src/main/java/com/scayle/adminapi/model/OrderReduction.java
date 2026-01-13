@@ -25,13 +25,13 @@ public class OrderReduction extends AbstractModel  {
     OrderReductionAmount amount;
 
     /**
-    * 
+    * Possible values: sale, campaign, voucher, promotion, and promotionCode
     */
     @SerializedName("category")
     String category;
 
     /**
-    * 
+    * Possible values: relative, absolute
     */
     @SerializedName("type")
     String type;
