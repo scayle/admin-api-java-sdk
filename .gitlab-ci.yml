@@ -14,8 +14,7 @@ default:
 deploy:release:
   stage: deploy
   script:
-    - export ORG_GRADLE_PROJECT_version="test/BCO-8354" # @TODO: remove before release
-#    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}" # Removes 'v' prefix from tag
+    - export ORG_GRADLE_PROJECT_version="${CI_COMMIT_TAG/v}" # Removes 'v' prefix from tag
     - sed -i "s|SDK_VERSION_PLACEHOLDER|${ORG_GRADLE_PROJECT_version}|g" ./src/main/java/com/scayle/adminapi/http/HttpClient.java
     - export ORG_GRADLE_PROJECT_signingKey="${ORG_GRADLE_PROJECT_signingKey}"
     - export ORG_GRADLE_PROJECT_signingKeyId="${ORG_GRADLE_PROJECT_signingKeyId}"
@@ -27,9 +26,7 @@ deploy:release:
     - ARTIFACT_NAME="AdminAPI"
     - BUNDLE_ZIP_PATH="${CI_PROJECT_DIR}/build/publisher-bundles/${ARTIFACT_NAME}-${ORG_GRADLE_PROJECT_version}-bundle.zip"
     - echo "Bundle ZIP Path:${BUNDLE_ZIP_PATH}"
-
-#  @TODO: uncomment before release
-#    - "curl --request POST --verbose --header \"Authorization: Bearer ${SONATYPE_API_TOKEN}\" --form bundle=@${BUNDLE_ZIP_PATH} https://central.sonatype.com/api/v1/publisher/upload"
-#  only:
-#    - tags
-#  when: manual
+    - "curl --request POST --verbose --header \"Authorization: Bearer ${SONATYPE_API_TOKEN}\" --form bundle=@${BUNDLE_ZIP_PATH} https://central.sonatype.com/api/v1/publisher/upload"
+  only:
+    - tags
+  when: manual
