@@ -2,13 +2,13 @@ stages:
   - deploy
 
 default:
-  image: openjdk:11.0.16-jdk-buster
+  image: eclipse-temurin:11-jdk-jammy
   services:
     - docker:dind
   tags:
     - $GITLAB_CI_RUNNER_AMD
   before_script:
-    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq # Install gnupg, curl, and jq
+    - apt-get update && apt-get install -y --no-install-recommends gnupg curl jq gpg
     - sh ./gradlew clean --stacktrace --info # Clean before every build
 
 deploy:release:
