@@ -74,14 +74,16 @@ publishing {
     }
 }
 
-signing {
-    // GPG key details.
-    def signingKeyId = findProperty("signingKeyId")
-    def signingKey = findProperty("signingKey")
-    def signingPassword = findProperty("signingPassword")
+if (project.hasProperty("signingKey")) {
+    signing {
+        // GPG key details.
+        def signingKeyId = findProperty("signingKeyId")
+        def signingKey = findProperty("signingKey")
+        def signingPassword = findProperty("signingPassword")
 
-    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
-    sign publishing.publications.mavenJava
+        useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+        sign publishing.publications.mavenJava
+    }
 }
 
 tasks.register('stageFinalMavenArtifacts', Copy) {
@@ -96,22 +98,23 @@ tasks.register('stageFinalMavenArtifacts', Copy) {
     dependsOn tasks.named('javadocJar')
     dependsOn tasks.named('generatePomFileForMavenJavaPublication')
     dependsOn tasks.named('generateMetadataFileForMavenJavaPublication') // Ensure module.json is made
-    dependsOn tasks.named('signMavenJavaPublication') // Ensure signed files are produced
 
     from(tasks.named('jar').get().archiveFile)
-    from(tasks.named('jar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
-
     from(tasks.named('sourcesJar').get().archiveFile)
-    from(tasks.named('sourcesJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
-
     from(tasks.named('javadocJar').get().archiveFile)
-    from(tasks.named('javadocJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
 
     from(file("${buildDir}/publications/mavenJava/pom-default.xml")) {
         rename { fileName -> "${project.name}-${project.version}.pom" }
     }
-    from(file("${buildDir}/publications/mavenJava/pom-default.xml.asc")) {
-        rename { fileName -> "${project.name}-${project.version}.pom.asc" }
+
+    if (project.hasProperty("signingKey")) {
+        dependsOn tasks.named('signMavenJavaPublication') // Ensure signed files are produced
+        from(tasks.named('jar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
+        from(tasks.named('sourcesJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
+        from(tasks.named('javadocJar').get().archiveFile.map { it.asFile.absolutePath + ".asc" })
+        from(file("${buildDir}/publications/mavenJava/pom-default.xml.asc")) {
+            rename { fileName -> "${project.name}-${project.version}.pom.asc" }
+        }
     }
 
     doLast {
