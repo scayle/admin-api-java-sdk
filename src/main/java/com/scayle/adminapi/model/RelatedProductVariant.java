@@ -19,6 +19,14 @@ public class RelatedProductVariant extends AbstractModel  {
     String variantReferenceKey;
 
     /**
+    * The ID of the product variant created by SCAYLE. 
+This can be retrieved from the product variant endpoint.
+
+    */
+    @SerializedName("variantId")
+    Integer variantId;
+
+    /**
     * Defines the main variant of a composite product. Each composite product must contain one and only one main variant.
     */
     @SerializedName("isMainVariant")

@@ -74,8 +74,11 @@ public class ProductVariant extends AbstractModel  {
 
     /**
     * A list of variants that belong to the composite variant.
+All variants in the list must use the same identification method, either all use variantId or all use variantReferenceKey.
+Empty arrays are allowed in responses.
+
     */
     @SerializedName("relatedVariants")
-    List<RelatedProductVariant> relatedVariants;
+    Object relatedVariants;
 
 }

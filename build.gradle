@@ -76,7 +76,6 @@ publishing {
 
 if (project.hasProperty("signingKey")) {
     signing {
-        // GPG key details.
         def signingKeyId = findProperty("signingKeyId")
         def signingKey = findProperty("signingKey")
         def signingPassword = findProperty("signingPassword")
@@ -124,10 +123,10 @@ tasks.register('stageFinalMavenArtifacts', Copy) {
                 // Only generate checksums for actual artifacts, not signatures or existing checksums
                 if (file.isFile() && !file.name.endsWith(".asc") && !file.name.endsWith(".md5") && !file.name.endsWith(".sha1")) {
                     def fileBytes = file.bytes
-                    // MD5 Checksum
+
                     def md5 = java.security.MessageDigest.getInstance("MD5").digest(fileBytes).encodeHex().toString()
                     new File(file.parentFile, file.name + ".md5").text = md5
-                    // SHA1 Checksum
+
                     def sha1 = java.security.MessageDigest.getInstance("SHA1").digest(fileBytes).encodeHex().toString()
                     new File(file.parentFile, file.name + ".sha1").text = sha1
                     println "  Generated checksums for: ${file.name}"
