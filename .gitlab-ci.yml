@@ -1,4 +1,36 @@
+include:
+  - component: $CI_SERVER_FQDN/aboutyou/it/security/devsecops/global-security-pipelines/scanners@~latest
+    inputs:
+      allow_job_failure: true
+      gitlab_runner: $GITLAB_CI_RUNNER_AMD # the runner should be AMD-based
+
+      # Scanner enablement flags
+      # Please note that check_ticket_id, eol_scan, sbom_injection, secrets_scan, vuln_scan are set to true by default.
+      # iac_scan and image_scan are optional and should be set to false by default.
+      check_ticket_id: true
+      eol_scan: false # we are not using the generated image outside the pipeline
+      iac_scan: true
+      image_scan: false # we are not using the generated image outside the pipeline
+      sast_semgrep_scan: true
+      sbom_ingestion: true
+      secrets_scan: true
+      vuln_scan: true
+
+      # Required inputs if image/eol scanning is enabled
+      # https://aboutyou.atlassian.net/wiki/spaces/SEC/pages/2648572021/Global+Security+Pipelines#How-to-pass-the-list-of-images-as-a-variable-to-the-image-scan-and-eol-scan-jobs.
+      # images_to_scan: [ "List of URIs of the images to scan >" ]
+      aws_iam_role: "arn:aws:iam::736335200020:role/babo-protected-DeploymentServiceRole"
+
+      # Stage definitions for individual scan jobs (optional, overrides the default stage for each scan)
+      check_ticket_id_stage: 'scan'
+      iac_scan_stage: 'scan'
+      sast_semgrep_scan_stage: 'scan'
+      sbom_ingestion_stage: 'scan'
+      secrets_scan_stage: 'scan'
+      vuln_scan_stage: 'scan'
+
 stages:
+  - scan
   - deploy
 
 default:
