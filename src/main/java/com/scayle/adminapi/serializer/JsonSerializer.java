@@ -57,7 +57,7 @@ public class JsonSerializer {
     }
 
     public <T> T unserialize(String json, Class<T> clazz) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setLenient().create();
 
         return (T)(gson.fromJson(json, clazz));
     }
@@ -81,6 +81,7 @@ public class JsonSerializer {
 
     private <T> Gson createGson(Class<T> modelClass) {
         GsonBuilder gsonBuilder = new GsonBuilder()
+            .setLenient()
             .registerTypeAdapterFactory(new ExplicitNullTypeAdapterFactory())
             // Dont cast int/long to doubles
             .registerTypeAdapter(new TypeToken<Map <String, Object>>(){}.getType(),  new MapNumberAdapter())

@@ -17,6 +17,7 @@ import com.scayle.adminapi.model.AbstractApiObject;
 
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public abstract class AbstractService {
 
@@ -33,8 +34,8 @@ public abstract class AbstractService {
     }
 
     protected <T> T request(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
-        try {
-            Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body);
+        String responseBodyContent = null;
+        try (Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body)) {
             Integer statusCode = response.code();
 
             if (statusCode >= 200 && statusCode < 300) {
@@ -43,10 +44,12 @@ public abstract class AbstractService {
                 boolean isFile = contentType != null && contentType.startsWith("application/pdf");
 
                 if (isFile) {
-                    return (T) response.body().bytes();
+                    ResponseBody fileBody = response.body();
+                    return (T) (fileBody != null ? fileBody.bytes() : null);
                 }
 
-                String responseBodyContent = response.body().string();
+                ResponseBody responseBody = response.body();
+                responseBodyContent = responseBody != null ? responseBody.string() : null;
                 if (responseBodyContent == null || responseBodyContent.isEmpty()) {
                     return null;
                 }
@@ -69,16 +72,18 @@ public abstract class AbstractService {
                 return model;
             } else {
                 Request request = response.request();
-                String responseBodyContent = response.body().string();
+                ResponseBody errBody = response.body();
+                responseBodyContent = errBody != null ? errBody.string() : null;
                 String url = request.url().toString();
                 JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
+                JsonObject errorBody = (errorResponse != null && errorResponse.isJsonObject()) ? errorResponse.getAsJsonObject() : new JsonObject();
 
-                throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), url, statusCode);
+                throw new ApiErrorException(errorBody, url, statusCode);
             }
         } catch (ApiErrorException apiException) {
             throw apiException;
         } catch (Exception exception) {
-            throw new ConnectionException(exception.getMessage(), exception);
+            throw new ConnectionException(exception.getMessage(), exception, responseBodyContent);
         }
     }
 
@@ -87,9 +92,10 @@ public abstract class AbstractService {
     }
 
     protected <T> ApiCollection<T> requestCollection(String httpMethod, String relativeUrl, Map<String, Object> query, Map<String, Object> headers, Class<T> modelClass, Object body) throws ApiErrorException, ConnectionException {
-        try {
-                Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body);
-                String responseBodyContent = response.body().string();
+        String responseBodyContent = null;
+        try (Response response = this.executeRequest(httpMethod, relativeUrl, query, headers, body)) {
+                ResponseBody responseBody = response.body();
+                responseBodyContent = responseBody != null ? responseBody.string() : null;
                 Integer statusCode = response.code();
 
                 if (statusCode >= 200 && statusCode < 300) {
@@ -113,13 +119,14 @@ public abstract class AbstractService {
                     Request request = response.request();
                     String url = request.url().toString();
                     JsonElement errorResponse = this.jsonSerializer.unserialize(responseBodyContent, JsonElement.class);
+                    JsonObject errorBody = (errorResponse != null && errorResponse.isJsonObject()) ? errorResponse.getAsJsonObject() : new JsonObject();
 
-                    throw new ApiErrorException(null == errorResponse ? new JsonObject() : errorResponse.getAsJsonObject(), url, statusCode);
+                    throw new ApiErrorException(errorBody, url, statusCode);
                 }
             } catch (ApiErrorException apiException) {
                 throw apiException;
             } catch (Exception exception) {
-                throw new ConnectionException(exception.getMessage(), exception);
+                throw new ConnectionException(exception.getMessage(), exception, responseBodyContent);
         }
     }
 
