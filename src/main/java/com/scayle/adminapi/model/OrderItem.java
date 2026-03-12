@@ -145,6 +145,12 @@ public class OrderItem extends AbstractModel  {
     OrderItemMerchant merchant;
 
     /**
+    * Bundle product information
+    */
+    @SerializedName("merchantAdditionalData")
+    Map<String, Object> merchantAdditionalData;
+
+    /**
     * Timestamp when the order item is created
     */
     @SerializedName("createdAt")
