@@ -33,12 +33,6 @@ public class Reservation extends AbstractModel  {
     /**
     * 
     */
-    @SerializedName("reservationTtl")
-    Integer reservationTtl;
-
-    /**
-    * 
-    */
     @SerializedName("variant")
     ReservationVariant variant;
 
