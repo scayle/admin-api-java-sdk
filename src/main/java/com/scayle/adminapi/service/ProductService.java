@@ -386,4 +386,18 @@ public class ProductService extends AbstractService {
         this.request("post", this.resolvePath("/products/%s/attributes/%s/unlock", productIdentifier, attributeGroupName), query, null, null);
     }
 
+    
+    public void unlockAssetSortings(Identifier productIdentifier, UnlockAssetSortingsRequest model) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/products/%s/unlock-asset-sortings", productIdentifier), null, null, null, model);
+    }
+
+    
+    public void unlockAssetSortings(Identifier productIdentifier, UnlockAssetSortingsRequest model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/products/%s/unlock-asset-sortings", productIdentifier), query, null, null, model);
+    }
+
 }

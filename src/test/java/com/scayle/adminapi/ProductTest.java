@@ -386,4 +386,18 @@ public class ProductTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testUnlockAssetSortings() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUnlockAssetSortingsRequest.json");
+        UnlockAssetSortingsRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, UnlockAssetSortingsRequest.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.products().unlockAssetSortings(Identifier.fromId(1), requestEntity, options);
+
+    }
+
 }
