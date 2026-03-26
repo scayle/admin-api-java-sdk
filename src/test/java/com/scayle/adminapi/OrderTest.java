@@ -157,6 +157,34 @@ public class OrderTest extends BaseApiTest {
     }
 
     @Test
+    public void testGetOrderDocuments() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<OrderDocument> responseEntity = this.api.orders().getOrderDocuments("acme", "acme", Identifier.fromId(1), options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/OrderGetOrderDocumentsResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (OrderDocument entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
+    public void testGetOrderDocument() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Object responseEntity = this.api.orders().getOrderDocument("acme", "acme", Identifier.fromId(1), 1, options);
+
+        assertNotNull(responseEntity);
+        assertTrue(responseEntity instanceof byte[]);
+
+
+    }
+
+    @Test
     public void testCreateOrUpdateLegacyCustomData() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/OrderCreateOrUpdateLegacyCustomDataRequest.json");
         Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);

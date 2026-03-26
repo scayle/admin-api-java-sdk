@@ -159,6 +159,38 @@ public class OrderService extends AbstractService {
     }
 
     
+    public ApiCollection<OrderDocument> getOrderDocuments(String shopKey, String countryCode, Identifier orderIdentifier) throws ApiErrorException, ConnectionException {
+        Class<OrderDocument> responseModel = (Class<OrderDocument>)(Class<?>)OrderDocument.class;
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/documents", shopKey, countryCode, orderIdentifier), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<OrderDocument> getOrderDocuments(String shopKey, String countryCode, Identifier orderIdentifier, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<OrderDocument> responseModel = (Class<OrderDocument>)(Class<?>)OrderDocument.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/documents", shopKey, countryCode, orderIdentifier), query, null, responseModel);
+    }
+
+    
+    public Object getOrderDocument(String shopKey, String countryCode, Identifier orderIdentifier, Integer documentId) throws ApiErrorException, ConnectionException {
+        Class<Object> responseModel = (Class<Object>)(Class<?>)Object.class;
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/documents/%s/file", shopKey, countryCode, orderIdentifier, documentId), null, null, responseModel);
+    }
+
+    
+    public Object getOrderDocument(String shopKey, String countryCode, Identifier orderIdentifier, Integer documentId, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Object> responseModel = (Class<Object>)(Class<?>)Object.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("get", this.resolvePath("/shops/%s/countries/%s/orders/%s/documents/%s/file", shopKey, countryCode, orderIdentifier, documentId), query, null, responseModel);
+    }
+
+    
     public void createOrUpdateLegacyCustomData(String shopKey, String countryCode, Identifier orderIdentifier, Map<String, Object> model) throws ApiErrorException, ConnectionException {
 
         this.request("put", this.resolvePath("/shops/%s/countries/%s/orders/%s/legacy-custom-data", shopKey, countryCode, orderIdentifier), null, null, null, model);
