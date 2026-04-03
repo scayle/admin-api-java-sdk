@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.Map;
 
+import okhttp3.OkHttpClient;
+
 import com.scayle.adminapi.model.ApiConfiguration;
 import com.scayle.adminapi.model.ApiObjectInterface;
 import com.scayle.adminapi.serializer.JsonSerializer;
@@ -24,7 +26,7 @@ public class BaseApiTest {
                                             .accessToken("abc123")
                                             .build();
 
-        this.api = new AdminAPI(apiConfiguration);
+        this.api = new AdminAPI(apiConfiguration, new OkHttpClient());
         this.jsonSerializer = new JsonSerializer();
     }
 

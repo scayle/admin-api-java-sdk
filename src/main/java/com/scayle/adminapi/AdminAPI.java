@@ -1,5 +1,7 @@
 package com.scayle.adminapi;
 
+import okhttp3.OkHttpClient;
+
 import com.scayle.adminapi.model.ApiConfiguration;
 import com.scayle.adminapi.service.ProductService;
 import com.scayle.adminapi.service.ProductsFirstLiveAtService;
@@ -58,6 +60,10 @@ public final class AdminAPI extends AbstractApiClient {
 
     public AdminAPI(ApiConfiguration apiConfiguration) {
         super(apiConfiguration);
+    }
+
+    public AdminAPI(ApiConfiguration apiConfiguration, OkHttpClient httpClient) {
+        super(apiConfiguration, httpClient);
     }
 
     public ProductService products() {

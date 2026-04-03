@@ -18,7 +18,8 @@ public class HttpClient {
     private static final String SDK_VERSION = "SDK_VERSION_PLACEHOLDER"; // Placeholder is replaced during deploy
 
     public HttpClient(ApiConfiguration apiConfiguration) {
-        this.httpClient = new OkHttpClient();
+        OkHttpClient configured = apiConfiguration.getHttpClient();
+        this.httpClient = configured != null ? configured : new OkHttpClient();
         this.apiConfiguration = apiConfiguration;
     }
 

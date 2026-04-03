@@ -2,6 +2,8 @@ package com.scayle.adminapi;
 
 import com.scayle.adminapi.exception.InvalidArgumentException;
 import com.scayle.adminapi.factory.ServiceFactory;
+import okhttp3.OkHttpClient;
+
 import com.scayle.adminapi.http.HttpClient;
 import com.scayle.adminapi.model.ApiConfiguration;
 
@@ -14,6 +16,16 @@ public abstract class AbstractApiClient {
 
         this.apiConfiguration = apiConfiguration;
         this.serviceFactory = new ServiceFactory(new HttpClient(apiConfiguration));
+    }
+
+    public AbstractApiClient(ApiConfiguration apiConfiguration, OkHttpClient httpClient) {
+        this.validateConfig(apiConfiguration);
+
+        ApiConfiguration effective = httpClient != null
+            ? apiConfiguration.toBuilder().httpClient(httpClient).build()
+            : apiConfiguration;
+        this.apiConfiguration = effective;
+        this.serviceFactory = new ServiceFactory(new HttpClient(effective));
     }
 
     protected <T> T getService(String className) {
