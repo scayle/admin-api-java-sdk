@@ -400,4 +400,24 @@ public class ProductTest extends BaseApiTest {
 
     }
 
+    @Test
+    public void testCopy() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductCopyRequest.json");
+        CopyProductRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CopyProductRequest.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Product responseEntity = this.api.products().copy(Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductCopyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
 }

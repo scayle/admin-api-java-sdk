@@ -400,4 +400,20 @@ public class ProductService extends AbstractService {
         this.request("post", this.resolvePath("/products/%s/unlock-asset-sortings", productIdentifier), query, null, null, model);
     }
 
+    
+    public Product copy(Identifier productIdentifier, CopyProductRequest model) throws ApiErrorException, ConnectionException {
+        Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
+
+        return this.request("post", this.resolvePath("/products/%s/copy", productIdentifier), null, null, responseModel, model);
+    }
+
+    
+    public Product copy(Identifier productIdentifier, CopyProductRequest model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/products/%s/copy", productIdentifier), query, null, responseModel, model);
+    }
+
 }
