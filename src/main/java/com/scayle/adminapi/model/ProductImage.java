@@ -43,6 +43,13 @@ public class ProductImage extends AbstractModel  {
     Integer position;
 
     /**
+    * Optional per-shop-country positions for this image. When present, must contain at least one entry.
+
+    */
+    @SerializedName("shopCountrySpecific")
+    List<ProductImageShopCountryPosition> shopCountrySpecific;
+
+    /**
     * A source from where to upload an image.
     */
     @SerializedName("source")
