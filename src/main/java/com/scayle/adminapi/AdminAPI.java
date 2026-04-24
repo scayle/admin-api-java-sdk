@@ -46,6 +46,7 @@ import com.scayle.adminapi.service.PromotionItemSetService;
 import com.scayle.adminapi.service.PromotionV1Service;
 import com.scayle.adminapi.service.PromotionService;
 import com.scayle.adminapi.service.AudienceService;
+import com.scayle.adminapi.service.CustomerSegmentService;
 import com.scayle.adminapi.service.ReservationService;
 import com.scayle.adminapi.service.RedirectService;
 import com.scayle.adminapi.service.EmailKeyService;
@@ -278,6 +279,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public AudienceService audiences() {
         AudienceService service = this.getService("com.scayle.adminapi.service.AudienceService");
+        return service;
+    }
+
+    public CustomerSegmentService customerSegments() {
+        CustomerSegmentService service = this.getService("com.scayle.adminapi.service.CustomerSegmentService");
         return service;
     }
 
