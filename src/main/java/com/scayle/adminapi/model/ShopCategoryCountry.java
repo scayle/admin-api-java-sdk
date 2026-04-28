@@ -101,4 +101,10 @@ public class ShopCategoryCountry extends AbstractModel  {
         }
         this.customSortingKey = value;
     }
+    /**
+    * 
+    */
+    @SerializedName("seo")
+    Object seo;
+
 }
