@@ -44,4 +44,20 @@ If the order has an external price, this field becomes optional and can contain 
     @SerializedName("tax")
     OrderTax tax;
 
+    /**
+    * Present on the webhook event in which the fee is being invoiced.
+Consumers should treat these as event signals, not persistent state.
+
+    */
+    @SerializedName("invoiceTriggered")
+    Boolean invoiceTriggered;
+
+    /**
+    * Present on the webhook event in which the fee is being refunded.
+Consumers should treat these as event signals, not persistent state.
+
+    */
+    @SerializedName("refundTriggered")
+    Boolean refundTriggered;
+
 }
