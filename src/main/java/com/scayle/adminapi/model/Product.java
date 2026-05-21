@@ -20,6 +20,30 @@ public class Product extends AbstractModel  {
     Integer id;
 
     /**
+    * Product creation timestamp in UTC.
+    */
+    @SerializedName("createdAt")
+    java.time.Instant createdAt;
+
+    /**
+    * Product last update timestamp in UTC.
+    */
+    @SerializedName("updatedAt")
+    java.time.Instant updatedAt;
+
+    /**
+    * Timestamp of the latest content-related product update in UTC.
+    */
+    @SerializedName("lastContentUpdatedAt")
+    java.time.Instant lastContentUpdatedAt;
+
+    public void setLastContentUpdatedAt(java.time.Instant value) {
+        if (value == null) {
+            this.setNull("lastContentUpdatedAt");
+        }
+        this.lastContentUpdatedAt = value;
+    }
+    /**
     * If product is in problem state, the reasons are listed here.
     */
     @SerializedName("problems")
