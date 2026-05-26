@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 public class WarehouseShopCountry extends AbstractModel  {
     /**
-    * The key of the shop created by SCAYLE.
+    * A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 2 chars long.
     */
     @SerializedName("shopKey")
     String shopKey;

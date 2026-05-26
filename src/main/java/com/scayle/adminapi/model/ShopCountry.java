@@ -19,7 +19,7 @@ public class ShopCountry extends AbstractModel  {
     Integer id;
 
     /**
-    * The key of the shop created by SCAYLE.
+    * A key that uniquely identifies the shop within the tenant's ecosystem. Must be exactly 2 chars long.
     */
     @SerializedName("shopKey")
     String shopKey;
