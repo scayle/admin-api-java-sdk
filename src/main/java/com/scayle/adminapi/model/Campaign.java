@@ -38,6 +38,9 @@ public class Campaign extends AbstractModel  {
     }
     /**
     * List of country codes the campaign is valid for.
+If the same countryCode exists for multiple shop countries, you can target a specific shop country by passing its shopCountryId instead of the country code.
+Example: ["139"] instead of ["DE"].
+
     */
     @SerializedName("countryCodes")
     List<String> countryCodes;

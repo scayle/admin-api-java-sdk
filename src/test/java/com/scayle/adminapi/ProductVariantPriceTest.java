@@ -61,6 +61,90 @@ public class ProductVariantPriceTest extends BaseApiTest {
     }
 
     @Test
+    public void testCreateOrUpdateCustomData() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantPriceCreateOrUpdateCustomDataRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.productVariantPrices().createOrUpdateCustomData(Identifier.fromId(1), "acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantPriceCreateOrUpdateCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomData() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productVariantPrices().deleteCustomData(Identifier.fromId(1), "acme", options);
+
+    }
+
+    @Test
+    public void testGetCustomData() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.productVariantPrices().getCustomData(Identifier.fromId(1), "acme", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantPriceGetCustomDataResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testCreateOrUpdateCustomDataForKey() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantPriceCreateOrUpdateCustomDataForKeyRequest.json");
+        Map<String, Object> requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, Map.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.productVariantPrices().createOrUpdateCustomDataForKey(Identifier.fromId(1), "acme", "acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantPriceCreateOrUpdateCustomDataForKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteCustomDataForKey() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.productVariantPrices().deleteCustomDataForKey(Identifier.fromId(1), "acme", "acme", options);
+
+    }
+
+    @Test
+    public void testGetCustomDataForKey() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        Map<String, Object> responseEntity = this.api.productVariantPrices().getCustomDataForKey(Identifier.fromId(1), "acme", "acme", options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVariantPriceGetCustomDataForKeyResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testCreateBulkRequest() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/ProductVariantPriceCreateBulkRequestRequest.json");
         CreateBulkRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CreateBulkRequest.class);
