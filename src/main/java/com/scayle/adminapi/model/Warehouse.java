@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 public class Warehouse extends AbstractModel  {
     /**
-    * The ID of the warehouse created by SCAYLE.
+    * The ID of the warehouse created in SCAYLE.
     */
     @SerializedName("id")
     Integer id;
