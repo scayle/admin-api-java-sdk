@@ -32,4 +32,10 @@ This can be retrieved from the product variant endpoint.
     @SerializedName("isMainVariant")
     Boolean isMainVariant;
 
+    /**
+    * The number of units of this variant in the composite product.
+    */
+    @SerializedName("unitCount")
+    Integer unitCount = 1;
+
 }
