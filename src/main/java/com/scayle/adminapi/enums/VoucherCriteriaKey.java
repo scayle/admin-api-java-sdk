@@ -25,7 +25,13 @@ public enum VoucherCriteriaKey {
     VALUE_CUSTOMERGROUP("customerGroup"),
 
     @SerializedName("shopCountryId")
-    VALUE_SHOPCOUNTRYID("shopCountryId");
+    VALUE_SHOPCOUNTRYID("shopCountryId"),
+
+    @SerializedName("merchantId")
+    VALUE_MERCHANTID("merchantId"),
+
+    @SerializedName("paymentType")
+    VALUE_PAYMENTTYPE("paymentType");
 
 
     private final String val;
