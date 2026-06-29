@@ -20,6 +20,7 @@ import com.scayle.adminapi.service.ShopCategoryService;
 import com.scayle.adminapi.service.ShopCategoryPropertyKeyService;
 import com.scayle.adminapi.service.ShopCategoryProductSetUnlinkInstructionService;
 import com.scayle.adminapi.service.ShopCountryService;
+import com.scayle.adminapi.service.HostingService;
 import com.scayle.adminapi.service.BrandService;
 import com.scayle.adminapi.service.ProductSortingService;
 import com.scayle.adminapi.service.ShopCountryWarehouseService;
@@ -150,6 +151,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ShopCountryService shopCountries() {
         ShopCountryService service = this.getService("com.scayle.adminapi.service.ShopCountryService");
+        return service;
+    }
+
+    public HostingService hostings() {
+        HostingService service = this.getService("com.scayle.adminapi.service.HostingService");
         return service;
     }
 
