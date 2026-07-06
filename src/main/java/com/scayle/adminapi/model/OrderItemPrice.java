@@ -16,7 +16,7 @@ public class OrderItemPrice extends AbstractModel  {
     * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("appliedReductions")
-    Object appliedReductions;
+    List<OrderReduction> appliedReductions;
 
     /**
     * If the order has an external price, this field will not be included in the response payload.
