@@ -21,7 +21,7 @@ public class Voucher extends AbstractModel  {
     Integer id;
 
     /**
-    * 
+    * The voucher code. Can be specified on creation only and cannot be updated for existing vouchers.
     */
     @SerializedName("code")
     String code;
