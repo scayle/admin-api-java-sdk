@@ -27,6 +27,9 @@ public enum InvoiceType {
     @SerializedName("historical_corrective_invoice")
     VALUE_HISTORICAL_CORRECTIVE_INVOICE("historical_corrective_invoice"),
 
+    @SerializedName("return_cost_corrective_invoice")
+    VALUE_RETURN_COST_CORRECTIVE_INVOICE("return_cost_corrective_invoice"),
+
     @SerializedName("praz")
     VALUE_PRAZ("praz"),
 

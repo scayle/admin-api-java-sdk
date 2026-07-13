@@ -6,6 +6,9 @@ public enum OrderDocumentType {
     @SerializedName("merchant_partial_invoice")
     VALUE_MERCHANT_PARTIAL_INVOICE("merchant_partial_invoice"),
 
+    @SerializedName("return_cost_corrective_invoice")
+    VALUE_RETURN_COST_CORRECTIVE_INVOICE("return_cost_corrective_invoice"),
+
     @SerializedName("email_shipment")
     VALUE_EMAIL_SHIPMENT("email_shipment");
 
