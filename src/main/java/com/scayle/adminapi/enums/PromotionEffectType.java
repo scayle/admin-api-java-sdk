@@ -10,7 +10,10 @@ public enum PromotionEffectType {
     VALUE_AUTOMATIC_DISCOUNT("automatic_discount"),
 
     @SerializedName("combo_deal")
-    VALUE_COMBO_DEAL("combo_deal");
+    VALUE_COMBO_DEAL("combo_deal"),
+
+    @SerializedName("free_shipping")
+    VALUE_FREE_SHIPPING("free_shipping");
 
 
     private final String val;
