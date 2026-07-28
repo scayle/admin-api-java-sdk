@@ -25,7 +25,7 @@ public class OrderReduction extends AbstractModel  {
     OrderReductionAmount amount;
 
     /**
-    * Possible values: sale, campaign, voucher, promotion, and promotionCode
+    * The category of the applied reduction. Possible values: sale, campaign, voucher, promotion, promotionCode.
     */
     @SerializedName("category")
     String category;

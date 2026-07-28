@@ -80,7 +80,7 @@ public class Customer extends AbstractModel  {
         this.title = value;
     }
     /**
-    * Type of customer (like personal)
+    * The type of the customer. Possible values: personal, retail, organization, family.
     */
     @SerializedName("type")
     String type;
