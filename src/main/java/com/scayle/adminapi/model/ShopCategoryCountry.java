@@ -55,6 +55,12 @@ public class ShopCategoryCountry extends AbstractModel  {
         this.isExcludedFromSearch = value;
     }
     /**
+    * Declares whether the shop category country should still be included in search results while it is invisible.
+    */
+    @SerializedName("isIncludedInSearchWhenInvisible")
+    Boolean isIncludedInSearchWhenInvisible;
+
+    /**
     * The properties assigned to the shop category.
     */
     @SerializedName("properties")

@@ -91,6 +91,12 @@ public class ShopCategory extends AbstractModel  {
         this.isExcludedFromSearch = value;
     }
     /**
+    * Declares whether the shop category should still be included in search results while it is invisible.
+    */
+    @SerializedName("isIncludedInSearchWhenInvisible")
+    Boolean isIncludedInSearchWhenInvisible;
+
+    /**
     * Arbitrary fields assigned to shop categories
     */
     @SerializedName("customData")
