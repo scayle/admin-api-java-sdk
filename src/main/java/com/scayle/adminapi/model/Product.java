@@ -133,4 +133,12 @@ public class Product extends AbstractModel  {
     @SerializedName("similarProducts")
     List<SimilarProducts> similarProducts;
 
+    /**
+    * Product-level locks. imagePositions controls asset sorting locks (global and shop-country).
+On create/patch image: beside positions. On create/update product: on product root only.
+
+    */
+    @SerializedName("productLocks")
+    ProductLocks productLocks;
+
 }

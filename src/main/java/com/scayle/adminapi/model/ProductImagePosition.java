@@ -37,4 +37,12 @@ public class ProductImagePosition extends AbstractModel  {
         }
         this.customData = value;
     }
+    /**
+    * Product-level locks. imagePositions controls asset sorting locks (global and shop-country).
+On create/patch image: beside positions. On create/update product: on product root only.
+
+    */
+    @SerializedName("productLocks")
+    ProductLocks productLocks;
+
 }
