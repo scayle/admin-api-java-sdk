@@ -13,9 +13,15 @@ import lombok.Setter;
 @Setter
 public class CustomerReferenceKey extends AbstractModel  {
     /**
-    * External reference set by the client to integrate a third party system.
+    * External reference set by the client to integrate a third party system. It can be set to NULL otherwise
     */
     @SerializedName("referenceKey")
     String referenceKey;
 
+    public void setReferenceKey(String value) {
+        if (value == null) {
+            this.setNull("referenceKey");
+        }
+        this.referenceKey = value;
+    }
 }
