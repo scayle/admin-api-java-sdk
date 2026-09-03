@@ -20,11 +20,17 @@ public class Customer extends AbstractModel  {
     Integer id;
 
     /**
-    * External reference set by the client to integrate a third party system.
+    * External reference set by the client to integrate a third party system. It can be set to NULL otherwise
     */
     @SerializedName("referenceKey")
     String referenceKey;
 
+    public void setReferenceKey(String value) {
+        if (value == null) {
+            this.setNull("referenceKey");
+        }
+        this.referenceKey = value;
+    }
     /**
     * First name of the customer
     */
@@ -44,11 +50,17 @@ public class Customer extends AbstractModel  {
     Gender gender;
 
     /**
-    * Date of birth of the customer in YYYY-MM-DD format
+    * Date of birth of the customer in YYYY-MM-DD format. It can be set to NULL otherwise
     */
     @SerializedName("birthDate")
     String birthDate;
 
+    public void setBirthDate(String value) {
+        if (value == null) {
+            this.setNull("birthDate");
+        }
+        this.birthDate = value;
+    }
     /**
     * email address of the customer
     */
