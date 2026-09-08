@@ -92,6 +92,12 @@ public class Product extends AbstractModel  {
     List<ProductImage> images;
 
     /**
+    * A list of product videos attached to the product.
+    */
+    @SerializedName("videos")
+    List<ProductVideo> videos;
+
+    /**
     * A list of product sortings.
     */
     @SerializedName("productSortings")

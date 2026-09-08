@@ -19,7 +19,10 @@ public enum AttributeGroupLevel {
     VALUE_BRAND("brand"),
 
     @SerializedName("category")
-    VALUE_CATEGORY("category");
+    VALUE_CATEGORY("category"),
+
+    @SerializedName("video")
+    VALUE_VIDEO("video");
 
 
     private final String val;

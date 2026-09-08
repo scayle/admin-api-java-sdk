@@ -7,6 +7,7 @@ import com.scayle.adminapi.service.ProductService;
 import com.scayle.adminapi.service.ProductsFirstLiveAtService;
 import com.scayle.adminapi.service.MasterService;
 import com.scayle.adminapi.service.ProductImageService;
+import com.scayle.adminapi.service.ProductVideoService;
 import com.scayle.adminapi.service.ProductVariantService;
 import com.scayle.adminapi.service.ProductVariantPriceService;
 import com.scayle.adminapi.service.AttributeTranslationService;
@@ -40,6 +41,7 @@ import com.scayle.adminapi.service.ReturnItemService;
 import com.scayle.adminapi.service.VoucherService;
 import com.scayle.adminapi.service.CompanyService;
 import com.scayle.adminapi.service.AssetService;
+import com.scayle.adminapi.service.VideoService;
 import com.scayle.adminapi.service.CarrierService;
 import com.scayle.adminapi.service.MerchantService;
 import com.scayle.adminapi.service.WarehouseService;
@@ -86,6 +88,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ProductImageService productImages() {
         ProductImageService service = this.getService("com.scayle.adminapi.service.ProductImageService");
+        return service;
+    }
+
+    public ProductVideoService productVideos() {
+        ProductVideoService service = this.getService("com.scayle.adminapi.service.ProductVideoService");
         return service;
     }
 
@@ -251,6 +258,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public AssetService assets() {
         AssetService service = this.getService("com.scayle.adminapi.service.AssetService");
+        return service;
+    }
+
+    public VideoService videos() {
+        VideoService service = this.getService("com.scayle.adminapi.service.VideoService");
         return service;
     }
 
