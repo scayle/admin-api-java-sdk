@@ -17,6 +17,22 @@ public class WebhookProducerService extends AbstractService {
     }
 
     
+    public ApiCollection<WebhookProducer> all() throws ApiErrorException, ConnectionException {
+        Class<WebhookProducer> responseModel = (Class<WebhookProducer>)(Class<?>)WebhookProducer.class;
+
+        return this.requestCollection("get", this.resolvePath("/webhooks/producers"), null, null, responseModel);
+    }
+
+    
+    public ApiCollection<WebhookProducer> all(ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducer> responseModel = (Class<WebhookProducer>)(Class<?>)WebhookProducer.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.requestCollection("get", this.resolvePath("/webhooks/producers"), query, null, responseModel);
+    }
+
+    
     public ApiCollection<WebhookProducerEvent> allEvents(String producerIdentifier) throws ApiErrorException, ConnectionException {
         Class<WebhookProducerEvent> responseModel = (Class<WebhookProducerEvent>)(Class<?>)WebhookProducerEvent.class;
 

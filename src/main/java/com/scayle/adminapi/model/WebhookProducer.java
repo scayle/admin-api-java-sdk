@@ -19,4 +19,11 @@ public class WebhookProducer extends AbstractModel  {
     @SerializedName("name")
     String name;
 
+    /**
+    * When true, the producer is an internal SCAYLE system. When false, the producer is an add-on or external publisher.
+
+    */
+    @SerializedName("isInternal")
+    Boolean isInternal = false;
+
 }

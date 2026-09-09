@@ -17,6 +17,22 @@ import java.util.List;
 public class WebhookProducerTest extends BaseApiTest {
 
     @Test
+    public void testAll() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        ApiCollection<WebhookProducer> responseEntity = this.api.webhookProducers().all(options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/WebhookProducerAllResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+        for (WebhookProducer entity : responseEntity.getEntities()) {
+        }
+    }
+
+    @Test
     public void testAllEvents() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
