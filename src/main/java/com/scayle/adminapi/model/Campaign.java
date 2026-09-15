@@ -136,6 +136,12 @@ Example: ["139"] instead of ["DE"].
     Boolean hideCountdown;
 
     /**
+    * When true, this campaign's prices are excluded from the 30-day lowest prior price (LPP) calculation. Default false.
+    */
+    @SerializedName("excludeFromLowestPriorPriceCalculation")
+    Boolean excludeFromLowestPriorPriceCalculation;
+
+    /**
     * The campaign information related to product, for example badge label.
     */
     @SerializedName("product")
