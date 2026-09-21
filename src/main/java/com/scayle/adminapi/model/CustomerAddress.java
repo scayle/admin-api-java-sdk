@@ -26,7 +26,7 @@ public class CustomerAddress extends AbstractModel  {
     String referenceKey;
 
     /**
-    * Street is the mandatory string value in recipient's address
+    * Street of the recipient address
     */
     @SerializedName("street")
     String street;
@@ -44,13 +44,13 @@ public class CustomerAddress extends AbstractModel  {
     String additional;
 
     /**
-    * Zip code is the postal code of the recipient's location. Its a mandatory value
+    * Postal code of the recipient location
     */
     @SerializedName("zipCode")
     String zipCode;
 
     /**
-    * City of the recipient. It is a mandatory value
+    * City of the recipient
     */
     @SerializedName("city")
     String city;

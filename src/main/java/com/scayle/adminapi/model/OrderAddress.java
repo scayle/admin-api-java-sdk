@@ -16,10 +16,12 @@ public class OrderAddress extends AbstractModel  {
     * 
     */
     @SerializedName("billing")
-    CustomerAddress billing;
+    Object billing;
 
     /**
-    * 
+    * Carrier-chosen fallback if the parcel cannot be handed over (forward to a collection point).
+Not a physical address; street, city, zipCode, recipient names, and collectionPoint.key may be absent.
+
     */
     @SerializedName("forward")
     CustomerAddress forward;
@@ -28,6 +30,6 @@ public class OrderAddress extends AbstractModel  {
     * 
     */
     @SerializedName("shipping")
-    CustomerAddress shipping;
+    Object shipping;
 
 }

@@ -25,7 +25,10 @@ public class CustomerAddressCollectionPoint extends AbstractModel  {
     String description;
 
     /**
-    * 
+    * Identity of a specific collection point (for example a Packstation or ParcelShop).
+Required for billing and shipping pickup addresses. Omitted on order `address.forward`,
+where the carrier chooses the branch at delivery.
+
     */
     @SerializedName("key")
     String key;
