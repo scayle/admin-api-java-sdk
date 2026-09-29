@@ -49,6 +49,22 @@ public class ProductVideoService extends AbstractService {
     }
 
     
+    public ProductVideo updatePosition(Identifier productIdentifier, Identifier productVideoIdentifier, ProductVideoPosition model) throws ApiErrorException, ConnectionException {
+        Class<ProductVideo> responseModel = (Class<ProductVideo>)(Class<?>)ProductVideo.class;
+
+        return this.request("patch", this.resolvePath("/products/%s/videos/%s", productIdentifier, productVideoIdentifier), null, null, responseModel, model);
+    }
+
+    
+    public ProductVideo updatePosition(Identifier productIdentifier, Identifier productVideoIdentifier, ProductVideoPosition model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<ProductVideo> responseModel = (Class<ProductVideo>)(Class<?>)ProductVideo.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("patch", this.resolvePath("/products/%s/videos/%s", productIdentifier, productVideoIdentifier), query, null, responseModel, model);
+    }
+
+    
     public void delete(Identifier productIdentifier, Identifier productVideoIdentifier) throws ApiErrorException, ConnectionException {
 
         this.request("delete", this.resolvePath("/products/%s/videos/%s", productIdentifier, productVideoIdentifier), null, null, null);

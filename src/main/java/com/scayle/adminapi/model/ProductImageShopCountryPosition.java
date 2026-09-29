@@ -19,7 +19,8 @@ public class ProductImageShopCountryPosition extends AbstractModel  {
     String shopKey;
 
     /**
-    * ISO 3166-1 alpha-2 country code.
+    * ISO 3166-1 alpha-2 country code
+
     */
     @SerializedName("countryCode")
     String countryCode;

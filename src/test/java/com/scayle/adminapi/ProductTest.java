@@ -401,6 +401,20 @@ public class ProductTest extends BaseApiTest {
     }
 
     @Test
+    public void testUnlockVideoSortings() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductUnlockVideoSortingsRequest.json");
+        UnlockAssetSortingsRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, UnlockAssetSortingsRequest.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.products().unlockVideoSortings(Identifier.fromId(1), requestEntity, options);
+
+    }
+
+    @Test
     public void testCopy() throws Exception {
         String expectedRequestJson = this.loadFixture("/fixtures/ProductCopyRequest.json");
         CopyProductRequest requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, CopyProductRequest.class);

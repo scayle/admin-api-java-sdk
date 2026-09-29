@@ -11,13 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductLocks extends AbstractModel  {
-    /**
-    * Product-scoped locks for image sorting positions.
-    */
-    @SerializedName("imagePositions")
-    ImagePositionLocks imagePositions;
-
+public class ProductVideoLocks extends AbstractModel  {
     /**
     * Product-scoped locks for video sorting positions.
     */

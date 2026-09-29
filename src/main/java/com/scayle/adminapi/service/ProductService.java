@@ -401,6 +401,20 @@ public class ProductService extends AbstractService {
     }
 
     
+    public void unlockVideoSortings(Identifier productIdentifier, UnlockAssetSortingsRequest model) throws ApiErrorException, ConnectionException {
+
+        this.request("post", this.resolvePath("/products/%s/unlock-video-sortings", productIdentifier), null, null, null, model);
+    }
+
+    
+    public void unlockVideoSortings(Identifier productIdentifier, UnlockAssetSortingsRequest model, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("post", this.resolvePath("/products/%s/unlock-video-sortings", productIdentifier), query, null, null, model);
+    }
+
+    
     public Product copy(Identifier productIdentifier, CopyProductRequest model) throws ApiErrorException, ConnectionException {
         Class<Product> responseModel = (Class<Product>)(Class<?>)Product.class;
 

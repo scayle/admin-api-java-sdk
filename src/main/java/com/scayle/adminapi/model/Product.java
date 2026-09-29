@@ -140,9 +140,11 @@ public class Product extends AbstractModel  {
     List<SimilarProducts> similarProducts;
 
     /**
-    * Product-level locks. imagePositions controls asset sorting locks (global and shop-country).
-On create/update product: on product root.
+    * Product-level locks. imagePositions controls image sorting locks (global and shop-country).
+videoPositions controls video sorting locks (global and shop-country).
+On create/update product: on product root (both scopes).
 Create/PATCH image request and standalone image responses use ProductImageLocks (`imagePositions` only).
+PATCH video request and standalone video responses use ProductVideoLocks (`videoPositions` only).
 
     */
     @SerializedName("productLocks")

@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ImagePositionLockShopCountry extends AbstractModel  {
+public class VideoPositionLockShopCountry extends AbstractModel  {
     /**
     * A key that uniquely identifies the shop within the tenant's ecosystem.
     */
@@ -26,8 +26,8 @@ public class ImagePositionLockShopCountry extends AbstractModel  {
     String countryCode;
 
     /**
-    * When true, create a product asset-sorting lock for this shop-country if none exists.
-When false, no lock change (locks are only removed via unlock-asset-sortings).
+    * When true, create a product video-sorting lock for this shop-country if none exists.
+When false, no lock change (locks are only removed via unlock-video-sortings).
 
     */
     @SerializedName("isLocked")

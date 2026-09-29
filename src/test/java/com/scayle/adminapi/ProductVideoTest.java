@@ -53,6 +53,26 @@ public class ProductVideoTest extends BaseApiTest {
     }
 
     @Test
+    public void testUpdatePosition() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/ProductVideoUpdatePositionRequest.json");
+        ProductVideoPosition requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, ProductVideoPosition.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        ProductVideo responseEntity = this.api.productVideos().updatePosition(Identifier.fromId(1), Identifier.fromId(1), requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/ProductVideoUpdatePositionResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testDelete() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();

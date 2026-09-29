@@ -11,19 +11,18 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductImagePosition extends AbstractModel  {
+public class ProductVideoPosition extends AbstractModel  {
     /**
-    * Position of the image. Counting starts with 0, so when a product image should be on the first position, you have to send 0.
+    * Position of the video. Counting starts with 0.
     */
     @SerializedName("position")
     Integer position;
 
     /**
     * Optional per-shop-country positions. When present, must contain at least one entry.
-
     */
     @SerializedName("shopCountrySpecific")
-    List<ProductImageShopCountryPosition> shopCountrySpecific;
+    List<ProductVideoShopCountryPosition> shopCountrySpecific;
 
     /**
     * 
@@ -38,11 +37,11 @@ public class ProductImagePosition extends AbstractModel  {
         this.customData = value;
     }
     /**
-    * Image sorting locks for this product (`imagePositions` only).
-Use PATCH video or create/update product to set `videoPositions`.
+    * Video sorting locks for this product (`videoPositions` only).
+Use PATCH image or create/update product to set `imagePositions`.
 
     */
     @SerializedName("productLocks")
-    ProductImageLocks productLocks;
+    ProductVideoLocks productLocks;
 
 }
