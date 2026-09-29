@@ -103,7 +103,7 @@ public class ShopCountry extends AbstractModel  {
     List<ShopCountryPriceRounding> priceRoundings;
 
     /**
-    * 
+    * System smart sorting key or custom smart sorting key from the catalog.
     */
     @SerializedName("smartSortingKey")
     Object smartSortingKey;

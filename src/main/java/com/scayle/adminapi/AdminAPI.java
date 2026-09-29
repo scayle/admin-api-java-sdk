@@ -14,6 +14,7 @@ import com.scayle.adminapi.service.AttributeTranslationService;
 import com.scayle.adminapi.service.ProductVariantStockService;
 import com.scayle.adminapi.service.SellableWithoutStockService;
 import com.scayle.adminapi.service.ShopService;
+import com.scayle.adminapi.service.SmartSortingKeyService;
 import com.scayle.adminapi.service.AttributeGroupService;
 import com.scayle.adminapi.service.CampaignService;
 import com.scayle.adminapi.service.MasterCategoryService;
@@ -123,6 +124,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public ShopService shops() {
         ShopService service = this.getService("com.scayle.adminapi.service.ShopService");
+        return service;
+    }
+
+    public SmartSortingKeyService smartSortingKeys() {
+        SmartSortingKeyService service = this.getService("com.scayle.adminapi.service.SmartSortingKeyService");
         return service;
     }
 

@@ -79,7 +79,7 @@ public class ShopCategoryCountry extends AbstractModel  {
         this.customData = value;
     }
     /**
-    * 
+    * System smart sorting key or custom smart sorting key from the catalog.
     */
     @SerializedName("smartSortingKey")
     Object smartSortingKey;
