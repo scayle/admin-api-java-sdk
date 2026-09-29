@@ -172,6 +172,7 @@
             "referenceKey": "my-video",
             "assetUrl": "videos\/my-video.mp4",
             "format": "mp4",
+            "position": 0,
             "attributes": [
                 {
                     "name": "view",
@@ -186,6 +187,14 @@
             "referenceKey": "my-video-2",
             "assetUrl": "videos\/my-video-2.mp4",
             "format": "mp4",
+            "position": 1,
+            "shopCountrySpecific": [
+                {
+                    "shopKey": "ms",
+                    "countryCode": "de",
+                    "position": 0
+                }
+            ],
             "attributes": []
         }
     ],

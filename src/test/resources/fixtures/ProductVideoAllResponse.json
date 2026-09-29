@@ -6,6 +6,7 @@
             "assetUrl": "videos\/some_name.mp4",
             "format": "mp4",
             "isUploaded": true,
+            "position": 0,
             "attributes": [
                 {
                     "name": "size",

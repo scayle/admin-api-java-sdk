@@ -1,5 +1,13 @@
 {
     "referenceKey": "myReferenceKey",
+    "position": 0,
+    "shopCountrySpecific": [
+        {
+            "shopKey": "ms",
+            "countryCode": "de",
+            "position": 1
+        }
+    ],
     "attributes": [
         {
             "name": "view",

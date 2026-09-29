@@ -122,6 +122,7 @@
     "videos": [
         {
             "referenceKey": "my-video",
+            "position": 0,
             "attributes": [
                 {
                     "name": "view",
@@ -132,6 +133,14 @@
         },
         {
             "referenceKey": "my-video-2",
+            "position": 1,
+            "shopCountrySpecific": [
+                {
+                    "shopKey": "ms",
+                    "countryCode": "de",
+                    "position": 0
+                }
+            ],
             "attributes": []
         }
     ],

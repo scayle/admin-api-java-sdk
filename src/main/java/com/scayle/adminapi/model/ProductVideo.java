@@ -49,6 +49,19 @@ public class ProductVideo extends AbstractModel  {
     Boolean isUploaded;
 
     /**
+    * Specifies the position of the video. Counting starts with 0.
+    */
+    @SerializedName("position")
+    Integer position;
+
+    /**
+    * Optional per-shop-country positions for this video. When present, must contain at least one entry.
+
+    */
+    @SerializedName("shopCountrySpecific")
+    List<ProductVideoShopCountryPosition> shopCountrySpecific;
+
+    /**
     * A list of attributes attached to the video.
     */
     @SerializedName("attributes")
