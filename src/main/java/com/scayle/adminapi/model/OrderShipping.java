@@ -31,9 +31,21 @@ public class OrderShipping extends AbstractModel  {
     Integer deliveryCosts;
 
     /**
+    * Original delivery costs before free-shipping or other shipping discounts. If the order has an external price, this field will not be included in the response payload.
+    */
+    @SerializedName("deliveryCostsWithoutDiscount")
+    Integer deliveryCostsWithoutDiscount;
+
+    /**
     * If the order has an external price, this field will not be included in the response payload.
     */
     @SerializedName("expressDeliveryCosts")
     Integer expressDeliveryCosts;
+
+    /**
+    * Original express delivery costs before free-shipping or other shipping discounts. If the order has an external price, this field will not be included in the response payload.
+    */
+    @SerializedName("expressDeliveryCostsWithoutDiscount")
+    Integer expressDeliveryCostsWithoutDiscount;
 
 }
