@@ -19,6 +19,18 @@ public class OrderShipping extends AbstractModel  {
     String policy;
 
     /**
+    * Carrier group selected for this order, e.g. `dhl`. Send this value back as `carrier.carrierGroup` when creating a follow-up order. This is a carrier group, not a carrier code. `packages[].carrierKey` is the carrier shipping a package and must not be replayed here. Absent when the order has no carrier group recorded.
+    */
+    @SerializedName("carrierGroup")
+    String carrierGroup;
+
+    public void setCarrierGroup(String value) {
+        if (value == null) {
+            this.setNull("carrierGroup");
+        }
+        this.carrierGroup = value;
+    }
+    /**
     * 
     */
     @SerializedName("deliveredOn")
