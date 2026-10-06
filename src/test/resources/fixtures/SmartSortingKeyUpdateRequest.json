@@ -1,5 +1,6 @@
 {
     "key": "summer-priority",
+    "name": "Summer Priority",
     "description": "updated summer priority CSSK",
     "weights": {
         "stock": 4,

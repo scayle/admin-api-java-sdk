@@ -19,6 +19,12 @@ public class SmartSortingKey extends AbstractModel  {
     String key;
 
     /**
+    * Name of the smart sorting key.
+    */
+    @SerializedName("name")
+    String name;
+
+    /**
     * Optional description of the smart sorting key. Omitted in responses when null.
     */
     @SerializedName("description")

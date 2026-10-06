@@ -2,6 +2,7 @@
     "entities": [
         {
             "key": "scayle:v1:sales-push",
+            "name": "Sales push",
             "isCustom": false,
             "weights": {
                 "sales": 5,
@@ -10,6 +11,7 @@
         },
         {
             "key": "summer-priority",
+            "name": "Summer Priority",
             "description": "summer priority CSSK",
             "isCustom": true,
             "weights": {
