@@ -25,7 +25,7 @@ public class ReturnItem extends AbstractModel  {
     String returnKey;
 
     /**
-    * Description of why the return is initiated
+    * Reason the return is initiated. The accepted value is `merchant-return`.
     */
     @SerializedName("returnReason")
     String returnReason;
