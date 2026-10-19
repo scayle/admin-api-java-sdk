@@ -115,6 +115,16 @@ public class ShopCountry extends AbstractModel  {
         this.smartSortingKey = value;
     }
     /**
+    * Customer segment sorting overrides for this shop country.
+Returned on shop country reads when `with=customerSegmentOverrides` is set, and on shop reads when `with=countries.customerSegmentOverrides` is set.
+On write, omit the property to leave existing assignments unchanged, send an empty array to remove them, or send items to replace the full set.
+Each `customerSegmentId` and each `priority` must be unique. At most 30 overrides are accepted.
+
+    */
+    @SerializedName("customerSegmentOverrides")
+    List<CustomerSegmentOverride> customerSegmentOverrides;
+
+    /**
     * Arbitrary fields assigned to Shop countries
     */
     @SerializedName("customData")

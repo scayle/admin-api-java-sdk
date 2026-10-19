@@ -114,4 +114,13 @@ public class Shop extends AbstractModel  {
         }
         this.smartSortingKey = value;
     }
+    /**
+    * Customer segment sorting overrides for this shop. Returned when `with=customerSegmentOverrides` is set.
+On write, omit the property to leave existing assignments unchanged, send an empty array to remove them, or send items to replace the full set.
+Each `customerSegmentId` and each `priority` must be unique. At most 30 overrides are accepted.
+
+    */
+    @SerializedName("customerSegmentOverrides")
+    List<CustomerSegmentOverride> customerSegmentOverrides;
+
 }
