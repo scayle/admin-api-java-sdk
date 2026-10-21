@@ -33,6 +33,22 @@ public class WebhookProducerService extends AbstractService {
     }
 
     
+    public WebhookProducerRegistration create(WebhookProducerRegistration model) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerRegistration> responseModel = (Class<WebhookProducerRegistration>)(Class<?>)WebhookProducerRegistration.class;
+
+        return this.request("post", this.resolvePath("/webhooks/producers"), null, null, responseModel, model);
+    }
+
+    
+    public WebhookProducerRegistration create(WebhookProducerRegistration model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerRegistration> responseModel = (Class<WebhookProducerRegistration>)(Class<?>)WebhookProducerRegistration.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/webhooks/producers"), query, null, responseModel, model);
+    }
+
+    
     public ApiCollection<WebhookProducerEvent> allEvents(String producerIdentifier) throws ApiErrorException, ConnectionException {
         Class<WebhookProducerEvent> responseModel = (Class<WebhookProducerEvent>)(Class<?>)WebhookProducerEvent.class;
 
@@ -46,6 +62,68 @@ public class WebhookProducerService extends AbstractService {
         Map<String, Object> query = options.all();
 
         return this.requestCollection("get", this.resolvePath("/webhooks/producers/%s/events", producerIdentifier), query, null, responseModel);
+    }
+
+    
+    public WebhookProducerEvent createEvent(String producerIdentifier, WebhookProducerEvent model) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerEvent> responseModel = (Class<WebhookProducerEvent>)(Class<?>)WebhookProducerEvent.class;
+
+        return this.request("post", this.resolvePath("/webhooks/producers/%s/events", producerIdentifier), null, null, responseModel, model);
+    }
+
+    
+    public WebhookProducerEvent createEvent(String producerIdentifier, WebhookProducerEvent model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerEvent> responseModel = (Class<WebhookProducerEvent>)(Class<?>)WebhookProducerEvent.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/webhooks/producers/%s/events", producerIdentifier), query, null, responseModel, model);
+    }
+
+    
+    public WebhookProducerEvent updateEvent(String producerIdentifier, Integer eventId, WebhookProducerEvent model) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerEvent> responseModel = (Class<WebhookProducerEvent>)(Class<?>)WebhookProducerEvent.class;
+
+        return this.request("put", this.resolvePath("/webhooks/producers/%s/events/%s", producerIdentifier, eventId), null, null, responseModel, model);
+    }
+
+    
+    public WebhookProducerEvent updateEvent(String producerIdentifier, Integer eventId, WebhookProducerEvent model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerEvent> responseModel = (Class<WebhookProducerEvent>)(Class<?>)WebhookProducerEvent.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("put", this.resolvePath("/webhooks/producers/%s/events/%s", producerIdentifier, eventId), query, null, responseModel, model);
+    }
+
+    
+    public void deleteEvent(String producerIdentifier, Integer eventId) throws ApiErrorException, ConnectionException {
+
+        this.request("delete", this.resolvePath("/webhooks/producers/%s/events/%s", producerIdentifier, eventId), null, null, null);
+    }
+
+    
+    public void deleteEvent(String producerIdentifier, Integer eventId, ApiOptions options) throws ApiErrorException, ConnectionException {
+
+        Map<String, Object> query = options.all();
+
+        this.request("delete", this.resolvePath("/webhooks/producers/%s/events/%s", producerIdentifier, eventId), query, null, null);
+    }
+
+    
+    public WebhookProducerWebhookIdentity createWebhook(String producerIdentifier, WebhookProducerWebhook model) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerWebhookIdentity> responseModel = (Class<WebhookProducerWebhookIdentity>)(Class<?>)WebhookProducerWebhookIdentity.class;
+
+        return this.request("post", this.resolvePath("/webhooks/producers/%s/webhooks", producerIdentifier), null, null, responseModel, model);
+    }
+
+    
+    public WebhookProducerWebhookIdentity createWebhook(String producerIdentifier, WebhookProducerWebhook model, ApiOptions options) throws ApiErrorException, ConnectionException {
+        Class<WebhookProducerWebhookIdentity> responseModel = (Class<WebhookProducerWebhookIdentity>)(Class<?>)WebhookProducerWebhookIdentity.class;
+
+        Map<String, Object> query = options.all();
+
+        return this.request("post", this.resolvePath("/webhooks/producers/%s/webhooks", producerIdentifier), query, null, responseModel, model);
     }
 
     

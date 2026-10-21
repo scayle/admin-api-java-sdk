@@ -33,6 +33,26 @@ public class WebhookProducerTest extends BaseApiTest {
     }
 
     @Test
+    public void testCreate() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/WebhookProducerCreateRequest.json");
+        WebhookProducerRegistration requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, WebhookProducerRegistration.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookProducerRegistration responseEntity = this.api.webhookProducers().create(requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/WebhookProducerCreateResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
     public void testAllEvents() throws Exception {
 
         ApiOptions options = ApiOptions.builder().build();
@@ -46,6 +66,74 @@ public class WebhookProducerTest extends BaseApiTest {
 
         for (WebhookProducerEvent entity : responseEntity.getEntities()) {
         }
+    }
+
+    @Test
+    public void testCreateEvent() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/WebhookProducerCreateEventRequest.json");
+        WebhookProducerEvent requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, WebhookProducerEvent.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookProducerEvent responseEntity = this.api.webhookProducers().createEvent("acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/WebhookProducerCreateEventResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testUpdateEvent() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/WebhookProducerUpdateEventRequest.json");
+        WebhookProducerEvent requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, WebhookProducerEvent.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookProducerEvent responseEntity = this.api.webhookProducers().updateEvent("acme", 1, requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/WebhookProducerUpdateEventResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
+    }
+
+    @Test
+    public void testDeleteEvent() throws Exception {
+
+        ApiOptions options = ApiOptions.builder().build();
+        this.api.webhookProducers().deleteEvent("acme", 1, options);
+
+    }
+
+    @Test
+    public void testCreateWebhook() throws Exception {
+        String expectedRequestJson = this.loadFixture("/fixtures/WebhookProducerCreateWebhookRequest.json");
+        WebhookProducerWebhook requestEntity = this.jsonSerializer.unserializeApiObject(expectedRequestJson, WebhookProducerWebhook.class);
+
+        assertThatJson(expectedRequestJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(requestEntity));
+
+        ApiOptions options = ApiOptions.builder().build();
+        WebhookProducerWebhookIdentity responseEntity = this.api.webhookProducers().createWebhook("acme", requestEntity, options);
+
+        String expectedResponseJson = this.loadFixture("/fixtures/WebhookProducerCreateWebhookResponse.json");
+        assertThatJson(expectedResponseJson)
+            .when(TREATING_NULL_AS_ABSENT)
+            .isEqualTo(this.jsonSerializer.serializeApiObject(responseEntity));
+
+
     }
 
     @Test
