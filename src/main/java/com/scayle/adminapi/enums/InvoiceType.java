@@ -34,7 +34,13 @@ public enum InvoiceType {
     VALUE_PRAZ("praz"),
 
     @SerializedName("shipment_return_document")
-    VALUE_SHIPMENT_RETURN_DOCUMENT("shipment_return_document");
+    VALUE_SHIPMENT_RETURN_DOCUMENT("shipment_return_document"),
+
+    @SerializedName("downpayment_invoice")
+    VALUE_DOWNPAYMENT_INVOICE("downpayment_invoice"),
+
+    @SerializedName("downpayment_corrective_invoice")
+    VALUE_DOWNPAYMENT_CORRECTIVE_INVOICE("downpayment_corrective_invoice");
 
 
     private final String val;

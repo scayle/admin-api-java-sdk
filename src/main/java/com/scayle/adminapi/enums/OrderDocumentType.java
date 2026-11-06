@@ -10,7 +10,13 @@ public enum OrderDocumentType {
     VALUE_RETURN_COST_CORRECTIVE_INVOICE("return_cost_corrective_invoice"),
 
     @SerializedName("email_shipment")
-    VALUE_EMAIL_SHIPMENT("email_shipment");
+    VALUE_EMAIL_SHIPMENT("email_shipment"),
+
+    @SerializedName("downpayment_invoice")
+    VALUE_DOWNPAYMENT_INVOICE("downpayment_invoice"),
+
+    @SerializedName("downpayment_corrective_invoice")
+    VALUE_DOWNPAYMENT_CORRECTIVE_INVOICE("downpayment_corrective_invoice");
 
 
     private final String val;
