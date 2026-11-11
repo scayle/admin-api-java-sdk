@@ -18,6 +18,7 @@ import com.scayle.adminapi.service.SmartSortingKeyService;
 import com.scayle.adminapi.service.AttributeGroupService;
 import com.scayle.adminapi.service.CampaignService;
 import com.scayle.adminapi.service.MasterCategoryService;
+import com.scayle.adminapi.service.ProductQualityScoreRuleService;
 import com.scayle.adminapi.service.ShopCategoryService;
 import com.scayle.adminapi.service.ShopCategoryPropertyKeyService;
 import com.scayle.adminapi.service.ShopCategoryProductSetUnlinkInstructionService;
@@ -144,6 +145,11 @@ public final class AdminAPI extends AbstractApiClient {
 
     public MasterCategoryService masterCategories() {
         MasterCategoryService service = this.getService("com.scayle.adminapi.service.MasterCategoryService");
+        return service;
+    }
+
+    public ProductQualityScoreRuleService productQualityScoreRules() {
+        ProductQualityScoreRuleService service = this.getService("com.scayle.adminapi.service.ProductQualityScoreRuleService");
         return service;
     }
 
