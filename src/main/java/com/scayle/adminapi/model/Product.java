@@ -44,6 +44,18 @@ public class Product extends AbstractModel  {
         this.lastContentUpdatedAt = value;
     }
     /**
+    * Stored product quality score. Present when `with=qualityScore` is sent. `null` when no score is stored. `breakdown` is included on a single product and omitted on each list entity.
+    */
+    @SerializedName("qualityScore")
+    Object qualityScore;
+
+    public void setQualityScore(Object value) {
+        if (value == null) {
+            this.setNull("qualityScore");
+        }
+        this.qualityScore = value;
+    }
+    /**
     * If product is in problem state, the reasons are listed here.
     */
     @SerializedName("problems")
